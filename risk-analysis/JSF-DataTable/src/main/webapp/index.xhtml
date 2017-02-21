@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>JSF Data Table</title>
+</h:head>
+
+<h:body>
+	<h:form>
+		<h2>Example: Data Table with Database Access</h2>
+		
+		<p:dataTable var="article" value="#{dataBean.articles}">
+		    <p:column headerText="Id">
+		        <h:outputText value="#{article.id}" />
+		    </p:column>		 
+		    <p:column headerText="Description">
+		        <h:outputText value="#{article.description}" />
+		    </p:column>
+		    <p:column headerText="Price">
+		        <h:outputText value="#{article.price}" />
+		    </p:column>
+		</p:dataTable>	
+		
+		<br/>
+			
+		<h:commandButton value="Refresh" action="#{dataBean.refresh()}" />
+	</h:form>
+</h:body>
+</html>

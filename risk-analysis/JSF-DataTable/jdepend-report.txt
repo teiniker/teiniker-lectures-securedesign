@@ -1,0 +1,100 @@
+
+--------------------------------------------------
+- Package: org.se.lab.data
+--------------------------------------------------
+
+Stats:
+    Total Classes: 3
+    Concrete Classes: 2
+    Abstract Classes: 1
+
+    Ca: 1
+    Ce: 0
+
+    A: 0.33
+    I: 0
+    D: 0.67
+
+Abstract Classes:
+    org.se.lab.data.ArticleDAO
+
+Concrete Classes:
+    org.se.lab.data.Article
+    org.se.lab.data.ArticleDAOImpl
+
+Depends Upon:
+    Not dependent on any packages.
+
+Used By:
+    org.se.lab.service
+
+--------------------------------------------------
+- Package: org.se.lab.service
+--------------------------------------------------
+
+Stats:
+    Total Classes: 2
+    Concrete Classes: 2
+    Abstract Classes: 0
+
+    Ca: 1
+    Ce: 1
+
+    A: 0
+    I: 0.5
+    D: 0.5
+
+Abstract Classes:
+
+Concrete Classes:
+    org.se.lab.service.ArticleService
+    org.se.lab.service.ServiceException
+
+Depends Upon:
+    org.se.lab.data
+
+Used By:
+    org.se.lab.web
+
+--------------------------------------------------
+- Package: org.se.lab.web
+--------------------------------------------------
+
+Stats:
+    Total Classes: 1
+    Concrete Classes: 1
+    Abstract Classes: 0
+
+    Ca: 0
+    Ce: 1
+
+    A: 0
+    I: 1
+    D: 0
+
+Abstract Classes:
+
+Concrete Classes:
+    org.se.lab.web.DataBean
+
+Depends Upon:
+    org.se.lab.service
+
+Used By:
+    Not used by any packages.
+
+
+--------------------------------------------------
+- Package Dependency Cycles:
+--------------------------------------------------
+
+
+--------------------------------------------------
+- Summary:
+--------------------------------------------------
+
+Name, Class Count, Abstract Class Count, Ca, Ce, A, I, D, V:
+
+org.se.lab.data,3,1,1,0,0.33,0,0.67,1
+org.se.lab.service,2,0,1,1,0,0.5,0.5,1
+org.se.lab.web,1,0,0,1,0,1,0,1
