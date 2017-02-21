@@ -1,0 +1,13 @@
+Exercise: Servlet Filter - Common Log Format
+---------------------------------------------------------------------
+
+Implement a Servlet filter named "LogFilter" which creates a Common
+Log Format for HTTP Requests.
+
+Example:
+	127.0.0.1 - - 17/Apr/2015:09:08:05 +0200 "GET /Servlet-Filter-Log-Exercise/controller?username=student&password=student&action=Login HTTP/1.1" 200 126
+
+To test your implementation - deploy it and access the Web application's 
+index.html page with your browser:
+
+URL: http://localhost:8080/Servlet-Filter-Log-Exercise/
