@@ -31,3 +31,20 @@ How to access the Web application?
 
 URL: http://localhost:8080/JSF-DataTable
 
+
+How to use cURL to get the Web page?
+-------------------------------------------------------------------------------
+
+$ curl http://localhost:8080/JSF-DataTable/index.xhtml
+
+$ curl -i http://localhost:8080/JSF-DataTable/index.xhtml
+	=> including HTTP header
+	
+$ curl -i -X GET http://localhost:8080/JSF-DataTable/index.xhtml
+	=> specify HTTP GET method explicitly	
+
+
+$ curl -i -X GET http://localhost:8080/JSF-DataTable/javax.faces.resource/jquery/jquery.js.xhtml?ln=primefaces&v=6.0
+
+
+ 
