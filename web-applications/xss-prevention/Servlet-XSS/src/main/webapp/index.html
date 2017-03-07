@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">	
+		<title>Cross-Site Scripting</title>
+	</head>
+	<body>
+    	<h2>Create a new user:</h2>
+    		<form method="POST" action="controller">
+    	        <input type="hidden" name="role" value="user"/>
+    	    	<table border="1">
+    	        	<tr>
+    	        		<th width="50">Id</th>
+    	            	<th width="150">FirstName</th>
+    	            	<th width="150">LastName</th>
+	                	<th width="150">Username</th>
+    	            	<th width="150">Password</th>
+    	            	<th width="100">Actions</th>
+    	        	</tr>
+    	        	<tr>
+    	        		<td/>
+    	            	<td><input type="text" name="firstName" maxlength="16"/></td>
+    	            	<td><input type="text" name="lastName" maxlength="16"/></td>
+    	            	<td><input type="text" name="username" maxlength="16"/></td>
+    	            	<td><input type="password" name="password" /></td>
+  						<td align="center"><input type="submit" name="action" value="Add" /></td>
+    	        	</tr>
+    	    	</table>
+        </form>
+	</body>
+</html>
