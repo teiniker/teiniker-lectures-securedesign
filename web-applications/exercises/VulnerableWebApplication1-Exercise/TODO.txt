@@ -1,0 +1,49 @@
+=====================================================================
+Exercise: Vulnerable Web Application 1
+=====================================================================
+
+Setup
+---------------------------------------------------------------------
+Start the MySQL server (as root):
+	[student@localhost ~]$ su
+	Password: root66
+	[root@localhost student]# systemctl start mariadb.service
+ 
+Start a MySQL client (as student):
+	$ mysql -u student -p
+	Enter password: student
+	MariaDB [(none)]> use testdb;
+	MariaDB [testdb]> show tables;
+
+	MariaDB [testdb]> source sql/createUser.sql;	
+
+Deploy the Web application, and type into your browser:
+
+URL: http://localhost:8080/VulnerableWebApplication1-Exercise 
+
+To log in, use username=student password=student
+
+
+1. Black-box testing
+---------------------------------------------------------------------
+Try to attack the given Web application from the outside using common
+penetration testing techniques and tools.
+
+List all the found vulnerabilities and possible attack strings:
+
+// TODO: Insert list here!
+
+
+2. White-box testing
+---------------------------------------------------------------------
+Review the given source code and report the found implementation bugs 
+and design flaws.
+
+// TODO: Insert report here!
+
+
+3. Make some recommendations to fix the problems
+---------------------------------------------------------------------
+
+// TODO: Insert recommendations here!
+

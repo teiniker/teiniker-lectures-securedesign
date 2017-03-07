@@ -1,0 +1,88 @@
+=====================================================================
+Exercise: Vulnerable Web Application 1
+=====================================================================
+
+Setup
+---------------------------------------------------------------------
+Start the MySQL server (as root):
+	[student@localhost ~]$ su
+	Password: root66
+	[root@localhost student]# systemctl start mariadb.service
+ 
+Start a MySQL client (as student):
+	$ mysql -u student -p
+	Enter password: student
+	MariaDB [(none)]> use testdb;
+	MariaDB [testdb]> show tables;
+
+	MariaDB [testdb]> source sql/createUser.sql;	
+
+Deploy the Web application, and type into your browser:
+
+URL: http://localhost:8080/VulnerableWebApplication1
+
+To log in, use username=student password=student ;-)
+
+
+1. Black-Box Testing
+---------------------------------------------------------------------
+Try to attack the given Web application from the outside using common
+penetration testing techniques and tools.
+
+List all the found vulnerabilities and possible attack strings:
+
+o) SQLi to bypass authentication: password: ' OR 1 #
+	=> fix: UserDAOMySQLImpl.isValidUser(String username, String password)
+	 	(Note that this method will be replaced later on...)
+
+o) SQLi + reflected XSS:
+	username: <script>alert("XSS");</script>
+	password: ' OR 1 #
+	=> fix: LoginCommand.process()
+	=> also fix: ControllerServlet.doPost()
+
+o) GET Request to submit login data
+	=> fix: login.jsp
+	=> fix: ControllerServlet.doPost()
+
+o) No TSL usage, so all data is sent in plain text.
+	=> fix: web.xml (Don't forget to configure Wildfly's SSL connector)
+
+
+2. White-Box Testing
+---------------------------------------------------------------------
+Review the given source code and report the found implementation bugs 
+and design flaws.
+
+o) No input validation for HTTP request parameters. 
+	=> fix: add Validator.java
+	=> fix: ControllerServlet.doPost()
+	=> fix: LoginCommand.process()
+
+o) Password is written to the database in plain text.
+	=> fix: createUser.sql
+	=> fix: UserServiceImpl.login(String username, String password)
+	=> fix: UserDAOMySQLImpl.findByUsername(final String name) 
+
+o) Exception stack-traces will be truncated (UserDAOMySQLImpl) 
+	fix: UserDAOMySQLImpl
+	fix: AbstractDAOImpl
+
+o) Logging is not implemented.
+	fix: ControllerServlet
+	fix: LoginCommand
+	fix: UserServiceImpl
+	fix: UserDAOMySQLImpl
+
+
+3. Make some recommendations to fix the problems
+---------------------------------------------------------------------
+
+see fix: ... sections in (2)
+
+Also:
+
+o) Removed unused Class UserBean
+o) Removed System.out.println() statements
+
+
