@@ -1,0 +1,9 @@
+Exercise: Path Traversal
+---------------------------------------------------------------------
+
+Prevent Path Traversal
+---------------------------------------------------------------------
+Change the implementation of "FileManager" to prevent Path Traversal
+attacks (and to make the "PathTraversalTest" happy).
+ 
+   

@@ -1,0 +1,23 @@
+Exercise: SQL Injection Prevention
+---------------------------------------------------------------------
+
+Setup
+---------------------------------------------------------------------
+Start the MySQL server (as root):
+	[student@localhost ~]$ su
+	Password: root66
+	[root@localhost student]# systemctl start mysqld.service
+ 
+Start a MySQL client (as student):
+	$ mysql -u student -p
+	Enter password: student
+	MariaDB [(none)]> use testdb;
+	MariaDB [testdb]> show tables;
+	
+
+Prevent SQL Injection
+---------------------------------------------------------------------
+Change the implementation of "LoginService" to prevent SQL Injection
+attacks (and to make the "LoginAttackTest" happy).
+ 
+   
