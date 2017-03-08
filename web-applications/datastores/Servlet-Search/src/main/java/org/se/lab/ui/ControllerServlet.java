@@ -74,10 +74,11 @@ public class ControllerServlet extends HttpServlet
 	
 	protected String handleSearch(String name)
 	{   
+		Connection c = null;
 		try
 		{
 			UserDAOMySQLImpl dao = new UserDAOMySQLImpl();
-			Connection c = createConnection();
+			c = createConnection();
 			dao.setConnection(c);
 			SearchService service = new SearchServiceImpl(dao);
 			SearchViewHelper helper = new SearchViewHelper();
@@ -85,12 +86,18 @@ public class ControllerServlet extends HttpServlet
 			List<User> list = service.search(name);
 			String html = helper.generateSearchResults(name, list);
 		
-			c.close();
 			return html;
 		}
-		catch (SQLException e)
+		finally
 		{
-			throw new IllegalStateException(e);
+			try
+			{
+				c.close();
+			}
+			catch (SQLException e)
+			{
+				throw new IllegalStateException(e);
+			}
 		}
 	}
 	
