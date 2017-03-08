@@ -27,7 +27,7 @@ public class UploadServlet extends HttpServlet
 	public void init()
 	{
 		// Get the file location where it would be stored.
-//		filePath = getServletContext().getInitParameter("file-upload");
+//		filePath = getServletContext().getInitParameter("file-upload"); // see web.xml
 		filePath = getServletContext().getRealPath("/"); //!!! Don't do that
 		LOG.info("Save files to: " + filePath);
 	}
