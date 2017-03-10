@@ -33,15 +33,15 @@ public class ControllerServlet extends HttpServlet
         
         // Add cookie to the response
         Cookie cookie = new Cookie("id",Base64.encodeBase64String("1234567890".getBytes("UTF-8")));
-//        cookie.setHttpOnly(true);
-//        cookie.setSecure(true);
+        cookie.setHttpOnly(true);
+        cookie.setSecure(true);
         response.addCookie(cookie);
         
         // Generate response 
         response.setContentType("text/html");
         response.setBufferSize(1024);
         PrintWriter out = response.getWriter();
-        out.println(html.toString());
+        out.println(html);
         out.close();
 	}
 
@@ -67,9 +67,8 @@ public class ControllerServlet extends HttpServlet
 		html.append("    <body>\n");
 		
 		html.append("    	<h2>Created user: ");
-//		html.append(HTMLEncoder.encodeForHTML(username)).append(" as ");
-		html.append(username).append(" as ");
-		html.append(role);
+		html.append(HTMLEncoder.encodeForHTML(username)).append(" as ");
+		html.append(HTMLEncoder.encodeForHTML(role));
 		html.append("</h2>\n");
 		
 		html.append("<br>");
