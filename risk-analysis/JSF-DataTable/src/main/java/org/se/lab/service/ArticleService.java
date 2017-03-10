@@ -25,6 +25,7 @@ public class ArticleService
 	{
 		LOG.info("insert: " + article);
 
+		// TODO: Input Validation
 		try
 		{
 			dao.insert(article);

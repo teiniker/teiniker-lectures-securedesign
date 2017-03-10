@@ -25,6 +25,7 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+<!-- BEGIN COPY -->
                 <datasource jndi-name="java:jboss/datasources/MySqlDS" pool-name="MySqlDS" enabled="true" use-java-context="true" use-ccm="true">
                     <connection-url>jdbc:mysql://localhost:3306/testdb</connection-url>
                     <driver>mysql</driver>
@@ -33,13 +34,16 @@
                         <password>student</password>
                     </security>
                 </datasource>
+<!-- END COPY -->
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
                     </driver>
+<!-- BEGIN COPY -->
                     <driver name="mysql" module="com.mysql">
                         <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
                     </driver>
+<!-- END COPY -->                    
                 </drivers>
             </datasources>
         </subsystem>

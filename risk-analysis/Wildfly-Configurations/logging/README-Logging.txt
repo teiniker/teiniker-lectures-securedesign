@@ -49,11 +49,11 @@ Here you can see the final settings:
                 <level name="WARN"/>
             </logger>
             
-            <!-- Add new logger BEGIN -->
+ <!-- Add new logger BEGIN -->
             <logger category="org.se.lab">
-                <level name="DEBUG"/>
+                <level name="DEBUG"/>l
             </logger>
-            <!-- Add new logger END -->
+ <!-- Add new logger END -->
             
             <root-logger>
                 <level name="INFO"/>
