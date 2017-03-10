@@ -28,31 +28,31 @@ public class ControllerServlet extends HttpServlet
 	{
 		LOG.debug("GET " + request.getQueryString());
 		
-        StringBuilder m = new StringBuilder(); 
-        m.append("<html>");
-        m.append("  <head>");
-        m.append("    <title>Login Servlet</title>");
-        m.append("  </head>");
-        m.append("  <body>");
-        m.append("    <h1> Request Headers: </h1><p>");
-        m.append("    <pre>");
+        StringBuilder html = new StringBuilder(); 
+        html.append("<html>");
+        html.append("  <head>");
+        html.append("    <title>Login Servlet</title>");
+        html.append("  </head>");
+        html.append("  <body>");
+        html.append("    <h1> Request Headers: </h1><p>");
+        html.append("    <pre>");
         
         Enumeration<String> headerNames = request.getHeaderNames();
         while(headerNames.hasMoreElements()) 
         {
           String headerName = (String)headerNames.nextElement();
-          m.append("      ").append(headerName).append(": ").append(request.getHeader(headerName)).append("<br/>");
+          html.append("      ").append(headerName).append(": ").append(request.getHeader(headerName)).append("<br/>");
         }
         
-        m.append("    </pre>");
-        m.append("  </body>");
-        m.append("</html>");
+        html.append("    </pre>");
+        html.append("  </body>");
+        html.append("</html>");
         
         response.setContentType("text/html");
         response.setBufferSize(1024);                
         response.setHeader("Refresh", "5");
         PrintWriter out = response.getWriter();
-        out.println(m.toString());
+        out.println(html);
         out.close();
 	}
 
