@@ -66,7 +66,7 @@ public class ControllerServlet extends HttpServlet
         response.setContentType("text/html");
         response.setBufferSize(1024);
         PrintWriter out = response.getWriter();
-        out.println(html.toString());
+        out.println(html);
         out.close();
     }
 
