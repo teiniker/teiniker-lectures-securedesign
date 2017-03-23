@@ -56,7 +56,7 @@ $ mvn wildfly:run
 Make sure that you have configured the wildfly-maven-plugin:
 
 	<configuration>
-		<jbossHome>/home/student/install/wildfly-9.0.1.Final/</jbossHome>
+		<jbossHome>/home/student/install/wildfly-x.y.z.Final/</jbossHome>
 		<port>9990</port>
 		<server-config>standalone.xml</server-config>
 	</configuration> 
