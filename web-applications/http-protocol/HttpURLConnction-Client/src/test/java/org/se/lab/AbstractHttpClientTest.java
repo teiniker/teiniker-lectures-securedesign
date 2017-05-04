@@ -56,7 +56,7 @@ public abstract class AbstractHttpClientTest
 		{
 			connection = (HttpURLConnection) url.openConnection(PROXY);
 			connection.setRequestMethod("GET");
-			connection.setRequestProperty("Accept", "application/xml");
+			connection.setRequestProperty("Accept", "text/html");
 			logger.debug("URL: " + url);
 			logger.debug("Request-Method: " + connection.getRequestMethod());
 	
