@@ -1,0 +1,54 @@
+Exercise: Client-Side Controls 
+-------------------------------------------------------------------------------
+
+Given a simple Web application:
+
+URL: http://localhost:8080/Servlet-ClientSideControls-Signature-Exercise/controller
+
+
+1. Add a signature cookie to the HTTP response
+---------------------------------------------------------------------
+Calculate a HMAC from the ROLE value (remember, the ROLE value is shipped
+as a hidden field within the HTTP response). 
+
+Add this HMAC(ROLE) as a cookie with the name "signature" to the HTTP
+response.
+
+The Browser will store this cookie and send it back with the next request.
+
+
+
+2. Check the signature cookie received with the HTTP request 
+---------------------------------------------------------------------
+Read the "role" parameter and the "signature" cookie from the HTTP request.
+
+Calculate the HMAC from the received "role" and compare it with the HMAC
+of the signature.
+If the HMAC values match use the following log line:
+	LOG.info("    => hidden field is valid!!!");
+otherwise use
+	LOG.info("    => hidden field is INVALID!!!");
+
+
+How to handle cookies within a Servlet?
+---------------------------------------------------------------------
+
+HttpServletRequest.getCookies()
+
+Cookie cookie = new Cookie("name", "value")
+HttpServletResponse.addCookie(cookie)
+
+
+How to configure Wildfly to provide a system property?
+---------------------------------------------------------------------
+
+standalone.xml:
+	<extensions>
+	...
+	</extensions>
+
+	<system-properties>
+        <property name="hmac.key" value="7cb46d33ae687fa8c98a712cfa7c0f98836405138040a9e03260d03ee8973885e6d800adcccd6dfa2961ea714f2ca3f8a1b1838cc6f86298f93d77368bae8d65"/>
+    </system-properties>
+
+You can access these properties from a Servlet using: System.getProperty("hmac.key");
