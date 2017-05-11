@@ -3,7 +3,7 @@ How to use a HTTPS connection?
 *) Create a Keystore
 
 $ pwd
-/home/student/install/wildfly-9.0.1.Final/standalone/configuration
+/home/student/install/wildfly-10.0.0.Final/standalone/configuration
 
 $ keytool -genkeypair -keystore wildfly.keystore -storepass student -keypass student -keyalg RSA -alias wildfly -dname "cn=ims,o=fhj,c=at" 
  
@@ -24,7 +24,7 @@ $ keytool -genkeypair -keystore wildfly.keystore -storepass student -keypass stu
 		...
 	</management>
 	
- 	<subsystem xmlns="urn:jboss:domain:undertow:2.0">
+ 	<subsystem xmlns="urn:jboss:domain:undertow:3.0">
         <buffer-cache name="default"/>
         <server name="default-server">
             <http-listener name="default" socket-binding="http" redirect-socket="https"/>

@@ -11,7 +11,7 @@ Authentication and Authorization Service (JAAS) login modules ans subjects.
 How to Generate ApplicationRealm Credentials for Wildfly AS?
 -------------------------------------------------------------------------------
 
-$ cd /home/student/install/wildfly-9.0.1.Final/
+$ cd /home/student/install/wildfly-10.0.0.Final/
 
 $ bin/add-user.sh 
 What type of user do you wish to add? 
@@ -45,7 +45,7 @@ Is this new user going to be used for one AS process to connect to another AS pr
 e.g. for a slave host controller connecting to the master or for a Remoting connection for server to server EJB calls.
 yes/no? no
 
-/home/student/install/wildfly-9.0.1.Final/standalone/configuration:
+/home/student/install/wildfly-10.0.0.Final/standalone/configuration:
  
 $ cat application-users.properties 
 # Properties declaration of users for the realm 'ApplicationRealm' which is the default realm
