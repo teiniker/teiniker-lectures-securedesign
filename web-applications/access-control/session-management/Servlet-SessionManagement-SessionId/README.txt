@@ -29,3 +29,18 @@ You can access the Web application using the following URL:
 	
 Note that we skip the authentication to make the example simpler.
 	
+	
+How to add the "secure" and "HttpOnly" flag to a cookie?
+-------------------------------------------------------------------------------
+
+Add the following lines to web.xml:
+
+	<session-config>
+		<cookie-config>
+			<http-only>true</http-only>
+			<secure>true</secure>
+		</cookie-config>
+	</session-config>
+	
+	
+	
