@@ -1,0 +1,37 @@
+HTTP/1.1 200 OK
+Connection: close
+X-Powered-By: Undertow/1
+Server: WildFly/10
+Content-Type: text/html;charset=ISO-8859-1
+Content-Length: 1483
+Date: Thu, 28 Sep 2017 20:25:15 GMT
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+  	<title>Simple Shopping Cart</title>
+  </head>
+  <body>		
+		<h2>Your Shopping Cart:</h2>
+		<form method="post" action="controller">    	    
+			<input type="hidden" name="state" value="rO0ABXNyABNqYXZhLnV0aWwuQXJyYXlMaXN0eIHSHZnHYZ0DAAFJAARzaXpleHAAAAAAdwQAAAAAeA=="/>
+			<table border="0" cellspacing="1" cellpadding="5">				
+				<colgroup>					
+					<col width="150"> <col width="150"> <col width="100">				
+				</colgroup>				
+				<tr>					
+					<th>Product</th>					
+					<th>Quantity</th>					
+					<th></th>				
+				</tr>				
+				<tr>					
+					<td><input type = "text" name = "name" /></td>					
+					<td><input type = "text" name = "quantity" /></td>					
+					<td><input type = "submit" name = "action" value = "Add" /></td>				
+				</tr>			
+			</table>		
+		</form>		
+	</body>
+</html>
+
+
