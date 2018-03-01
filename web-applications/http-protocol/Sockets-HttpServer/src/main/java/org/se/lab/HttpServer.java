@@ -29,24 +29,13 @@ public class HttpServer
 			{
 				Socket connection = server.accept(); // wait for a connection
 				log("connection: " + connection.toString());
-				try
-				{					
-					handleRequest(connection.getInputStream(), connection.getOutputStream());
-				} 
-				catch (IOException e)
-				{
-					e.printStackTrace();
-				} 
-				finally
-				{
-					if(connection != null)
-						connection.close();
-				}
+                handleRequest(connection.getInputStream(), connection.getOutputStream());
+                connection.close();
 			}
 		} 
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			throw new IllegalStateException("Can't listen to port: " + SERVER_PORT);
 		}
 		finally
 		{
@@ -57,42 +46,45 @@ public class HttpServer
 				}
 				catch (IOException e)
 				{
-					e.printStackTrace();
+					throw new IllegalStateException("Can't close connection!");
 				}
 		}
 	}
 
 	
 	private static void handleRequest(InputStream in, OutputStream out) 
-		throws IOException
 	{
-		// read request's first line
-		InputStream input = new BufferedInputStream(in);
-		StringBuilder buffer = new StringBuilder();
-		while(true)
-		{
-			int c = input.read();
-			if(c == '\r' || c == '\n' || c== -1)
-				break;
-			buffer.append((char)c);
-		}		
-		log("request: " + buffer.toString());
-		
-		String[] requestElements = buffer.toString().split(" ");
-		if(requestElements[0].equals("GET") && requestElements[2].startsWith("HTTP/1"))
-		{
-			String html = httpGet(requestElements[1]);
-			Writer w = new OutputStreamWriter(out);
-			w.write(httpHeader(html.length()));
-			w.write(html);
-			w.flush();
-		}
-		// TODO: HEADER, POST, etc.
+		try
+        {
+            // read request's first line
+            InputStream input = new BufferedInputStream(in);
+            StringBuilder buffer = new StringBuilder();
+            while (true) {
+                int c = input.read();
+                if (c == '\r' || c == '\n' || c == -1)
+                    break;
+                buffer.append((char) c);
+            }
+            log("request: " + buffer.toString());
+
+            String[] requestElements = buffer.toString().split(" ");
+            if (requestElements[0].equals("GET") && requestElements[2].startsWith("HTTP/1")) {
+                String html = httpGet(requestElements[1]);
+                Writer w = new OutputStreamWriter(out);
+                w.write(httpHeader(html.length()));
+                w.write(html);
+                w.flush();
+            }
+            // TODO: HEADER, POST, etc.
+        }
+        catch(IOException e)
+        {
+            throw new IllegalStateException("Can't handle HTTP request!", e);
+        }
 	}
 	
 	
 	public static String httpGet(String filename) 
-		throws IOException
 	{
 		File file = new File(WEB_DIR, filename);
 		if(file.exists() && file.isFile())
