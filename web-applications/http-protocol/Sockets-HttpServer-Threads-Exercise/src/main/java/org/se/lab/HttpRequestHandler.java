@@ -34,52 +34,44 @@ public class HttpRequestHandler
 	public void handleRequest(Socket connection)
 	{
 		Logger.log("[" + generateDate() + "]" + connection + " - thread id: " + Thread.currentThread().getId());
-
-		try
-		{
-			OutputStream out = connection.getOutputStream();
-			InputStream in = connection.getInputStream();
-
-			handleRequest(in, out);
-			
-			connection.close();
-		} 
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		} 
-		finally
-		{
-			if (connection != null)
-			{
-				try
-				{
-					connection.close();
-				} 
-				catch (IOException e)
-				{
-					e.printStackTrace();
-				}
-			}
-		}
+        try
+        {
+            OutputStream out = connection.getOutputStream();
+            InputStream in = connection.getInputStream();
+            handleRequest(in, out);
+            connection.close();
+        }
+        catch(IOException e)
+        {
+            throw new IllegalStateException("Can't handle HTTP request!", e);
+        }
+        finally
+        {
+            if(connection != null)
+            {
+                try
+                {
+                    connection.close();
+                }
+                catch (IOException e)
+                {
+                    throw new IllegalStateException("Can't close connection!", e);
+                }
+            }
+        }
 	}
 	
 	
-	public void handleRequest(InputStream in, OutputStream out)
+	private void handleRequest(InputStream in, OutputStream out)
+       throws IOException
 	{
 		Writer w = new OutputStreamWriter(out);
-		try
-		{
-			w.write(generateResponse("index.html"));
-			w.flush();		
-		} 
-		catch (IOException e)
-		{
-			throw new RuntimeException("HTTP request handling error", e);
-		}
+        w.write(generateResponse("index.html"));
+        w.flush();
 	}
 	
 	private String generateResponse(String filename)
+       throws IOException
 	{
 		String page = readHtmlFile(filename);
 		StringBuilder buffer = new StringBuilder();
@@ -107,23 +99,17 @@ public class HttpRequestHandler
 	}
 	
 	private String readHtmlFile(String filename) 
-	{	
-		try
-		{
-			File file = new File(webDirectory, filename);
-			StringBuilder buffer = new StringBuilder();
-			BufferedReader in = new BufferedReader(new FileReader(file));
-			String s;
-			while((s = in.readLine()) != null)
-			{
-				buffer.append(s).append("\n");
-			}	
-			in.close();
-			return buffer.toString();
-		} 
-		catch (IOException e)
-		{
-			throw new IllegalStateException("Text file not loaded");
-		}
+	    throws IOException
+    {
+        File file = new File(webDirectory, filename);
+        StringBuilder buffer = new StringBuilder();
+        BufferedReader in = new BufferedReader(new FileReader(file));
+        String s;
+        while((s = in.readLine()) != null)
+        {
+            buffer.append(s).append("\n");
+        }
+        in.close();
+        return buffer.toString();
 	}
 }
