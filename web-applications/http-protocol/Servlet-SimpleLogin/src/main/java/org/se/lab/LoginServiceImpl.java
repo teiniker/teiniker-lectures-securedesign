@@ -18,7 +18,7 @@ public class LoginServiceImpl implements LoginService
 	{
 	    // Simulate a database
 		table.put("student", "264c8c381bf16c982a4e59b0dd4c6f7808c51a05f64c35db42cc78a2a72875bb");
-		table.put("homer",   "2aaab795b3836904f82efc6ca2285d927aed75206214e1da383418eb90c9052f");
+		table.put("homer",   "e22115b5d76640e2389bcac25c46a2df03b2df657c5b3ff32cbaed141f8e8ef0");
 		table.put("marge",   "b4b811fa40505329ae871e52f03527c3720c9af7fb8607819658535c5484c41e");
 		table.put("bart",    "9551dadbf76a27457946e70d1aebebe2132f8d3bce6378d216c11853524dd3a6");
 		table.put("lisa",    "d84fe7e07bedb227cffff10009151d96fc944f6a1bd37cff60e8e4626a1eb1c3");

@@ -1,10 +1,6 @@
 package org.se.lab;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -27,7 +23,7 @@ public abstract class AbstractHttpClientTest
 	{
 		// read connection settings
 		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/http.properties"));
+		properties.load(new FileInputStream("src/test/resources/http.properties"));
 		HOST = properties.getProperty("http.host");
 		PORT = properties.getProperty("http.port");
 		logger.debug("Connect to " + HOST + ":" + PORT);
