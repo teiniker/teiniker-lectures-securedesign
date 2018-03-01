@@ -5,6 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import org.apache.commons.codec.binary.Hex;
 
 public class LoginServiceImpl implements LoginService
 {
@@ -15,12 +16,13 @@ public class LoginServiceImpl implements LoginService
 	
 	public LoginServiceImpl()
 	{
-		table.put("student", "cd73502828457d15655bbd7a63fb0bc8");
-		table.put("homer", "54a8723466e5d487247f3d93d51c66bc");
-		table.put("marge", "1a87d0eab5010e526072a0240d731f27");
-		table.put("bart", "a0e4bf66061c51a0ff98056899f6651a");
-		table.put("lisa", "01187d6d3bff73b7f5e7da29064bab1b");
-		table.put("maggie", "b9dc6731ba225e3cd0763b28bb7560b3");
+	    // Simulate a database
+		table.put("student", "264c8c381bf16c982a4e59b0dd4c6f7808c51a05f64c35db42cc78a2a72875bb");
+		table.put("homer",   "2aaab795b3836904f82efc6ca2285d927aed75206214e1da383418eb90c9052f");
+		table.put("marge",   "b4b811fa40505329ae871e52f03527c3720c9af7fb8607819658535c5484c41e");
+		table.put("bart",    "9551dadbf76a27457946e70d1aebebe2132f8d3bce6378d216c11853524dd3a6");
+		table.put("lisa",    "d84fe7e07bedb227cffff10009151d96fc944f6a1bd37cff60e8e4626a1eb1c3");
+		table.put("maggie",  "aae5be5f6474904b686f639e0fcfd2be440121cd889fa381a94b71750758345e");
 	}
 	
 	
@@ -29,21 +31,14 @@ public class LoginServiceImpl implements LoginService
 	{
 		if(table.containsKey(username))
 		{
-			try
-			{
-				if(table.get(username).equals(calculateMd5String(password)))
-				{
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-			} 
-			catch (NoSuchAlgorithmException | UnsupportedEncodingException e)
-			{
-				return false;
-			}
+            if(table.get(username).equals(calculateHashString(password)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 		}
 		else
 		{
@@ -53,24 +48,18 @@ public class LoginServiceImpl implements LoginService
 
 	
 	
-	private String calculateMd5String(final String message)
-			throws NoSuchAlgorithmException, UnsupportedEncodingException
+	private String calculateHashString(final String message)
 	{
-		MessageDigest algorithm = MessageDigest.getInstance("MD5");		
-		algorithm.update(message.getBytes("UTF-8"));
-		byte[] bytes = algorithm.digest();
-		return convertToHexString(bytes);
-	}
-
-	
-	private String convertToHexString(byte[] bytes)
-	{
-		StringBuilder hex = new StringBuilder();
-		for(byte b : bytes)
-		{
-			int i = (b & 0xff); // copy the byte bit pattern into int value
-			hex.append(String.format("%02x", i));
-		}
-		return hex.toString();
+		try
+        {
+            MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
+            algorithm.update(message.getBytes("UTF-8"));
+            byte[] bytes = algorithm.digest();
+            return Hex.encodeHexString(bytes);
+        }
+        catch(NoSuchAlgorithmException | UnsupportedEncodingException e)
+        {
+            throw new IllegalStateException("Can't calculate hash value!", e);
+        }
 	}
 }

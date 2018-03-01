@@ -28,6 +28,7 @@ public class ControllerServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
+		LOG.info("GET request");
 		doPost(request, response);
 	}
 
@@ -41,7 +42,7 @@ public class ControllerServlet extends HttpServlet
         String password = request.getParameter("password");
         String usergroup = request.getParameter("usergroup");
         String action = request.getParameter("action");        
-        LOG.info("request: " + action + "," + username + "," + password + "," + usergroup);
+        LOG.info("POST request: " + action + "," + username + "," + usergroup);
         
         String html = null;
         if(action != null && action.equals("Login"))
