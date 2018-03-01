@@ -5,13 +5,16 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class HttpServerThreadPerRequest
-{	
+{
+	private final static String WEB_DIR = "./src/main/webapp";
+	private final static int SERVER_PORT = 8080;
+
 	public static void main(String... ags)
 	{
 		ServerSocket server = null;
 		try
 		{
-			server = new ServerSocket(8080);
+			server = new ServerSocket(SERVER_PORT);
 			Logger.log("Server started...");
 			Logger.log(server.toString());
 
@@ -23,7 +26,7 @@ public class HttpServerThreadPerRequest
 				{
 					public void run()
 					{						
-						HttpRequestHandler handler = new HttpRequestHandler("src/main/webapp");
+						HttpRequestHandler handler = new HttpRequestHandler(WEB_DIR);
 						handler.handleRequest(connection);						
 					}
 				};
@@ -33,7 +36,7 @@ public class HttpServerThreadPerRequest
 		} 
 		catch(IOException e)
 		{
-			e.printStackTrace();
+			throw new IllegalStateException("Can't handle connection!", e);
 		}
 		finally
 		{
@@ -45,7 +48,7 @@ public class HttpServerThreadPerRequest
 				}
 				catch (IOException e)
 				{
-					e.printStackTrace();
+					throw new IllegalStateException("Can't close server socket!", e);
 				}
 			}	
 		}
