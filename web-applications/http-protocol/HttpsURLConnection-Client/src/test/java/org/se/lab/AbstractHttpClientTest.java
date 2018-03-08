@@ -1,9 +1,6 @@
 package org.se.lab;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
@@ -29,7 +26,7 @@ public abstract class AbstractHttpClientTest
 	{
 		// read connection settings
 		Properties properties = new Properties();
-		properties.load(this.getClass().getResourceAsStream("/http.properties"));
+		properties.load(new FileInputStream("src/test/resources/http.properties"));
 		
 		HOST = properties.getProperty("http.host");
 		PORT = properties.getProperty("http.port");
@@ -46,8 +43,7 @@ public abstract class AbstractHttpClientTest
 		{
 			logger.debug("Use proxy " + proxyAddress + ":" + proxyPort);
 			int port = Integer.parseInt(proxyPort);
-			PROXY = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
-					proxyAddress, port));
+			PROXY = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyAddress, port));
 		} else
 		{
 			PROXY = Proxy.NO_PROXY;
@@ -86,7 +82,7 @@ public abstract class AbstractHttpClientTest
 		} 
 		catch (IOException e)
 		{
-			throw new HttpClientException("IO problems", e);
+			throw new HttpClientException("Can't execute GET request!", e);
 		} 
 		finally
 		{
@@ -113,14 +109,10 @@ public abstract class AbstractHttpClientTest
 					logger.debug("Cert Public Key Format : " + cert.getPublicKey().getFormat());
 				}
 			} 
-			catch (SSLPeerUnverifiedException e)
+			catch(IOException e)
 			{
-				e.printStackTrace();
+                throw new HttpClientException("Can't print HTTPS certificate data!", e);
 			} 
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
 		}
 	}
 
