@@ -3,7 +3,7 @@ How to use a HTTPS connection?
 *) Create a Keystore
 
 $ pwd
-/home/student/install/wildfly-10.0.0.Final/standalone/configuration
+/home/student/install/wildfly-10.1.0.Final/standalone/configuration
 
 $ keytool -genkeypair -keystore wildfly.keystore -storepass student -keypass student -keyalg RSA -alias wildfly -dname "cn=ims,o=fhj,c=at" 
  
