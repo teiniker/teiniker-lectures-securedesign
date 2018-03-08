@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import org.apache.commons.codec.binary.Hex;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,12 +17,13 @@ public class BruteForceAttackTest
 	extends AbstractHttpClientTest
 {
 	@Test
-	public void testCalculateMd5String() throws NoSuchAlgorithmException, UnsupportedEncodingException
+	public void testCalculateHashString()
+			throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{
 		final String passwd = "student";
-	
-		String hash = calculateMd5String(passwd);
-		Assert.assertEquals("cd73502828457d15655bbd7a63fb0bc8", hash);
+
+		String hash = calculateHashString(passwd);
+		Assert.assertEquals("264c8c381bf16c982a4e59b0dd4c6f7808c51a05f64c35db42cc78a2a72875bb", hash);
 	}
 
 	
@@ -45,24 +47,12 @@ public class BruteForceAttackTest
 	 * Helper methods
 	 */
 
-	private String calculateMd5String(final String message)
+	private String calculateHashString(final String message)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{
-		MessageDigest algorithm = MessageDigest.getInstance("MD5");		
+		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
 		algorithm.update(message.getBytes("UTF-8"));
 		byte[] bytes = algorithm.digest();
-		return convertToHexString(bytes);
-	}
-
-	
-	private String convertToHexString(byte[] bytes)
-	{
-		StringBuilder hex = new StringBuilder();
-		for(byte b : bytes)
-		{
-			int i = (b & 0xff); // copy the byte bit pattern into int value
-			hex.append(String.format("%02x", i));
-		}
-		return hex.toString();
+		return Hex.encodeHexString(bytes);
 	}
 }

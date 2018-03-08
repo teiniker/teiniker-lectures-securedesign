@@ -16,17 +16,19 @@ public class BruteForceAttackTest
 	extends AbstractHttpClientTest
 {
 	@Test
-	public void testCalculateMd5String() throws NoSuchAlgorithmException, UnsupportedEncodingException
+	public void testCalculateHashString()
+			throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{
 		final String passwd = "student";
 	
-		String hash = calculateMd5String(passwd);
+		String hash = calculateHashString(passwd);
 		Assert.assertEquals("264c8c381bf16c982a4e59b0dd4c6f7808c51a05f64c35db42cc78a2a72875bb", hash);
 	}
 
 	
 	@Test
-	public void testBruteForceAttack() throws NoSuchAlgorithmException, IOException
+	public void testBruteForceAttack()
+			throws NoSuchAlgorithmException, IOException
 	{
 		final String filename = "wordlist.txt";
 		final String username = "homer"; 	
@@ -53,7 +55,7 @@ public class BruteForceAttackTest
 	 * Helper methods
 	 */
 
-	private String calculateMd5String(final String message)
+	private String calculateHashString(final String message)
 			throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{
 		MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
@@ -61,6 +63,4 @@ public class BruteForceAttackTest
 		byte[] bytes = algorithm.digest();
 		return Hex.encodeHexString(bytes);
 	}
-
-	
 }

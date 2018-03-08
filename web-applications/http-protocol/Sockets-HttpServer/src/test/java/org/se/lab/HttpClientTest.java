@@ -11,7 +11,7 @@ import org.junit.Test;
 public class HttpClientTest
 {
 	@Test
-	public void testPOSTRequest() throws UnknownHostException, IOException
+	public void testGetRequest() throws UnknownHostException, IOException
 	{
 		Socket socket = new Socket("localhost", 8080);
 
