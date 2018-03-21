@@ -17,7 +17,7 @@ How to bypass the client-side validation?
 
 A) Using Burp
 
-B) Using Chrome Tools
+B) Using Chrome Tools or Firefox Inspector / Console
 
 	> function validateForm() { return true; }
 	

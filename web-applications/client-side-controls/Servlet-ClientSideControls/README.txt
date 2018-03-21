@@ -18,7 +18,7 @@ o) Use the browser to access the page:
  <input type="hidden" name="role" value="user"/>
  
  Change the value to "admin" by using:
- a) Firebug
+ a) Firefox: Developer / Inspector
  b) BurpSuite
  
 
