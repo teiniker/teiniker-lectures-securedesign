@@ -46,18 +46,17 @@ public class UserDAOMySQLImpl
 	
     public List<User> findByUsername(String name) 
 	{
-		final String SQL = "SELECT * FROM user WHERE lastname = '" + name + "'";
-		
-		Statement stmt = null;
+		final String SQL = "SELECT * FROM user WHERE username='" + name + "'";
+
+        PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<User> users = new ArrayList<User>();
 
 		try
 		{
-			stmt = getConnection().createStatement();
-			rs = stmt.executeQuery(SQL);
-			System.out.println("sql> " + SQL);
-			
+            pstmt = getConnection().prepareStatement(SQL);
+            rs = pstmt.executeQuery();
+
 			while (rs.next())
 			{
 				long id = rs.getLong("id");
@@ -76,7 +75,7 @@ public class UserDAOMySQLImpl
         finally
         {
             closeResultSet(rs);
-            closeStatement(stmt);
+            closeStatement(pstmt);
         }
 		return users;
 	}

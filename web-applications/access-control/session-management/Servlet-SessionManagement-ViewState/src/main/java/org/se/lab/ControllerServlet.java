@@ -153,6 +153,7 @@ public class ControllerServlet extends HttpServlet
 			oos.close();
 			
 			byte[] bytes = bout.toByteArray();
+			// TODO: Encryption
 			return Base64.encodeBase64String(bytes);
 		}
 		catch (IOException e)
@@ -167,7 +168,8 @@ public class ControllerServlet extends HttpServlet
 		LOG.debug("listFromString() " + base64String); 
 		try
 		{
-			byte[] bytes = Base64.decodeBase64(base64String);		
+			byte[] bytes = Base64.decodeBase64(base64String);
+			// Decrypt data
 			ArrayList<Product> list = new ArrayList<Product>(); 
 			ByteArrayInputStream bin = new ByteArrayInputStream(bytes);
 			ObjectInputStream ois;

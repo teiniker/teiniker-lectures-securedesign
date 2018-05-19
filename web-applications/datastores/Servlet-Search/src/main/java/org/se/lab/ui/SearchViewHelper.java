@@ -19,12 +19,31 @@ public class SearchViewHelper
 
         for(User u : results)
         {
-        	html.append("<p>").append(u).append("</p>\n");
+        	html.append("<p>")
+                    .append(u.getFirstName())
+                    .append(" ")
+                    .append(u.getLastName())
+                    .append("</p>\n");
         }
         html.append("  </body>\n");
         html.append("</html>\n");
 
         return html.toString();
 	}
+
+    public String generateError(String msg)
+    {
+        StringBuilder html = new StringBuilder();
+        html.append("<html>\n");
+        html.append("  <head>\n");
+        html.append("    <title>Servlet Simple Search</title>\n");
+        html.append("  </head>\n");
+        html.append("  <body>\n");
+        html.append("    <h2>Error: ").append(msg).append("</h2>\n");
+        html.append("  </body>\n");
+        html.append("</html>\n");
+
+        return html.toString();
+    }
 
 }

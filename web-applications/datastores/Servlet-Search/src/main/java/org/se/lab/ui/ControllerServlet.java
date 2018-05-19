@@ -45,7 +45,7 @@ public class ControllerServlet extends HttpServlet
 			HttpServletResponse response) throws ServletException, IOException
 	{
 		// Handling request
-        String name = request.getParameter("lastname");
+        String name = request.getParameter("username");
         String action = request.getParameter("action");        
         LOG.info("request: " + action + "," + name );
         
@@ -88,6 +88,11 @@ public class ControllerServlet extends HttpServlet
 		
 			return html;
 		}
+		catch(Exception e)
+		{
+            SearchViewHelper helper = new SearchViewHelper();
+			 return helper.generateError("Can't find user " + name + "!");
+		}
 		finally
 		{
 			try
@@ -97,7 +102,7 @@ public class ControllerServlet extends HttpServlet
 			}
 			catch (SQLException e)
 			{
-				throw new IllegalStateException(e);
+				LOG.error("Can't close database connection!", e);
 			}
 		}
 	}
