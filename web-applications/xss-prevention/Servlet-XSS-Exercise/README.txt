@@ -20,8 +20,20 @@ a) Use FireBug to change the value of the hidden field named role to:
 
 b) Fill in some more user data and submit.
 
-	
-How to Steal cookies?
+
+How to trick the user to enter the password?
+---------------------------------------------------------------------
+HTML Injection: Deploy the ServletLogger application and enter the
+following HTML code as "username":
+
+<br><form method="post" action="/Servlet-Logger/controller">
+Login: <input type="text" name="username"><br>
+Password: <input type="password" name="password"><br>
+<input type="submit" value="Submit" />
+</form>
+
+
+How to steal cookies?
 ---------------------------------------------------------------------
 
 a) Deploy Servlet-Logger
