@@ -4,15 +4,14 @@ SpringSecurity: Session Management
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/SpringSecurity-CSRF-ShoppingCart-Solution/
-
-	=> https://localhost:8443/SpringSecurity-CSRF-ShoppingCart-Solution/
+URL: http://localhost:8080/SpringSecurity-CSRF-ShoppingCart
+	=> https://localhost:8443/SpringSecurity-CSRF-ShoppingCart
 	
 
 How to configure CSRF protection in Spring Security?
 -------------------------------------------------------------------------------
 
-o) Within the spring-security.xml file:
+1) Within the spring-security.xml file:
 
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/login.html*" access="isAnonymous()"/>
@@ -23,7 +22,7 @@ o) Within the spring-security.xml file:
 	</http>	
 	
 	
-o) In each POST request add the following hidden form field:
+2) In each POST request add the following hidden form field:
 	(Note that the page must be processed as a JSP)
 
 	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -40,7 +39,10 @@ o) In each POST request add the following hidden form field:
 			</form>
 		</body>
 	</html>		
-			
+
+3) If we perform the CSRF attack again, we get the following message created by the SpringSecurity module:
+    Invalid CSRF Token 'null' was found on the request parameter '_csrf' or header 'X-CSRF-TOKEN'.
+
 
 Synchronizer Token Pattern
 -------------------------------------------------------------------------------
