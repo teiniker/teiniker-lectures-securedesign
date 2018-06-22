@@ -23,6 +23,7 @@ public class SearchServiceImpl implements SearchService
 	@Override
 	public List<User> search(String name)
 	{
+		// TODO: Input Validation
 		List<User> list = dao.findByUsername(name);
 		return list;
 	}
