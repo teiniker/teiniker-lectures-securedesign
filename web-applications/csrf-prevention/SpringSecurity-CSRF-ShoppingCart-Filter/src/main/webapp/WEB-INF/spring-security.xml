@@ -8,8 +8,10 @@
 	<http auto-config="true" use-expressions="true">
 		<intercept-url pattern="/login.html*" access="isAnonymous()"/>
 		<intercept-url pattern="/**" access="hasRole('USER')" requires-channel="https"/>
+		<form-login login-page="/login.html" />
+		<logout logout-success-url="/index.html"/>
 		
-		<csrf/>
+		<csrf disabled="true"/> <!-- !!!!! -->
 		
 		<port-mappings>
       		<port-mapping http="8080" https="8443"/>

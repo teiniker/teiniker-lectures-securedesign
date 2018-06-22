@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.se.lab</groupId>
-	<artifactId>SpringSecurity-CSRF-ShoppingCart-Solution</artifactId>
+	<artifactId>VulnerableWebApplication-Login-Exercise</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -34,7 +34,7 @@
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>1.0.2.Final</version>
 				<configuration>
-					<jbossHome>/home/student/install/wildfly-10.1.0.Final</jbossHome>
+					<jbossHome>/home/student/install/wildfly-10.1.0.Final/</jbossHome>
 					<port>9990</port>
 					<server-config>standalone.xml</server-config>
 				</configuration>
@@ -64,37 +64,19 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-		</dependency>
-
-		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
 		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.1</version>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
 		</dependency>
-
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>4.0.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>4.0.1.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
