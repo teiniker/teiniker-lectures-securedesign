@@ -1,1 +1,2 @@
-# teiniker-lectures-securedesign
+# Secure Design by Examples
+
