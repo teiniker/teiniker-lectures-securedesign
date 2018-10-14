@@ -3,7 +3,7 @@
 This project collects examples, exercises and model solutions needed as an introduction to software design.
 Based on these examples, an inductive learning approach to architectural risk analysis and penetration testing can be used.
 
-* [Architectural Risk Analysis] (https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/risk-analysis)
+* [Architectural Risk Analysis](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/risk-analysis)
   
 * Web Applications
   * [HTTP-Protocol](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/http-protocol)
