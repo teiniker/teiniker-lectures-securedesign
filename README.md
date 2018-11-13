@@ -1,4 +1,4 @@
-# Secure Design by Examples
+# Secure Design by Example
 
 This project collects examples, exercises and model solutions needed as an introduction to software design.
 Based on these examples, an inductive learning approach to architectural risk analysis and penetration testing can be used.
