@@ -19,18 +19,18 @@ public class LoginCommand
 		{
 			String username = req.getParameter("username");
 			String password = req.getParameter("password");
-			LOG.info("process(\"" + username + "\")");
+			LOG.debug("process(\"" + username + "\")");
 
 			UserService service = factory.createUserService();
 			boolean isValid = service.login(username, password);
 			if(isValid)
 			{
-				LOG.info("Login successful: " + username);
+				LOG.debug("Login successful: " + username);
 				forward("/table.jsp");
 			}
 			else
 			{
-			    LOG.info("Login failed: " + username + " : " + password);
+			    LOG.debug("Login failed: " + username + " : " + password);
 				req.setAttribute("message", "Login failed for user: " + username);
 				forward("/login.jsp");
 			}

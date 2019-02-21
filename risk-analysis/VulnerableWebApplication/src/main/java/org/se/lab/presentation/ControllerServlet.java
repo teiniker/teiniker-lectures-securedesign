@@ -56,7 +56,7 @@ public class ControllerServlet extends HttpServlet
 	{
 		Class<?> result = null;
 		final String commandClassName = "org.se.lab.presentation.commands." + action + "Command";
-		LOG.info("load: " + commandClassName);
+		LOG.debug("load: " + commandClassName);
 		result = Class.forName(commandClassName);
 		return (WebCommand) result.newInstance();
 	}
@@ -69,6 +69,7 @@ public class ControllerServlet extends HttpServlet
 		throws ServletException,
 		IOException
 	{
+        LOG.debug("forward:" + page);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
 		dispatcher.forward(request, response);
 	}

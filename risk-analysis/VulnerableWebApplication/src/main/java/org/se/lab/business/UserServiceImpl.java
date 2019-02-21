@@ -137,7 +137,7 @@ public class UserServiceImpl
     
     public boolean login(String username, String password)
     {
-        LOG.info("login(\"" + username + "\")");
+        LOG.debug("login(\"" + username + "\")");
         boolean isValid = false;
 		try
 		{

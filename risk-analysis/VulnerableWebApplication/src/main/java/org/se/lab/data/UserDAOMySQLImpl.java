@@ -256,11 +256,11 @@ public class UserDAOMySQLImpl
 
 	public boolean isValidUser(String username, String password)
 	{
-        LOG.info("isValidUser()");
+        LOG.debug("isValidUser()");
 
 		final String SQL = "SELECT id FROM user WHERE username ='" + username
 				+ "' AND password = '" + password + "'";
-		LOG.info("SQL: " + SQL);
+		LOG.debug("SQL: " + SQL);
 
         PreparedStatement pstmt = null;
 		ResultSet rs = null;
