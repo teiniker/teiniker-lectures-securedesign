@@ -9,8 +9,6 @@ import org.se.lab.data.DAOException;
 import org.se.lab.data.User;
 import org.se.lab.data.UserDAO;
 import org.se.lab.data.UserDAOMySQLImpl;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 
 public class UserServiceImpl 

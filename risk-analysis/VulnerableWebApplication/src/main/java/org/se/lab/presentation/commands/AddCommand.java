@@ -5,8 +5,6 @@ import org.se.lab.business.UserService;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 
 public class AddCommand

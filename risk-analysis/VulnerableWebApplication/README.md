@@ -109,4 +109,15 @@ LastName: <script>alert("XSS");</script>
 username: <script>alert("XSS");</script>
 ```
 
+### Architectural Decomposition
+
+In order to be able to carry out a more detailed analysis, it is 
+necessary to dissect the architecture of the web application into its 
+parts. 
+
+![ZAP Proxy](doc/ClassDiagram.png)
+
+The given class diagram provides an overview of the architectural 
+patterns involved.
+
 

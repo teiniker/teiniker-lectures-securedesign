@@ -5,3 +5,4 @@
 /.project
 /.tern-project
 /sonar-project.properties
+/**/*.ucls
