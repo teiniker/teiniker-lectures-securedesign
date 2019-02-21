@@ -5,17 +5,17 @@
 #### Database Server
 Start the MySQL server (as student):
 ```
-	[student@localhost ~]$ sudo systemctl start mariadb.service 
+[student@localhost ~]$ sudo systemctl start mariadb.service 
 ```
  
 Start a MySQL client (as student):
 ```
-	$ mysql -u student -p
-	Enter password: student
-	MariaDB [(none)]> use testdb;
-	MariaDB [testdb]> show tables;
+$ mysql -u student -p
+Enter password: student
+MariaDB [(none)]> use testdb;
+MariaDB [testdb]> show tables;
 
-	MariaDB [testdb]> source sql/createUser.sql;	
+MariaDB [testdb]> source sql/createUser.sql;	
 ```
 
 #### Application Server
@@ -62,13 +62,13 @@ desired **URL** and press the **Attack** button.
 
 * **SQL Injection (SQLi)** to bypass authentication: 
 ```
-    password: ' OR 1 #
+password: ' OR 1 #
 ```
 
 * **Reflected Cross Site Scripting (XSS)**
 ```
-	username: <script>alert("XSS");</script>
-	password: xxx
+username: <script>alert("XSS");</script>
+password: xxx
 ```
 
 
@@ -78,7 +78,7 @@ desired **URL** and press the **Attack** button.
 
 * **Direct Object References**
 ```
-    http://localhost:8080/VulnerableWebApplication/table.jsp
+http://localhost:8080/VulnerableWebApplication/table.jsp
 ```
     
 
@@ -104,9 +104,9 @@ desired **URL** and press the **Attack** button.
 
 * **Reflected Cross Site Scripting (XSS)**
 ```
-   	FirstName: <script>alert("XSS");</script>
-   	LastName: <script>alert("XSS");</script>
-   	username: <script>alert("XSS");</script>
+FirstName: <script>alert("XSS");</script>
+LastName: <script>alert("XSS");</script>
+username: <script>alert("XSS");</script>
 ```
 
 
