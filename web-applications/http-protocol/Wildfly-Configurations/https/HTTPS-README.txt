@@ -7,7 +7,7 @@ How to configure a HTTPS connector?
 $ pwd
 /home/student/install/wildfly-10.1.0.Final/standalone/configuration
 
-$ keytool -genkeypair -keystore wildfly.keystore -storepass student -keypass student -keyalg RSA -alias wildfly -dname "cn=ims,o=fhj,c=at" 
+$ keytool -genkeypair -keystore wildfly.keystore -storepass student -keypass student -keyalg RSA -alias wildfly -dname "cn=se,o=lab,c=org"
  
 
 2. Configure Wildfly (standalone.xml)
