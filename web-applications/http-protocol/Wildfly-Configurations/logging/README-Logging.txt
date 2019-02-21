@@ -51,7 +51,7 @@ Here you can see the final settings:
             
  <!-- Add new logger BEGIN -->
             <logger category="org.se.lab">
-                <level name="DEBUG"/>l
+                <level name="DEBUG"/>
             </logger>
  <!-- Add new logger END -->
             
