@@ -121,3 +121,4 @@ The given class diagram provides an overview of the architectural
 patterns involved.
 
 
+*Egon Teiniker, 2019, GPL v3.0*
