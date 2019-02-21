@@ -16,8 +16,8 @@ Based on these examples, an inductive learning approach to architectural risk an
 * [Capture the Flag](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/exercises)
 
 See also: 
-[Secure Coding by Exampes](https://github.com/teiniker/teiniker-lectures-securecoding) and 
-[Secure Services by Examples](https://github.com/teiniker/teiniker-lectures-secureservices) 
+[Secure Coding by Exampe](https://github.com/teiniker/teiniker-lectures-securecoding) and 
+[Secure Services by Example](https://github.com/teiniker/teiniker-lectures-secureservices) 
 
 As a development environment, you can use a pre-configured Linux VM image:
 [Virtual Lab](https://drive.google.com/drive/folders/1AzsF4Mvh1HJ8k6OW5W5hQ5CF0HdqA51l)
