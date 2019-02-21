@@ -62,6 +62,13 @@ Note that this is only working if the Web application is using HTTP.
 With HTTPS we run into a Mixed content error => browser will block
 loading mixed active content.
 
+    BeEF Login: beef/beef
+
+    BeEF Commands:
+        - Raw JavaScript
+        - Create Alert Dialog
+        - Redirect
+
 
 How to fix these vulnerabilities?
 ---------------------------------------------------------------------
