@@ -102,12 +102,17 @@ http://localhost:8080/VulnerableWebApplication/table.jsp
 
 #### URL: http://localhost:8080/VulnerableWebApplication/table.jsp
 
-* **Reflected Cross Site Scripting (XSS)**
+* **Stored Cross Site Scripting (XSS)**
 ```
 FirstName: <script>alert("XSS");</script>
 LastName: <script>alert("XSS");</script>
 username: <script>alert("XSS");</script>
 ```
+
+* **Missing Input Validation**
+
+Try to enter mor than 255 characters for FirstName, LastName, and username...
+ 
 
 ### Architectural Decomposition
 
