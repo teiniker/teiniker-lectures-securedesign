@@ -62,7 +62,8 @@ desired **URL** and press the **Attack** button.
 
 * **SQL Injection (SQLi)** to bypass authentication: 
 ```
-password: ' OR 1 #
+username: student' #
+username: ' OR 1 #
 ```
 
 * **Reflected Cross Site Scripting (XSS)**
