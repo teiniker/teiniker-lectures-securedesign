@@ -20,10 +20,9 @@ public class HttpServer
 		
 	public static void main(String... ags)
 	{
-		ServerSocket server = null;
-		try
+
+		try(ServerSocket server = new ServerSocket(SERVER_PORT))
 		{
-			server = new ServerSocket(SERVER_PORT);
 			log("HTTP server is running...");
 			while (true)
 			{
@@ -36,18 +35,6 @@ public class HttpServer
 		catch (IOException e)
 		{
 			throw new IllegalStateException("Can't listen to port: " + SERVER_PORT);
-		}
-		finally
-		{
-			if(server != null)
-				try
-				{
-					server.close();
-				}
-				catch (IOException e)
-				{
-					throw new IllegalStateException("Can't close connection!");
-				}
 		}
 	}
 
