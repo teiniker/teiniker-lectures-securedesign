@@ -11,10 +11,8 @@ public class HttpServerThreadPerRequest
 
 	public static void main(String... ags)
 	{
-		ServerSocket server = null;
-		try
+		try(ServerSocket server = new ServerSocket(SERVER_PORT))
 		{
-			server = new ServerSocket(SERVER_PORT);
 			Logger.log("Server started...");
 			Logger.log(server.toString());
 
@@ -37,20 +35,6 @@ public class HttpServerThreadPerRequest
 		catch(IOException e)
 		{
 			throw new IllegalStateException("Can't handle connection!", e);
-		}
-		finally
-		{
-			if(server != null)
-			{
-				try
-				{
-					server.close();
-				}
-				catch (IOException e)
-				{
-					throw new IllegalStateException("Can't close server socket!", e);
-				}
-			}	
 		}
 	}
 }

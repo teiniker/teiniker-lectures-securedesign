@@ -13,7 +13,7 @@ public class HttpClientTest
 	private final static int PORT = 8080;
 
 	@Test
-	public void testPOSTRequest() throws UnknownHostException, IOException
+	public void testGETRequest() throws UnknownHostException, IOException
 	{
 		Socket socket = new Socket("localhost", PORT);
 //		socket.setSoTimeout(5000);

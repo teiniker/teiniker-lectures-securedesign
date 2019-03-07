@@ -14,32 +14,24 @@ import java.util.Date;
 
 public class HttpRequestHandler
 {
-	/*
-	 * Constructor
-	 */
+	private final String WEB_DIR;
+
 	public HttpRequestHandler(String webDirectory)
 	{
 		if(webDirectory == null)
 			throw new IllegalArgumentException();
-		this.webDirectory = webDirectory;
+		this.WEB_DIR = webDirectory;
 	}
 	
-	
-	/*
-	 * Property: webDirectory:String
-	 */
-	private final String webDirectory;
-	
-	
+
 	public void handleRequest(Socket connection)
 	{
-		Logger.log("[" + generateDate() + "]" + connection + " - thread id: " + Thread.currentThread().getId());
+		Logger.log(connection + " - thread id: " + Thread.currentThread().getId());
         try
         {
             OutputStream out = connection.getOutputStream();
             InputStream in = connection.getInputStream();
             handleRequest(in, out);
-            connection.close();
         }
         catch(IOException e)
         {
@@ -65,51 +57,76 @@ public class HttpRequestHandler
 	private void handleRequest(InputStream in, OutputStream out)
        throws IOException
 	{
-		Writer w = new OutputStreamWriter(out);
-        w.write(generateResponse("index.html"));
-        w.flush();
-	}
-	
-	private String generateResponse(String filename)
-       throws IOException
-	{
-		String page = readHtmlFile(filename);
 		StringBuilder buffer = new StringBuilder();
-		buffer.append(generateHeader(page.length()));
-		buffer.append(page);		
-		return buffer.toString();
+		while (true) {
+			int c = in.read();
+			if (c == '\r' || c == '\n' || c == -1)
+				break;
+			buffer.append((char) c);
+		}
+		Logger.log("request: " + buffer.toString());
+
+		String[] requestElements = buffer.toString().split(" ");
+		if (requestElements[0].equals("GET") && requestElements[2].startsWith("HTTP/1"))
+		{
+			String html = httpGet(requestElements[1]);
+			Writer w = new OutputStreamWriter(out);
+			w.write(httpHeader(html.length()));
+			w.write(html);
+			w.flush();
+		}
 	}
-	
-	private String generateHeader(int length)
-	{
-		StringBuilder buffer = new StringBuilder();
-		buffer.append("HTTP/1.1 200 OK\r\n");
-		buffer.append("Server: Apache-Coyote/1.1\r\n");
-		buffer.append("Content-Type: text/html;charset=ISO-8859-1\r\n");
-		buffer.append("Content-Length: ").append(length).append("\r\n");
-		buffer.append("Date: ").append(generateDate()).append("\r\n");
-		buffer.append("\r\n");
-		return buffer.toString();
-	}
-	
-	private String generateDate()
-	{
-		Date now = new Date();
-		return now.toString();
-	}
-	
-	private String readHtmlFile(String filename) 
-	    throws IOException
+
+    public String httpGet(String filename)
     {
-        File file = new File(webDirectory, filename);
-        StringBuilder buffer = new StringBuilder();
-        BufferedReader in = new BufferedReader(new FileReader(file));
-        String s;
-        while((s = in.readLine()) != null)
+        File file = new File(WEB_DIR, filename);
+        if(file.exists() && file.isFile())
         {
-            buffer.append(s).append("\n");
+            Logger.log("read: " + file);
+            return htmlFile(file);
         }
-        in.close();
+        else
+        {
+            Logger.log("file not found: " + file);
+            return htmlFile( new File(WEB_DIR, "error404.html"));
+        }
+    }
+
+
+    private String htmlFile(File file)
+    {
+        StringBuilder buffer = new StringBuilder();
+        try(BufferedReader in = new BufferedReader(new FileReader(file)))
+        {
+            String s;
+            while ((s = in.readLine()) != null)
+            {
+                buffer.append(s).append("\n");
+            }
+        }
+        catch(IOException e)
+        {
+            throw new IllegalStateException("Can't read file: " + file, e);
+        }
         return buffer.toString();
-	}
+    }
+
+
+    private String httpHeader(int length)
+    {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("HTTP/1.1 200 OK\r\n");
+        buffer.append("Server: Apache-Coyote/1.1\r\n");
+        buffer.append("Content-Type: text/html; charset=utf-8\r\n");
+        buffer.append("Content-Length: ").append(length).append("\r\n");
+        buffer.append("Date: ").append(timeStamp()).append("\r\n");
+        buffer.append("\r\n");
+        return buffer.toString();
+    }
+
+    private static String timeStamp()
+    {
+        Date now = new Date();
+        return now.toString();
+    }
 }
