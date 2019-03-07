@@ -19,6 +19,7 @@ public class LoginCommand
 		{
 			String username = req.getParameter("username");
 			String password = req.getParameter("password");
+
 			LOG.debug("process(\"" + username + "\")");
 
 			UserService service = factory.createUserService();
