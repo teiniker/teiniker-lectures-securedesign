@@ -11,8 +11,38 @@ In the default server configuration, the root-logger defines two handlers that
 are connected to CONSOLE and to the FILE handler.
 
 
+How to activate common logging?
+-------------------------------------------------------------------------------
+Add the marked line to the undertow subsystem in the standalone.xml
 
-How to change standalone.xml for a custom logger?
+<subsystem xmlns="urn:jboss:domain:undertow:6.0" default-server="default-server"
+    default-virtual-host="default-host" default-servlet-container="default"
+    default-security-domain="other">
+    <buffer-cache name="default"/>
+    <server name="default-server">
+        <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+        <https-listener name="https" socket-binding="https" security-realm="CertificateRealm" enable-http2="true"/>
+        <host name="default-host" alias="localhost">
+            <location name="/" handler="welcome-content"/>
+            <access-log pattern="common" directory="${jboss.home.dir}/standalone/log" prefix="access"/>  !!!!!
+            <http-invoker security-realm="ApplicationRealm"/>
+        </host>
+    ...
+</subsystem>
+
+The following configuration forces Wildfy to use the common log format and write a
+logfile with the prefix "access" into the standalone/log directory:
+
+    <access-log pattern="common" directory="${jboss.home.dir}/standalone/log" prefix="access"/>
+
+Here are some example log sines from the accesslog file:
+127.0.0.1 - - [21/Mar/2019:17:04:05 +0100] "GET /Servlet-SimpleLogin/ HTTP/1.1" 200 1168
+127.0.0.1 - - [21/Mar/2019:17:04:06 +0100] "GET /favicon.ico HTTP/1.1" 200 1150
+127.0.0.1 - - [21/Mar/2019:17:04:13 +0100] "POST /Servlet-SimpleLogin/controller HTTP/1.1" 200 126
+127.0.0.1 - - [21/Mar/2019:17:04:37 +0100] "POST /Servlet-SimpleLogin/controller HTTP/1.1" 200 160
+
+
+How to change standalone.xml for a custom application logger?
 -------------------------------------------------------------------------------
 
 1) We add a new logger which is related to the package "org.se.lab" because we
