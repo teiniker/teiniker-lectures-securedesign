@@ -14,20 +14,19 @@ public class HttpServerSingleThreaded
 		try(ServerSocket server = new ServerSocket(SERVER_PORT))
 		{
 			Logger.log("Server started...");
-			Logger.log(server.toString());
-			
+
 			while (true)
 			{
 				Socket connection = server.accept(); // wait for a connection
-
+				Logger.log(connection.toString());
 				HttpRequestHandler handler = new HttpRequestHandler(WEB_DIR);
-				handler.handleRequest(connection);
-				connection.close();
+				handler.handleRequest(connection.getInputStream(), connection.getOutputStream());
+                connection.close();
 			}
 		} 
 		catch(IOException e)
 		{
 			throw new IllegalStateException("Can't handle connection!", e);
 		}
-	}
+    }
 }

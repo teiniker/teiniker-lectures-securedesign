@@ -27,9 +27,16 @@ public class HttpServerThreadPool
 				Runnable task = new Runnable()
 				{
 					public void run()
-					{						
-						HttpRequestHandler handler = new HttpRequestHandler(WEB_DIR);
-						handler.handleRequest(connection);						
+					{
+						try
+						{
+							HttpRequestHandler handler = new HttpRequestHandler(WEB_DIR);
+							handler.handleRequest(connection.getInputStream(), connection.getOutputStream());
+						}
+						catch(IOException e)
+						{
+							throw new IllegalStateException("Can't handle request!", e);
+						}
 					}
 				};
 				exec.execute(task);
