@@ -8,7 +8,9 @@ Start the server on the command line:
 
 	$ java -cp ./target/classes org.se.lab.HttpServerSingleThreaded
 
-Execute the test class "HttpClientTest" to send a client request.
+Execute the curl command to send a client request:
+
+$ curl -i -X GET http://localhost:8080/index.html
 
 
 1. One Thread per Request Strategy
