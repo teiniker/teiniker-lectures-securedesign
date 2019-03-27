@@ -21,10 +21,11 @@ public class HttpRequestHandler
 	{
 	    try
         {
+            InputStream input = new BufferedInputStream(in);
             StringBuilder buffer = new StringBuilder();
             while (true)
             {
-                int c = in.read();
+                int c = input.read();
                 if (c == '\r' || c == '\n' || c == -1)
                     break;
                 buffer.append((char) c);
