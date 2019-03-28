@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>Servlet Simple Login Example</title>
+	</head>
+	
+	<body>
+		<h2>Login: </h2>		
+		<form method="post" action="controller" >
+			<table border="1" >
+				<colgroup>
+					<col width="200"> <col width="200">
+				</colgroup>
+				<tr>
+					<th align="left"> 
+						Username 
+					</th>
+					<th align="left">  
+						<input type="text" name="username" maxlength="40" size="20"> <br>
+					</th>
+				</tr>
+				
+				<tr>
+					<th align="left"> 
+						Password 
+					</th>
+					<th align="left">  
+						<input type="password" name="password" maxlength="40" size="20">
+					</th>
+				</tr>
+
+				<tr>
+					<th align="left">  
+						Usergroup
+					</th>
+					<th>  
+						<select name="usergroup">
+							<option> Guest
+							<option> User
+							<option> Administrator
+						</select>			
+					</th>
+				</tr>
+			</table>			
+			
+			<table >
+				<colgroup>
+					<col width="150"> <col width="50"> <col width="150">
+				</colgroup>
+				<tr>
+					<th>
+						<input type="reset"  name="action" value="Reset">  
+					</th>
+					<th/>  
+					<th>  
+						<input type="submit" name="action" value="Login">
+					</th>
+				</tr>	
+			</table>
+		</form>
+	</body>
+</html>
