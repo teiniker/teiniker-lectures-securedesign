@@ -63,7 +63,7 @@ public class LogFilter implements Filter
 		log.append(in.getRemoteHost());
 		log.append(" -"); // username
 		log.append(" - "); // auth-username
-		log.append(formater.format(now));
+		log.append('[').append(formater.format(now)).append(']');
 		log.append(" \"").append(in.getMethod()).append(" ");
 		log.append(in.getRequestURI());
 		
