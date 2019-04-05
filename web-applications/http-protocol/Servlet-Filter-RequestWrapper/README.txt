@@ -10,3 +10,7 @@ Servlet.
 This class implements the Wrapper or Decorator pattern.
 Methods default to calling through to the wrapped request object.
 
+java.lang.Object getAttribute(java.lang.String name)
+The default behavior of this method is to call getAttribute(String name) on the
+wrapped request object.
+
