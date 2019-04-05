@@ -39,8 +39,8 @@ public class ResponseFilter implements Filter
 	}
 
 	
-	public void doFilter(ServletRequest request, ServletResponse response,
-			FilterChain chain) throws IOException, ServletException
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException
 	{
 		LOG.debug("doFilter()");
 		
