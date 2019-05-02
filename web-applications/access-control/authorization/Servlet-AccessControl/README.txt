@@ -8,7 +8,7 @@ How to access the Web application?
 URL: https://localhost:8443/Servlet-AccessControl/
 
 student as user
-teacher as admin
+admin as admin
 
 
 How to configure access control in the Web application?
