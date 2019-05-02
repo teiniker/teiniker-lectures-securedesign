@@ -8,10 +8,128 @@ The default implementation of the declarative security model is based on Java
 Authentication and Authorization Service (JAAS) login modules ans subjects.
 
 
+How to Access the Web Application from a Browser?
+-------------------------------------------------------------------------------
+
+URL: http://localhost:8080/Wildfly-Authentication-FormBased/
+
+
+
+Interaction between a client and the application
+-------------------------------------------------------------------------------
+
+GET /Wildfly-Authentication-FormBased/ HTTP/1.1
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: close
+
+
+HTTP/1.1 302 Found
+Connection: close
+Location: https://localhost:8443/Wildfly-Authentication-FormBased/
+Content-Length: 0
+Date: Thu, 25 Apr 2019 15:07:49 GMT
+
+
+
+GET /Wildfly-Authentication-FormBased/ HTTP/1.1
+Host: localhost:8443
+User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: close
+
+
+HTTP/1.1 200 OK
+Set-Cookie: JSESSIONID=SmvqzauUuavrfTJmjt65MSXMK8HVqD6bMB_K-B1Z.localhost; path=/Wildfly-Authentication-FormBased
+Date: Thu, 25 Apr 2019 15:08:24 GMT
+Connection: close
+Last-Modified: Thu, 25 Apr 2019 15:05:10 GMT
+Content-Type: text/html
+Content-Length: 910
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Login Form</title>
+</head>
+<body>
+	<h2>Login: </h2>
+	<form method="post" action="j_security_check" >
+		...
+		<input type="text" name="j_username" size="20">
+		<input type="password" name="j_password" size="20">
+		<input type="submit" name="action" value="Login">
+		...
+	</form>
+</body>
+</html>
+
+
+
+POST /Wildfly-Authentication-FormBased/j_security_check HTTP/1.1
+Host: localhost:8443
+User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: https://localhost:8443/Wildfly-Authentication-FormBased/
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 50
+Cookie: JSESSIONID=SmvqzauUuavrfTJmjt65MSXMK8HVqD6bMB_K-B1Z.localhost
+Connection: close
+
+j_username=student&j_password=student&action=Login
+
+
+HTTP/1.1 302 Found
+Connection: close
+Set-Cookie: JSESSIONID=p0URKOnrkpp_Mq8duvlYRg5I74y4WAQol_D0veGo.localhost; path=/Wildfly-Authentication-FormBased
+Location: https://localhost:8443/Wildfly-Authentication-FormBased/index.html
+Content-Length: 0
+Date: Thu, 25 Apr 2019 15:09:43 GMT
+
+
+
+GET /Wildfly-Authentication-FormBased/index.html HTTP/1.1
+Host: localhost:8443
+User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Referer: https://localhost:8443/Wildfly-Authentication-FormBased/
+Cookie: JSESSIONID=p0URKOnrkpp_Mq8duvlYRg5I74y4WAQol_D0veGo.localhost
+Connection: close
+
+
+HTTP/1.1 200 OK
+Date: Thu, 25 Apr 2019 15:09:43 GMT
+Connection: close
+Last-Modified: Tue, 13 Nov 2018 11:20:02 GMT
+Content-Type: text/html
+Content-Length: 220
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Servlet Authentication Example</title>
+</head>
+<body>
+	<h2>Welcome!</h2>
+</body>
+</html>
+
+
+
+
 How to Generate ApplicationRealm Credentials for Wildfly AS?
 -------------------------------------------------------------------------------
 
-$ cd /home/student/install/wildfly-10.1.0.Final/
+$ cd /home/student/install/wildfly-13.0.0.Final/
 
 $ bin/add-user.sh 
 What type of user do you wish to add? 
@@ -162,10 +280,5 @@ see error.html
 We can also create a page named index.html that contains the main page of the 
 application. This page is shown if your authentication is successful. 
 
-
-How to Access the Web Application from a Browser?
--------------------------------------------------------------------------------
-
-URL: http://localhost:8080/Wildfly-Authentication-FormBased/
 
 
