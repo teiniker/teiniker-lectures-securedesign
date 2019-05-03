@@ -12,8 +12,6 @@
 		<web-resource-collection>
 			<web-resource-name>public</web-resource-name>
 			<url-pattern>/public/*</url-pattern>
-			<http-method>GET</http-method>
-			<http-method>POST</http-method>
 		</web-resource-collection>
 		<!-- <auth-constraint> -->
 		<user-data-constraint>
@@ -21,29 +19,10 @@
 		</user-data-constraint>
 	</security-constraint>
 
-  
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>user</web-resource-name>
 			<url-pattern>/user/*</url-pattern>
-			<http-method>GET</http-method>
-			<http-method>POST</http-method>
-		</web-resource-collection>
-		<auth-constraint>
-			<role-name>user</role-name>
-		</auth-constraint>
-		<user-data-constraint>
-			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
-		</user-data-constraint>
-	</security-constraint>
-  
-  
-	<security-constraint>
-		<web-resource-collection>
-			<web-resource-name>user</web-resource-name>
-			<url-pattern>/user/*</url-pattern>
-			<http-method>GET</http-method>
-			<http-method>POST</http-method>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>user</role-name>
@@ -57,8 +36,6 @@
 		<web-resource-collection>
 			<web-resource-name>admin</web-resource-name>
 			<url-pattern>/admin/*</url-pattern>
-			<http-method>GET</http-method>
-			<http-method>POST</http-method>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>admin</role-name>
