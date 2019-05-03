@@ -27,7 +27,7 @@ $ keytool -genkeypair -keystore wildfly.keystore -storepass student -keypass stu
 		...
 	</management>
 	
- 	<subsystem xmlns="urn:jboss:domain:undertow:3.0">
+ 	<subsystem xmlns="urn:jboss:domain:undertow:6.0">
         <buffer-cache name="default"/>
         <server name="default-server">
             <http-listener name="default" socket-binding="http" redirect-socket="https"/>
