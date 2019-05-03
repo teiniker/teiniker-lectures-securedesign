@@ -67,8 +67,7 @@ public class ControllerServlet extends HttpServlet
         	LOG.info("> add " + product);
             if(session != null)
             {
-            	@SuppressWarnings("unchecked")
-				List<Product> cart = (List<Product>)session.getAttribute("cart");
+            	List<Product> cart = (List<Product>)session.getAttribute("cart");
 	            if(cart != null)
 	            {
 	            	cart.add(product);
