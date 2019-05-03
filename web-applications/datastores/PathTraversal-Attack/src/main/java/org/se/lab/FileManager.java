@@ -27,26 +27,27 @@ public class FileManager
 	private static final String FILENAME_REGEX = "^[a-zA-Z0-9 ]{1,25}\\.?[a-zA-Z0-9]{0,3}$"; 
 	private final Pattern FILENAME_PATTERN = Pattern.compile(FILENAME_REGEX);
 		
-	public String readFile(final String name) 
-		throws IOException
+	public String readFile(final String name)
 	{
-		if(name == null)
+		if (name == null)
 			throw new IllegalArgumentException();
-		if(!FILENAME_PATTERN.matcher(Normalizer.normalize(name, Form.NFKC)).matches())
+		if (!FILENAME_PATTERN.matcher(Normalizer.normalize(name, Form.NFKC)).matches())
 			throw new IllegalArgumentException("Invalid file name: " + name);
-			
+
 		File file = new File(BASE_DIRECTORY, name);
-		FileReader fileReader = new FileReader(file);
-		BufferedReader in = new BufferedReader(fileReader);
-
-		StringBuilder buffer = new StringBuilder();
-		String line;
-		while ((line = in.readLine()) != null)
+		try (BufferedReader in = new BufferedReader(new FileReader(file)))
 		{
-			buffer.append(line).append("\n");
+			StringBuilder buffer = new StringBuilder();
+			String line;
+			while ((line = in.readLine()) != null)
+			{
+				buffer.append(line).append("\n");
+			}
+			return buffer.toString();
 		}
-		in.close();
-
-		return buffer.toString();
+		catch (IOException e)
+		{
+			throw new IllegalStateException("Can't access file " + name, e);
+		}
 	}
 }
