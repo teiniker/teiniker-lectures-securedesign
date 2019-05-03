@@ -48,7 +48,7 @@ public class PasswordEncrypter
 	
 	private byte[] encryptPasswordWithSalt(byte[] password, byte[] salt)
 	{
-		// hash = MessageDigest(password+salt
+		// hash = MessageDigest(salt+password)
 		try
 		{
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
