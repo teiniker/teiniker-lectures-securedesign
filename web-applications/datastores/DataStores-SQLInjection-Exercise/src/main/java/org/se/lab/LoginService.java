@@ -11,7 +11,7 @@ public class LoginService
 {
 	private final static Logger LOG = Logger.getLogger(LoginService.class);
 	
-    public boolean login(Connection c, String username, String password)
+    public boolean login(Connection connection, String username, String password)
     {
         final String SQL 
         		= "SELECT id FROM User WHERE username ='" 
@@ -20,31 +20,15 @@ public class LoginService
                 + password + "'";
         LOG.info("SQL> " + SQL);
 
-        Statement stmt = null;
-        ResultSet rs = null;
-        try
+
+        try(Statement stmt = connection.createStatement())
         {
-            stmt = c.createStatement();
-            rs = stmt.executeQuery(SQL);
+            ResultSet rs = stmt.executeQuery(SQL);
             return rs.next();
         } 
         catch (SQLException e)
         {
             return false;
         } 
-        finally
-        {
-        	try
-        	{
-        		if (rs != null)
-        			rs.close();
-        		if (stmt != null)
-        			stmt.close();
-        	}
-        	catch(SQLException e)
-        	{
-        		return false;
-        	}
-        }
     }
 }
