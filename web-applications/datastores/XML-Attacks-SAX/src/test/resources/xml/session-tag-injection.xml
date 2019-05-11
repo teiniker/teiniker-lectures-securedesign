@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<SessionRoot>
+    <Sessions>
+        <Session id="one" valid="true" hack="true"/>
+        <Session id="two" valid="false" />
+    </Sessions>    
+    <Hack>
+    	<blackhack id="666" />
+    </Hack>
+</SessionRoot>

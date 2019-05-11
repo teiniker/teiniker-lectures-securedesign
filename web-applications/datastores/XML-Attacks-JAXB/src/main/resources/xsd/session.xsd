@@ -1,0 +1,36 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+
+
+	<xsd:element name="SessionRoot" type="SessionRootType" />
+
+	<xsd:complexType name="SessionType">
+		<xsd:sequence />
+		<xsd:attribute name="id" type="xsd:string" use="required" />
+		<xsd:attribute name="valid" type="xsd:boolean" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="SessionRootType">
+		<xsd:sequence>
+			<xsd:element name="Sessions" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Session" type="SessionType" minOccurs="0" maxOccurs="unbounded" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="Item">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="description" type="xsd:string" />
+				<xsd:element name="price" type="xsd:decimal" />
+				<xsd:element name="quantity" type="xsd:integer" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>
+
