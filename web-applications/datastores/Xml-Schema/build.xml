@@ -1,0 +1,28 @@
+<project name="xml-validation" default="validate">
+
+	<property name="src" location="xml" />
+
+	<target name="validate">
+		<schemavalidate file="${src}/Address.xml" />
+		
+		<schemavalidate file="${src}/AddressOccurrenceConstraints.xml" />
+		
+		<schemavalidate file="${src}/AddressAll.xml" />
+
+		<schemavalidate file="${src}/GlobalElementsAddress.xml" />
+		<schemavalidate file="${src}/GlobalElementsOrder.xml" />
+
+		<schemavalidate file="${src}/AddressQualified.xml" />
+		<schemavalidate file="${src}/AddressUnqualified.xml" />
+
+		<schemavalidate file="${src}/AddressNoNamespace.xml" />
+	
+		<schemavalidate file="${src}/AddressExtension.xml" />
+	
+		<schemavalidate file="${src}/AddressRestriction.xml" />
+		
+		<schemavalidate file="${src}/AddressListType.xml" />
+		
+		<schemavalidate file="${src}/AddressAnonymousType.xml" />
+	</target>
+</project>	

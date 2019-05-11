@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:fhj="http://fhj.at"
+	targetNamespace="http://fhj.at"
+	elementFormDefault="qualified">
+	
+	<xsd:element name="address" type="fhj:AddressType"/>
+
+	<xsd:simpleType name="ZipType">
+		<xsd:restriction base="xsd:int"> 
+			<xsd:minInclusive value="8000"></xsd:minInclusive>
+			<xsd:maxInclusive value="8999"></xsd:maxInclusive>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="AddressType">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="street" type="xsd:string"/>
+			<xsd:element name="city" type="xsd:string"/>
+			<xsd:element name="zip" type="fhj:ZipType"/>
+			<xsd:element name="description" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attribute name="country" type="xsd:string"/>
+	</xsd:complexType>
+
+</xsd:schema>

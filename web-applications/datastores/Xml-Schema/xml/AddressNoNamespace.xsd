@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<xsd:element name="address" type="AddressType"/>
+	
+	<xsd:complexType name="AddressType">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="street" type="xsd:string"/>
+			<xsd:element name="city" type="xsd:string"/>
+			<xsd:element name="zip" type="xsd:int"/>
+			<xsd:element name="description" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attribute name="country" type="xsd:string"/>
+	</xsd:complexType>
+
+</xsd:schema>

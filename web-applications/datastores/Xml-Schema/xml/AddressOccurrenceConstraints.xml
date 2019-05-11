@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<fhj:address 
+	xmlns:fhj="http://fhj.at"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fhj.at AddressOccurrenceConstraints.xsd"
+	country="Austria">
+		
+	<fhj:name>FH Joanneum</fhj:name>
+	<fhj:street>Werk-VI-Strasse 46</fhj:street>
+	<fhj:zip>8605</fhj:zip>
+	<fhj:description>Department ITM:</fhj:description>
+	<fhj:description>Department SWD:</fhj:description>
+	<fhj:description>Department ASE:</fhj:description>
+	
+</fhj:address>	
+	

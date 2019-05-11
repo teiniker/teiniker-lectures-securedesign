@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<fhj:address 
+	xmlns:fhj="http://fhj.at"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fhj.at AddressUnqualified.xsd"
+	country="Austria">
+				
+	<name>FH Joanneum</name>
+	<street>Werk-VI-Strasse 46</street>
+	<city>Kapfenberg</city>
+	<zip>8605</zip>	
+	<description>Department ITM:</description>
+	
+</fhj:address>	
+	

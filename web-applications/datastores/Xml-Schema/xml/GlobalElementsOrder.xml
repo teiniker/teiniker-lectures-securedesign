@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<fhj:order
+	xmlns:fhj="http://fhj.at"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://fhj.at GlobalElements.xsd">	
+	<fhj:name>Book</fhj:name>
+	<fhj:shipAddress country="Austria">
+		<fhj:name>FH Joanneum</fhj:name>
+		<fhj:street>Werk-VI-Strasse 46</fhj:street>
+		<fhj:city>Kapfenberg</fhj:city>
+		<fhj:zip>8605</fhj:zip>	
+		<fhj:description>Department ITM:</fhj:description>	
+	</fhj:shipAddress>
+	<fhj:billAddress country="Austria">
+		<fhj:name>FH Joanneum</fhj:name>
+		<fhj:street>Werk-VI-Strasse 46</fhj:street>
+		<fhj:city>Kapfenberg</fhj:city>
+		<fhj:zip>8605</fhj:zip>	
+		<fhj:description>Department ITM:</fhj:description>	
+	</fhj:billAddress>
+	<fhj:orderDate>2007-06-08</fhj:orderDate>
+	<fhj:total>98.55</fhj:total>
+</fhj:order>	

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<address 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="AddressNoNamespace.xsd"
+	country="Austria">
+		
+	<name>FH Joanneum</name>
+	<street>Werk-VI-Strasse 46</street>
+	<city>Kapfenberg</city>
+	<zip>8605</zip>	
+	<description>Department ITM:</description>
+	
+</address>	
+	
