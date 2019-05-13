@@ -1,7 +1,7 @@
 How to access the Servlet?
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/Servlet-Filter-RequestWrapper/
+URL: http://localhost:8080/Servlet-Filter-PasswortEncryption/
 
 
 The ServletRequestWrapper provides a convenient implementation of the ServletRequest
