@@ -30,6 +30,13 @@ public class SAXParserAttack
         parser.parse("src/test/resources/xml/session-tag-injection.xml", new SAXPrinter());
     }
 
+    @Test
+    public void testTagOverriding() // a.k.a XML Injection Attack
+            throws ParserConfigurationException, SAXException, IOException
+    {
+        SAXParser parser = factory.newSAXParser();
+        parser.parse("src/test/resources/xml/item-tag-overriding.xml", new SAXPrinter());
+    }
 
     @Test
     public void testExternalEntityVulnerability()
