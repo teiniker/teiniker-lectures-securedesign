@@ -37,16 +37,3 @@ http://localhost:8080/http://localhost:8080/Servlet-Filter-PasswordEncryption-Ex
 
 Note that the pre-calculated hash values are already stored in the "LoginServiceImpl"
 class.
-
-
-The small print
----------------
-Don't forget to replace MyName with your name, otherwise you get only 50% of
-your points... 
-
-Tip: Implement the missing parts first and right before you export the project,
-    rename it. 
- 
-Also note that grading is based on a code review, thus, a running test doesn't
-automatically mean that you get all points.
-	
