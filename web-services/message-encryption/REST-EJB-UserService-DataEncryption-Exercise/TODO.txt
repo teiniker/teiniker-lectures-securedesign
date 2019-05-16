@@ -1,0 +1,44 @@
+Exercise: Message Data Encryption
+-------------------------------------------------------------------------------
+
+1. Use a symmetric block cipher to encrypt the message elements <username> and
+	<password> 
+
+	You reuse code from the SymmetricBlockCipherTest class.
+
+	Tip: Implement the encryption and de-cryption logic.
+
+	Tip: Use system properties to set key and iv values for the Web service.
+
+	
+
+2. Change the UserServiceXMLTest class to validate against the encrypted data
+	elements.
+
+	Tip: Read the key and iv values from the rest.properties file.
+	
+
+Note that in this approach both client and Web service have to know the valid
+key and iv values.
+
+
+How to use system properties in Wildfly?
+-------------------------------------------------------------------------------
+
+standalone.xml:
+
+	 <extensions>
+	 ...
+	 </extensions>
+
+	<system-properties>
+        <property name="encryption.key" value="78dac5d9619a3a10bcab780ecc3f00a6"/>
+        <property name="encryption.iv" value="cbfd3ac00c3019a0ae62658dc1dcaabf"/>
+	</system-properties>
+
+Java code:
+
+		String key = System.getProperty("encryption.key");
+		String iv = System.getProperty("encryption.iv");	
+		
+		

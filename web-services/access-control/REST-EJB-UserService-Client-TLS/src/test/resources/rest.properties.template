@@ -1,0 +1,19 @@
+# AF Gateway REST server settings
+#rest.host=10.26.2.47
+rest.host=localhost
+rest.port=8543
+rest.username=student
+rest.password=student
+
+ssl.trustStore=C:/install/wildfly-8.1.0.Final/standalone/configuration/wildfly.keystore
+ssl.trustStorePassword=student
+
+
+# Optional proxy settings
+# For example, we can use BurpSuite as an intercepting proxy:
+# java -jar burpsuite_free_v1.5.jar
+# 	Tab Proxy:
+#		Options: Interface = true	127.0.0.1:8040
+#	 	Intercept: Forward...
+#proxy.address=127.0.0.1
+#proxy.port=8010

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<servlet>
+		<servlet-name>Resteasy</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Resteasy</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	<context-param>
+		<param-name>javax.ws.rs.Application</param-name>
+		<param-value>org.se.lab.service.RESTApplication</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>resteasy.role.based.security</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+
+	<security-role>
+		<role-name>*</role-name>
+	</security-role>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>annotated resources</web-resource-name>
+			<url-pattern>/v1/*</url-pattern>
+		</web-resource-collection>
+		<!-- turn off TLS (for testing only) 
+		<user-data-constraint> 
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee> 
+		</user-data-constraint> 
+		-->
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>ApplicationRealm</realm-name>
+	</login-config>
+</web-app>

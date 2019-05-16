@@ -1,0 +1,114 @@
+Exercise: Message Data Encryption
+-------------------------------------------------------------------------------
+
+1. Use a symmetric block cipher to encrypt the message elements <username> and
+	<password> 
+
+	You reuse code from the SymmetricBlockCipherTest class.
+
+	Tip: Implement the encryption and de-cryption logic.
+
+	Tip: Use system properties to set key and iv values for the Web service.
+
+	
+
+2. Change the UserServiceXMLTest class to validate against the encrypted data
+	elements.
+
+	Tip: Read the key and iv values from the rest.properties file.
+	
+
+Note that in this approach both client and Web service have to know the valid
+key and iv values.
+
+
+
+How to access the Web service from SoupUI?
+-------------------------------------------------------------------------------
+
+URL: http://localhost:8080/REST-EJB-UserService-DataEncryption/v1/users
+
+
+
+How to use system properties in Wildfly?
+-------------------------------------------------------------------------------
+
+standalone.xml:
+
+	 <extensions>
+	 ...
+	 </extensions>
+
+	<system-properties>
+        <property name="encryption.key" value="78dac5d9619a3a10bcab780ecc3f00a6"/>
+        <property name="encryption.iv" value="cbfd3ac00c3019a0ae62658dc1dcaabf"/>
+	</system-properties>
+
+Java code:
+
+		String key = System.getProperty("encryption.key");
+		String iv = System.getProperty("encryption.iv");	
+		
+
+How to implement the solution?
+-------------------------------------------------------------------------------
+
+o) Refactor SymmetricBlockCipherTest
+	
+o) Change UserDTO
+	Add encryption / decryption to converter methods UserDTO <=> User
+	
+o) UserResourceEJB
+	make sure you convert UserDTO <=> User		
+
+
+How to test the solution?
+-------------------------------------------------------------------------------
+	
+FindAll:
+- insert test data via SQL
+GET /REST-EJB-UserService-DataEncryption/v1/users
+application/xml
+
+<collection>
+   <user id="1">
+      <username>b8f4e2706e</username>
+      <password>b9f1cb2d6d6c3c306ff4d4bcf1bc9da102a06a5ee40eee636304308e</password>
+   </user>
+   <user id="2">
+      <username>bdfafd7279</username>
+      <password>a8d8dc604c4d3a6068acd4faed98e2fb0de17f50e762e76a431f0e8e</password>
+   </user>
+   <user id="3">
+      <username>b2fafd61</username>
+      <password>9ce8bb7f575074150ffce989e3a482a832c46e5cd71fe7735e47068e</password>
+   </user>
+   <user id="4">
+      <username>bcf2fc74</username>
+      <password>a8d4bf40286e051c0cdcaaadd1eaf5fd15e6585b8419e1694f31638e</password>
+   </user>
+</collection>	
+
+
+FindById
+GET /REST-EJB-UserService-DataEncryption/v1/users/2
+application/xml
+
+<user id="2">
+   <username>bdfafd7279</username>
+   <password>a8d8dc604c4d3a6068acd4faed98e2fb0de17f50e762e76a431f0e8e</password>
+</user>
+	
+Insert
+
+POST /REST-EJB-UserService-DataEncryption/v1/users/2
+application/xml
+<user id="">
+    <username>b8f4e2706e</username>
+	<password>b9f1cb2d6d6c3c306ff4d4bcf1bc9da102a06a5ee40eee636304308e</password>
+</user>
+	
+- select * from user;
+|  5 | homer    | ijD8qepbRnIsva0kx0cKRCcYysg= |
+	
+	

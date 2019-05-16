@@ -1,0 +1,2 @@
+http://student:student@localhost:8080/SOAP-EJB-UserService-BasicAuth/UserService?wsdl
+

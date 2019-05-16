@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.se.lab</groupId>
+	<artifactId>REST-EJB-UserService-DataSigning-Exercise</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- JBoss dependency versions -->
+		<version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
+		<version.jboss.spec.javaee.7.0>1.0.0.Final</version.jboss.spec.javaee.7.0>
+		<version.war.plugin>2.1.1</version.war.plugin>
+
+		<!-- maven-compiler-plugin -->
+		<version.compiler.plugin>3.1</version.compiler.plugin>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${version.war.plugin}</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${version.compiler.plugin}</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Define the version of JBoss' Java EE 7 APIs we want to import. Any 
+				dependencies from org.jboss.spec will have their version defined by this 
+				BOM -->
+			<dependency>
+				<groupId>org.jboss.spec</groupId>
+				<artifactId>jboss-javaee-7.0</artifactId>
+				<version>${version.jboss.spec.javaee.7.0}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.34</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Import the CDI API, we use provided scope as the API is included in 
+			JBoss WildFly -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Import the Common Annotations API (JSR-250), we use provided scope 
+			as the API is included in JBoss WildFly -->
+		<dependency>
+			<groupId>org.jboss.spec.javax.annotation</groupId>
+			<artifactId>jboss-annotations-api_1.2_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Import the JAX-RS API, we use provided scope as the API is included 
+			in JBoss WildFly -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>jaxrs-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Import the JSON API to build JSON Objects -->
+		<dependency>
+			<groupId>org.jboss.spec.javax.json</groupId>
+			<artifactId>jboss-json-api_1.0_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Import the EJB API -->
+		<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.2_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Import the JPA API -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+	</dependencies>
+</project>
