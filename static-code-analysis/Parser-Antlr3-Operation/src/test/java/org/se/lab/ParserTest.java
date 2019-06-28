@@ -26,15 +26,15 @@ public class ParserTest
 		OperationParser parser = new OperationParser(tokens);
 		op = parser.prog();
 	}
-	
-   @Test
-    public void testVisitor()
-    {
-        TreeVisitor visitor = new TreeVisitor();
-        visitor.visit(op);
-    }
-	
+
 	@Test
+	public void testVisitor()
+	{
+		TreeVisitor visitor = new TreeVisitor();
+		visitor.visit(op);
+	}
+
+ 	@Test
 	public void testOperation()
 	{
 		Assert.assertEquals("pow", op.getName());

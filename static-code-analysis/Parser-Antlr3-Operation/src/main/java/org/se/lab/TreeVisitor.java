@@ -6,7 +6,7 @@ import java.util.List;
 public class TreeVisitor
 {
 	private static List<String> keywords = Arrays.asList(
-			"void", "char", "short", "int", "long", "float", "double");
+			"void", "char", "short", "int", "long", "float", "double", "if");
 	
 	
 	public void visit(MOperation op)

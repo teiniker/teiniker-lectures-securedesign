@@ -1,6 +1,6 @@
 /*
- * source.c
+ * source.h
  *
  */
  
-double pow(double base, double exp);
+double if(double base, double exp);

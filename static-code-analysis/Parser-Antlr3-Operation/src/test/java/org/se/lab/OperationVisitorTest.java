@@ -11,7 +11,7 @@ public class OperationVisitorTest
 	@Before
 	public void setup()
 	{
-		op = new MOperation("pow", new MType("double"));
+		op = new MOperation("int", new MType("double"));
 		
 		MParameter p1 = new MParameter("base", new MType("double"));
 		MParameter p2 = new MParameter("exp", new MType("double"));
