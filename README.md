@@ -5,15 +5,16 @@ Based on these examples, an inductive learning approach to architectural risk an
 
 * [Architectural Risk Analysis](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/risk-analysis)
   
+* [HTTP-Protocol](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/http-protocol)
+
 * Web Applications
-  * [HTTP-Protocol](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/http-protocol)
   * [Client-Side Controls](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/client-side-controls)
   * [Access Control](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/access-control)
   * [Datastores](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/datastores)
   * [XSS Prevention](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/xss-prevention)
   * [CSRF Prevention](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/csrf-prevention)
   
-* [Capture the Flag](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/exercises)
+* [Capture the Flag](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/exercises)
 
 See also: 
 [Secure Coding by Exampe](https://github.com/teiniker/teiniker-lectures-securecoding) 
