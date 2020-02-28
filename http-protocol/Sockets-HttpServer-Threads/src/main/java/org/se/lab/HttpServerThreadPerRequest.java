@@ -28,6 +28,7 @@ public class HttpServerThreadPerRequest
 						{
 							HttpRequestHandler handler = new HttpRequestHandler(WEB_DIR);
 							handler.handleRequest(connection.getInputStream(), connection.getOutputStream());
+							Logger.log("Thread id: " + Thread.currentThread().getId());
 						}
 						catch(IOException e)
 						{
