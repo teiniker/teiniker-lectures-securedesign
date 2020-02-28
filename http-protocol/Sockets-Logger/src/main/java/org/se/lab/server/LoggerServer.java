@@ -20,11 +20,9 @@ public class LoggerServer
 	{
 		System.out.println("Starting server..");
 		writeToFile("[" + FORMATTER.format(new Date()) + "]" + " Logging server started...");
-		
-		ServerSocket server = null;
-		try
+
+		try(ServerSocket server = new ServerSocket(8080))
 		{
-			server = new ServerSocket(8080);
 			while (true)
 			{
 				Socket connection = server.accept(); // wait for a connection
@@ -60,18 +58,6 @@ public class LoggerServer
 		catch (IOException e)
 		{
 			throw new IllegalStateException("Can't create a socket!", e);
-		}
-		finally
-		{
-			if(server != null)
-				try
-				{
-					server.close();
-				}
-				catch (IOException e)
-				{
-					throw new IllegalStateException("Can't close the socket!", e);
-				}
 		}
 	}
 
