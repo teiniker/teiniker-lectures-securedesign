@@ -30,10 +30,8 @@ public class DaytimeServer
 	{
 		System.out.print("Starting server..");
 
-		ServerSocket server = null;
-		try
+		try(ServerSocket server = new ServerSocket(9013))
 		{
-			server = new ServerSocket(9013);
 			Socket connection = null;
 			System.out.println("..done");
 			while (true)
@@ -62,19 +60,6 @@ public class DaytimeServer
 		catch (IOException e)
 		{
 			throw new IllegalStateException("Can't create a socket!", e);
-		}
-		finally
-		{
-			if(server != null)
-			{
-				try
-				{
-					server.close();
-				} catch (IOException e)
-				{
-					throw new IllegalStateException("Can't close the socket connection!", e);
-				}
-			}
 		}
 	}
 }
