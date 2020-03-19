@@ -5,11 +5,16 @@ Servlet: Servlet Filter Log (Common Logging Format)
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/Servlet-Filter-Log/
+URL: http://lab.se.org:8080/Servlet-Filter-Log/
 
  127.0.0.1 - - 09/Mar/2016:07:25:12 +0100 "GET /Servlet-Filter-Log/ HTTP/1.1" 200 933
  127.0.0.1 - - 09/Mar/2016:07:25:19 +0100 "GET /Servlet-Filter-Log/controller?username=student&password=student&action=Login HTTP/1.1" 200 126
 
+CURL:
+$ curl -i -X GET http://localhost:8080/Servlet-Filter-Log/
+$ curl -i -X GET http://localhost:8080/Servlet-Filter-Log/controller?username=student&password=student&action=Login
+
+$ curl --proxy localhost:8010 -i -X GET http://localhost:8080/Servlet-Filter-Log/
 
 
 How to configure Wildfly to support Common Logging Format?
@@ -48,16 +53,7 @@ standalone/log/access.log:
 127.0.0.1 - - [03/Mar/2016:16:34:29 +0100] "GET /WebApp-Resources/tux.jpg HTTP/1.1" 200 10521
 
 
-How to run Wildfly and deploy the Web application?
+How to deploy the Web application?
 -------------------------------------------------------------------------------
 
-$ mvn wildfly:run
-
-Make sure that you have configured the wildfly-maven-plugin:
-
-	<configuration>
-		<jbossHome>/home/student/install/wildfly-x.y.z.Final/</jbossHome>
-		<port>9990</port>
-		<server-config>standalone.xml</server-config>
-	</configuration> 
-		
+$ mvn wildfly:deploy
