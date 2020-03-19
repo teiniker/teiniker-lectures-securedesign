@@ -3,7 +3,7 @@ Exercise: Client-Side Controls
 
 Given a simple Web application:
 
-URL: http://localhost:8080/Servlet-ClientSideControls-Signature-Exercise/controller
+URL: http://lab.se.org:8080/Servlet-ClientSideControls-Signature-Exercise/controller
 
 
 1. Add a signature cookie to the HTTP response
@@ -34,7 +34,6 @@ How to handle cookies within a Servlet?
 ---------------------------------------------------------------------
 
 HttpServletRequest.getCookies()
-
 Cookie cookie = new Cookie("name", "value")
 HttpServletResponse.addCookie(cookie)
 

@@ -38,6 +38,8 @@ public class ControllerServlet extends HttpServlet
         
         LOG.debug("POST: process " + action + " as " + role);
 
+        // Input Validation
+
         // Handling request cookies
         String debug = "";
         Cookie[] cookies = request.getCookies();
@@ -117,7 +119,7 @@ public class ControllerServlet extends HttpServlet
 		html.append("    	            	<td><input type=\"text\" name=\"firstName\" maxlength=\"16\"/></td>\n");
 		html.append("    	            	<td><input type=\"text\" name=\"lastName\" maxlength=\"16\"/></td>\n");
 		html.append("    	            	<td><input type=\"text\" name=\"username\" maxlength=\"16\"/></td>\n");
-		html.append("    	            	<td><input type=\"password\" name=\"password\" pattern=\"[A-Za-z0-9_!]{4,}\"/></td>\n");
+		html.append("    	            	<td><input type=\"password\" name=\"password\" pattern=\"[A-Za-z0-9_!]{12,}\"/></td>\n");
 		html.append("  	<td align=\"center\"><input type=\"submit\" name=\"action\" value=\"Add\" /></td>\n"); 
 		html.append("    	        	</tr>\n");
 		html.append("    	    	</table>\n");

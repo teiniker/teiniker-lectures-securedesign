@@ -7,7 +7,7 @@
 
 	<parent>
 		<groupId>org.se.lab</groupId>
-		<artifactId>http-protocol-parent</artifactId>
+		<artifactId>client-side-controls-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>

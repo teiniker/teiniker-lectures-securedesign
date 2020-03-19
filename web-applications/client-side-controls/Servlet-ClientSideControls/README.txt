@@ -3,13 +3,14 @@ Servlet: Client-Side Controls
 
 How to setup the client-side?
 ---------------------------------------------------------------------
-o) Run BurpSuite
+o) Run BurpSuite (Port: 8010)
 
 o) Configure the browser to use the proxy
 
 o) Use the browser to access the page:
-	
-	URL: http://localhost:8080/Servlet-ClientSideControls/controller
+	URL: http://lab.se.org:8080/Servlet-ClientSideControls/controller
+
+    $ curl --proxy localhost:8010 --verbose -k -i -X GET https://localhost:8443/Servlet-ClientSideControls/controller
 
 
 1. Hidden Form Fields
@@ -41,12 +42,11 @@ Base64 encode cookie value:
 	Set-Cookie: debug="ZmFsc2U="
 
 a) Set BurpSuite intercept is ON
-b) Reload the page:  
-	http://localhost:8080/Servlet-ClientSideControls/controller 
-c) Change HTTP header in the response 
+b) Reload the page
+c) Change HTTP header in the response
 	Set-Cookie: debug="ZmFsc2U=" to Set-Cookie: debug="dHJ1ZQ=="
 d) Add a new user in the browser 
-e) Review Tomcat's console output	
+e) Review the server's console output
 
 Note that in base64 encoding:
 	true  = "dHJ1ZQ=="
@@ -56,9 +56,9 @@ Note that in base64 encoding:
 4. Validating Client-Generated Data
 ---------------------------------------------------------------------
 The password field is validated against the following regex: 
-	"[A-Za-z0-9_!]{4,}"
+	"[A-Za-z0-9_!]{12,}"
 
-<input type="password" pattern="[A-Za-z0-9_!]{4,}" name="password">
+<input type="password" pattern="[A-Za-z0-9_!]{12,}" name="password">
 
 If you enter an invalid password, e.g. "123" and submit you will see
 an error message.
@@ -72,19 +72,9 @@ d) Forward
 	
 Note: Set debug = true
 
-
-
-How to run Wildfly and deploy the Web application?
+How to deploy the Web application?
 -------------------------------------------------------------------------------
+Make sure the the wildfly server is up and running.
 
-$ mvn wildfly:run
+$ mvn wildfly:deploy
 
-Make sure that you have configured the wildfly-maven-plugin:
-
-	<configuration>
-		<jbossHome>/home/student/install/wildfly-9.0.1.Final/</jbossHome>
-		<port>9990</port>
-		<server-config>standalone.xml</server-config>
-	</configuration> 
-		
-		

@@ -8,17 +8,14 @@ o) Run BurpSuite
 o) Configure the browser to use the proxy
 
 o) Use the browser to access the page:
-	
-	URL: http://localhost:8080/Servlet-ClientSideControls-ScriptBasedValidation
+	URL: http://lab.se.org:8080/Servlet-ClientSideControls-ScriptBasedValidation
 
 
 How to bypass the client-side validation?
 ---------------------------------------------------------------------
+a) Using Burp
 
-A) Using Burp
-
-B) Using Chrome Tools or Firefox Inspector / Console
-
+b) Using Chrome Tools or Firefox Inspector / Console
 	> function validateForm() { return true; }
 	
 	
