@@ -11,7 +11,7 @@ Authentication and Authorization Service (JAAS) login modules ans subjects.
 How to Access the Web Application from a Browser?
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/Wildfly-Authentication-FormBased/
+URL: http://lab.se.org:8080/Wildfly-Authentication-FormBased/
 
 
 
@@ -129,7 +129,7 @@ Content-Length: 220
 How to Generate ApplicationRealm Credentials for Wildfly AS?
 -------------------------------------------------------------------------------
 
-$ cd /home/student/install/wildfly-13.0.0.Final/
+$ cd /home/student/local/wildfly-x.y.z.Final/
 
 $ bin/add-user.sh 
 What type of user do you wish to add? 
@@ -163,7 +163,7 @@ Is this new user going to be used for one AS process to connect to another AS pr
 e.g. for a slave host controller connecting to the master or for a Remoting connection for server to server EJB calls.
 yes/no? no
 
-/home/student/install/wildfly-10.0.0.Final/standalone/configuration:
+/home/student/local/wildfly-x.y.z.Final/standalone/configuration:
  
 $ cat application-users.properties 
 # Properties declaration of users for the realm 'ApplicationRealm' which is the default realm
