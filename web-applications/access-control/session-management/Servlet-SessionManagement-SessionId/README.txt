@@ -1,7 +1,7 @@
 Servlet Session Management - Shopping Cart (Session ID)
 -------------------------------------------------------------------------------
 
-URL: https://localhost:8443/Servlet-SessionManagement-SessionId
+URL: https://lab.se.org:8443/Servlet-SessionManagement-SessionId
 
 In the given "ControllerServlet" a session id based session management has been 
 implemented to realize a simple shopping cart which stores a list of products 
@@ -24,9 +24,6 @@ o) Add
 	- if there is a valid session, add the new product to the List<Product>
 	- create a message for the web page e.g.  "added: 5 cd to the cart"
 		
-You can access the Web application using the following URL:
-	http://localhost:8080/LabExam-SecDesign-2015-05-29-G1-MyName
-	
 Note that we skip the authentication to make the example simpler.
 	
 	

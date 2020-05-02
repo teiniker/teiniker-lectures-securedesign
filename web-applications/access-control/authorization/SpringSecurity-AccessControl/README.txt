@@ -4,7 +4,7 @@ SpringSecurity: Access Control
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: https://localhost:8443/SpringSecurity-AccessControl/
+URL: https://lab.se.org:8443/SpringSecurity-AccessControl/
 
 
 How to define users and roles?

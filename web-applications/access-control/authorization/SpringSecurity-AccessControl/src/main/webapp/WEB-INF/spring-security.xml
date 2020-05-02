@@ -9,7 +9,7 @@
 		<access-denied-handler error-page="/public/access-denied.html" />		
 		<intercept-url pattern="/public/login.html" access="isAnonymous()"/>
 		<intercept-url pattern="/user/**" access="hasAnyRole('USER','ADMIN')" requires-channel="https"/>
-		<intercept-url pattern="/admin/**" access="hasRole('ADMIN') and hasIpAddress('127.0.0.1')" requires-channel="https"/>
+		<intercept-url pattern="/admin/**" access="hasRole('ADMIN')" requires-channel="https"/>
 
 		<form-login login-page="/public/login.html" />
 		<logout logout-success-url="/public/index.html"/>

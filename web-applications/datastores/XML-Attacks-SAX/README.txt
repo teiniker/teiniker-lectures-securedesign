@@ -1,23 +1,6 @@
 XML Attacks for SAX Parsers
 -------------------------------------------------------------------------------
 
-Tag Injection
--------------------------------------------------------------------------------
-
-Example: Injecting new attributes and elements
-
-	<SessionRoot>
-	    <Sessions>
-	        <Session id="one" valid="true" hack="true"/>
-	        <Session id="two" valid="false" />
-	    </Sessions>    
-	    <Hack>
-	    	<blackhack id="666" />
-	    </Hack>
-	</SessionRoot>
-
-
-
 XXL EXternal Entity Attack (XXE)
 -------------------------------------------------------------------------------
 

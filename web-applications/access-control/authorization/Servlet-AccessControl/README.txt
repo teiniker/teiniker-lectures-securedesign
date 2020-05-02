@@ -1,11 +1,9 @@
 Servlet: Access Control 
 -------------------------------------------------------------------------------
-https://blogs.oracle.com/SureshMandalapu/entry/declarative_compared_to_programmatic_security
-
 
 How to access the Web application?
 -------------------------------------------------------------------------------
-URL: https://localhost:8443/Servlet-AccessControl/
+URL: https://lab.se.org:8443/Servlet-AccessControl/
 
 student as user
 admin as admin

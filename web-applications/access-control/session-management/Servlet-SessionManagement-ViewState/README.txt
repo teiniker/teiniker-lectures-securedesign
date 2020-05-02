@@ -1,7 +1,7 @@
 Servlet Session Management - Shopping Cart (View State)
 -------------------------------------------------------------------------------
 
-URL: https://localhost:8443/Servlet-SessionManagement-ViewState
+URL: https://lab.se.org:8443/Servlet-SessionManagement-ViewState
 
 To implement session management, a ViewState has been used. A hidden form field
 called "state" is used to store the state of the session.
