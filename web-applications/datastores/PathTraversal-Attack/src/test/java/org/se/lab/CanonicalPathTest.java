@@ -3,11 +3,14 @@ package org.se.lab;
 import java.io.File;
 import java.io.IOException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 
 public class CanonicalPathTest
 {
+	private static final String BASE_DIRECTORY = "./doc";
+
 	/*
 	 *  Canonicalize path names before validating them
 	 *  
@@ -21,11 +24,14 @@ public class CanonicalPathTest
 	@Test
 	public void testCanonicalName() throws IOException
 	{
-		
-		File f = new File("../src/org/se/lab/../../se/lab/FileManager.java");
-		System.out.println(f.getPath());
-		System.out.println(f.getAbsolutePath());
-		
-		System.out.println(f.getCanonicalPath());
+		File f = new File(BASE_DIRECTORY, "../../se/lab/FileManager.java");
+		System.out.println("Relative Path : " + f.getPath());
+		System.out.println("Absolute Path : " + f.getAbsolutePath());
+		System.out.println("CanonicalPath : " + f.getCanonicalPath());
+
+		File baseDir = new File(BASE_DIRECTORY);
+		String basePath = baseDir.getCanonicalPath();
+		System.out.println("Base Directory: " + basePath);
+		Assert.assertFalse(f.getCanonicalPath().startsWith(basePath));
 	}
 }

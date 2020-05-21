@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 class AbstractJdbcTest 
 {
-	private SqlProcessor sqlProcessor = new SqlProcessor();
+	private final JdbcHelper JDBC_HELPER = new JdbcHelper();
 	
 	
 	/**
@@ -20,12 +20,12 @@ class AbstractJdbcTest
 	 */
 	protected void executeSqlScript(String sqlFile) 
 	{
-		sqlProcessor.executeSqlScript(sqlFile);
+		JDBC_HELPER.executeSqlScript(sqlFile);
 	}
 	
 	protected Connection getConnection() throws ClassNotFoundException, SQLException
 	{
-	    return sqlProcessor.getConnection();
+	    return JDBC_HELPER.getConnection();
 	}
 	
     protected void txBegin(Connection c) throws SQLException
