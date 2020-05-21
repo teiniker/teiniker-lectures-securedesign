@@ -48,8 +48,10 @@ public class ControllerServlet extends HttpServlet
 		String username = request.getParameter("username");
         String password = request.getParameter("password");
         String action = request.getParameter("action");
-        
-        // Request cookies
+
+        // TODO: Validate parameters
+
+        // Read cookie from request
         String signature = "";
         Cookie[] cookies = request.getCookies();
         if(cookies != null)
