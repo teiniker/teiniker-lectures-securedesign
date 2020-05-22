@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order id="100">
+    <name>FHJ-20151020-007</name>
+    <lines>
+        <line id="101">
+            <quantity>2</quantity>
+            <product id="103">
+                <price>5280</price>
+                <description>Design Patterns</description>
+                <price>666</price> <!-- Overriding an XML element!!! -->
+            </product>
+            <quantity>999</quantity> <!-- Overriding an XML element!!! -->
+        </line>
+    </lines>
+</order>
