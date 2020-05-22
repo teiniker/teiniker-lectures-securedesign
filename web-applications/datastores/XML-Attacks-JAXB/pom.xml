@@ -3,65 +3,34 @@
   <groupId>org.se.lab</groupId>
   <artifactId>XML-Attacks-JAXB</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
-  
+
   <build>
   		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
+				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<release>11</release>
 				</configuration>
-			</plugin>
-
-
-			<!-- HOW TO USE this plugin can be found here: -->
-			<!-- http://confluence.highsource.org/display/MJIIP/User+Guide -->
-			<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.8.1</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<verbose>true</verbose>
-							<removeOldOutput>false</removeOldOutput>
-							<generateDirectory>src/generated/java</generateDirectory>
-							<schemaDirectory>src/main/resources/xsd/</schemaDirectory>
-							<episode>false</episode>
-							<extension>true</extension>
-							<generatePackage>org.se.lab</generatePackage>
-							<args>
-								<arg>-no-header</arg>
-								<arg>-Xxew</arg>
-								<arg>-Xxew:instantiate lazy</arg>
-								<arg>-Xxew:delete</arg>
-							</args>
-							<plugins>
-								<plugin>
-									<groupId>com.github.jaxb-xew-plugin</groupId>
-									<artifactId>jaxb-xew-plugin</artifactId>
-									<version>1.2</version>
-								</plugin>
-							</plugins>
-							
-      						<bindingIncludes>
-      							<bindingInclude>jaxb-bindings.xjb</bindingInclude>
-      						</bindingIncludes>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
   		</plugins>
   	</build>
 
 	<dependencies>
+		<!-- API -->
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
+		<!-- Runtime -->
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>

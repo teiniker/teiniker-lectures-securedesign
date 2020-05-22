@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order id="100">
+    <name>FHJ-20151020-007</name>
+    <lines>
+        <line id="101">
+            <quantity>2</quantity>
+            <product id="102">
+                <description>Effective Java</description>
+                <price>3336</price>
+            </product>
+        </line>
+        <line id="101">
+            <quantity>2</quantity>
+            <product id="103">
+                <description>Design Patterns</description>
+                <price>5280</price>
+            </product>
+        </line>
+    </lines>
+</order>

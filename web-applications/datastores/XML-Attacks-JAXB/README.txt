@@ -1,13 +1,6 @@
 XML Attacks for JAXB Processing
 -------------------------------------------------------------------------------
 
-How to generate JAXB classes?
--------------------------------------------------------------------------------
-
-$ mvn generate-sources
-=> src/generated
-
-
 Tag Injection
 -------------------------------------------------------------------------------
 
@@ -31,15 +24,20 @@ Example: Injecting new attributes and elements
 
 Example: Overriding existing elements
 
-	<Item>
-		<description>Widget</description>
-		<price>500.0</price>
-		<quantity>1</quantity>
-		
-		<!-- Additional Rows below for price and quantity -->
-		<price>1.0</price>
-		<quantity>1000</quantity>
-	</Item>
+<order id="100">
+    <name>FHJ-20151020-007</name>
+    <lines>
+        <line id="101">
+            <quantity>2</quantity>
+            <product id="103">
+                <price>5280</price>
+                <description>Design Patterns</description>
+                <price>666</price> <!-- Overriding an XML element!!! -->
+            </product>
+            <quantity>999</quantity> <!-- Overriding an XML element!!! -->
+        </line>
+    </lines>
+</order>
 
 => Works with JAXB!!
 

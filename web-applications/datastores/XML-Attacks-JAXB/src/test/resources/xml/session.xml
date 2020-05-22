@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
-<SessionRoot>
-    <Sessions>
-        <Session id="one" valid="true" />
-        <Session id="two" valid="false" />
-    </Sessions>
-</SessionRoot>
