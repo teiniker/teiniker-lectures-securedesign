@@ -47,5 +47,13 @@ public class OrderTest
         String xml = out.toString();
 
         System.out.println(xml);
-	}	
+	}
+
+	@Test
+	public void testXSDWriter() throws JAXBException, IOException
+	{
+		JAXBContext jaxbContext = JAXBContext.newInstance(Order.class);
+		SchemaOutputResolver sor = new SchemaResolver();
+		jaxbContext.generateSchema(sor);
+	}
 }
