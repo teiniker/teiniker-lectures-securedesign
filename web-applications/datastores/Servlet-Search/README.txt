@@ -3,7 +3,7 @@ Servlet: Search
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/Servlet-Search/
+URL: http://lab.se.org:8080/Servlet-Search/
 
 
 How to access the Web application from cURL?l
