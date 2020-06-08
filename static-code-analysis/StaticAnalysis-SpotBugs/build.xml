@@ -1,14 +1,14 @@
-<project name="FindBugs-Examples" default="all">
+<project name="spotbugs-analysis" default="all">
 
-	<property file="findbugs.properties"/>
-	<fail unless="findbugs.src" message="findbugs.properties file not found!"/>
+	<property file="spotbugs.properties"/>
+	<fail unless="spotbugs.src" message="spotbugs.properties file not found!"/>
 
-	<property name="spotbugs.home" value="${findbugs.home}" />
-	<property name="findbugs.lib" location="${findbugs.home}/lib" />
+	<property name="spotbugs.home" value="${spotbugs.home}" />
+	<property name="spotbugs.lib" location="${spotbugs.home}/lib" />
 
 	
 	<path id="classpath">
-        <fileset dir="${findbugs.lib}">
+        <fileset dir="${spotbugs.lib}">
             <include name="*.jar"/>
         </fileset>
 	</path>
@@ -29,16 +29,20 @@
 
 
 	<target name="spotbugs" depends="init">
+		<echo message="Analyze ${spotbugs.src}"/>
+		<echo message="Analyze ${spotbugs.test}"/>
+		<echo message="Analyze ${spotbugs.build}"/>
+
 		<spotbugs
-				home="${findbugs.home}"
-				output="${findbugs.output.format}"
-				outputFile="${findbugs.output.file}" >
+				home="${spotbugs.home}"
+				output="${spotbugs.output.format}"
+				outputFile="${spotbugs.output.file}" >
 			<!--
 			<auxClasspath path="${basedir}/lib/Regex.jar" />
 			-->
-			<sourcePath path="${findbugs.src}"/>
-			<sourcePath path="${findbugs.test}"/>
-			<class location="${findbugs.build}"/>
+			<sourcepath path="${spotbugs.src}"/>
+			<sourcepath path="${spotbugs.test}"/>
+			<class location="${spotbugs.build}"/>
 		</spotbugs>
 	</target>
 

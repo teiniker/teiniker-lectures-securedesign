@@ -22,7 +22,6 @@
 		Dependency Check
 	-->
 
-	<property name="dependency-check.home" value="/home/student/install/dependency-check-ant"/>
 	<path id="dependency-check.path">
 		<pathelement location="${dependency-check.home}/dependency-check-ant.jar"/>
 		<fileset dir="${dependency-check.home}/lib">
@@ -35,8 +34,7 @@
 
 
 	<target name="check" >
-	    <dependency-check applicationname="Simple Example"
-	                      autoupdate="true"
+	    <dependency-check autoupdate="false"
 	                      reportoutputdirectory="${analysis.reports}"
 	                      reportformat="HTML">
 
