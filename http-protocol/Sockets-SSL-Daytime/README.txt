@@ -44,6 +44,25 @@ Note that this pattern can vary but general rules are:
 Prefer ECDHE and DHE for key agreement. While they are slower, they provide stronger
 protection even if the private keys are later compromised (forward security)
 
+In TLS 1.3 there are now just five recommended cipher suites:
+        TLS_AES_256_GCM_SHA384
+        TLS_CHACHA20_POLY1305_SHA256
+        TLS_AES_128_GCM_SHA256
+        TLS_AES_128_CCM_8_SHA256
+        TLS_AES_128_CCM_SHA256
+
+TLS 1.3 has eliminated support for algorithms and ciphers that are both
+theoretically and practically vulnerable. This includes:
+        RC4 Stream Cipher
+        RSA Key Exchange
+        SHA-1 Hash Function
+        CBC (Block) Mode Ciphers
+        MD5 Algorithm
+        Various non-ephemeral Diffie-Hellman groups
+        EXPORT-strength ciphers
+        DES
+        3DES
+
 References:
 -------------------------------------------------------------------------------
 Jim Manico, August Detlefsen
@@ -51,5 +70,10 @@ Iron-Clad Java: Building Secure Web Applications
 Chapter 6: Protecting Sensitive Data
 Oracle Press, 2014
 
+TLS 1.3: Everything you need to know
+https://securityboulevard.com/2019/07/tls-1-3-everything-you-need-to-know/
+
+Galois/Counter Mode (GCM)
+https://en.wikipedia.org/wiki/Galois/Counter_Mode
 
 
