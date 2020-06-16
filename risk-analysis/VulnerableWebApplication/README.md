@@ -121,10 +121,12 @@ In order to be able to carry out a more detailed analysis, it is
 necessary to dissect the architecture of the web application into its 
 parts. 
 
+As a first step we analyze the dependencies between packages:
+![Dependency Graph](doc/jdepend-report.png)
+
+In a second step, we use the class diagram provides to get an overview of 
+the architectural- and design patterns involved.
+
 ![ZAP Proxy](doc/ClassDiagram.png)
-
-The given class diagram provides an overview of the architectural 
-patterns involved.
-
 
 *Egon Teiniker, 2019, GPL v3.0*
