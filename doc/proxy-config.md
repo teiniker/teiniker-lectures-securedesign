@@ -24,7 +24,7 @@ No proxy for:
 .firefox.com,.mozilla.com,.mozilla.net,.mozilla.org
 ```
 
-Note that the **proxy port** number is the same as we used for the **Burp configuration**.
+Note that the **proxy port** number is the same as we have used for the **Burp configuration**.
 
 Currently requests to **localhost** will NOT be intercepted by the proxy, thus, we have to 
 configure a workaround.
