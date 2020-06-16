@@ -29,7 +29,7 @@ Note that the **proxy port** number is the same as we used for the **Burp config
 Currently requests to **localhost** will NOT be intercepted by the proxy, thus, we have to 
 configure a workaround.
 
-One solution is to set a [hostname]() and use it as part of the URL.
+One solution is to set a [hostname](https://github.com/teiniker/teiniker-lectures-securedesign/blob/master/doc/fedora-setup.md) and use it as part of the URL.
 
 Another solution is to use **about:config** which is a feature of Mozilla Firefox that allows 
 the users to change and manipulate the preferences on Firefox:
