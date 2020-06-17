@@ -5,9 +5,9 @@ This Web application is used to log request parameter names and values.
 
 After deployment, we can send data using the following URL:
 
-URL: http://localhost:8080/Servlet-Logger/controller?id=7&name=homer
+URL: http://lab.se.org:8080/Servlet-Logger/controller?id=7&name=homer
 
-$ curl -i -X GET "http://localhost:8080/Servlet-Logger/controller?id=7&name=homer"
+$ curl -i -X GET "http://lab.se.org:8080/Servlet-Logger/controller?id=7&name=homer"
 
 Which results in the following console output:
 
