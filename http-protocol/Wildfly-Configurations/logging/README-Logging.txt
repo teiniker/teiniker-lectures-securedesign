@@ -24,7 +24,7 @@ Add the marked line to the undertow subsystem in the standalone.xml
         <https-listener name="https" socket-binding="https" security-realm="CertificateRealm" enable-http2="true"/>
         <host name="default-host" alias="localhost">
             <location name="/" handler="welcome-content"/>
-            <access-log pattern="common" directory="${jboss.home.dir}/standalone/log" prefix="access"/>  !!!!!
+            <access-log pattern="common" directory="${jboss.home.dir}/standalone/log" prefix="access"/>  <!-- Add this line -->
             <http-invoker security-realm="ApplicationRealm"/>
         </host>
     ...
