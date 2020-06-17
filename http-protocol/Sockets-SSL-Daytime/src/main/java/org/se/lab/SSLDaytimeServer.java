@@ -3,6 +3,7 @@ package org.se.lab;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.net.ssl.SSLServerSocket;
@@ -23,8 +24,12 @@ public class SSLDaytimeServer
 				try(SSLSocket connection = (SSLSocket) server.accept())
 				{
 					SSLSession sslSession = connection.getSession();
+					connection.setEnabledProtocols(new String[] {"TLSv1.2"});
 					String cipherSuite = sslSession.getCipherSuite();
 					System.out.println(cipherSuite);
+					System.out.println(Arrays.toString(connection.getEnabledCipherSuites()));
+					System.out.println(Arrays.toString(connection.getEnabledProtocols()));
+					System.out.println(connection.getApplicationProtocol());
 
 					Writer out = new OutputStreamWriter(connection.getOutputStream());
 					Date now = new Date();
