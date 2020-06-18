@@ -34,7 +34,7 @@
 
 
 	<target name="check" >
-	    <dependency-check autoupdate="false"
+	    <dependency-check autoupdate="true"
 	                      reportoutputdirectory="${analysis.reports}"
 	                      reportformat="HTML">
 

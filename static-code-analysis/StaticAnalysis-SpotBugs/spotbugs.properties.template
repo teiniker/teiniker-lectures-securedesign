@@ -1,19 +1,16 @@
-##
-# SpotBugs configuration
-#
-##
+# Project to analyze
+project.home = ../../risk-analysis/VulnerableWebApplication
+spotbugs.src = ${project.home}/src/main/java
+spotbugs.test = ${project.home}/src/test/java
+spotbugs.build = ${project.home}/target/classes
 
-findbugs.home=/home/student/install/spotbugs-3.1.3
-
-project.home = ../StaticAnalysis-Target
-
-findbugs.src = src
-findbugs.test = test
-findbugs.build = build
-
-findbugs.output.format = text
-findbugs.output.file = reports/findbugs-report.txt
-#findbugs.output.format = xml
-#findbugs.output.file = reports/findbugs-report.xml
-#findbugs.output.format = html
-#findbugs.output.file = reports/findbugs-report.html
+# Tool Settings
+# https://spotbugs.github.io/
+# https://find-sec-bugs.github.io/
+spotbugs.home=/home/student/local/spotbugs-4.0.0-beta4/
+spotbugs.output.format = text
+spotbugs.output.file = reports/spotbugs-report.txt
+#spotbugs.output.format = xml
+#spotbugs.output.file = reports/spotbugs-report.xml
+#spotbugs.output.format = html
+#spotbugs.output.file = reports/spotbugs-report.html

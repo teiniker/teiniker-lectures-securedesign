@@ -13,8 +13,7 @@
         </fileset>
 	</path>
 
-	<taskdef
-			 resource="edu/umd/cs/findbugs/anttask/tasks.properties"
+	<taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties"
 			 classpathref="classpath" />
 
 	<target name="all" depends="clean,init,spotbugs"/>
@@ -27,7 +26,6 @@
 		<delete dir="reports" failonerror="false"/>
 	</target>
 
-
 	<target name="spotbugs" depends="init">
 		<echo message="Analyze ${spotbugs.src}"/>
 		<echo message="Analyze ${spotbugs.test}"/>
@@ -36,7 +34,8 @@
 		<spotbugs
 				home="${spotbugs.home}"
 				output="${spotbugs.output.format}"
-				outputFile="${spotbugs.output.file}" >
+				outputFile="${spotbugs.output.file}"
+				reportLevel="low">
 			<!--
 			<auxClasspath path="${basedir}/lib/Regex.jar" />
 			-->

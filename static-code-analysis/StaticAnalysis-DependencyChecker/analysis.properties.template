@@ -2,7 +2,7 @@
 target.home =/home/student/.m2
 target.lib = ${target.home}/repository
 
-
-# JDepend settings
+# Tool settings
+# https://owasp.org/www-project-dependency-check/
 analysis.reports = reports
 
