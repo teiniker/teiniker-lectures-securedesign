@@ -1,3 +1,9 @@
+Dependency Analysis
+-------------------------------------------------------------------------------
+The OWASP Top 10 2013 contains a new entry: A9-Using Components with Known
+Vulnerabilities.
+
+
 Apache Maven Dependency Plugin
 -------------------------------------------------------------------------------
 https://maven.apache.org/plugins/maven-dependency-plugin/index.html
@@ -49,3 +55,8 @@ $ mvn dependency:analyze
     org.springframework.security:spring-security-web:jar:4.0.1.RELEASE:compile
     org.springframework.security:spring-security-config:jar:4.0.1.RELEASE:compile
 
+
+References:
+-----------
+> OWASP Dependency-Check
+    https://owasp.org/www-project-dependency-check/
