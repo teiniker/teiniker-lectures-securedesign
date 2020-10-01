@@ -33,7 +33,7 @@ Note that you can copy paste the com/ folder from this project!
 How to configure a datasource in standalone.xml?
 ---------------------------------------------------------------------
 
-Within the <subsystem xmlns="urn:jboss:domain:datasources:1.0"> add a 
+Within the <subsystem xmlns="urn:jboss:domain:datasources:5.0"> add a
 new <datasource> and <driver> element:
 
 	<datasource jndi-name="java:jboss/datasources/MySqlDS" pool-name="MySqlDS" enabled="true" use-java-context="true" use-ccm="true">
