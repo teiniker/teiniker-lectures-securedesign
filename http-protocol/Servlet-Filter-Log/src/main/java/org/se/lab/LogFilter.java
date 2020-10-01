@@ -53,12 +53,10 @@ public class LogFilter implements Filter
 		LOG.debug("doFilter()");
 		
 		HttpServletRequest in = (HttpServletRequest)request;
-		
-		PrintWriter writer = response.getWriter();
-		
+
 		Date now = new Date();
 		SimpleDateFormat formater = new SimpleDateFormat("dd/MMM/yyyy:hh:mm:ss Z");
-		
+
 		StringBuilder log = new StringBuilder();
 		log.append(in.getRemoteHost());
 		log.append(" -"); // username
@@ -66,25 +64,26 @@ public class LogFilter implements Filter
 		log.append('[').append(formater.format(now)).append(']');
 		log.append(" \"").append(in.getMethod()).append(" ");
 		log.append(in.getRequestURI());
-		
+
 		String query = in.getQueryString();
 		if(query != null)
-		{		
+		{
 			log.append("?").append(query);
 		}
 		log.append(" ").append(in.getProtocol()).append("\" ");
-		       
+
 		// pass the request along the filter chain
 		ResponseWrapper wrapper = new ResponseWrapper((HttpServletResponse)response);
 		chain.doFilter(request, wrapper);
 
 		HttpServletResponse out = (HttpServletResponse)response;
 		log.append(out.getStatus()).append(" ");
-		log.append(wrapper.toString().length());		
+		log.append(wrapper.toString().length());
 
 		LOG.info(log.toString());
-		
-        writer.println(wrapper.toString());
-        writer.close();
+
+		PrintWriter writer = response.getWriter();
+		writer.println(wrapper.toString());
+		writer.close();
 	}
 }

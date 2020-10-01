@@ -3,12 +3,14 @@ Exercise: Servlet Filter Logger (Common Logging Format)
 
 Implement a Servlet Filter called "LogFilter" which generates a Common Log Format
 message.
+
 Collect the following data from the request and response objects:
 i) Request object
     Client IP
     hard-code "- -"
     Time Stamp
-    Request method and query string (request.getMethod(), request.getRequestURI())
+    Request method and query string (request.getMethod(), request.getRequestURI(),
+        request.getQueryString())
     Protocol
 
 ii) Response object

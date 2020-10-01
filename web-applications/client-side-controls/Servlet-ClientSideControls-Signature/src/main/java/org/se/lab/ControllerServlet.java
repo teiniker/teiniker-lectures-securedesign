@@ -3,13 +3,13 @@ package org.se.lab;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -35,43 +35,34 @@ public class ControllerServlet extends HttpServlet
 	}
 
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException
+			HttpServletResponse response) throws IOException
 	{
-	    /*
-	     * Request Handling
-	     */
-	    
-		// request parameters
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-        String role = request.getParameter("role");
-		String username = request.getParameter("username");
-        String password = request.getParameter("password");
+		// Request parameters
         String action = request.getParameter("action");
 
-        // TODO: Validate parameters
-
-        // Read cookie from request
-        String signature = "";
-        Cookie[] cookies = request.getCookies();
-        if(cookies != null)
-        {
-	        for(Cookie c : cookies)
-	        {
-	        	if(c.getName().equals("signature"))
-	        		signature = c.getValue();
-	        }
-        }
-        
-        String html = null;
         if(action != null && action.equals("Add"))
         {
-            LOG.info("Add: " 
-    					+ firstName + "," + lastName + ","  
-    					+ username + "," + password + "," 
-    					+ role );
-            
-            // validate signature
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+			String username = request.getParameter("username");
+			String role = request.getParameter("role");
+			// TODO: Validate parameters
+
+			LOG.info("Add: " + firstName + "," + lastName + "," + username + "," + role );
+
+			// Read cookie from request
+			String signature = "";
+			Cookie[] cookies = request.getCookies();
+			if(cookies != null)
+			{
+				for(Cookie c : cookies)
+				{
+					if(c.getName().equals("signature"))
+						signature = c.getValue();
+				}
+			}
+
+			// validate signature
             String expected = encryptHiddenField(role);
             LOG.info("Actual   Signature: " + signature );
             LOG.info("Expected Signature: " + expected );
@@ -84,31 +75,27 @@ public class ControllerServlet extends HttpServlet
                 LOG.info("    => hidden field is INVALID!!!");
             }
         }
-        
-        
-        /*
-         * Generate Response
-         */
-        
-        html = generateUserForm(ROLE);
-        
-        // Add cookie to the response
-        Cookie cookie = new Cookie("signature", encryptHiddenField(ROLE));
-        response.addCookie(cookie);
-        
-        // Generate response 
-        response.setContentType("text/html");
-        response.setBufferSize(1024);
-        PrintWriter out = response.getWriter();
-        out.println(html.toString());
-        out.close();
+
+        // Go back to the HTML form
+        doGet(request, response);
 	}
 
 	
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException
 	{
-		doPost(request, response);
+		String html = generateUserForm(ROLE);
+
+		// Add cookie to the response
+		Cookie cookie = new Cookie("signature", encryptHiddenField(ROLE));
+		response.addCookie(cookie);
+
+		// Generate response
+		response.setContentType("text/html");
+		response.setBufferSize(1024);
+		PrintWriter out = response.getWriter();
+		out.println(html);
+		out.close();
 	}
 	
 	
@@ -116,7 +103,7 @@ public class ControllerServlet extends HttpServlet
 	 * View Helper
 	 */
 	
-	protected String generateUserForm(String role)
+	private String generateUserForm(String role)
 	{
 		StringBuilder html = new StringBuilder();
 		html.append("<html>\n");
@@ -155,7 +142,7 @@ public class ControllerServlet extends HttpServlet
 		return html.toString();
 	}
 	
-   protected String encryptHiddenField(String value)
+   private String encryptHiddenField(String value)
     {       
         try 
         {
@@ -165,12 +152,12 @@ public class ControllerServlet extends HttpServlet
             
             Mac hmac = Mac.getInstance("HmacSHA1");      
             hmac.init(key);
-            hmac.update(value.getBytes("UTF-8"));
+            hmac.update(value.getBytes(StandardCharsets.UTF_8));
             byte[] macBytes = hmac.doFinal();
 
             return Hex.encodeHexString(macBytes);
         } 
-        catch (DecoderException | NoSuchAlgorithmException | InvalidKeyException | IllegalStateException | UnsupportedEncodingException e) 
+        catch (DecoderException | NoSuchAlgorithmException | InvalidKeyException | IllegalStateException e)
         {
             throw new IllegalStateException("Can't encrypt value!", e);
         }

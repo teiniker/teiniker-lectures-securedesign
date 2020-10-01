@@ -13,6 +13,9 @@ import javax.servlet.annotation.WebFilter;
 
 import org.apache.log4j.Logger;
 
+//HttpRequest -->[RequestFilter]-->[ResponseFilter]-->[ControllerServlet]
+//HttpResponse <--RequestFilter]<--[ResponseFilter]<--[ControllerServlet]
+
 @WebFilter("/login.html")
 public class RequestFilter implements Filter 
 {
@@ -69,5 +72,6 @@ public class RequestFilter implements Filter
         
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
+
 	}
 }
