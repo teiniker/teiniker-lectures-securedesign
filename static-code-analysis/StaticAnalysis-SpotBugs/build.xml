@@ -36,7 +36,8 @@
 		<spotbugs
 				home="${spotbugs.home}"
 				output="${spotbugs.output.format}"
-				outputFile="${spotbugs.output.file}" >
+				outputFile="${spotbugs.output.file}"
+				reportLevel="low"> <!-- low, medium(default), high-->
 			<!--
 			<auxClasspath path="${basedir}/lib/Regex.jar" />
 			-->
