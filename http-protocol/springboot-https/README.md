@@ -36,4 +36,8 @@ https://localhost:8443//translate/katze
 https://localhost:8443/app?word=pferd
 ```
 
+```
+$ curl -k -i --verbose --proxy localhost:8010 -X GET https://localhost:8443/app?word=pferd
+```
+
 *Egon Teiniker, 2020, GPL v3.0*
