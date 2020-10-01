@@ -13,8 +13,7 @@
         </fileset>
 	</path>
 
-	<taskdef
-			 resource="edu/umd/cs/findbugs/anttask/tasks.properties"
+	<taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties"
 			 classpathref="classpath" />
 
 	<target name="all" depends="clean,init,spotbugs"/>
@@ -26,7 +25,6 @@
 	<target name="clean">
 		<delete dir="reports" failonerror="false"/>
 	</target>
-
 
 	<target name="spotbugs" depends="init">
 		<echo message="Analyze ${spotbugs.src}"/>
