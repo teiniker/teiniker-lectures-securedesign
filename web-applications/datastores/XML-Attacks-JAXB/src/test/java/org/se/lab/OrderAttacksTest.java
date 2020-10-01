@@ -21,7 +21,7 @@ public class OrderAttacksTest
 	}
 		
 	@Test
-	public void testXmlInjection() throws SAXException, JAXBException, FileNotFoundException
+	public void testXmlInjection() throws JAXBException, FileNotFoundException
 	{
 		Source src = new StreamSource(new FileReader(new File("src/test/resources/xml", "order-injection.xml")));
 		Unmarshaller unmarshaller = context.createUnmarshaller();
