@@ -1,0 +1,7 @@
+/.project
+/target/
+/.settings/
+/.classpath
+/*.iml
+/analysis.properties
+/reports/
