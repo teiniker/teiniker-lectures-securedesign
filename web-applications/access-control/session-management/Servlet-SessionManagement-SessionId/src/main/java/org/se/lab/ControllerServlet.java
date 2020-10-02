@@ -85,7 +85,7 @@ public class ControllerServlet extends HttpServlet
         out.close();
 	}
 
-	
+	// generate a web page and return html
 	private String generateWebPage(String message)
 	{
 		StringBuilder html = new StringBuilder();
