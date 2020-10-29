@@ -3,6 +3,9 @@ How to access the WSDL definition?
 
 URL: http://localhost:8080/SOAP-EJB-ArticleService/ArticleService?wsdl
 
+$ curl -i -X GET http://localhost:8080/SOAP-EJB-ArticleService/ArticleService?wsdl
+
+
 findAll()
 -------------------------------------------------------------------------------
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.lab.se.org/">

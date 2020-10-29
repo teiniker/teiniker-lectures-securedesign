@@ -5,6 +5,15 @@ URL: http://localhost:8080/REST-EJB-UserService-TLS/v1/users
 
 => https://localhost:8443/REST-EJB-UserService-TLS/v1/users
 
+$ curl -i -X GET http://localhost:8080/REST-EJB-UserService-TLS/v1/users
+HTTP/1.1 302 Found
+Connection: keep-alive
+Location: https://localhost:8443/REST-EJB-UserService-TLS/v1/users
+Content-Length: 0
+Date: Thu, 29 Oct 2020 08:55:59 GMT
+
+$ curl -i -k -X GET https://localhost:8443/REST-EJB-UserService-TLS/v1/users
+
 
 How to configure Wildfly's HTTPS connection?
 -------------------------------------------------------------------------------
