@@ -22,9 +22,6 @@ How to configure Wildfly's HTTPS connection?
 $ cd JBOSS_HOME/standalone/configuration
 $ keytool -genkeypair -keystore wildfly.keystore -storepass student -keypass student -keyalg RSA -alias wildfly -dname "cn=ims,o=fhj,c=at" 
 
-$ keytool -genkeypair -keystore keystore.jks -storeType jks -storepass student -alias spring -keypass student -keyalg RSA -keysize 4096 -validity 3650 -dname "cn=ims,o=fhj,c=at"
-
-
 
 *) Configure Wildfly (standalone.xml):
 
