@@ -1,0 +1,15 @@
+Exercise: Basic Authentication Client
+-------------------------------------------------------------------------------
+
+Given the existing REST service client, add a Basic Authentication header to
+the HTTP request:
+
+Authorization: Basic c3R1ZGVudDpzdHVkZW50
+
+Calculate the value of the Autorization value like: base64(username:password)
+
+Concrete username and password should be read from the rest.properties file:
+rest.username=student
+rest.password=student
+
+Tip: For testing purposes you can de-activate TLS on the REST service.
