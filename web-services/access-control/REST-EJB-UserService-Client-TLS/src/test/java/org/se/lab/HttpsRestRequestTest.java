@@ -61,5 +61,4 @@ public class HttpsRestRequestTest extends HttpsRestTestBase
                 + "</collection>\n";
         Assert.assertEquals(EXPECTED, content);
     }
-
 }

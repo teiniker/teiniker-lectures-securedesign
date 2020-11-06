@@ -33,12 +33,6 @@ public abstract class HttpsRestTestBase
 		PORT = properties.getProperty("rest.port");
 		logger.debug("Connect to " + HOST + ":" + PORT);
 
-		// Authentication data
-		String username = properties.getProperty("rest.username");
-		String password = properties.getProperty("rest.password");		
-		String userPassword = username + ":" + password;
-		BASIC_AUTHORIZATION_DATA = Base64.encodeBase64String(userPassword.getBytes());
-		
 		// read path to the used keystore file
 		System.setProperty( "javax.net.ssl.trustStore", properties.getProperty("ssl.trustStore"));
 		System.setProperty( "javax.net.ssl.trustStorePassword", properties.getProperty("ssl.trustStorePassword"));
