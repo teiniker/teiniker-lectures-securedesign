@@ -1,10 +1,61 @@
 How to configure Basic Authentication?
 -------------------------------------------------------------------------------
 
+How to setup the database?
+-------------------------------------------------------------------------------
+$ mysql -u student -p
+  Enter password: student
+MariaDB [(none)]> use testdb;
+
+copy/paste SQL statements from src/main/resources/sql/
+
+
 How to access the REST service?
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/REST-EJB-UserService-BasicAuth/v1/users
+URL: https://localhost:8443/REST-EJB-UserService-BasicAuth/v1/users
+
+$ curl -i -k -X GET https://localhost:8443/REST-EJB-UserService-BasicAuth/v1/users
+HTTP/2 401
+expires: 0
+www-authenticate: Basic realm="ApplicationRealm"
+cache-control: no-cache, no-store, must-revalidate
+pragma: no-cache
+content-type: text/html;charset=UTF-8
+content-length: 71
+date: Fri, 06 Nov 2020 09:45:32 GMT
+
+<html><head><title>Error</title></head><body>Unauthorized</body></html>
+
+$ curl -i -k --user student:student -X GET https://localhost:8443/REST-EJB-UserService-BasicAuth/v1/users
+HTTP/2 200
+expires: 0
+cache-control: no-cache, no-store, must-revalidate
+pragma: no-cache
+content-type: application/xml;charset=UTF-8
+content-length: 458
+date: Fri, 06 Nov 2020 09:46:48 GMT
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<collection>
+    <user id="1">
+        <username>homer</username>
+        <password>ijD8qepbRnIsva0kx0cKRCcYysg=</password>
+    </user>
+    <user id="2">
+        <username>marge</username>
+        <password>xCSuPDv2U6I5jEO1wqvEQ/jPYhY=</password>
+    </user>
+    <user id="3">
+        <username>bart</username>
+        <password>Ls4jKY8G2ftFdy/bHTgIaRjID0Q=</password>
+    </user>
+    <user id="4">
+        <username>lisa</username>
+        <password>xO0U4gIN1F7bV7X7ovQN2TlSUF4=</password>
+    </user>
+</collection>
+
 
 
 How to use Authentication in SoapUI?
@@ -57,6 +108,9 @@ Wildfly AS Configuration
 			<web-resource-name>All resources</web-resource-name>
 			<url-pattern>/*</url-pattern>
 		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
 		<auth-constraint>
 			<role-name>user</role-name>
 		</auth-constraint>

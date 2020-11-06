@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import javax.xml.bind.JAXBException;
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -31,7 +29,7 @@ public class UserServiceJSONTest
 	}
 	
 	@Test
-	public void testFindById() throws IOException, JAXBException
+	public void testFindById() throws IOException
 	{
 		URL url = new URL("http://" + HOST + ":" + PORT + WEB_APP_NAME + "/users/3");
 		System.out.println(url.toExternalForm());
@@ -51,7 +49,7 @@ public class UserServiceJSONTest
 	
 	
 	@Test
-	public void testFindAll() throws IOException, JAXBException
+	public void testFindAll() throws IOException
 	{
 		// Request
 		URL url = new URL("http://" + HOST + ":" + PORT + WEB_APP_NAME + "/users");
