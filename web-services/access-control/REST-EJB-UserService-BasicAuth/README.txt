@@ -15,6 +15,8 @@ How to access the REST service?
 
 URL: https://localhost:8443/REST-EJB-UserService-BasicAuth/v1/users
 
+curl -i -X GET http://localhost:8080/REST-EJB-UserService-BasicAuth/v1/users
+
 $ curl -i -k -X GET https://localhost:8443/REST-EJB-UserService-BasicAuth/v1/users
 HTTP/2 401
 expires: 0
