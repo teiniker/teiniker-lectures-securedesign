@@ -29,6 +29,86 @@ How add a new user to the Wildfly configuration?
 	=> JBOSS_HOME/standalone/configuration/application-roles.properties
 		admin=user,admin
 
+How to use the resources from curl?
+-------------------------------------------------------------------------------
+
+$ curl -i -X GET http://localhost:8080/REST-EJB-Authorization/v1/products/1
+HTTP/1.1 401 Unauthorized
+Expires: 0
+Connection: keep-alive
+WWW-Authenticate: Basic realm="ApplicationRealm"
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Content-Type: text/html;charset=UTF-8
+Content-Length: 71
+Date: Tue, 10 Nov 2020 20:30:23 GMT
+
+<html><head><title>Error</title></head><body>Unauthorized</body></html>
+
+$ curl -i -u student:student -X GET http://localhost:8080/REST-EJB-Authorization/v1/products/1
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/xml;charset=UTF-8
+Content-Length: 144
+Date: Tue, 10 Nov 2020 20:31:13 GMT
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<product id="103">
+    <description>Design Patterns</description>
+    <price>5280</price>
+</product>
+
+$ curl -i -u admin:admin -X GET http://localhost:8080/REST-EJB-Authorization/v1/products/1
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Type: application/xml;charset=UTF-8
+Content-Length: 144
+Date: Tue, 10 Nov 2020 20:32:04 GMT
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<product id="103">
+    <description>Design Patterns</description>
+    <price>5280</price>
+</product>
+
+
+$ curl -i -X GET http://localhost:8080/REST-EJB-Authorization/v1/users/1
+HTTP/1.1 401 Unauthorized
+Expires: 0
+Connection: keep-alive
+WWW-Authenticate: Basic realm="ApplicationRealm"
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Content-Type: text/html;charset=UTF-8
+Content-Length: 71
+Date: Tue, 10 Nov 2020 20:00:05 GMT
+
+$ curl -i -u student:student -X GET http://localhost:8080/REST-EJB-Authorization/v1/users/1
+HTTP/1.1 403 Forbidden
+Expires: 0
+Connection: keep-alive
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Content-Type: text/html;charset=UTF-8
+Content-Length: 68
+Date: Tue, 10 Nov 2020 20:24:01 GMT
+
+$ curl -i -u admin:admin -X GET http://localhost:8080/REST-EJB-Authorization/v1/users/1
+HTTP/1.1 200 OK
+Expires: 0
+Connection: keep-alive
+Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+Content-Type: application/xml;charset=UTF-8
+Content-Length: 150
+Date: Tue, 10 Nov 2020 20:40:09 GMT
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user id="1">
+    <username>homer</username>
+    <password>ijD8qepbRnIsva0kx0cKRCcYysg=</password>
+</user>
+
 
 How to use the resources from SoapUI?
 -------------------------------------------------------------------------------
@@ -58,11 +138,9 @@ REST Application Configuration: web.xml
 			<web-resource-name>user resources</web-resource-name>
 			<url-pattern>/v1/products</url-pattern>
 		</web-resource-collection>
-		<!-- turn off TLS (for testing only) 
-		<user-data-constraint> 
+		<user-data-constraint>
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee> 
 		</user-data-constraint> 
-		-->
 		<auth-constraint>
 			<role-name>user</role-name>
 		</auth-constraint>
@@ -73,11 +151,9 @@ REST Application Configuration: web.xml
 			<web-resource-name>admin resources</web-resource-name>
 			<url-pattern>/v1/users</url-pattern>
 		</web-resource-collection>
-		<!-- turn off TLS (for testing only) 
-		<user-data-constraint> 
+		<user-data-constraint>
 			<transport-guarantee>CONFIDENTIAL</transport-guarantee> 
 		</user-data-constraint> 
-		-->
 		<auth-constraint>
 			<role-name>admin</role-name>
 		</auth-constraint>
@@ -87,5 +163,3 @@ REST Application Configuration: web.xml
 		<auth-method>BASIC</auth-method>
 		<realm-name>ApplicationRealm</realm-name>
 	</login-config>
-		
-

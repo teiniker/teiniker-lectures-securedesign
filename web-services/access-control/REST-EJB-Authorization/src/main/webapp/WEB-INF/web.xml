@@ -30,7 +30,7 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>user resources</web-resource-name>
-			<url-pattern>/v1/products</url-pattern>
+			<url-pattern>/v1/products/*</url-pattern>
 		</web-resource-collection>
 		<!-- turn off TLS (for testing only) 
 		<user-data-constraint> 
@@ -45,7 +45,7 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>admin resources</web-resource-name>
-			<url-pattern>/v1/users</url-pattern>
+			<url-pattern>/v1/users/*</url-pattern>
 		</web-resource-collection>
 		<!-- turn off TLS (for testing only) 
 		<user-data-constraint> 
