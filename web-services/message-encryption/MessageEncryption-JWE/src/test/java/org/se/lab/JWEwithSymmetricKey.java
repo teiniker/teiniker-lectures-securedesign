@@ -30,7 +30,7 @@ public class JWEwithSymmetricKey
     }
     
     @Test
-    public void testEncryption() throws KeyLengthException, JOSEException
+    public void testEncryption() throws JOSEException
     {    	
         // Create the header
         JWEHeader header = new JWEHeader(JWEAlgorithm.DIR, EncryptionMethod.A128GCM);
@@ -49,7 +49,7 @@ public class JWEwithSymmetricKey
     }
 
     @Test
-    public void testDecryption() throws KeyLengthException, JOSEException, ParseException
+    public void testDecryption() throws JOSEException, ParseException
     {
         String jweString = "eyJlbmMiOiJBMTI4R0NNIiwiYWxnIjoiZGlyIn0..0bxqq9GF8lvQJ1si.fB7kmdL3MXZkXU6h.8TQzsHO3n2y9L08qF00uVQ";
 

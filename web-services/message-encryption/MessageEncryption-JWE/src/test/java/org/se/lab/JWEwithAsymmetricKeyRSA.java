@@ -31,7 +31,7 @@ public class JWEwithAsymmetricKeyRSA
 	public void setup() throws NoSuchAlgorithmException
 	{
 		KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance("RSA");
-		keyGenerator.initialize(1024);
+		keyGenerator.initialize(4096);
 
 		KeyPair kp = keyGenerator.genKeyPair();
 		publicKey = (RSAPublicKey) kp.getPublic();
@@ -42,13 +42,13 @@ public class JWEwithAsymmetricKeyRSA
 	}
 
 	@Test
-	public void testEncryption() throws KeyLengthException, JOSEException, ParseException
+	public void testEncryption() throws JOSEException, ParseException
 	{
 		String jweString;
 		
 		{
 			// Create the header
-			JWEHeader header = new JWEHeader(JWEAlgorithm.RSA_OAEP, EncryptionMethod.A128GCM);
+			JWEHeader header = new JWEHeader(JWEAlgorithm.RSA_OAEP_256, EncryptionMethod.A128GCM);
 
 			// Set the plain text
 			Payload payload = new Payload("Hello world!");
