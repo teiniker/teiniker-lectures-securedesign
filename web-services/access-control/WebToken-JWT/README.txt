@@ -51,46 +51,12 @@ o) Signature: To create the signature part you have to take the encoded header, 
 
 Therefore, a JWT typically looks like the following: xxxxx.yyyyy.zzzzz
 
-Example: eyJhbGciOiJIUzI1NiJ9.SU1TMTUtV1MyMDE2.rmEXeUKr6unu2vZ4shlJcXfnzAiGEzGjI5U-LL1AoPs
-
-
-Nimbus JOSE + JWT
--------------------------------------------------------------------------------
-The most popular and robust Java library for JSON Web Tokens (JWT)
-Supports all standard signature (JWS) and encryption (JWE) algorithms
-
-	POST /resource HTTP/1.1
-	Host: server.example.com
-	Authorization: Bearer mF_s9.B5f-4.1JqM
-
-
-JSON Web Token (JWT) with HMAC protection
--------------------------------------------------------------------------------
-http://connect2id.com/products/nimbus-jose-jwt/examples/jwt-with-hmac
-
-JSON Web Tokens (JWT) can be integrity protected with a hash-based message 
-authentication code (HMAC). The producer and consumer must posses a shared secret, 
-negotiated through some out-of-band mechanism before the JWS-protected object is 
-communicated (unless the producer secures the JWS object for itself).
-
-
-
-Nested signed and encrypted JSON Web Token (JWT)
--------------------------------------------------------------------------------
-http://connect2id.com/products/nimbus-jose-jwt/examples/signed-and-encrypted-jwt
-
-JSON Web Tokens (JWT) can be signed then encrypted to provide confidentiality of 
-the signed claims.
-While it’s technically possible to perform the operations in any order to create 
-a nested JWT, normally senders should first sign the JWT, then encrypt the 
-resulting message.
-
-
-
-References
--------------------------------------------------------------------------------
-https://www.toptal.com/web/cookie-free-authentication-with-json-web-tokens-an-example-in-laravel-and-angularjs
-http://blog.brainattica.com/restful-json-api-jwt-go/
-
-http://connect2id.com/products/nimbus-jose-jwt
-
+Example: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWluaSJ9.yB3aNe-WLS8LKlWsm7tZpf5ioIii7nb8SN3BlYOeMHQ
+see: https://jwt.io/
+    {
+      "alg": "HS256"
+    }
+    {
+      "sub": "teini"
+    }
+    HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), your-256-bit-secret)

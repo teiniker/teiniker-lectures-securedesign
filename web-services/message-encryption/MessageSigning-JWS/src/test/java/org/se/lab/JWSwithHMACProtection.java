@@ -42,7 +42,7 @@ public class JWSwithHMACProtection
 
     
     @Test
-    public void testSinging() throws JOSEException
+    public void testSigning() throws JOSEException
     {
         // Create HMAC signer
         JWSSigner signer = new MACSigner(key);

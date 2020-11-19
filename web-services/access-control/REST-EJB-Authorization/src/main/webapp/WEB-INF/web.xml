@@ -39,13 +39,17 @@
 		-->
 		<auth-constraint>
 			<role-name>user</role-name>
+			<role-name>admin</role-name>
 		</auth-constraint>
 	</security-constraint>
 
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>admin resources</web-resource-name>
-			<url-pattern>/v1/users/*</url-pattern>
+			<url-pattern>/v1/users/*</url-pattern>  <!-- don't use /v1/users -->
+			<!-- Don't do that
+			<http-method>GET</http-method>
+			-->
 		</web-resource-collection>
 		<!-- turn off TLS (for testing only) 
 		<user-data-constraint> 
