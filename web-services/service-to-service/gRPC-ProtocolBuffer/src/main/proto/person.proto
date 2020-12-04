@@ -1,0 +1,11 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+package org.se.lab;
+
+message Person
+{
+  string name = 1;
+  int32 id = 2;
+  bool has_ponycopter = 3;
+}
