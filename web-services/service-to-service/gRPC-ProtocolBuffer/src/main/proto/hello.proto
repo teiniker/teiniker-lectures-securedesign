@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package org.se.lab;
-
-message HelloWorld
-{
-    string message = 1;
-}
