@@ -9,8 +9,3 @@ message Person
     string name = 2;
     string password = 3;
 }
-
-message AddressBook
-{
-    repeated Person people = 1;
-}
