@@ -1,9 +1,12 @@
 package org.se.lab;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import org.apache.commons.codec.binary.Hex;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.*;
 
 public class PersonTest
 {
@@ -34,7 +37,25 @@ public class PersonTest
 	{
 		byte[] bytes = person.toByteArray();
 
+		String hexString = Hex.encodeHexString(bytes);
+		System.out.println(hexString);
+
 		Person clone = Person.parseFrom(bytes);
 		System.out.println(person.toString());
+	}
+
+	@Test
+	public void testPersonFile() throws IOException
+	{
+		File file = new File("homer.data");
+		FileOutputStream fos = new FileOutputStream(file);
+		person.writeTo(fos);
+		fos.close();
+
+		FileInputStream fis = new FileInputStream(file);
+		Person clone = Person.parseFrom(fis);
+		Assert.assertEquals(7, clone.getId());
+		Assert.assertEquals("homer", clone.getName());
+		Assert.assertEquals("$2y$12$9gRSvDCPp9lC/JBBo7jCZe.mXhpOiWk4z.y04YJ2NXzUo7qsKbg.S", clone.getPassword());
 	}
 }
