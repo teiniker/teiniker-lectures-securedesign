@@ -1,6 +1,6 @@
 # Securing Service-to-Service Communications Over gRPC
 
-he following examples are reused from **chapter 8** of the **Microservices Security in Actions** book. 
+The following examples are reused from **chapter 8** of the **Microservices Security in Actions** book. 
 You can find all examples of this book on [GitHub](https://github.com/microservices-security-in-action/samples).
 This document describes the main steps needed to make the examples run and discusses the output 
 of the experiments.
