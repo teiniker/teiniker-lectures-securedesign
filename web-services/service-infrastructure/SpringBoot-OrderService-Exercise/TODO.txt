@@ -1,0 +1,39 @@
+Exercise: Docker Image - SpringBoot-OrderService
+-------------------------------------------------------------------------------
+
+Given a SpingBoot Microservice, implement a Dockerfile that can be used to build
+a Docker image called "orderservice".
+
+i) Build a fat JAR file
+
+ii) Implement a Dockerfile
+    - Based on the "adoptopenjdk/openjdk11:ubi" Docker image
+    - Copy the fat JAR to /opt/service
+    - Run the fat JAR using the "java -jar" command
+
+iii) Create a Docker image und run a Docker container
+    - Build a Docker image
+    - Create and run a Docker container
+    - Test you container using curl
+
+$ curl -i http://localhost:8080/orders -H 'Content-Type: application/json' --data-binary @- <<EOF
+{
+"items":[
+    {
+        "itemCode":"IT001",
+        "quantity":3
+    },
+    {
+        "itemCode":"IT004",
+        "quantity":1
+    }
+    ],
+    "shippingAddress":"No 4, CA, USA"
+}
+EOF
+
+$ curl -i http://localhost:8080/orders/28e9ba9c-f284-4f3b-ac14-8dce44f2a7cd
+HTTP/1.1 200
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Thu, 19 Nov 2020 16:55:48 GMT
