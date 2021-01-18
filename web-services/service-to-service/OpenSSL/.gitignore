@@ -1,1 +1,9 @@
 sslcert/
+tmp/
+ca.key
+ca.crt
+certificate.crt
+key.pem
+server.crt
+server.key
+server.csr

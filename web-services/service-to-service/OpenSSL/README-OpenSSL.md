@@ -105,7 +105,7 @@ internal servers.
 
 To **generate a private key and public certificate**, run the following command and answer the questions:
 ```
-$ openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem  -days 365 -out certificate.pem
+$ openssl req -x509 -newkey rsa:4096 -nodes -keyout key.pem  -days 365 -out certificate.crt
 enerating a RSA private key
 ................................................................................................................................................................................++++
 ........................++++
@@ -139,7 +139,7 @@ Parameters:
 
 To **review the certificate** type:
 ```
-$ openssl x509 -text -noout -in certificate.pem
+$ openssl x509 -text -noout -in certificate.crt
 Certificate:
     Data:
         Version: 3 (0x2)
