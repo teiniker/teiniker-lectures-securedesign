@@ -246,6 +246,7 @@ When a Docker image is installed, its layers are unpacked and appropriately conf
 file system.
 The benefit is that common layers need to be installed only once.
 
+
 ## References
 * [Docker Homepage](https://www.docker.com/)
 * Jeff Nickoloff. **Docker in Action**. Manning, 2016 
