@@ -6,7 +6,7 @@ systems.
 Each guest OS works as if it is running on an actual physical hardware and it is, unaware of other guests running 
 on the same physical server.
 
-![VM vs. Docker](KubernetesVsDocker.png)
+![VM vs. Docker](figures/KubernetesVsDocker.png)
 
 On the other hand, when we run **containerized applications**, we virtualize the operating system (your standard 
 libraries, packages, etc.) itself, not the hardware.
@@ -54,7 +54,7 @@ Two of the most popular options that Kubernetes can integrate with are **rkt** a
 Kubernetes allows us to **run containers across multiple compute nodes** (these can be VMs or a bare-metal servers). 
 Once Kubernetes takes control over a cluster of nodes, **containers can then spun up or torn down** depending upon our need at any given time.
 
-![Kubernetes](Kubernetes.png)
+![Kubernetes](figures/Kubernetes.png)
 
 There are two basic concepts worth knowing about a Kubernetes cluster: 
 * The first is **Node**. This is a common term for VMs and/or bare-metal servers that Kubernetes manages. 
