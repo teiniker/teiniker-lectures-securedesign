@@ -9,7 +9,7 @@ The following examples are based on the **Spring Boot** framework and can be bui
 
 Note that **all samples use HTTP** (not HTTPS) endpoints to make it possible to inspect messages being 
 passed on the network.
-**In production systems, HTTPS should be used for any andpoint.**
+**In production systems, HTTPS should be used for any endpoint.**
 
 
 ## Building a Microservice
