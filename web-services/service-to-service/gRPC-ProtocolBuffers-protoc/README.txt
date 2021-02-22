@@ -17,11 +17,13 @@ $ sudo ldconfig
 $ vi .bashrc
 export PATH=$JAVA_HOME/bin:$ANT_HOME/bin:$M2_HOME/bin:/opt/bin:$PATH
 
+$ protoc --version
+
 
 How to invoke the protoc compiler?
 -------------------------------------------------------------------------------
 
-$ mkdir ./target/generated-sources/java
+$ mkdir -p ./target/generated-sources/java
 $ protoc -I=./ --java_out=./target/generated-sources/java ./src/main/resources/person.proto
 
 $ mvn test

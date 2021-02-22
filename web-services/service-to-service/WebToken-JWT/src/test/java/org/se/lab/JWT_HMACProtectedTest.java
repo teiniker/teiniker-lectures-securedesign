@@ -2,6 +2,7 @@ package org.se.lab;
 
 import java.security.SecureRandom;
 import java.text.ParseException;
+import java.util.Date;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
@@ -35,23 +36,19 @@ public class JWT_HMACProtectedTest
 	@Test
 	public void testProducer() throws JOSEException, DecoderException
 	{
-		// Create Payload
 		JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
 				.subject("teini")
-				//.expirationTime(new Date(new Date().getTime() + 60 * 1000))
+				.expirationTime(new Date(new Date().getTime() + 60 * 1000))
 				.build();
 		
 		JWSHeader header = new JWSHeader(JWSAlgorithm.HS256);
 		SignedJWT signedJWT = new SignedJWT(header , claimsSet);
 		
-		// Sign JWT using a HMAC
 		byte[] privateKey = Hex.decodeHex(hmacKey.toCharArray());
 		JWSSigner signer = new MACSigner(privateKey); 
 		signedJWT.sign(signer);
 		
-		// toString
 		String jwt = signedJWT.serialize();
-
 		Assert.assertEquals("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZWluaSJ9.yB3aNe-WLS8LKlWsm7tZpf5ioIii7nb8SN3BlYOeMHQ", jwt);
 	}
 	

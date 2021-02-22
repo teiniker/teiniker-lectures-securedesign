@@ -15,7 +15,11 @@ public class PersonTest
 	@Before
 	public void setup()
 	{
-		person = Person.newBuilder().setId(7).setName("homer").setPassword("$2y$12$9gRSvDCPp9lC/JBBo7jCZe.mXhpOiWk4z.y04YJ2NXzUo7qsKbg.S").build();
+		person = Person.newBuilder()
+				.setId(7)
+				.setName("homer")
+				.setPassword("$2y$12$9gRSvDCPp9lC/JBBo7jCZe.mXhpOiWk4z.y04YJ2NXzUo7qsKbg.S")
+				.build();
 	}
 
 	@Test

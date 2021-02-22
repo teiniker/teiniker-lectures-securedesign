@@ -24,5 +24,4 @@ public class GRPCClientTest
 
         channel.shutdown();
     }
-
 }
