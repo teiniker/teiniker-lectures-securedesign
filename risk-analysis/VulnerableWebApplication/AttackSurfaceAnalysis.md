@@ -1,24 +1,25 @@
 # Attack Surface Analysis
 
-Try to attack the given Web application from the outside using common
-penetration testing techniques and tools.
-
-## Mapping the Attack Surface
-
 Remember, the attack surface is the sum of all **paths for data and commands into and out (entry and exit points)** 
 of the application as well as all **valuable data (assets)** used in the application.
 
 Also, we focus on different types of users - at least: **anonymous users** and **admin users**.
 
+## Mapping the Attack Surface
+
 We start with a simple picture of the system:
 
 ![]()
 
-Based on these notes, we start with automatic scanning the application.
+Based on these notes, we start with spidering the given web application.
 
-### Spider a Web Application
+```
+URL: http://localhost:8080/VulnerableWebApplication
+```
 
-We use OWASP ZAP to explore the web application's surface.
+### Web Application Spider
+
+We use **OWASP ZAP** to explore the web application's surface.
 ZAP is an interception proxy which records all interactions between the browser and the web application.
 
 #### Automated Spider
