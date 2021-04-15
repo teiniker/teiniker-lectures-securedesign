@@ -42,6 +42,7 @@ This is the most effective way to analyze a web application's sites because a us
 
 ## References
 * [OWASP Zed Attack Proxy (ZAP)](https://www.zaproxy.org/)
+* [Youtube: ZAP Deep Dive: Introduction to ZAP](https://youtu.be/CxjHGWk4BCs)
 * [Youtube: ZAP Deep Dive: Exploring with the Standard Spider](https://youtu.be/mz2nhYpU-sw) 
 
 *Egon Teiniker, 2019-2021, GPL v3.0*
