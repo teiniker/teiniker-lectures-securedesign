@@ -56,6 +56,8 @@ The user can provide the right data (e.g. authentication) and executes the exist
 
 ## References
 * [OWASP Zed Attack Proxy (ZAP)](https://www.zaproxy.org/)
+* [ZAP Getting Started](https://www.zaproxy.org/getting-started/)
+
 * [Youtube: ZAP Deep Dive: Introduction to ZAP](https://youtu.be/CxjHGWk4BCs)
 * [Youtube: ZAP Deep Dive: Exploring with the Standard Spider](https://youtu.be/mz2nhYpU-sw) 
 
