@@ -9,11 +9,16 @@ Also, we focus on different types of users - at least: **anonymous users** and *
 
 We start with a simple picture of the system:
 
-![]()
+![Vulnerable Web Application](figures/VulnerableWebApplication.png)
 
-Based on these notes, we start with spidering the given web application.
+The figure shows that the web application has an **entry point** (HTTP port 8080) and an **exit point** (database connection).
+Also interesting is the fact that the **assets** are outside the application, namely in the database.
+This is critical because the database can be used by other applications (with the correct access data).
 
-URL: http://localhost:8080/VulnerableWebApplication
+We want to examine the entry point more closely. Specifically, we want to know which web pages are provided by the 
+application and which data the user can enter. 
+We use a **web spider** for this.
+
 
 ### Web Application Spider
 
@@ -30,10 +35,13 @@ $ ./zap.sh
 
 An automated spider works **like a web crawler** starting from a given page and following all links to search for
 documents.
+We start with the web application's main page:
+
+URL: http://localhost:8080/VulnerableWebApplication
 
 ![Automated Spider](figures/Spider-Dialog-Automated.png)
 
-Starting from the given URL, the automated spider visites all linked pages of the web application.
+From the given URL, the automated spider visites all linked pages of the web application.
 
 ![Automated Spider Results](figures/Spider-Result-1.png)
 
@@ -53,6 +61,20 @@ Based on these recordings, a map of sites is generated showing the used **HTTP m
 
 As we can see from the results, this is the **more effective** way to analyze a web application.
 The user can provide the right data (e.g. authentication) and executes the existing workflows in a proper way.
+
+### Accessing the Database
+As we know from the setup, we can use an SQL client to connect to the database and read out the data.
+```
+MariaDB [testdb]> select * from user;
++----+-----------+----------+----------+--------------+
+| id | firstname | lastname | username | password     |
++----+-----------+----------+----------+--------------+
+|  1 | student   | student  | student  | c3R1ZGVudA== |
++----+-----------+----------+----------+--------------+
+1 row in set (0.226 sec)
+```
+In a productive environment, access to the database is prevented by a firewall. In principle, however, an attacker 
+could access the database via a faulty application.
 
 ## References
 * [OWASP Zed Attack Proxy (ZAP)](https://www.zaproxy.org/)
