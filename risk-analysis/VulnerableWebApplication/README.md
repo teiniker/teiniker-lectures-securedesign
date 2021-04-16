@@ -26,7 +26,7 @@ In order to be able to access the database from the web application, we need a *
 The following steps are necessary once to create a DataSource for the MariaDB database. 
 All other applications can use these settings.
 
-See: [Wildfly-Configurations]()
+See: [Wildfly-Configurations](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/risk-analysis/VulnerableWebApplication)
 
 
 **Start Wildfly** in a terminal (as student):
