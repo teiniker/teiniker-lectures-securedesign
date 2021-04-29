@@ -21,7 +21,8 @@ public class ParallelBase64Encoder
 
             executor.shutdown();
             executor.awaitTermination(1, TimeUnit.MINUTES);
-        } catch (InterruptedException e)
+        }
+        catch (InterruptedException e)
         {
             throw new RuntimeException("Executor interrupted.", e);
         }
