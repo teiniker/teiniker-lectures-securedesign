@@ -1,4 +1,4 @@
-package org.se.lab.runnable;
+package org.se.lab;
 
 public class RunnableExample
 	implements Runnable
