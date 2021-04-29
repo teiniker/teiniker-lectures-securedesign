@@ -47,6 +47,8 @@ Main-Class: org.se.lab.EmbeddedTomcatMain
 ## References
 * [tomcat-9-embedded](https://github.com/jyeary/tomcat-9-embedded)
 
+* [Class Tomcat](https://tomcat.apache.org/tomcat-9.0-doc/api/org/apache/catalina/startup/Tomcat.html)
+
 * [Apache Maven Dependency Plugin](https://maven.apache.org/plugins/maven-dependency-plugin/)
 
 * [Apache Maven JAR Plugin](https://maven.apache.org/plugins/maven-jar-plugin/)
