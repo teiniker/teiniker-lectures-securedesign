@@ -425,7 +425,24 @@ multiple requests.
 **Worker threads have a simple life**: Request the next task from the work queue, execute it, and go back to waiting 
 for another task.
 
+By properly tuning the **size of the thread pool**, we can have enough threads to keep the processors busy while not 
+having so many that your application runs out of memory.
 
+We can create a thread pool by calling one of the **static factory methods in Executors**:
+* **newFixedThreadPool()**: A fixed-size thread pool creates threads as tasks are submitted, up to the maximum pool size, 
+	and then attempts to peek the pool size constant.
+	
+* **newCachedThreadPool()**: A cached thread pool has more flexibility to reap idle threads when the current size of the 
+	pool exceeds the demand for processing, and to add new threads when demand increases, but places no bounds on 
+	the size of the pool.
+	
+* **newSingleThreadExecutor()**: A single-thread executor creates a single worker thread to process tasks, replacing it 
+	if dies unexpectedly. Tasks are guaranteed to be processed sequentially according to the order imposed by the 
+	task queue (FIFO).
+	
+* **newScheduledThreadPool()**: A fixed-size thread pool that supports delayed and periodic task execution, similar to 
+	Timer.
+	
 
 ## References
 * Brian Goetz. **Java Concurrency in Practice**. Addison-Wesley, 2006
