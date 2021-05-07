@@ -383,10 +383,10 @@ threads that execute tasks are the consumers.
 
 _Example_: Executor interface
 ```Java
-public interface Executor 
-{    
-    void execute(Runnable command);
-}
+    public interface Executor 
+    {    
+        void execute(Runnable command);
+    }
 ```
 
 To address the issue of **execution service lifecycle**, the **ExecutorService** interface extends `Executor`, 
