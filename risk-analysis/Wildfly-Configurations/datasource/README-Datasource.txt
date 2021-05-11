@@ -32,6 +32,7 @@ Note that you can copy paste the com/ folder from this project!
 
 How to configure a datasource in standalone.xml?
 ---------------------------------------------------------------------
+wildfly-x.y.z/standalone/configuration/standalone.xml
 
 Within the <subsystem xmlns="urn:jboss:domain:datasources:5.0"> add a
 new <datasource> and <driver> element:
