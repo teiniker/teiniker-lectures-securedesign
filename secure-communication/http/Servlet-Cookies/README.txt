@@ -4,7 +4,7 @@ Servlet: HTTP Cookies
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: http://lab.se.org:8080/Servlet-Cookies/
+URL: http://localhost:8080/Servlet-Cookies/
 
 1. Browser loads HTML form
 --------------------------

@@ -1,13 +1,29 @@
-Exercise: Servlet Filter - Common Log Format
----------------------------------------------------------------------
+Exercise: Servlet Filter Logger (Common Logging Format)
+-------------------------------------------------------------------------------
 
-Implement a Servlet filter named "LogFilter" which creates a Common
-Log Format for HTTP Requests.
+Implement a Servlet Filter named "LogFilter" which generates a Common Log Format
+message.
 
-Example:
-	127.0.0.1 - - [17/Apr/2015:09:08:05 +0200] "GET /Servlet-Filter-Log-Exercise/controller?username=student&password=student&action=Login HTTP/1.1" 200 126
+Collect the following data from the request and response objects:
+i) Request object
+    Client IP
+    hard-code "- -"
+    Time Stamp
+    Request method and query string (request.getMethod(), request.getRequestURI(),
+        request.getQueryString())
+    Protocol
 
-To test your implementation - deploy it and access the Web application's 
-index.html page with your browser:
+ii) Response object
+    Status code
+    Size of content
+
+Tip: Use the HttpServletRequest type.
+
+
+How to access the Web application from a browser?
+-------------------------------------------------------------------------------
 
 URL: http://localhost:8080/Servlet-Filter-Log-Exercise/
+
+Console:
+127.0.0.1 - - 17/Apr/2015:08:48:57 +0200 "GET /Servlet-Filter-Log/controller?username=student&password=student&action=Login HTTP/1.1" 200 127

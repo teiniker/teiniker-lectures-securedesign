@@ -5,7 +5,7 @@ Servlet: Servlet Filter Log (Common Logging Format)
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: http://lab.se.org:8080/Servlet-Filter-Log/
+URL: http://localhost:8080/Servlet-Filter-Log/
 
  127.0.0.1 - - 09/Mar/2016:07:25:12 +0100 "GET /Servlet-Filter-Log/ HTTP/1.1" 200 933
  127.0.0.1 - - 09/Mar/2016:07:25:19 +0100 "GET /Servlet-Filter-Log/controller?username=student&password=student&action=Login HTTP/1.1" 200 126

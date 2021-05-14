@@ -41,12 +41,7 @@ public class ControllerServlet extends HttpServlet
         html.append("    <title>Login Servlet</title>");
         html.append("  </head>");
         html.append("  <body>");
-        html.append("    <h1> Request Parameters: </h1><p>");
-        html.append("    <pre>");
-        html.append("      username  = \""+ username + "\"<br/>");
-        html.append("      password  = \"" + password + "\"<br/>");
-        html.append("      usergroup = \"" + usergroup + "\"<br/>");
-        html.append("      action    = \"" + action + "\"<br/>");
+        html.append("    <h1> Welcome " + username + " ! </h1><p>");
         html.append("    </pre>");
         html.append("  </body>");
         html.append("</html>");

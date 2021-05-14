@@ -4,7 +4,7 @@ Servlet: HTTP Headers
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: http://lab.se.org:8080/Servlet-HttpHeaders/
+URL: http://localhost:8080/Servlet-HttpHeaders/
 
 
 Servlet API for Handling HTTP Headers

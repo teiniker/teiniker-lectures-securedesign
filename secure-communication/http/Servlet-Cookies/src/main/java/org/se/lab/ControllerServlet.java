@@ -36,7 +36,7 @@ public class ControllerServlet extends HttpServlet
         StringBuilder html = new StringBuilder(); 
         html.append("<html>");
         html.append("  <head>");
-        html.append("    <title>Login Servlet</title>");
+        html.append("    <title>Servlet Login</title>");
         html.append("  </head>");
         html.append("  <body>");
         html.append("    <h1> Welcome " + username + " ! </h1><p>");

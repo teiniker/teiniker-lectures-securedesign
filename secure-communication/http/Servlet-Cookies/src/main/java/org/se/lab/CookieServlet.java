@@ -35,7 +35,7 @@ public class CookieServlet extends HttpServlet
         StringBuilder html = new StringBuilder(); 
         html.append("<html>");
         html.append("  <head>");
-        html.append("    <title>Cookies Servlet</title>");
+        html.append("    <title>Servlet Cookies</title>");
         html.append("  </head>");
         html.append("  <body>");
         html.append("    <h2> Cookies: </h2><p>");
