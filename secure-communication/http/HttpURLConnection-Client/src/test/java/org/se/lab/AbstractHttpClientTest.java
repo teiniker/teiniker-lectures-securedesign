@@ -40,8 +40,7 @@ public abstract class AbstractHttpClientTest
 		else
 		{
 			PROXY = Proxy.NO_PROXY;
-		}			
-
+		}
 	}
 	
 	

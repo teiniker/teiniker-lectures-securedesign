@@ -14,7 +14,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 
-public abstract class AbstractHttpClientTest
+public abstract class AbstractHttpsClientTest
 {
 	protected Logger logger = Logger.getLogger(this.getClass());
 

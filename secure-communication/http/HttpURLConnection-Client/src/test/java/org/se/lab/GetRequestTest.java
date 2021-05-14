@@ -13,10 +13,10 @@ public class GetRequestTest
 	public void test() throws MalformedURLException 
 	{
 		URL url = new URL("http://localhost:8080" +
-				"/Servlet-SimpleLogin/controller" +
-				"?username=student&password=student&usergroup=User&action=Login");			
+				"/Servlet-Translator/controller" +
+				"?word=cat&language=Deutsch&action=Translate");
 		String response = httpGetRequest(url);
 		
-		Assert.assertTrue(response.contains("Welcome"));
+		Assert.assertTrue(response.contains("Katze"));
 	}
 }

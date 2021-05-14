@@ -7,17 +7,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class GetRequestTest
-	extends AbstractHttpClientTest
+	extends AbstractHttpsClientTest
 {
 	@Test
 	public void test() throws MalformedURLException 
 	{
 		URL url = new URL("https://localhost:8443" +
-				"/Servlet-SSL-SimpleLogin/controller" +
-				"?username=student&password=student&usergroup=User&action=Login");			
-
+				"/Servlet-SSL-Translator/controller" +
+				"?word=cat&language=Deutsch&action=Translate");
 		String response = httpsGetRequest(url);
 		
-		Assert.assertTrue(response.contains("Welcome"));
+		Assert.assertTrue(response.contains("Katze"));
 	}
 }

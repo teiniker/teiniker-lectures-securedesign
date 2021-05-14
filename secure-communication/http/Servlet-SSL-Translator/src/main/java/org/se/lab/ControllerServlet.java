@@ -19,9 +19,18 @@ public class ControllerServlet extends HttpServlet
 	private final Logger LOG = Logger.getLogger(ControllerServlet.class);
 
 	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
+		LOG.info("doGet() forward to doPost()");
+		doPost(request, response);	// Don't do that in practice!!
+	}
+
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
+		LOG.info("doPost()");
 		// Handling request
         String word = request.getParameter("word");
         String language = request.getParameter("language");
