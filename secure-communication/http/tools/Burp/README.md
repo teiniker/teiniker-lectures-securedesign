@@ -1,6 +1,10 @@
-# Proxy Configuration 
+# Burp Suite
 
-## Burp Settings
+To get a first impression of the possibilities of ZAP, visit the 
+[Getting Started](https://portswigger.net/burp/documentation/desktop/getting-started) page.
+
+
+## Download and Setup
 
 First, we run Burp Suite by starting the downloaded JAR file: 
 ```
@@ -29,12 +33,24 @@ Note that the **proxy port** number is the same as we have used for the **Burp c
 Currently requests to **localhost** will NOT be intercepted by the proxy, thus, we have to 
 configure a workaround.
 
-One solution is to set a [hostname](https://github.com/teiniker/teiniker-lectures-securedesign/blob/master/doc/fedora-setup.md) and use it as part of the URL.
-
-Another solution is to use **about:config** which is a feature of Mozilla Firefox that allows 
+A possible solution is to use **about:config** which is a feature of Mozilla Firefox that allows 
 the users to change and manipulate the preferences on Firefox:
 ```
 URL: about:config
 network.proxy.allow_hijacking_localhost	true
 ```
-Note that Burp Suite Professional / Community 2020.4 now supports Java 13 and TLS 1.3.
+
+## Burp Tutorials
+
+**Introduction**
+* [Youtbe (PortSwigger): How to intercept HTTP requests and responses using Burp Suite](https://youtu.be/ouDe5sJ_uC8)
+* [Youtbe (PortSwigger): How to resend individual requests with Burp Repeater](https://youtu.be/_Wifm2g9ugg)
+
+**Vulnerability Scanning**
+
+
+## References
+* [Burp Suite Community Edition - Download](https://portswigger.net/burp/communitydownload)
+* [Burp Video Tutorials](https://portswigger.net/burp/documentation/desktop/tutorials)
+
+*Egon Teiniker, 2019-2021, GPL v3.0*
