@@ -55,7 +55,6 @@ public class CookieServlet extends HttpServlet
         html.append("</html>");
 
         response.setContentType("text/html");
-        response.setBufferSize(1024);
         PrintWriter out = response.getWriter();
         out.println(html);
         out.close();
@@ -68,14 +67,4 @@ public class CookieServlet extends HttpServlet
 		LOG.debug("POST " + request.getQueryString());
 		doGet(request, response);
 	}
-
-
-    private String generateId()
-    {
-        SecureRandom random = new SecureRandom();
-        byte bytes[] = new byte[20];
-        random.nextBytes(bytes);
-        String hexString = Hex.encodeHexString(bytes);
-        return hexString;
-    }
 }

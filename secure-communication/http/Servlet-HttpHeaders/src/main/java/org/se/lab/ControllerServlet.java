@@ -49,7 +49,6 @@ public class ControllerServlet extends HttpServlet
         html.append("</html>");
         
         response.setContentType("text/html");
-        response.setBufferSize(1024);                
         response.setHeader("Refresh", "5");
         PrintWriter out = response.getWriter();
         out.println(html);

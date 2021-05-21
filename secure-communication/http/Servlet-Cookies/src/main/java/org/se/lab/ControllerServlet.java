@@ -46,7 +46,6 @@ public class ControllerServlet extends HttpServlet
         html.append("</html>");
         
         response.setContentType("text/html");
-        response.setBufferSize(1024);
 
         // Add cookie to the response
         Cookie cookie = new Cookie("id", generateId());
