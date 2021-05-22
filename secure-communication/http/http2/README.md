@@ -46,6 +46,8 @@ To describe this process, we need the following HTTP/2 terminology:
 
 ## References
 
+* [Youtube: HTTP/2 101](https://youtu.be/r5oT_2ndjms)
+
 * [Introduction to HTTP/2](https://developers.google.com/web/fundamentals/performance/http2)
 
 * [RFC7540: Hypertext Transfer Protocol Version 2 (HTTP/2)](https://datatracker.ietf.org/doc/html/rfc7540)
