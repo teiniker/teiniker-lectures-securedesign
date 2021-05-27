@@ -10,20 +10,6 @@ import java.security.NoSuchAlgorithmException;
 import org.junit.Assert;
 import org.junit.Test;
 
-
-/*
- * To generate a wordlist, we use crunch, a wordlist generator
- * (see http://sourceforge.net/projects/crunch-wordlist/)
- * 
- * This is the procedure from the downloaded tar ball to the
- * final word list:
- * 
- * tar -xvzf crunch-3.2.tgz 
- * cd crunch3.2/
- * make
- * ./crunch 4 4 -o wordlist.txt
- */
-
 public class BruteForceTest
 {
 	@Test
