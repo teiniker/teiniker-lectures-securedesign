@@ -1,13 +1,10 @@
-How to access the Web application?
+Example: Client-Side Controls - HMAC Signature Cookie
 -------------------------------------------------------------------------------
 
-URL: http://lab.se.org:8080/Servlet-ClientSideControls-Signature/controller
+URL: http://localhost:8080/Servlet-ClientSideControls-Signature/controller
 
-HTTP Messages
--------------
-
-GET Response:
-
+HTTP GET Response:
+------------------
 HTTP/1.1 200 OK
 Connection: close
 Set-Cookie: signature=357519aac576722cdb25266ca86d460e084abca8      <====
@@ -23,8 +20,8 @@ Date: Tue, 16 Jun 2020 14:34:42 GMT
     </body>
 </html>
 
-POST Request:
-
+HTTP POST Request:
+------------------
 POST /Servlet-ClientSideControls-Signature/controller HTTP/1.1
 Host: lab.se.org:8443
 User-Agent: Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0

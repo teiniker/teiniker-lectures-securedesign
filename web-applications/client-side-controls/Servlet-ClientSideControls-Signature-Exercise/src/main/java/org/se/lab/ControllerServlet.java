@@ -88,7 +88,7 @@ public class ControllerServlet extends HttpServlet
 
 		html.append("    		<form method=\"POST\" action=\"controller\">\n");
 		html.append("    	        <input type=\"hidden\" name=\"role\" value=\"" + role + "\"/>\n");
-		html.append("    	    	<table border=\"1\">\n");
+		html.append("    	    	<table border=\"0\">\n");
 		html.append("    	        	<tr>\n");
 		html.append("    	        		<th width=\"50\">Id</th>\n");
 		html.append("    	            	<th width=\"150\">FirstName</th>\n");

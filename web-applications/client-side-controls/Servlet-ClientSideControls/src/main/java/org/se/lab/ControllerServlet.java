@@ -36,7 +36,7 @@ public class ControllerServlet extends HttpServlet
         String password = request.getParameter("password");
         String action = request.getParameter("action");
         
-        LOG.debug("POST: process " + action + " as " + role);
+        LOG.info("POST: process " + action + " in role: " + role);
 
         // Input Validation
 
@@ -58,7 +58,7 @@ public class ControllerServlet extends HttpServlet
         	String debugFlag = new String(Base64.decodeBase64(debug));
         	if(debugFlag.equals("true"))
         	{
-        		LOG.debug("Add: " 
+        		LOG.info("DEBUG Log - Add: "
     					+ firstName + "," + lastName + ","  
     					+ username + "," + password + "," + role);
         	}
@@ -105,7 +105,7 @@ public class ControllerServlet extends HttpServlet
 
 		html.append("    		<form method=\"POST\" action=\"controller\">\n");
 		html.append("    	        <input type=\"hidden\" name=\"role\" value=\"user\"/>\n"); 
-		html.append("    	    	<table border=\"1\">\n");
+		html.append("    	    	<table border=\"0\">\n");
 		html.append("    	        	<tr>\n");
 		html.append("    	        		<th width=\"50\">Id</th>\n");
 		html.append("    	            	<th width=\"150\">FirstName</th>\n");
