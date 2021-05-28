@@ -2,7 +2,7 @@ Example: Servler-SSL-Translator
 -------------------------------------------------------------------------------
 
 URL: https://localhost:8443/Servlet-SSL-Translator/
-
+http://localhost:8080/Servlet-SSL-Translator/
 
 How to access the Web application from cURL?
 --------------------------------------------
