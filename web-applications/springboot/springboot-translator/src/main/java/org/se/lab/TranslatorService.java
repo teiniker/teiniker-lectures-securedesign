@@ -6,16 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class TranslationService
+public class TranslatorService
 {
     private Map<String, String> dictionary;
 
-    public TranslationService()
+    public TranslatorService()
     {
         dictionary = new HashMap<String, String>();
-        dictionary.put("katze", "cat");
-        dictionary.put("maus", "mouse");
-        dictionary.put("pferd", "horse");
+        dictionary.put("cat", "Katze");
+        dictionary.put("mouse", "Maus");
+        dictionary.put("horse", "Pferd");
         //...
     }
 
