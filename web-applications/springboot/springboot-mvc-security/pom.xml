@@ -8,8 +8,9 @@
 		<version>2.5.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>org.se.lab</groupId>
-	<artifactId>spring-boot-mvc</artifactId>
+	<artifactId>springboot-mvc-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-mvc</name>
 	<properties>

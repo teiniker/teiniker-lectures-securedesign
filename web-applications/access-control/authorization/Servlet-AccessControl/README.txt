@@ -3,7 +3,7 @@ Servlet: Access Control
 
 How to access the Web application?
 -------------------------------------------------------------------------------
-URL: https://lab.se.org:8443/Servlet-AccessControl/
+URL: https://localhost:8443/Servlet-AccessControl/
 
 student as user
 admin as admin
