@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>org.se.lab</groupId>
-	<artifactId>springboot-translator</artifactId>
+	<artifactId>springboot-mvc-translator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
