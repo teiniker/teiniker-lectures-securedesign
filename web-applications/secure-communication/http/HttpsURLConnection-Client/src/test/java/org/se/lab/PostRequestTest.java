@@ -14,7 +14,7 @@ public class PostRequestTest
 	{
 		URL url = new URL("https://localhost:8443/Servlet-SSL-Translator/controller");
 		String requestContent = "word=cat&language=Deutsch&action=Translate";
-		String response = httpPostRequest(url, requestContent);
+		String response = httpsPostRequest(url, requestContent);
 		
 		Assert.assertTrue(response.contains("Katze"));
 	}

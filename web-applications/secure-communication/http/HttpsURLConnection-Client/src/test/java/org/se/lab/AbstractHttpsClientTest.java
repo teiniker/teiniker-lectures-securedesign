@@ -94,7 +94,7 @@ public abstract class AbstractHttpsClientTest
 	}
 
 
-	protected String httpPostRequest(URL url, String requestContent)
+	protected String httpsPostRequest(URL url, String requestContent)
 	{
 		HttpURLConnection connection = null;
 		try
