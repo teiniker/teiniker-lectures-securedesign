@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.se.lab</groupId>
-	<artifactId>DataStores-SQLInjection-Exercise</artifactId>
+	<artifactId>SQLInjection-Exercise</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
