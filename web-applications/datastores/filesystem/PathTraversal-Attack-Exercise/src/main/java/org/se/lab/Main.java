@@ -14,7 +14,7 @@ public class Main
 	public static void main(String[] args) throws IOException
 	{
 		FileManager handler = new FileManager();		
-		String txt = handler.readFile("../../../../../../../../etc/shadow");
+		String txt = handler.readFile("../../../../../../../../../../../../../../../../etc/shadow");
 		System.out.println(txt);		
 	}
 }

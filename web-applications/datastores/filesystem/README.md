@@ -87,6 +87,11 @@ _Example_: Using try-with-resources to close an input stream.
 
 
 # File Upload
+Open source libraries such as **Apache Commons FileUpload** are used server side to process the 
+**multipart form submission** that are the heart of a file upload mechanism.
+
+Building a secure file upload mechanism requires several layers of defense, because 
+this feature can be abused by attackers in a wide variety of ways.
 
 ## Upload of Dangerous Content
 
