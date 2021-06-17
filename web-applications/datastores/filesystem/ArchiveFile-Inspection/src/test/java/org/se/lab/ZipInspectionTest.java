@@ -22,7 +22,6 @@ public class ZipInspectionTest
 		System.out.println("Compressed size         = " + compressedSize);
 
 		ZipFile zip = new ZipFile(file);
-
 		long totalUncompressedSize = 0;
 		Enumeration<? extends ZipEntry> entry = zip.entries();
 		while(entry.hasMoreElements())
