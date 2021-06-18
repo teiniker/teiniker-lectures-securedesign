@@ -30,3 +30,4 @@ for type resolution.
 * Jim Manico, August Detlefsen. **Iron-Clad Java: Build Secure Web Applications**. Oracle Press, 2015
      * Chapter 8: Safe File Upload and File I/O
 		
+*Egon Teiniker, 2019-2021, GPL v3.0*	
