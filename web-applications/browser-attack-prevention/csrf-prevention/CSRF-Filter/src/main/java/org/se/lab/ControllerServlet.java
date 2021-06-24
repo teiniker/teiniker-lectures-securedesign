@@ -30,7 +30,12 @@ public class ControllerServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException
 	{
-		doPost(request, response);
+		// generate response page
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		String html = generateWebPage("");
+		out.println(html);
+		out.close();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -38,7 +43,6 @@ public class ControllerServlet extends HttpServlet
 	{
         // Controller 
 		String message = "";
-		String cartList = "";
         HttpSession session = request.getSession(false);
         
         String action = request.getParameter("action");
@@ -46,39 +50,48 @@ public class ControllerServlet extends HttpServlet
         {
         	// do nothing
         }
+        else if(action.equals("Login"))
+        {
+        	LOG.info("> login");
+        	session = request.getSession();
+        	List<Product> cart = new ArrayList<Product>();
+        	session.setAttribute("cart", cart);		
+        	message = "You logged in successfully!";
+        }
+        else if(action.equals("Logout"))
+        {
+        	LOG.info("> logout");
+        	session.invalidate();
+        	message = "You logged out successfully!";
+        }
         else if(action.equals("Add"))
         {   
-  
         	String name = request.getParameter("name");
         	String quantity = request.getParameter("quantity");
         	Product product = new Product(name, quantity);
-        	LOG.debug("> add " + product);
+        	LOG.info("> add " + product);
             if(session != null)
             {
-            	@SuppressWarnings("unchecked")
-				List<Product> cart = (List<Product>)session.getAttribute("cart");
-	            if(cart == null)
+            	List<Product> cart = (List<Product>)session.getAttribute("cart");
+	            if(cart != null)
 	            {
-	            	cart = new ArrayList<Product>();
-	            	session.setAttribute("cart", cart);
+	            	cart.add(product);
 	            }
-            	cart.add(product);
-            	cartList= generateProductList(cart);
-            	LOG.debug("> cart: " + cart);
-            	message = "added: " + product.getQuantity() + " times " + product.getName() + " to the cart";
+	            LOG.info("> cart: " + cart);
+	            message = "added: " + product.getQuantity() + " " + product.getName() + " to the cart";
             }
         }
 
-        // generate response page
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        String html = generateWebPage(message, cartList);        
-        out.println(html);
-        out.close();
+		// generate response page
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		String html = generateWebPage(message);
+		out.println(html);
+		out.close();
 	}
 
 	
-	private String generateWebPage(String message, String cartList)
+	private String generateWebPage(String message)
 	{
 		StringBuilder html = new StringBuilder();
 		html.append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n");
@@ -87,10 +100,32 @@ public class ControllerServlet extends HttpServlet
 		html.append("  	<title>Simple Shopping Cart</title>\n");
 		html.append("  </head>\n");
 		html.append("  <body>\n");
-				
-		html.append("		<h2>Shopping Cart:</h2>\n");        
+		
+		html.append("		<h2>Session Management</h2>\n");        
+		html.append("		<form method=\"post\" action=\"controller\">");
+		html.append("  				<input type = \"hidden\" name = \"csrf_token\" value=\"CSRF_TOKEN\"/>");
+		html.append("			<table border=\"0\" cellspacing=\"1\" cellpadding=\"5\">");
+		html.append("				<colgroup>");
+		html.append("					<col width=\"150\"> <col width=\"150\"> <col width=\"100\">");
+		html.append("				</colgroup>");
+		html.append("				<tr>");
+		html.append("					<th>");
+		html.append("						<input type=\"submit\"  name=\"action\" value=\"Login\">");  
+		html.append("					</th>");
+		html.append("					<th>");
+		html.append("					</th>");
+		html.append("					<th>");  
+		html.append("						<input type=\"submit\" name=\"action\" value=\"Logout\">");
+		html.append("					</th>");
+		html.append("				</tr>");	
+		html.append("			</table>");
+		html.append("		</form>");
+		html.append("		<p/>");
+		
+		html.append("		<h2>Your Shopping Cart:</h2>\n");        
 		html.append("		<form method=\"post\" action=\"controller\">");
 		html.append("			<table border=\"0\" cellspacing=\"1\" cellpadding=\"5\">");
+		html.append("  				<input type = \"hidden\" name = \"csrf_token\" value=\"CSRF_TOKEN\"/>");
 		html.append("				<colgroup>");
 		html.append("					<col width=\"150\"> <col width=\"150\"> <col width=\"100\">");
 		html.append("				</colgroup>");
@@ -107,28 +142,11 @@ public class ControllerServlet extends HttpServlet
 		html.append("			</table>");
 		html.append("		</form>");
 		html.append("		<p/>");
+		
 		html.append("		<p style=\"color:blue\"><i>" + message + "</i></p>");
-		html.append("		<p/>");		
-		html.append("       <hr/>");
-		html.append(cartList);
-		html.append("       <hr/>");
+		html.append("		<p/>");
 		Date now = new Date();
 		html.append("		<h6>" + now + "</h6>");
-		html.append("	</body>");
-		html.append("</html>");
 		return html.toString();
-	}
-	
-	private String generateProductList(List<Product> products)
-	{
-		StringBuilder html = new StringBuilder();
-		
-		html.append("    <ul>\n");
-		for(Product p : products)
-		{
-			html.append("        <li>").append(p.getQuantity()).append(" x ").append(p.getName()).append("</li>\n");
-		}
-		html.append("    </ul>\n");
-		return html.toString();		
 	}
 }
