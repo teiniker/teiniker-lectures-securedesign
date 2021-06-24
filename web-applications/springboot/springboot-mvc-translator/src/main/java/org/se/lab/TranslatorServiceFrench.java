@@ -1,22 +1,19 @@
 package org.se.lab;
 
-import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
-public class TranslatorServiceGerman
+public class TranslatorServiceFrench
     implements TranslatorService
 {
     private Map<String, String> dictionary;
 
-    public TranslatorServiceGerman()
+    public TranslatorServiceFrench()
     {
         dictionary = new HashMap<String, String>();
-        dictionary.put("cat", "Katze");
-        dictionary.put("mouse", "Maus");
-        dictionary.put("horse", "Pferd");
+        dictionary.put("cat", "Chatte");
+        dictionary.put("mouse", "Souris");
+        dictionary.put("horse", "Cheval");
         //...
     }
 
