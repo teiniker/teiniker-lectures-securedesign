@@ -8,7 +8,7 @@ URL: http://localhost:8080/Servlet-FileUpload-ReferenceMap-Exercise
 Improve the security of this implementation in two ways:
 
 A) Check File Extension
-Restrict the upload to the following file extensions: ".png", "jpg", "gif"
+Restrict the upload to the following file extensions: ".png", ".jpg", ".gif"
 Reject the upload of other file formats with a response message like:
     "Invalid file type!"
 
