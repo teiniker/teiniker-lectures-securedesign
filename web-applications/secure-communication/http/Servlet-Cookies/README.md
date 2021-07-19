@@ -13,10 +13,10 @@ After the client sends a POST request to the server, a **cookie is generated on 
 the response header.
 
 ```Java
-    Cookie cookie = new Cookie("id", generateId());
-    cookie.setHttpOnly(true);
-    cookie.setSecure(false);  // should be true in a real application
-    response.addCookie(cookie);
+Cookie cookie = new Cookie("id", generateId());
+cookie.setHttpOnly(true);
+cookie.setSecure(true); 
+response.addCookie(cookie);
 ```
 
 **HTTP POST Request:**
@@ -40,7 +40,7 @@ username=student&password=student&usergroup=Guest&action=Login
 HTTP/1.1 200 OK
 Connection: close
 X-Powered-By: Undertow/1
-Set-Cookie: id=b8d997617cec8bbafef0e06b017a1767a27203d5; HttpOnly
+Set-Cookie: id=b8d997617cec8bbafef0e06b017a1767a27203d5; secure; HttpOnly
 Server: WildFly/10
 Content-Type: text/html;charset=ISO-8859-1
 Content-Length: 160
