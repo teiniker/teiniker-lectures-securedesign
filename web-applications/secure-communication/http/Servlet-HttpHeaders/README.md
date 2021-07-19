@@ -64,7 +64,7 @@ header is inserted into the response message.
     If a response header with the given name exists and contains multiple values, 
     the value that was added first will be returned.    				
 				
-* **public Collection<String> getHeaders(String name)**\ 
+* **public Collection<String> getHeaders(String name)**\
     Gets the values of the response header with the given name.
 	
 * **public Collection<String> getHeaderNames()**\
