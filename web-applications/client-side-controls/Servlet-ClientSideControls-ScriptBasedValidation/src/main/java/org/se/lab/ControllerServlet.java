@@ -20,13 +20,6 @@ public class ControllerServlet extends HttpServlet
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException
-	{
-		doPost(request, response);
-	}
-
-	
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
@@ -54,7 +47,6 @@ public class ControllerServlet extends HttpServlet
                
         // Generate response
         response.setContentType("text/html");
-        response.setBufferSize(1024);
         PrintWriter out = response.getWriter();
         out.println(html);
         out.close();
