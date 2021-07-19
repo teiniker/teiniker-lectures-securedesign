@@ -31,12 +31,10 @@ public class ControllerServlet extends HttpServlet
 		// Handling request parameters
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
-        String role = request.getParameter("role");
+        String data = request.getParameter("data");
 		String username = request.getParameter("username");
         String password = request.getParameter("password");
         String action = request.getParameter("action");
-        
-        LOG.info("POST: process " + action + " in role: " + role);
 
         // Input Validation
 
@@ -52,21 +50,20 @@ public class ControllerServlet extends HttpServlet
 	        }
         }
         
-        String html = null;
+        String debugMessage = null;
         if(action != null && action.equals("Add"))
         {
+			// TODO: implement some action
+
         	String debugFlag = new String(Base64.decodeBase64(debug));
         	if(debugFlag.equals("true"))
         	{
-        		LOG.info("DEBUG Log - Add: "
-    					+ firstName + "," + lastName + ","  
-    					+ username + "," + password + "," + role);
+        		debugMessage = "DEBUG Log - Add: " + firstName + "," + lastName + "," + username + "," + password + "," + data;
+				LOG.info(debugMessage);
         	}
-        	
-        	// TODO: implement some action
         }
                
-        html = generateUserForm();
+        String html = generateUserForm(debugMessage);
         
         // Add cookie to the response
         Cookie cookie = new Cookie("debug",Base64.encodeBase64String("false".getBytes()));
@@ -74,7 +71,6 @@ public class ControllerServlet extends HttpServlet
         
         // Generate response 
         response.setContentType("text/html");
-        response.setBufferSize(1024);
         PrintWriter out = response.getWriter();
         out.println(html);
         out.close();
@@ -84,7 +80,17 @@ public class ControllerServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException
 	{
-		doPost(request, response);
+		String html = generateUserForm("");
+
+		// Add cookie to the response
+		Cookie cookie = new Cookie("debug",Base64.encodeBase64String("false".getBytes()));
+		response.addCookie(cookie);
+
+		// Generate response
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println(html);
+		out.close();
 	}
 	
 	
@@ -92,7 +98,7 @@ public class ControllerServlet extends HttpServlet
 	 * View Helper
 	 */
 	
-	protected String generateUserForm()
+	protected String generateUserForm(String debugMessage)
 	{
 		StringBuilder html = new StringBuilder();
 		html.append("<html>\n");
@@ -101,11 +107,11 @@ public class ControllerServlet extends HttpServlet
 		html.append("    </head>\n");
 		
 		html.append("    <body>\n");
-		html.append("    	<h2>Create a new user:</h2>\n");
+		html.append("    	<h2>Transmitting Data via the Client:</h2>\n");
 
 		html.append("    		<form method=\"POST\" action=\"controller\">\n");
-		html.append("    	        <input type=\"hidden\" name=\"role\" value=\"user\"/>\n"); 
-		html.append("    	    	<table border=\"0\">\n");
+		html.append("				<input type=\"hidden\" name=\"data\" value=\"28a76cd5ef9031c0\"/>\n");
+		html.append("				<table border=\"0\">\n");
 		html.append("    	        	<tr>\n");
 		html.append("    	        		<th width=\"50\">Id</th>\n");
 		html.append("    	            	<th width=\"150\">FirstName</th>\n");
@@ -116,15 +122,16 @@ public class ControllerServlet extends HttpServlet
 		html.append("    	        	</tr>\n");
 		html.append("    	        	<tr>\n");
 		html.append("    	        		<td/>\n");
-		html.append("    	            	<td><input type=\"text\" name=\"firstName\" maxlength=\"16\"/></td>\n");
-		html.append("    	            	<td><input type=\"text\" name=\"lastName\" maxlength=\"16\"/></td>\n");
-		html.append("    	            	<td><input type=\"text\" name=\"username\" maxlength=\"16\"/></td>\n");
-		html.append("    	            	<td><input type=\"password\" name=\"password\" pattern=\"[A-Za-z0-9_!]{12,}\"/></td>\n");
-		html.append("  	<td align=\"center\"><input type=\"submit\" name=\"action\" value=\"Add\" /></td>\n"); 
+		html.append("    	            	<td><input type=\"text\" name=\"firstName\"/></td>\n");
+		html.append("    	            	<td><input type=\"text\" name=\"lastName\"/></td>\n");
+		html.append("    	            	<td><input type=\"text\" name=\"username\"/></td>\n");
+		html.append("    	            	<td><input type=\"password\" name=\"password\"/></td>\n");
+		html.append("  						<td align=\"center\"><input type=\"submit\" name=\"action\" value=\"Add\" /></td>\n");
 		html.append("    	        	</tr>\n");
 		html.append("    	    	</table>\n");
-		html.append("        </form>\n");	
-		
+		html.append("        </form>\n");
+		html.append("        <p/>\n");
+		html.append("        <tt>").append(debugMessage).append("</tt>\n");
 		html.append("    </body>\n");
 		html.append("</html>\n");
 		

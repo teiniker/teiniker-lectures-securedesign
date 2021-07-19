@@ -4,6 +4,10 @@
 		 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
    http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
+	<welcome-file-list>
+		<welcome-file>controller</welcome-file>
+	</welcome-file-list>
+
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>SecureTransport</web-resource-name>
