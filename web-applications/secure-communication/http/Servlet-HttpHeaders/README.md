@@ -18,9 +18,9 @@ header is inserted into the response message.
     Enumeration<String> headerNames = request.getHeaderNames();
     while(headerNames.hasMoreElements()) 
     {
-      String headerName = (String)headerNames.nextElement();
-      html.append(request.getHeader(headerName);
-    // ...
+        String headerName = (String)headerNames.nextElement();
+        html.append(request.getHeader(headerName);
+        // ...
     }
     //...
     response.setHeader("Refresh", "5");
