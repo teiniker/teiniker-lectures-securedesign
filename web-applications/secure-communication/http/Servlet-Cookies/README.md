@@ -13,10 +13,10 @@ After the client sends a POST request to the server, a **cookie is generated on 
 the response header.
 
 ```Java
-    Cookie cookie = new Cookie("id", generateId());
-    cookie.setHttpOnly(true);
-    cookie.setSecure(false);  // should be true in a real application
-    response.addCookie(cookie);
+Cookie cookie = new Cookie("id", generateId());
+cookie.setHttpOnly(true);
+cookie.setSecure(true); 
+response.addCookie(cookie);
 ```
 
 **HTTP POST Request:**
