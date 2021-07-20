@@ -5,10 +5,8 @@
 
 ## Example
 
-$ ./mvnw spring-boot:run
 $ mvn spring-boot:run 
 
-URL: http://localhost:8080
 URL: https://localhost:8443
 
 ## References
