@@ -1,0 +1,27 @@
+Exercise: SQL Injection - Login
+-------------------------------------------------------------------------------
+
+Start a MySQL client (as student):
+$ mysql -u student -p
+Enter password: student
+MariaDB [(none)]> use testdb;
+MariaDB [testdb]> show tables;
+
+MariaDB [testdb]> source sql/createUser.sql;
+
+Deploy the web application:
+$ mvn wildfly:deploy
+
+URL: http://localhost:8080/Servlet-SqlLogin-Exercise
+
+To login, use the following access data:
+username: student
+password: student
+
+But, this web application has a serious security problem. An analysis tool
+reported, that there is an SQL injection vulnerability in the login page:
+username: student' OR 1 #
+password: blah
+
+Fix the SQL injection problem and test the SQLi attack again...
+
