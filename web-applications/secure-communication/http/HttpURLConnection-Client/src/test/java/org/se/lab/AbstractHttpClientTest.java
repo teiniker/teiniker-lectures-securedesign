@@ -44,7 +44,7 @@ public abstract class AbstractHttpClientTest
 	}
 	
 	
-	protected String httpGetRequest(URL url)
+	public String httpGetRequest(URL url)
 	{
 		HttpURLConnection connection = null;
 		try
@@ -83,7 +83,7 @@ public abstract class AbstractHttpClientTest
 	}
 
 	
-	protected String httpPostRequest(URL url, String requestContent)
+	public String httpPostRequest(URL url, String requestContent)
 	{
 		HttpURLConnection connection = null;
 		try
