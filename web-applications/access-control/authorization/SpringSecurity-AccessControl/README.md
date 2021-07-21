@@ -116,10 +116,10 @@ files called `spring-security.xml`.
 
 ```
     <http auto-config="true" use-expressions="true">
-		<form-login login-page="/public/login.html"/>
-		<logout logout-success-url="/public/index.html"/>
-		<port-mappings>
-      		<port-mapping http="8080" https="8443"/>
+	<form-login login-page="/public/login.html"/>
+	<logout logout-success-url="/public/index.html"/>
+	<port-mappings>
+		<port-mapping http="8080" https="8443"/>
     	</port-mappings>    
     </http>
 ```
