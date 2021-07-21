@@ -16,33 +16,36 @@ the password alone.
 The new guidelines demonstrate an understanding of the human element, and
 introduces a policy that is more realistic for users to follow:
 
-* Require Multi-factor Authentication
+* Require **Multi-factor Authentication**
 
-* Password Length should to be a minimum of 8 characters, but less than 64 characters in length
+* **Password Length** should to be a minimum of 8 characters, but less than 64 characters in length
 
-* All special characters (including space) should be allowed, but not required
+* All **special characters** (including space) should be allowed, but not required
 
-* Eliminate knowledge-based authentication (e.g. what is your mother's maiden name?)
+* **Eliminate knowledge-based authentication** (e.g. what is your mother's maiden name?)
 
-* Avoid Personal Information including name, important dates, pets, etc.
+* **Avoid Personal Information** including name, important dates, pets, etc.
 
-* Compare the prospective secrets against a list that contains values known to be commonly-used, expected, or compromised. For example, the list MAY include, but is not limited to:
+* Compare the prospective secrets against a list that contains values known to be **commonly-used, expected, or compromised**. For example, the list MAY include, but is not limited to:
     * Passwords obtained from previous breach corpuses
     * Dictionary words
     * Repetitive or sequential characters (e.g. ‘aaaaaa’, ‘1234abcd’)
     * Context-specific words, such as the name of the service, the username, and derivatives thereof
 
-* Eliminate Mandatory Password Changes unless there is evidence of compromise of the password
+* **Eliminate Mandatory Password Changes** unless there is evidence of compromise of the password
 
-* Use approved encryption and an authenticated protected channel when requesting memorized secrets
+* Use **approved encryption and an authenticated protected channel** when requesting memorized secrets
 
-* Limit the number of failed login attempts
+* **Limit the number of failed login attempts**
 
-* Enable copy and paste functionality in password fields to promote the use of Password Managers
+* Enable copy and paste functionality in password fields to promote the use of **Password Managers**
 
 ## References
 * [Authenticator and Verifier Requirements](https://pages.nist.gov/800-63-3/sp800-63b.html#sec5)
 
 * [Password Policy Best Practices](https://www.intellisuite.com/blog/2019-password-policy-best-practices)
+
+* [Common-Credentials](https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials)
+
 
 *Egon Teiniker, 2019-2021, GPL v3.0*
