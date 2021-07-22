@@ -7,7 +7,7 @@ spotbugs.build = ${project.home}/target/classes
 # Tool Settings
 # https://spotbugs.github.io/
 # https://find-sec-bugs.github.io/
-spotbugs.home=/home/student/local/spotbugs-4.0.0-beta4/
+spotbugs.home=/home/student/local/spotbugs-4.3.0/
 spotbugs.output.format = text
 spotbugs.output.file = reports/spotbugs-report.txt
 #spotbugs.output.format = xml
