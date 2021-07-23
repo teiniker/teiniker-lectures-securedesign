@@ -4,6 +4,8 @@ PMD is a static source code analyzer.
 It finds common programming flaws like **unused variables**, **empty catch blocks**, 
 **unnecessary object creation**, and so forth.
 
+PMD is also shipped with a **Copy & Paste** detector (CPD) which can find duplicated code. 
+
 ## Setup
 
 Download and unzip [PMD](https://pmd.github.io/pmd-6.36.0/index.html).
@@ -31,11 +33,13 @@ cpd.output.format=text
 
 In this project, we use the Ant build tool to run PMD because we analyze a different project, see: project.home. 
 The project is only used to configure the analysis tool and to store the reports.
-
+```
 $ ant
 $ less reports/pmd-report.txt
 $ less reports/cpd-report.txt
-
+```
 
 ## References
 * [ PMD Source Code Analyzer Project](https://pmd.github.io/pmd-6.36.0/index.html)
+* [Finding duplicated code with CPD](https://pmd.github.io/pmd-6.36.0/pmd_userdocs_cpd.html)
+
