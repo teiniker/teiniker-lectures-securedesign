@@ -7,7 +7,7 @@ code instances that are likely to be errors.
 
 Download and unzip  [SpotBugs](https://spotbugs.readthedocs.io/en/stable/installing.html).
 
-Rename `spotbugs.properties.template` to `spotbugs.properties.template` and set the **spotbugs.home** property 
+Rename `spotbugs.properties.template` to `spotbugs.properties` and set the **spotbugs.home** property 
 to your install directory of SpotBugs.
 
 _Example_: spotbugs.properties
