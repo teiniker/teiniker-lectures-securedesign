@@ -24,10 +24,18 @@ spotbugs.output.format = text
 spotbugs.output.file = reports/spotbugs-report.txt
 ```
 
-## Using the SpotBugs Ant task
+## SpotBugs GUI
 
-We use the Ant build tool to run SpotBugs because we analyze a different project, see: **project.home**.
-This project is only used to configure the analysis tool and to store the reports.
+For a first look, we can run SpotBugs with it's own GUI in a standalone mode:
+```
+$ cd spotbugs-x.y.z/
+$ bin/spotbugs
+```
+
+## SpotBugs Ant Task
+
+In this project, we use the Ant build tool to run SpotBugs because we analyze a different project, see: **project.home**.
+The project is only used to configure the analysis tool and to store the reports.
 ```
 $ ant
 $ less reports/spotbugs-report.txt
