@@ -1,22 +1,50 @@
-Using the SpotBugs Ant task
--------------------------------------------------------------------------------
-https://spotbugs.readthedocs.io/en/latest/ant.html
+# SpotBugs
 
-Download Spotbugs from:
-https://spotbugs.readthedocs.io/en/stable/installing.html
+SpotBugs is a program to find bugs in Java programs. It looks for instances of **bug patterns** — 
+code instances that are likely to be errors.
 
-Change the "spotbugs.home" property in "spotbugs.properties"
+## Setup
 
-Set the "project.home" of the project you want to analyze.
+Download and unzip  [SpotBugs](https://spotbugs.readthedocs.io/en/stable/installing.html).
 
+Rename `spotbugs.properties.template` to `spotbugs.properties.template` and set the **spotbugs.home** property 
+to your install directory of SpotBugs.
+
+_Example_: spotbugs.properties
+```
+# Project to analyze
+project.home = ../../risk-analysis/VulnerableWebApplication
+spotbugs.src = ${project.home}/src/main/java
+spotbugs.test = ${project.home}/src/test/java
+spotbugs.build = ${project.home}/target/classes
+
+# Tool Settings
+spotbugs.home=/home/student/local/spotbugs-4.3.0/
+spotbugs.output.format = text
+spotbugs.output.file = reports/spotbugs-report.txt
+```
+
+## Using the SpotBugs Ant task
+
+We use the Ant build tool to run SpotBugs because we analyze a different project, see: **project.home**.
+This project is only used to configure the analysis tool and to store the reports.
+```
 $ ant
 $ less reports/spotbugs-report.txt
+```
 
-Add find-sec-bugs
------------------
-https://find-sec-bugs.github.io/
+## Find Security Bugs
 
-=> copy findsecbugs-plugin-1.11.0.jar into spotbugs-4.3.0/plugin
+Find Security Bugs is a SpotBugs plugin for security audits of Java web applications.
+It can detect 138 different vulnerability types with over 820 unique API signatures.
+
+Download [Find Security Bugs](https://find-sec-bugs.github.io/) and copy the JAR file into the 
+`spotbugs-x.y.z/plugin` folder.
+
+If you run SpotBugs again, you will see the additional warnings in your report file.
 
 
-
+## References
+* [SpotBugs Download](https://spotbugs.readthedocs.io/en/stable/installing.html)
+* [Using the SpotBugs Ant task](https://spotbugs.readthedocs.io/en/latest/ant.html)
+* [Plugin: find-sec-bugs](https://find-sec-bugs.github.io/)
