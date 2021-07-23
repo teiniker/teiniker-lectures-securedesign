@@ -1,7 +1,15 @@
 Dependency Analysis
 -------------------------------------------------------------------------------
+
 The OWASP Top 10 2013 contains a new entry: A9-Using Components with Known
 Vulnerabilities.
+
+
+OWASP Dependency-Check
+-------------------------------------------------------------------------------
+https://owasp.org/www-project-dependency-check/
+
+Download Ant Task
 
 
 Apache Maven Dependency Plugin
