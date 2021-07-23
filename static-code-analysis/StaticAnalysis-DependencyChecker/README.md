@@ -1,7 +1,10 @@
 # OWASP Dependency-Check
 
-The OWASP Top 10 2013 contains a new entry: **A9-Using Components with Known
-Vulnerabilities**.
+The OWASP Top 10 2013 contains a new entry: **A9-Using Components with Known Vulnerabilities**:
+Components, such as libraries, frameworks, and other software modules, run with the same privileges 
+as the application. If a vulnerable component is exploited, such an attack can facilitate serious data 
+loss or server takeover. Applications and APIs using components with known vulnerabilities may 
+undermine application defenses and enable various attacks and impacts.
 
 
 ## Setup
