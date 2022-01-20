@@ -1,8 +1,0 @@
-# System under test
-target.home =/home/student/.m2
-target.lib = ${target.home}/repository
-
-# Tool settings
-# https://owasp.org/www-project-dependency-check/
-analysis.reports = reports
-
