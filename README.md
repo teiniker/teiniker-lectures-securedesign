@@ -1,18 +1,18 @@
 # Secure Design by Example
 
-This project collects examples, exercises and model solutions needed as an introduction to software design.
-Based on these examples, an inductive learning approach to architectural risk analysis and penetration testing can be used.
+This project collects examples, exercises and model solutions needed as an introduction to 
+secure software design.
 
-* [Architectural Risk Analysis](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/risk-analysis)
+* [Architectural Risk Analysis](risk-analysis)
   
-* Web Applications
-  * [Secure Communications](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/secure-communication)
-  * [Client-Side Controls](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/client-side-controls)
-  * [Access Control](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/access-control)
-  * [Datastores](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/datastores)
-  * [Browser-Attack Prevention](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/browser-attack-prevention)
-    * [XSS Prevention](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/browser-attack-prevention/xss-prevention)
-    * [CSRF Prevention](https://github.com/teiniker/teiniker-lectures-securedesign/tree/master/web-applications/browser-attack-prevention/csrf-prevention)
+* Secure Software Design
+  * [Secure Communications](secure-design/secure-communication)
+  * [Client-Side Controls](secure-design/client-side-controls)
+  * [Access Control](secure-design/access-control)
+  * [Datastores](secure-design/datastores)
+  * [Browser-Attack Prevention](secure-design/browser-attack-prevention)
+    * [XSS Prevention](secure-design/xss-prevention)
+    * [CSRF Prevention](secure-design/csrf-prevention)
   
 
 See also: 
@@ -21,3 +21,4 @@ See also:
 As a development environment, you can use a pre-configured Linux VM image:
 [Virtual Lab](https://drive.google.com/drive/folders/1AzsF4Mvh1HJ8k6OW5W5hQ5CF0HdqA51l)
 
+*Egon Teiniker, 2017 - 2022, GPL v3.0*
