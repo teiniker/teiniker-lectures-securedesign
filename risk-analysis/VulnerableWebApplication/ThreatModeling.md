@@ -137,6 +137,8 @@ URL: http://localhost:8080/VulnerableWebApplication/table.jsp
 
 
 ## References
+* [YouTube: Threat modeling using STRIDE and Attack Trees](https://youtu.be/oi_CfBe_umU)    
+    
 * Adam Shostack. **Threat Modeling – Designing for Security**. Wiley, 2014
 
 * Frank Swiderski, Window Snyder. **Threat Modeling**. Microsoft Press, 2004
