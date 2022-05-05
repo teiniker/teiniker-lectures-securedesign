@@ -44,5 +44,4 @@ public class ParallelStreamTest
 
 		Assert.assertEquals(2, count);
 	}
-
 }

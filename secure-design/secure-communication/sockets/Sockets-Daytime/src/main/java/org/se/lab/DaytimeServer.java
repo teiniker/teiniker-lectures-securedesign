@@ -32,15 +32,12 @@ public class DaytimeServer
 
 		try(ServerSocket server = new ServerSocket(9013))
 		{
-			Socket connection = null;
 			System.out.println("..done");
 			while (true)
 			{
-				try
+				try(Socket connection = server.accept())
 				{
-					connection = server.accept(); // wait for a connection
 					System.out.println(connection);
-					
 					Writer out = new OutputStreamWriter(connection.getOutputStream());
 					Date now = new Date();
 					out.write(now.toString() + "\r\n");
@@ -49,11 +46,6 @@ public class DaytimeServer
 				catch (IOException e)
 				{
 					throw new IllegalStateException("Can't establish a socket connection!", e);
-				} 
-				finally
-				{
-					if(connection != null)
-						connection.close();
 				}
 			}
 		} 
