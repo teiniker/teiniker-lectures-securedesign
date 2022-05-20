@@ -26,7 +26,7 @@ Run the HTTPClientTest.
 How to Access the HTTP Server from a Bash?
 ---------------------------------------------------------------------
 
-$ curl -i -X GET http://localhost:8080/index.html    
+$ curl -i http://localhost:8080/index.html
     
 -i	Include the HTTP-header in the  output.     
 

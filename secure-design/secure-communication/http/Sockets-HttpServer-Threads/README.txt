@@ -68,7 +68,6 @@ $ java -cp target/classes/ org.se.lab.HttpServerThreadPool
 [Thu Mar 01 14:26:25 CET 2018] [Thu Mar 01 14:26:25 CET 2018]Socket[addr=/0:0:0:0:0:0:0:1,port=47986,localport=8080] - thread id: 15
 [Thu Mar 01 14:26:25 CET 2018] [Thu Mar 01 14:26:25 CET 2018]Socket[addr=/0:0:0:0:0:0:0:1,port=47988,localport=8080] - thread id: 16
 [Thu Mar 01 14:26:26 CET 2018] [Thu Mar 01 14:26:26 CET 2018]Socket[addr=/0:0:0:0:0:0:0:1,port=47990,localport=8080] - thread id: 17
-
 [Thu Mar 01 14:26:27 CET 2018] [Thu Mar 01 14:26:27 CET 2018]Socket[addr=/0:0:0:0:0:0:0:1,port=47992,localport=8080] - thread id: 8
 [Thu Mar 01 14:26:28 CET 2018] [Thu Mar 01 14:26:28 CET 2018]Socket[addr=/0:0:0:0:0:0:0:1,port=47994,localport=8080] - thread id: 9
 [Thu Mar 01 14:26:29 CET 2018] [Thu Mar 01 14:26:29 CET 2018]Socket[addr=/0:0:0:0:0:0:0:1,port=47996,localport=8080] - thread id: 10
