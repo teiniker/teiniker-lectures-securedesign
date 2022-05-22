@@ -10,7 +10,7 @@ To show that this **authentication is only handled by the web server**, we only 
 
 URL: http://localhost:8080/Wildfly-Authentication-FormBased/
 
-Note that **Wildfly 20** doesn't work properly with JDK 14, thus to run this example **we have to use Java 11**.
+Note that **Wildfly 24** doesn't work properly with JDK 17, thus to run this example **we have to use Java 11**.
 
 ## Authentication Sequence
 
