@@ -202,6 +202,17 @@ In our example we add the following elements to the deployment descriptor
 		<role-name>user</role-name>
 	</security-role>
 ``` 
+
+Add the following lines to the `web.xml` configurations to secure the session cookie:
+```
+    <session-config>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>true</secure>
+        </cookie-config>
+    </session-config>
+```
+
 	 
 ### Authentication Web Form
 The **login form** (`login.html`)used to send the credentials to the server must be configured in 

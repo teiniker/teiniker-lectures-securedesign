@@ -8,6 +8,15 @@
 		<role-name>user</role-name>
 	</security-role>
 
+	<!--
+	<session-config>
+		<cookie-config>
+			<http-only>true</http-only>
+			<secure>true</secure>
+		</cookie-config>
+	</session-config>
+	-->
+
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>secure</web-resource-name>

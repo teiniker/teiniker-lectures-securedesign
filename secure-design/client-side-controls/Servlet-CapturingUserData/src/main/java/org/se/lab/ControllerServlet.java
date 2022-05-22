@@ -39,9 +39,10 @@ public class ControllerServlet extends HttpServlet
 
         if(action != null && action.equals("Add"))
         {
-        		LOG.info("DEBUG Log - Add: " + firstName + "," + lastName + "," + username);
+			// Don't log passwords in practice!!!
+			LOG.info("DEBUG Log - Add: " + firstName + "," + lastName + "," + username + "," + password);
 
-        	// TODO: implement some action
+			// TODO: implement some action
         }
                
         String html = generateUserForm();
