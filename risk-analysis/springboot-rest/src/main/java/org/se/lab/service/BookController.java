@@ -12,9 +12,10 @@ import java.util.List;
 @RequestMapping("/api/books")
 public class BookController
 {
+    @Autowired
     private BookRepository bookRepository;
 
-    @Autowired
+
     public BookController(BookRepository bookRepository)
     {
         this.bookRepository = bookRepository;

@@ -1,6 +1,6 @@
 # Burp Suite
 
-To get a first impression of the possibilities of ZAP, visit the 
+To get a first impression of the possibilities of Burp, visit the 
 [Getting Started](https://portswigger.net/burp/documentation/desktop/getting-started) page.
 
 

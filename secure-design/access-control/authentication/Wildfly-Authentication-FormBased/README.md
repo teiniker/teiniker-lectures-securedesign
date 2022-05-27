@@ -10,7 +10,7 @@ To show that this **authentication is only handled by the web server**, we only 
 
 URL: http://localhost:8080/Wildfly-Authentication-FormBased/
 
-Note that **Wildfly 20** doesn't work properly with JDK 14, thus to run this example **we have to use Java 11**.
+Note that **Wildfly 24** doesn't work properly with JDK 17, thus to run this example **we have to use Java 11**.
 
 ## Authentication Sequence
 
@@ -202,6 +202,17 @@ In our example we add the following elements to the deployment descriptor
 		<role-name>user</role-name>
 	</security-role>
 ``` 
+
+Add the following lines to the `web.xml` configurations to secure the session cookie:
+```
+    <session-config>
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>true</secure>
+        </cookie-config>
+    </session-config>
+```
+
 	 
 ### Authentication Web Form
 The **login form** (`login.html`)used to send the credentials to the server must be configured in 

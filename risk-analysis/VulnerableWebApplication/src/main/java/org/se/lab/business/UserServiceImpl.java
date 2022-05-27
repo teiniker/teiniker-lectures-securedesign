@@ -54,6 +54,10 @@ public class UserServiceImpl
 			LOG.error("Can't add user!", e);
 			throw new ServiceException("Can't add user!");
 		}
+		catch(Exception e)
+		{
+
+		}
 		finally
 		{
 			closeConnection();

@@ -18,7 +18,7 @@ introduces a policy that is more realistic for users to follow:
 
 * Require **Multi-factor Authentication**
 
-* **Password Length** should to be a minimum of 8 characters, but less than 64 characters in length
+* **Password Length** should to be a minimum of 8 characters or longer
 
 * All **special characters** (including space) should be allowed, but not required
 
@@ -48,4 +48,4 @@ introduces a policy that is more realistic for users to follow:
 * [Common-Credentials](https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials)
 
 
-*Egon Teiniker, 2019-2021, GPL v3.0*
+*Egon Teiniker, 2019-2022, GPL v3.0*
