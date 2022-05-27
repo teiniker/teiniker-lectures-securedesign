@@ -3,7 +3,7 @@ Exercise: Client-Side Controls - HMAC Signature Cookie
 
 Given a simple web application:
 
-URL: http://localhost:8080/Servlet-ClientSideControls-Signature-Exercise/controller
+URL: https://localhost:8443/Servlet-ClientSideControls-Signature-Exercise/controller
 
 How to configure Wildfly to provide a system property?
 ---------------------------------------------------------------------
@@ -22,18 +22,25 @@ You can access these properties from a Servlet using: System.getProperty("hmac.k
 
 A) Add a signature cookie to the HTTP response
 ---------------------------------------------------------------------
-Calculate a HMAC from the ROLE value (remember, the ROLE value is shipped
+Calculate a HMAC from the DATA value (remember, the DATA value is shipped
 as a hidden field within the HTTP response). 
 
-Add this HMAC(ROLE) as a cookie with the name "signature" to the HTTP
+Add this HMAC(DATA) as a cookie with the name "signature" to the HTTP
 response.
+
+HTTP/1.1 200 OK
+Connection: keep-alive
+Set-Cookie: signature=09b925d3d71dcfc15a18b24960f1813ba3576971; secure; HttpOnly
+Content-Type: text/html;charset=ISO-8859-1
+Content-Length: 1117
+Date: Fri, 27 May 2022 14:19:28 GMT
 
 The Browser will store this cookie and send it back with the next request.
 
 
 2. Check the signature cookie received with the HTTP request 
 ---------------------------------------------------------------------
-Read the "role" parameter and the "signature" cookie from the HTTP request.
+Read the "data" parameter and the "signature" cookie from the HTTP request.
 
 Calculate the HMAC from the received "role" and compare it with the HMAC
 of the signature.
@@ -41,13 +48,4 @@ If the HMAC values match use the following log line:
 	LOG.info("    => hidden field is valid!!!");
 otherwise use
 	LOG.info("    => hidden field is INVALID!!!");
-
-
-How to handle cookies within a Servlet?
----------------------------------------------------------------------
-
-HttpServletRequest.getCookies()
-Cookie cookie = new Cookie("name", "value")
-HttpServletResponse.addCookie(cookie)
-
 

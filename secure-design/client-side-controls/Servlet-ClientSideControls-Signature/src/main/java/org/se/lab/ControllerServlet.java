@@ -2,7 +2,6 @@ package org.se.lab;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -27,7 +26,7 @@ public class ControllerServlet extends HttpServlet
 	private final static String KEY_PROPERTY = System.getProperty("hmac.key");
 	
 	private static final long serialVersionUID = 1L;
-	private static final String ROLE = "user";
+	private static final String DATA = "1234567890abcdef";
 	
 	public ControllerServlet()
 	{
@@ -45,10 +44,11 @@ public class ControllerServlet extends HttpServlet
 			String firstName = request.getParameter("firstName");
 			String lastName = request.getParameter("lastName");
 			String username = request.getParameter("username");
-			String role = request.getParameter("role");
+			String data = request.getParameter("data");
+
 			// TODO: Validate parameters
 
-			LOG.info("Add: " + firstName + "," + lastName + "," + username + "," + role );
+			LOG.info("Add: " + firstName + "," + lastName + "," + username + "," + data );
 
 			// Read cookie from request
 			String signature = "";
@@ -63,7 +63,7 @@ public class ControllerServlet extends HttpServlet
 			}
 
 			// validate signature
-            String expected = encryptHiddenField(role);
+            String expected = calculateSignature(data);
             LOG.info("Actual   Signature: " + signature );
             LOG.info("Expected Signature: " + expected );
             if(signature.equals(expected))
@@ -84,15 +84,16 @@ public class ControllerServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException
 	{
-		String html = generateUserForm(ROLE);
+		String html = generateUserForm(DATA);
 
 		// Add cookie to the response
-		Cookie cookie = new Cookie("signature", encryptHiddenField(ROLE));
+		Cookie cookie = new Cookie("signature", calculateSignature(DATA));
+		cookie.setHttpOnly(true);
+		cookie.setSecure(true);
 		response.addCookie(cookie);
 
 		// Generate response
 		response.setContentType("text/html");
-		response.setBufferSize(1024);
 		PrintWriter out = response.getWriter();
 		out.println(html);
 		out.close();
@@ -103,7 +104,7 @@ public class ControllerServlet extends HttpServlet
 	 * View Helper
 	 */
 	
-	private String generateUserForm(String role)
+	private String generateUserForm(String data)
 	{
 		StringBuilder html = new StringBuilder();
 		html.append("<html>\n");
@@ -115,7 +116,7 @@ public class ControllerServlet extends HttpServlet
 		html.append("    	<h2>Create a new user:</h2>\n");
 
 		html.append("    		<form method=\"POST\" action=\"controller\">\n");
-		html.append("    	        <input type=\"hidden\" name=\"role\" value=\"" + role + "\"/>\n");
+		html.append("    	        <input type=\"hidden\" name=\"data\" value=\"" + data + "\"/>\n");
 		html.append("    	    	<table border=\"0\">\n");
 		html.append("    	        	<tr>\n");
 		html.append("    	        		<th width=\"50\">Id</th>\n");
@@ -142,7 +143,7 @@ public class ControllerServlet extends HttpServlet
 		return html.toString();
 	}
 	
-   private String encryptHiddenField(String value)
+   private String calculateSignature(String data)
     {       
         try 
         {
@@ -152,7 +153,7 @@ public class ControllerServlet extends HttpServlet
             
             Mac hmac = Mac.getInstance("HmacSHA1");      
             hmac.init(key);
-            hmac.update(value.getBytes(StandardCharsets.UTF_8));
+            hmac.update(data.getBytes(StandardCharsets.UTF_8));
             byte[] macBytes = hmac.doFinal();
 
             return Hex.encodeHexString(macBytes);

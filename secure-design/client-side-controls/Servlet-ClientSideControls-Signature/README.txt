@@ -1,7 +1,7 @@
 Example: Client-Side Controls - HMAC Signature Cookie
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/Servlet-ClientSideControls-Signature/controller
+URL: https://localhost:8443/Servlet-ClientSideControls-Signature/controller
 
 HTTP GET Response:
 ------------------

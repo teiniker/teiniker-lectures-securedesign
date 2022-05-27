@@ -2,22 +2,30 @@ package org.se.lab;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
 
-import javax.servlet.ServletException;
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.log4j.Logger;
 
 @WebServlet("/controller")
 public class ControllerServlet extends HttpServlet
 {
 	private final Logger LOG = Logger.getLogger(ControllerServlet.class);
-	
+
 	private static final long serialVersionUID = 1L;
-	private static final String ROLE = "user";
+	private static final String DATA = "1234567890abcdef";
 	
 	public ControllerServlet()
 	{
@@ -25,49 +33,39 @@ public class ControllerServlet extends HttpServlet
 	}
 
 	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException
+			HttpServletResponse response) throws IOException
 	{
-	    /*
-	     * Request Handling
-	     */
-	    
-		// request parameters
-        String firstName = request.getParameter("firstName");
-        String lastName = request.getParameter("lastName");
-		String username = request.getParameter("username");
-        String password = request.getParameter("password");
+		// Request parameters
         String action = request.getParameter("action");
-        
-        
-        String html = null;
+
         if(action != null && action.equals("Add"))
         {
-            LOG.info("Add: " 
-    					+ firstName + "," + lastName + ","  
-    					+ username + "," + password + "," 
-    					);            
+			String firstName = request.getParameter("firstName");
+			String lastName = request.getParameter("lastName");
+			String username = request.getParameter("username");
+			String data = request.getParameter("data");
+
+			// TODO: Validate parameters
+
+			LOG.info("Add: " + firstName + "," + lastName + "," + username + "," + data );
+
         }
-        
-        
-        /*
-         * Generate Response
-         */
-        
-        html = generateUserForm(ROLE);
-        
-        // Generate response 
-        response.setContentType("text/html");
-        response.setBufferSize(1024);
-        PrintWriter out = response.getWriter();
-        out.println(html.toString());
-        out.close();
+
+        // Go back to the HTML form
+        doGet(request, response);
 	}
 
 	
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws IOException
 	{
-		doPost(request, response);
+		String html = generateUserForm(DATA);
+
+		// Generate response
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println(html);
+		out.close();
 	}
 	
 	
@@ -75,7 +73,7 @@ public class ControllerServlet extends HttpServlet
 	 * View Helper
 	 */
 	
-	protected String generateUserForm(String role)
+	private String generateUserForm(String data)
 	{
 		StringBuilder html = new StringBuilder();
 		html.append("<html>\n");
@@ -87,7 +85,7 @@ public class ControllerServlet extends HttpServlet
 		html.append("    	<h2>Create a new user:</h2>\n");
 
 		html.append("    		<form method=\"POST\" action=\"controller\">\n");
-		html.append("    	        <input type=\"hidden\" name=\"role\" value=\"" + role + "\"/>\n");
+		html.append("    	        <input type=\"hidden\" name=\"data\" value=\"" + data + "\"/>\n");
 		html.append("    	    	<table border=\"0\">\n");
 		html.append("    	        	<tr>\n");
 		html.append("    	        		<th width=\"50\">Id</th>\n");
