@@ -42,7 +42,7 @@ The Browser will store this cookie and send it back with the next request.
 ---------------------------------------------------------------------
 Read the "data" parameter and the "signature" cookie from the HTTP request.
 
-Calculate the HMAC from the received "role" and compare it with the HMAC
+Calculate the HMAC from the received "data" and compare it with the HMAC
 of the signature.
 If the HMAC values match use the following log line:
 	LOG.info("    => hidden field is valid!!!");

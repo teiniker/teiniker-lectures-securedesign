@@ -5,9 +5,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 
 import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 
 public class ScpServer
@@ -29,6 +31,14 @@ public class ScpServer
 		{
 			try(SSLSocket connection = (SSLSocket) server.accept())
 			{
+				SSLSession sslSession = connection.getSession();
+				connection.setEnabledProtocols(new String[] {"TLSv1.3"});
+				String cipherSuite = sslSession.getCipherSuite();
+				System.out.println(cipherSuite);
+				System.out.println(Arrays.toString(connection.getEnabledCipherSuites()));
+				System.out.println(Arrays.toString(connection.getEnabledProtocols()));
+				System.out.println(connection.getApplicationProtocol());
+
 				System.out.println("> " + connection);
 				InputStream in = connection.getInputStream();
 				OutputStream out = new FileOutputStream(new File(OUTPUT_FILE_NAME)); 
@@ -40,7 +50,7 @@ public class ScpServer
 				}
 
 				in.close();
-				out.close();					
+				out.close();
 			} 
 			catch (IOException e)
 			{

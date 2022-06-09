@@ -19,8 +19,6 @@ public class LoginService
                 + "' AND password = '" 
                 + password + "'";
         LOG.info("SQL> " + SQL);
-
-
         try(Statement stmt = connection.createStatement())
         {
             ResultSet rs = stmt.executeQuery(SQL);

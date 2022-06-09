@@ -1,10 +1,10 @@
 package org.se.lab;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +20,7 @@ public class UploadServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 	private final Logger LOG = Logger.getLogger(UploadServlet.class);
-	private Map<String, String> fileNameTable = new HashMap<>();
+	private Map<String, String> fileNameTable = new ConcurrentHashMap<>(); // Concurrent Map
 
 	private boolean isMultipart;
 	private String filePath;
