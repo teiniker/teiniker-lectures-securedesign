@@ -1,0 +1,38 @@
+Exercise: XML Schema Validation - User
+-------------------------------------------------------------------------------
+
+In this exercise, you should specify a proper resources/xsd/user.xsd file
+which can be used to validate user.xml files.
+
+Run the "ValidationTest" class to verify your specification.
+
+A) testValidUser()
+    Here, a valid user.xml is verified.
+    This example defines the overall structure of a valid XML file.
+
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <user id="1">
+        <username>homer</username>
+        <password>Kqq3lbODaQT4LvxsoihdknrtdSBiFOHaODQY65DJBS8=</password>
+        <mails>
+            <mail id="2">
+                <address>homer.simpson@springfield.com</address>
+            </mail>
+        </mails>
+    </user>
+
+B) testInvalidUser_Injection() / user-injection.xml
+    An additional (simplyfied) <password> element has been added to the
+    valid "user.xml" file.
+
+C) testInvalidUser_MissingPassword() / user-missing-password.xml
+    The <password> element has been removed from a valid "user.xml" file.
+
+D) testInvalidUser_MissingId() / user-missing-id.xml
+    One of the "id" attributes has been removed from a valid "user.xml" file.
+
+E) testInvalidUser_InvalidMailAddress() / user-invalid-mail.xml
+    An invalid mail address has been used.
+    Note that the <address> element should be validated against the following
+    regular expression: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+    Tip: Use a simple type restriction from xs:string.

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="user" type="user"/>
+
+  <xs:simpleType name="MailAddress">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="entity" abstract="true">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:long" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="user">
+    <xs:complexContent>
+      <xs:extension base="entity">
+        <xs:sequence>
+          <xs:element name="username" type="xs:string" minOccurs="1"/>
+          <xs:element name="password" type="xs:string" minOccurs="1"/>
+          <xs:element name="mails" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="mail" type="mail" minOccurs="0" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="mail">
+    <xs:complexContent>
+      <xs:extension base="entity">
+        <xs:sequence>
+          <xs:element name="address" type="MailAddress"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>
