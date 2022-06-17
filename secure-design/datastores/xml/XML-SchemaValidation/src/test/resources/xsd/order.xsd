@@ -2,6 +2,7 @@
 <xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <xs:element name="order" type="order"/>
+
   <xs:complexType name="order">
     <xs:complexContent>
       <xs:extension base="entity">
