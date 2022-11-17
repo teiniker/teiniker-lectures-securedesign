@@ -49,8 +49,24 @@ that occur before software is even shipped.
 5. Out-of-bounds Read
 6. Improper Neutralization of Special Elements used in an OS Command (**OS Command Injection**)
 7. Use After Free
-
-
+8. Improper Limitation of a Pathname to a Restricted Directory (**Path Traversal**)
+9. **Cross-Site Request Forgery (CSRF)**
+10. Unrestricted Upload of File with Dangerous Type
+11. NULL Pointer Dereference
+12. Deserialization of Untrusted Data
+13. Integer Overflow or Wraparound
+14. Improper Authentication
+15. Use of Hard-coded Credentials
+16. Missing Authorization
+17. Improper Neutralization of Special Elements used in a Command (**Command Injection**)
+18. Missing Authentication for Critical Function
+19. Improper Restriction of Operations within the Bounds of a Memory Buffer
+20. Incorrect Default Permissions
+21. **Server-Side Request Forgery (SSRF)**
+22. Concurrent Execution using Shared Resource with Improper Synchronization (**Race Condition**)
+23. Uncontrolled Resource Consumption
+24. Improper Restriction of XML External Entity Reference
+25. Improper Control of Generation of Code (**Code Injection**)
 
 ## References
 
