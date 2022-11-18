@@ -9,6 +9,9 @@ the kinds of vulnerabilities by identifying and avoiding all-too-common mistakes
 that occur before software is even shipped. 
 
 ## OWASP Top 10 – 2021
+The [OWASP Top 10](https://owasp.org/www-project-top-ten/) is a standard awareness document for 
+developers and web application security. 
+It represents a broad consensus about the most critical security risks to web applications.
 
 * **A01:2021-Broken Access Control**\
     Access control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification, or destruction of all data or performing a business function outside the user's limits
@@ -42,6 +45,11 @@ that occur before software is even shipped.
 
 
 ## CWE/SANS Top 25 - 2022
+This [CWE/SANS Top 25](https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25.html) list demonstrates 
+the currently most common and impactful software weaknesses. Often easy to find and exploit, these can 
+lead to exploitable vulnerabilities that allow adversaries to completely take over a system, steal data, 
+or prevent applications from working.
+
 1. Out-of-bounds Write
 2. Improper Neutralization of Input During Web Page Generation (**Cross-site Scripting**)
 3. Improper Neutralization of Special Elements used in an SQL Command (**SQL Injection**)
