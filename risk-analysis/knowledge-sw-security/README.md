@@ -1,4 +1,4 @@
-# Knowledge for SW Security
+# Knowledge for Software Security
 
 Critical software security knowledge and expertise can be compiled:
 * [OWASP Top 10](OWASP-Top10.md)
