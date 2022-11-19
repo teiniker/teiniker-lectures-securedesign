@@ -4,6 +4,8 @@ This project collects examples, exercises and model solutions needed as an intro
 secure software design.
 
 * [Architectural Risk Analysis](risk-analysis)
+  * [Vulnerable Web Application](risk-analysis/VulnerableWebApplication)
+  * [Knowledge for Software Security](risk-analysis/knowledge-sw-security)
   
 * Secure Software Design
   * [Secure Communications](secure-design/secure-communication)
