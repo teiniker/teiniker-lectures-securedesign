@@ -10,7 +10,6 @@ To show that this **authentication is only handled by the web server**, we only 
 
 URL: http://localhost:8080/Wildfly-Authentication-FormBased/
 
-Note that **Wildfly 24** doesn't work properly with JDK 17, thus to run this example **we have to use Java 11**.
 
 ## Authentication Sequence
 
@@ -313,4 +312,4 @@ These are the default settings in the `standalone.xml` file.
 * Dafydd Stuttard, Marcus Pinto. **The Web Application Hacker’s Handbook**. Wiley, 2nd Edition, 2011
     * Chapter 6: Attacking Authentication
 
-*Egon Teiniker, 2019-2021, GPL v3.0*	
+*Egon Teiniker, 2016-2023, GPL v3.0*	

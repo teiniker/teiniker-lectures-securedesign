@@ -52,4 +52,4 @@ $ curl -i -k -X POST -d 'firstName=Homer&lastName=Simpson&username=homer&passwor
     * Chapter 5: Bypassing Client-Side Controls
 
 
-*Egon Teiniker, 2019-2021, GPL v3.0*
+*Egon Teiniker, 2016-2023, GPL v3.0*

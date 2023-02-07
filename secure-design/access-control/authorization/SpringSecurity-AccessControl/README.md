@@ -149,3 +149,5 @@ files called `spring-security.xml`.
 ## References
 
 * [Spring Security Reference](https://docs.spring.io/spring-security/site/docs/current/reference/html5/)
+
+*Egon Teiniker, 2016-2023, GPL v3.0*	

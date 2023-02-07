@@ -5,7 +5,7 @@ The example can be built and deployed with Maven:
  $ mvn wildfly:deploy
 ```
 
-URL: https://localhost:8443/Servlet-ClientSideControls-ScriptBasedValidation/
+URL: https://localhost:8443/Servlet-ScriptBasedValidation/
 
 In this example, **Java Script is used to validate two input fields** on the client side:
 ```
@@ -50,4 +50,4 @@ In the given example, we override the implementation of `validateForm()` to retu
     * Chapter 5: Bypassing Client-Side Controls
 
 
-*Egon Teiniker, 2019-2021, GPL v3.0*
+*Egon Teiniker, 2016-2023, GPL v3.0*
