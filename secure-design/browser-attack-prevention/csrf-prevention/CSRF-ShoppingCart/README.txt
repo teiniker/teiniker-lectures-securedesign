@@ -4,8 +4,8 @@ SpringSecurity: Session Management
 How to access the Web application from a browser?
 -------------------------------------------------------------------------------
 
-URL: http://localhost:8080/SpringSecurity-CSRF-ShoppingCart
-	=> https://localhost:8443/SpringSecurity-CSRF-ShoppingCart
+URL: http://localhost:8080/CSRF-ShoppingCart
+	=> https://localhost:8443/CSRF-ShoppingCart
 	
 
 How to configure CSRF protection in Spring Security?
