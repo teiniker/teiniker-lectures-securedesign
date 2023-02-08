@@ -1,6 +1,7 @@
 # Example: Servlet-FileUpload
 
 You can access the Web application from your browser:
+
 URL: http://localhost:8080/Servlet-FileUpload
 
 The example can be built using Maven:
@@ -29,12 +30,9 @@ Have a look on the HTTP request and response to understand what is going on:
         public static void main(String... args)
         {
             int i;
-    
             System.out.println(i);
         }
-    
     }
-    
     -----------------------------7293606662123211822944859480--
 ```
 		
