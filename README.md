@@ -6,14 +6,18 @@ secure software design.
 * [Architectural Risk Analysis](risk-analysis)
   
 * Secure Software Design
-  * [Secure Communications](secure-design/secure-communication)
-  * [Client-Side Controls](secure-design/client-side-controls)
-  * [Access Control](secure-design/access-control)
-  * [Browser-Attack Prevention](secure-design/browser-attack-prevention)
-    * [XSS Prevention](secure-design/xss-prevention)
-    * [CSRF Prevention](secure-design/csrf-prevention)
+  * [Introduction](secure-design/introduction)
+  * Web Applications
+    * [HTTP/S Protocol](secure-design/https-protocol)
+    * [Client-Side Controls](secure-design/client-side-controls)
+    * [Access Control](secure-design/access-control)
+    * [Browser-Attack Prevention](secure-design/browser-attack-prevention)
+      * [XSS Prevention](secure-design/xss-prevention)
+      * [CSRF Prevention](secure-design/csrf-prevention)
 
   * [Datastores](secure-design/datastores)
+  
+  * Native Components 
   
 See also: 
 [Secure Coding by Exampe](https://github.com/teiniker/teiniker-lectures-securecoding) 
