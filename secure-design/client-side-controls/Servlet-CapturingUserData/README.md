@@ -1,4 +1,4 @@
-# Example: Capturing User Data
+# Capturing User Data
 
 The example  can be built and deployed with Maven:
 ```
