@@ -27,7 +27,7 @@ For base64 encoding you can use:
 
 To test your implementation you can use the following credentials:
 
-http://localhost:8080/http://localhost:8080/Servlet-Filter-PasswordEncryption-Exercise/
+http://localhost:8080/Servlet-Filter-PasswordEncryption-Exercise/
 
 	student/student => Welcome, student!
 	student/blah	=> Sorry, either your username or password is wrong...

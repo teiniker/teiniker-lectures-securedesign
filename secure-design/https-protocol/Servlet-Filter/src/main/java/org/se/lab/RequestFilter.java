@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebFilter;
 
 import org.apache.log4j.Logger;
 
-//HttpRequest -->[RequestFilter]-->[ResponseFilter]-->[ControllerServlet]
-//HttpResponse <--RequestFilter]<--[ResponseFilter]<--[ControllerServlet]
+//HttpRequest -->[RequestFilter]-->[ControllerServlet]
+//HttpResponse<--[ResponseFilter]<--[ControllerServlet]
 
 @WebFilter("/login.html")
 public class RequestFilter implements Filter 

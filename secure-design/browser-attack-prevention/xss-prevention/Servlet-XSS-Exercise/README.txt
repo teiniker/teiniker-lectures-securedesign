@@ -8,7 +8,7 @@ How to attack an input field?
 ---------------------------------------------------------------------
 
 a) Use FireBug to change the maxlength attribute of the input field
-	username (becuase username will be embedded in the response page).	
+	username (because username will be embedded in the response page).
 
 b) Enter <script>alert('XSS');</script> as the username and submit.
 
