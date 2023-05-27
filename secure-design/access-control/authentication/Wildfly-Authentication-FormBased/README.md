@@ -43,7 +43,7 @@ Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate
 Connection: close
 ```
-```
+```HTML
 HTTP/1.1 200 OK
 Set-Cookie: JSESSIONID=SmvqzauUuavrfTJmjt65MSXMK8HVqD6bMB_K-B1Z.localhost; path=/Wildfly-Authentication-FormBased
 Date: Thu, 25 Apr 2019 15:08:24 GMT
@@ -154,7 +154,7 @@ portion of the application.
 
 The `<role-name>` element is used to restrict that portion of the application to
 authenticated uses who belong to the `user` role.
-```
+```XML
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>secure</web-resource-name>
@@ -175,7 +175,7 @@ web application.
 authenticate the user. No page is configured to be displayed when authentication 
 succeeds. Instead, the user is presented with the URL that triggered the 
 authentication in the first place.
-```
+```XML
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
@@ -196,14 +196,14 @@ and can be changed dynamically without having to change the application code.
 
 In our example we add the following elements to the deployment descriptor 
 `web.xml`:
-```	
+```XML
 	<security-role>
 		<role-name>user</role-name>
 	</security-role>
 ``` 
 
 Add the following lines to the `web.xml` configurations to secure the session cookie:
-```
+```XML
     <session-config>
         <cookie-config>
             <http-only>true</http-only>
@@ -287,7 +287,7 @@ student=user
 ### Configure ApplicationRealm Authentication for the Wildfly AS
 
 These are the default settings in the `standalone.xml` file.
-```
+```XML
     <management>
         <security-realms>
 			...

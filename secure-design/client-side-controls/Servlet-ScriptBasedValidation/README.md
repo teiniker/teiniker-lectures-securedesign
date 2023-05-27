@@ -1,4 +1,4 @@
-# Example: Script-Based Validation
+# Script-Based Validation
 
 The example can be built and deployed with Maven:
 ```

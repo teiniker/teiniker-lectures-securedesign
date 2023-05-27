@@ -1,4 +1,4 @@
-# Example: Transmitting Data via the Client
+# Transmitting Data via the Client
 
 The example  can be built and deployed with Maven:
 ```
