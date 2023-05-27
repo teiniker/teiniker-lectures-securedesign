@@ -3,23 +3,22 @@ Exercise: CSRF Protection Filter (Simplified)
 
 Given a simple implementation of a shopping cart.
 
-A) CSRF Attack
+A) Web Application
 Deploy and access the Web Application: CSRF-Filter-Exercise
 $ mvn wildfly:deploy
 URL: https://localhost:8443/CSRF-Filter-Exercise
 You can [Login], add products to the cart, and [Logout]
 
+B) CSRF-Attack
 In the project CSRF-Attack, change the index.html to:
 <form method="post" action="https://localhost:8443/CSRF-Filter-Exercise/controller">
-
 Deploy and access the attacker's page: CSRF-Attack
 $ mvn wildfly:deploy
 URL: https://localhost:8443/CSRF-Attack
 If you push the [Add] button, the CSRF attack will be performed.
 
 
-B) CSRF Filter
----------------
+C) CSRF Filter
 To prevent CSRF attacks, implement a Servlet filter called "CSRFFilter".
 
 a) Add a hidden field to every HTML form of the Controller servlet:
