@@ -7,7 +7,7 @@ which can be used to validate user.xml files.
 Run the "ValidationTest" class to verify your specification.
 
 A) testValidUser()
-    Here, a valid user.xml is verified.
+    A valid "user.xml" will be verified.
     This example defines the overall structure of a valid XML file.
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -21,8 +21,11 @@ A) testValidUser()
         </mails>
     </user>
 
+The following XML variants contain invalid parts, make sure that
+your XSD file reject them.
+
 B) testInvalidUser_Injection() / user-injection.xml
-    An additional (simplyfied) <password> element has been added to the
+    A second (simplyfied) <password> element has been added to the
     valid "user.xml" file.
 
 C) testInvalidUser_MissingPassword() / user-missing-password.xml
