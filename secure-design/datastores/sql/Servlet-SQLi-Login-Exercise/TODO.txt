@@ -1,7 +1,10 @@
 Exercise: SQL Injection - Login
 -------------------------------------------------------------------------------
 
-Start a MySQL client (as student):
+Start the Maria DB server:
+$ sudo systemctl start mariadb.service
+
+Start a MySQL client:
 $ mysql -u student -p
 Enter password: student
 MariaDB [(none)]> use testdb;
@@ -12,7 +15,7 @@ MariaDB [testdb]> source sql/createUser.sql;
 Deploy the web application:
 $ mvn wildfly:deploy
 
-URL: http://localhost:8080/Servlet-SqlLogin-Exercise
+URL: http://localhost:8080/Servlet-SQLi-Login-Exercise
 
 To login, use the following access data:
 username: student
