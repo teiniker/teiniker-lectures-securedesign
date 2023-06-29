@@ -5,7 +5,7 @@ An array is simply a list of `n` elements of a specific data type.
 Arrays are also reffered to as buffers.
 
 The last byte of a string is a null byte `'\0'` which is used
-as a delimiter character.
+as a **delimiter character**.
 
 
 ## Vulnerable String Functions 
