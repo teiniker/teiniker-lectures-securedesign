@@ -118,7 +118,8 @@ application and infrastructure.
     snprintf(command, COMMAND_SIZE, "ls -l %s", argv[1]);
 
     // Open a pipe and execute the command
-    FILE *pipe = popen(command, "r");```
+    FILE *pipe = popen(command, "r");
+```
 
 _Example_: List a file with a given filename
 ```
@@ -126,7 +127,7 @@ $ ./command-injection Makefile
 -rw-r--r-- 1 student student 496 Jun 29 13:02 Makefile
 ```
 
-_Example_: Add an attack string `; cat /etc/passwd` to the filename
+_Example_: Add an attack string `"; cat /etc/passwd"` to the filename
 ```
 $ ./command-injection "Makefile; cat /etc/passwd"
 -rw-r--r-- 1 student student 496 Jun 29 13:02 Makefile
@@ -149,5 +150,7 @@ daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 
 ## References
 * [OWASP: Command Injection](https://owasp.org/www-community/attacks/Command_Injection)
+* [CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')](https://cwe.mitre.org/data/definitions/78.html)
+
 
 *Egon Teiniker, 2017 - 2023, GPL v3.0*
