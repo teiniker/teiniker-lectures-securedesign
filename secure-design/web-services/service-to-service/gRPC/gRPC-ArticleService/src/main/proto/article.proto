@@ -1,0 +1,49 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+package org.se.lab;
+
+message Article
+{
+  int32 id = 1;
+  string description = 2;
+  int64 price = 3;
+}
+
+service ArticleService
+{
+  rpc InsertArticle (Article) returns (InsertReply) {}
+  rpc UpdateArticle (Article) returns (UpdateReply) {}
+  rpc DeleteArticle (DeleteRequest) returns (DeleteReply) {}
+  rpc FindAllArticles (ArticleListRequest) returns (ArticleListReply) {}
+  rpc FindArticleById (ArticleRequest) returns (Article) {}
+}
+
+message InsertReply {
+  string message = 1;
+  int32 id = 2;
+}
+
+message UpdateReply {
+  string message = 1;
+  int32 id = 2;
+}
+
+message DeleteReply {
+  string message = 1;
+}
+
+message DeleteRequest {
+  int32 articleId = 1;
+}
+
+message ArticleRequest {
+  int32 articleId = 1;
+}
+
+message ArticleListRequest {
+}
+
+message ArticleListReply {
+  repeated Article articles = 1;
+}

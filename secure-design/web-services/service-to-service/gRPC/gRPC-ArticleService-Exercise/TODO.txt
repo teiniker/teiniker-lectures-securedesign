@@ -1,0 +1,29 @@
+Exercise: gRPC ArticleService
+-------------------------------------------------------------------------------
+
+Implement a gRPC ArticleService (server and client) based on a given interface
+description:
+
+    src/main/proto/article.proto
+
+A) Article Server
+    Implement the following artefacts:
+        server/ArticleServer.java
+        server/GrpcServer
+        data/ArticleEntity
+    Note that the corresponding DTO "Article" will be generated from the
+    proto File description.
+
+B) Implement the Client
+    Implement the following artefacts:
+        client/GrpcClient.java
+
+Note that the proper pom.xml file is already included in this example.
+
+References:
+> Quick start
+    https://grpc.io/docs/languages/java/quickstart/
+> gRPC-Java - An RPC library and framework
+    https://github.com/grpc/grpc-java
+> Introduction to gRPC
+  https://www.baeldung.com/grpc-introduction

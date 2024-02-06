@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+package org.se.lab;
+
+enum Role
+{
+  GUEST = 0;
+  USER = 1;
+  ADMIN = 2;
+}
+
+message Person
+{
+    int32 id = 1;
+    string name = 2;
+    string password = 3;
+    Role role = 4;
+}
+
+message AddressBook
+{
+    repeated Person people = 1;
+}

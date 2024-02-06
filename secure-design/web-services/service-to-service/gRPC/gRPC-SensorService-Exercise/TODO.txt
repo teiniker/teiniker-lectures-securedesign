@@ -1,0 +1,25 @@
+Exercise: gRPC Service - SensorService
+-------------------------------------------------------------------------------
+
+Given a "SensorService.proto" file, implement the missing server-side and client-
+side code to make the given tests in "GRPCClientTest" work.
+
+A) GRPCServer
+    Implement a "GRPCServer" class which set up the gRPC service (port 8080)
+    using the "SensorServiceImpl" class you have implemented before.
+
+B) SensorService
+    Implement a "SensorServiceImpl" class that includes the measure method which
+    returns the following data depending on the passed sensor.getType():
+        DHT11: => DHT11, 23.7, "°C"
+        DHT22: => DHT22, 61.2, "%"
+        HC_SR04: => HC_SR04, 24.5, "cm"
+    Tip: Review the given test cases in "GRPCClientTest".
+
+C) GRPCClientTest
+    Implement the missing "setUp()" and "tearDown()" methods to establish a
+    working connection to the "SensorService"
+
+D) mTLS
+    Improve the communication security between the "GRPCServer" and the "GRPCClient"
+    by creating a mutual TLS connection.

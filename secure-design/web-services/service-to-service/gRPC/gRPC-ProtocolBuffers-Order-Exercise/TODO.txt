@@ -1,0 +1,13 @@
+Exercise: Protocol Buffers - Order
+-------------------------------------------------------------------------------
+
+Define a order.proto file:
+    src/main/proto/order.proto
+which can be generated into Java classes to make the given test cases work.
+
+Tip: Review the test cases to find out the names and types of the messages and
+ their fields.
+
+Tip: To generate the Java files from your proto file, use the following Maven
+    command:
+    $ mvn compile

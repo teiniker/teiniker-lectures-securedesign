@@ -1,0 +1,56 @@
+Exercise: Transport Layer Security (SpringBoot Service)
+-------------------------------------------------------------------------------
+
+You have given a working REST service implemented with SpringBoot.
+Perform the following tasks:
+
+A) Run the REST Service
+    - Run the REST service
+        $ mvn spring-boot:run
+
+    - Use curl to access the REST service
+        $ curl -i http://localhost:8080/articles
+
+B) Configure the REST Service to use TLS
+    - Generate a self-signed certificate
+        $ cd src/main/resources
+        $ keytool -genkeypair -keystore server.jks -storepass student -keypass student -keyalg RSA -alias server -dname "cn=se,o=lab,c=org"
+
+    - Extend the application.properties file:
+        server.ssl.key-store=classpath:server.jks
+        server.ssl.key-store-type=pkcs12
+        server.ssl.key-store-password=student
+        server.ssl.key-password=student
+        server.ssl.key-alias=server
+        server.port=8443
+
+C) Experiments
+    1. Access the service via HTTPS and analyze the used TLS connection:
+        $ curl -v -k https://localhost:8443/articles
+
+    2. Execute the following curl statements and analyze the response messages.
+        Find all Articles:
+        $ curl -v -k https://localhost:8443/articles
+
+        Find a particular Article:
+        $ curl -v -k https://localhost:8443/articles/2
+
+        Find an unknown Article:
+        $ curl -i -k https://localhost:8443/articles/99
+
+        Insert an Article:
+        $ curl -i -k -X POST https://localhost:8443/articles -H 'Content-type:application/json' -d '{"description": "Microservices Patterns: With examples in Java", "price": 2550}'
+
+        Update an Article:
+        $ curl -i -k -X PUT https://localhost:8443/articles/2 -H 'Content-type:application/json' -d '{"description": "Effective Java", "price": 9999}'
+
+        Delete an Article:
+        $ curl -i -k -X DELETE https://localhost:8443/articles/3
+
+D) Code Review
+    Analyze the source code of the example to understand how it is working.
+
+E) Related Patterns
+    Compare this implementation the following Service Design Patterns:
+    - Resource API
+

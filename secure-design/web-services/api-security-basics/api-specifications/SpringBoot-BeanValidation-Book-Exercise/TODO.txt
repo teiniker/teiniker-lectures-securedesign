@@ -1,0 +1,50 @@
+Exercise: Bean Validation - Books
+-------------------------------------------------------------------------------
+
+Given a working REST service:
+$ mvn spring-boot:run
+$ curl -i -k https://localhost:8443/books
+
+Extend the service with the following features:
+
+A) Insert a new Book
+    Add an "insert()" method to the BookController which receives a
+    new "Book" object from a POST request and add it the "Map<String, Book>".
+    Also create a new "id" for the Book object.
+
+    Create a "curl" statement which inserts the following book:
+    {
+        "id":"",
+        "author":"Sam Newman",
+        "title":"Building Microservices",
+        "isbn":"978-1492034025"
+    }
+
+    $ curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"id":"","author":"Sam Newman","title":"Building Microservices","isbn":"978-1492034025"}'
+
+B) Bean Validation
+    Add a Bean Validation for inserting new "Book" objects.
+    Enforce the following constraints:
+        author: not null, 5 <= length <= 255
+        title: not null, 10 <= length <= 255
+        isbn: Regular Expression for the following format: 978-1492034025 (only digits)
+
+C) Swagger 
+    Add Swagger to the project, so that you can access the documentation
+    via your Browser:
+        https://localhost:8443/swagger-ui.html
+    
+    Check your constraints on the class Book 
+    Book{
+        id	string
+        author*	string
+        maxLength: 255
+        minLength: 5
+        title*	string
+        maxLength: 255
+        minLength: 10
+        isbn	string
+        pattern: ^[0-9]{3}-[0-9]{10}$
+    }    
+
+Tip: Also add the needed dependencies in pom.xml 

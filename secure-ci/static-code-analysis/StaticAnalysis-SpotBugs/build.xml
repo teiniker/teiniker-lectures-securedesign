@@ -1,0 +1,50 @@
+<project name="spotbugs-analysis" default="all">
+
+	<property file="spotbugs.properties"/>
+	<fail unless="spotbugs.src" message="spotbugs.properties file not found!"/>
+
+	<property name="spotbugs.home" value="${spotbugs.home}" />
+	<property name="spotbugs.lib" location="${spotbugs.home}/lib" />
+
+	
+	<path id="classpath">
+        <fileset dir="${spotbugs.lib}">
+            <include name="*.jar"/>
+        </fileset>
+	</path>
+
+	<taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties"
+			 classpathref="classpath" />
+
+	<target name="all" depends="clean,init,spotbugs"/>
+	
+	<target name="init">
+		<mkdir dir="reports" />
+	</target>
+
+	<target name="clean">
+		<delete dir="reports" failonerror="false"/>
+	</target>
+
+	<target name="spotbugs" depends="init">
+		<echo message="Analyze ${spotbugs.src}"/>
+		<echo message="Analyze ${spotbugs.test}"/>
+		<echo message="Analyze ${spotbugs.build}"/>
+
+		<spotbugs
+				home="${spotbugs.home}"
+				effort="max"
+				output="${spotbugs.output.format}"
+				outputFile="${spotbugs.output.file}"
+				sort="true"
+				reportLevel="low"> <!-- low, medium(default), high-->
+			<!--
+			<auxClasspath path="${basedir}/lib/Regex.jar" />
+			-->
+			<sourcepath path="${spotbugs.src}"/>
+			<sourcepath path="${spotbugs.test}"/>
+			<class location="${spotbugs.build}"/>
+		</spotbugs>
+	</target>
+
+</project>

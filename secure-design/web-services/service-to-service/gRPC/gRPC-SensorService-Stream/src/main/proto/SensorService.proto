@@ -1,0 +1,38 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package org.se.lab;
+
+enum SensorType
+{
+    DHT11 = 0;
+    DHT22 = 1;
+    HC_SR04 = 2;
+}
+
+message Sensor
+{
+    SensorType type = 1;
+}
+
+message Setting
+{
+    string key = 1;
+    int32 value = 2;
+}
+
+message Status
+{
+    string message = 1;
+}
+
+message SensorData
+{
+    SensorType sensor_type = 1;
+    string unit_of_measurement = 2;
+    double value = 3;
+}
+
+service SensorService
+{
+    rpc measure(Sensor) returns (stream SensorData);
+}

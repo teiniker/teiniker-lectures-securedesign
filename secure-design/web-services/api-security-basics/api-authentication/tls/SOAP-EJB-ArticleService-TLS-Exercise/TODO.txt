@@ -1,0 +1,113 @@
+Exercise: Transport Layer Security (SOAP Service)
+-------------------------------------------------------------------------------
+
+You have given a working SOAP service. Just to verify that all settings are
+working, perform the following tasks:
+
+A) Deploy & Test the SOAP Service
+    - Start the database server and import the SQL script: setup.sql
+        $ sudo systemctl start mariadb.service
+        $ mysql -u student -pstudent
+        MariaDB [(none)]> use testdb;
+
+    - Configure Wildfly to provide a Datasource named MySqlDS
+      (see Wildfly-Configurations/datasource)
+
+    - Deploy the SOAP service into Wildfly
+        $ mvn wildfly:deploy
+
+    - Use curl to access the SOAP service's WSDL file
+        $ curl -i http://localhost:8080/SOAP-EJB-ArticleService-TLS-Exercise/ArticleService?wsdl
+
+    - Use SoapUI to access the SOAP Service
+
+B) Configure the SOAP Service to use TLS
+    - Configure Wildfly to use a HTTPS connector
+      (see: Wildfly-Configurations/https)
+
+    - Add a <security-constraint> to the web.xml file and redeploy the service.
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>All resources</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+
+C) Experiments
+    1. Access the service again via HTTPs and analyze the response message:
+        $ curl -i http://localhost:8080/SOAP-EJB-ArticleService-TLS-Exercise/ArticleService?wsdl
+
+    2. Access the service via HTTPS and analyze the used TLS connection:
+        $ curl -i -k https://localhost:8443/SOAP-EJB-ArticleService-TLS-Exercise/ArticleService?wsdl
+        Compare the URL specification in the WSDL with the URL you used to access
+        the service.
+
+    3. Use SoapUI to execute the following operations and to analyze the response:
+        findAll():
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.lab.se.org/">
+           <soapenv:Header/>
+           <soapenv:Body>
+              <ser:findAll/>
+           </soapenv:Body>
+        </soapenv:Envelope>
+
+        findById():
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.lab.se.org/">
+           <soapenv:Header/>
+           <soapenv:Body>
+              <ser:findById>
+                 <arg0>1</arg0>
+              </ser:findById>
+           </soapenv:Body>
+        </soapenv:Envelope>
+
+        insert():
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.lab.se.org/">
+           <soapenv:Header/>
+           <soapenv:Body>
+              <ser:insert>
+                 <arg0 price="9999">
+                    <description>Book: Effective Python</description>
+                 </arg0>
+              </ser:insert>
+           </soapenv:Body>
+        </soapenv:Envelope>
+
+        update():
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.lab.se.org/">
+           <soapenv:Header/>
+           <soapenv:Body>
+              <ser:update>
+                  <arg0 id="1" price="1999">
+                    <description>Design Patterns</description>
+                 </arg0>
+              </ser:update>
+           </soapenv:Body>
+        </soapenv:Envelope>
+
+        delete():
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.lab.se.org/">
+           <soapenv:Header/>
+           <soapenv:Body>
+              <ser:delete>
+                 <arg0 id="100" price="9999">
+                    <description>Book: Effective Python</description>
+                 </arg0>
+              </ser:delete>
+           </soapenv:Body>
+        </soapenv:Envelope>
+
+D) Code Review
+    Analyze the source code of the example to understand how it is working.
+
+E) Related Patterns
+    Compare this implementation the following Service Design Patterns:
+    - RPC API
+    - Service Descriptor
+    - Common Versioning Strategies
+
+Tip: Don't forget to undeploy the service after your experiments.
+    $ mvn wildfly:undeploy

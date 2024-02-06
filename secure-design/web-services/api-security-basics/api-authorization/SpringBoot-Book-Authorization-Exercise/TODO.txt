@@ -1,0 +1,52 @@
+LabExam 2021-10-22: API Basic Security
+-------------------------------------------------------------------------------
+
+Given a working REST service, which can be started with:
+$  mvn spring-boot:run
+
+Using Curl you can test the two resources:
+$ curl -i http://localhost:8080/books
+$ curl -i http://localhost:8080/books/1
+$ curl -i http://localhost:8080/infos
+
+Now, you should add some security measures:
+
+A) Transport Layer Security [2 Points]
+Change the service configuration to use HTTPS and test your modifications:
+$ curl -i -k https://localhost:8443/books
+$ curl -i -k https://localhost:8443/books/2
+
+B) Basic Authentication [3 Points]
+Add the Spring Security Module and implement a HTTP Basic authentication
+(store username and password in memory, and use BCrypt to encrypt the password)
+Again, test your modifications using curl:
+$ curl -i -k -u student:student https://localhost:8443/books
+$ curl -i -k -u student:student https://localhost:8443/books/1
+
+C) Authorization [3 Points]
+The info resource should be accessible for every user, while books should only be
+for authenticated users.
+Test your modifications:
+$ curl -i -k https://localhost:8443/infos
+$ curl -i -k https://localhost:8443/books
+401 Unauthorized
+$ curl -i -k -u student:student https://localhost:8443/books
+
+D) UUID [2 Points]
+To be sure that no user can access a wrong book item, change the "long" id
+to a UUID string in the service implementation.
+Test that feature by loading all books and then requesting one book by its UUID:
+$ curl -i -k -u homer:homer https://localhost:8443/books
+
+
+The small print
+---------------
+Don't forget to replace MyName with your name, otherwise you get only 50% of
+your points.
+
+Tip: Implement the missing parts first and right before you export the project,
+    rename it.
+
+Also note that grading is based on a code review, thus, a running test doesn't
+automatically mean that you get all points.
+

@@ -1,0 +1,9 @@
+# REST server settings
+rest.host=localhost
+rest.port=8443
+rest.username=student
+rest.password=student
+
+ssl.trustStore=/home/student/local/wildfly-x.y.z.Final/standalone/configuration/application.keystore
+ssl.trustStorePassword=password
+

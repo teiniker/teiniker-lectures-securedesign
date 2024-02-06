@@ -1,0 +1,21 @@
+# Project to analyze
+project.home = ../StaticAnalysis-Target
+project.src = ${project.home}/src/main/java
+
+
+# Tool Settings
+# https://pmd.github.io/latest/pmd_userdocs_cpd.html
+pmd.home=/home/student/local/pmd-bin-6.41.0
+
+# CPD Configuration
+cpd.tokens=25
+cpd.output.file=reports/cpd-report.txt
+cpd.output.format=text
+
+# PMD Configuration
+pmd.output.format = text
+pmd.output.file = reports/pmd-report.txt
+#pmd.output.format = html
+#pmd.output.file = reports/pmd-report.html
+#pmd.output.format = xml
+#pmd.output.file = reports/pmd-report.xml

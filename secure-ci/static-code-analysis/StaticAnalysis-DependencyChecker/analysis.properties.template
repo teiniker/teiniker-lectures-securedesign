@@ -1,0 +1,8 @@
+# Project to analyze
+target.home =../StaticAnalysis-Target
+target.lib = ${target.home}/lib
+
+# Tool settings
+# https://owasp.org/www-project-dependency-check/
+dependency-check.home=/home/student/local/dependency-check-ant/
+analysis.reports = reports

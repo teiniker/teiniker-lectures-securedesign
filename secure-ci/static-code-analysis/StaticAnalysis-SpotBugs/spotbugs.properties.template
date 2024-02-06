@@ -1,0 +1,16 @@
+# Project to analyze
+project.home = ../StaticAnalysis-Target
+spotbugs.src = ${project.home}/src/main/java
+spotbugs.test = ${project.home}/src/test/java
+spotbugs.build = ${project.home}/target/classes
+
+# Tool Settings
+# https://spotbugs.github.io/
+# https://find-sec-bugs.github.io/
+spotbugs.home=/home/student/local/spotbugs-4.5.2/
+spotbugs.output.format = text
+spotbugs.output.file = reports/spotbugs-report.txt
+#spotbugs.output.format = xml
+#spotbugs.output.file = reports/spotbugs-report.xml
+#spotbugs.output.format = html
+#spotbugs.output.file = reports/spotbugs-report.html
