@@ -19,4 +19,4 @@ Security analysts **uncover and rank architectural flaws** so that mitigation ca
 * Frank Swiderski, Window Snyder. **Threat Modeling**. Microsoft Press, 2004
 
 
-*Egon Teiniker, 2017 - 2022, GPL v3.0*
+*Egon Teiniker, 2017-2024, GPL v3.0*
