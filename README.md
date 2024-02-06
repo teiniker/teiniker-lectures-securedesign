@@ -17,8 +17,6 @@ secure software design.
 
   * [Datastores](secure-design/datastores)
   
-  * Native Components 
-  
 See also: 
 [Secure Coding by Exampe](https://github.com/teiniker/teiniker-lectures-securecoding) 
 
