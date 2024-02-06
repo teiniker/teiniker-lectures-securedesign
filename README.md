@@ -26,6 +26,9 @@ secure software design.
     * [XML Processing](secure-design/datastores/xml/)
     * [SQL Processing](secure-design/datastores/sql/)
 
+* Secure Continuous Integration
+  * [Static Code Analysis](secure-ci/static-code-analysis/)
+  * [Secure Infrastructure](secure-ci/infrastructure/)
 
 See also: 
 [Secure Coding by Exampe](https://github.com/teiniker/teiniker-lectures-securecoding) 
