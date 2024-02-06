@@ -46,4 +46,4 @@ critical security risks to web applications.
 * [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
 * [Jim Manico - OWASP Top 10 2021](https://youtu.be/iXeQGM_ogfY)
 
-*Egon Teiniker, 2019-2022, GPL v3.0*	
+*Egon Teiniker, 2020-2023, GPL v3.0*	
