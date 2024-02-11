@@ -1,46 +1,58 @@
 package org.se.lab;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter
+public class SecurityConfig
 {
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("homer")
-                    .password(passwordEncoder().encode("homer"))
-                    .roles("USER")
-                .and()
-                .withUser("marge")
-                    .password(passwordEncoder().encode("marge"))
-                    .roles("ADMIN");
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder()
+    {
+        return new BCryptPasswordEncoder();
     }
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception
+    // User Creation
+    @Bean
+    public UserDetailsService userDetailsService(PasswordEncoder encoder)
     {
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-            .authorizeRequests()
-                .antMatchers("/infos").permitAll()
-                .antMatchers("/articles/**").hasRole("USER") //!!
-            .and()
-            .httpBasic();
+        // InMemoryUserDetailsManager
+        UserDetails admin = User.withUsername("burns")
+                .password(encoder.encode("burns"))
+                .roles("ADMIN", "USER")
+                .build();
+
+        UserDetails user = User.withUsername("homer")
+                .password(encoder.encode("homer"))
+                .roles("USER")
+                .build();
+
+        return new InMemoryUserDetailsManager(admin, user);
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder()
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception
     {
-        return new BCryptPasswordEncoder();
+        httpSecurity
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/infos").permitAll()
+                        .requestMatchers("/articles/**").hasRole("USER")
+                        .anyRequest().authenticated()
+                )
+                .httpBasic(withDefaults());
+        return httpSecurity.build();
     }
 }
