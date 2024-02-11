@@ -12,7 +12,7 @@ $ mvn spring-boot:run
 ### Find Books
 
 ```
-$ curl -i http://localhost:8080/books
+$ curl -ki https://localhost:8443/books
 
 HTTP/1.1 200 
 Content-Type: application/json
@@ -27,7 +27,7 @@ Date: Mon, 06 Feb 2023 18:00:08 GMT
 ```
 
 ```
-$ curl -i http://localhost:8080/books/da42b451-11e1-4ac9-be5e-dd3b767be1ba
+$ curl -ki https://localhost:8443/books/da42b451-11e1-4ac9-be5e-dd3b767be1ba
 
 HTTP/1.1 200 
 Content-Type: application/json
@@ -38,7 +38,7 @@ Date: Mon, 06 Feb 2023 18:02:47 GMT
 ```
 
 ```
-$ curl -i http://localhost:8080/books/666
+$ curl -ki https://localhost:8443/books/666
 
 HTTP/1.1 404 
 Content-Length: 0
@@ -47,7 +47,7 @@ Date: Mon, 06 Feb 2023 18:05:19 GMT
 
 ### Insert a Book
 ```
-$ curl -i -X POST http://localhost:8080/books -H 'Content-type:application/json' -d '{"author":"Robert C. Martin","title":"Clean Code","isbn":"978-0132350884"}'
+$ curl -ki -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"author":"Robert C. Martin","title":"Clean Code","isbn":"978-0132350884"}'
 
 HTTP/1.1 201 
 Content-Type: application/json
@@ -59,7 +59,7 @@ Date: Mon, 06 Feb 2023 18:07:52 GMT
 
 ### Update a Book
 ```
-$ curl -i -X PUT http://localhost:8080/books/da42b451-11e1-4ac9-be5e-dd3b767be1ba -H 'Content-type:application/json' -d '{"author":"Joshua Bloch","title":"Effective Java, 2nd Edition","isbn":"978-0134685991"}'
+$ curl -ik -X PUT https://localhost:8443/books/da42b451-11e1-4ac9-be5e-dd3b767be1ba -H 'Content-type:application/json' -d '{"author":"Joshua Bloch","title":"Effective Java, 2nd Edition","isbn":"978-0134685991"}'
 
 HTTP/1.1 200
 Content-Type: application/json
@@ -71,21 +71,14 @@ Date: Thu, 07 Oct 2021 14:20:22 GMT
 
 ### Delete a Book
 ```
-$ curl -i -X DELETE http://localhost:8080/books/da42b451-11e1-4ac9-be5e-dd3b767be1ba
+$ curl -ki -X DELETE https://localhost:8443/books/da42b451-11e1-4ac9-be5e-dd3b767be1ba
 
 HTTP/1.1 204 
 Date: Mon, 06 Feb 2023 18:20:15 GMT
 ```
 
-```
-$ curl -i http://localhost:8080/books/3
-
-HTTP/1.1 404 
-Content-Length: 0
-Date: Mon, 06 Feb 2023 18:21:13 GMT
-```
 
 ## References
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 
-*Egon Teiniker, 2016 - 2023, GPL v3.0*
+*Egon Teiniker, 2017-2024, GPL v3.0*
