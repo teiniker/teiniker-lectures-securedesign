@@ -13,15 +13,15 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
-
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.8.0</version>
 				<configuration>
-					<release>11</release>
+					<release>17</release>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -37,6 +37,9 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- Define the version of JBoss' Java EE 7 APIs we want to import. Any
+				dependencies from org.jboss.spec will have their version defined by this
+				BOM -->
 			<dependency>
 				<groupId>org.jboss.spec</groupId>
 				<artifactId>jboss-javaee-7.0</artifactId>
@@ -120,6 +123,5 @@
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 	</dependencies>
 </project>

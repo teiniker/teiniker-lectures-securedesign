@@ -1,7 +1,6 @@
 # Secure Design by Example
 
-This project collects examples, exercises and model solutions needed as an introduction to 
-secure software design.
+This project collects examples, exercises and model solutions needed as an introduction to secure software design.
 
 * [Architectural Risk Analysis](risk-analysis)
   
