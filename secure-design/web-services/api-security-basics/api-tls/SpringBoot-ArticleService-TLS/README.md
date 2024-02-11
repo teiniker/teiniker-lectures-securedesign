@@ -25,7 +25,6 @@ Now, we can start the service as a separate process:
 $ mvn spring-boot:run
 ```
 
-
 ## Using the Service
 
 ### Find Articles
