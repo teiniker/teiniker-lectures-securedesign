@@ -12,24 +12,24 @@ $ mvn spring-boot:run
 
 Find all Articles:
 ```
-$ curl -i http://localhost:8080/articles
+$ curl -ki https://localhost:8443/articles
 
 ```
 
 Find a particular Article:
 ```    
-$ curl -i http://localhost:8080/articles/2
+$ curl -ki https://localhost:8443/articles/2
 
 ```
  
 Insert an Article:
 ```
-$ curl -i -X POST http://localhost:8080/articles -H 'Content-type:application/json' -d '{"id":7, "description": "Microservices Patterns: With examples in Java", "price": 2550}'
+$ curl -ki -X POST https://localhost:8443/articles -H 'Content-type:application/json' -d '{"id":7, "description": "Microservices Patterns: With examples in Java", "price": 2550}'
 ```
 
 Insert an invalid Article:
 ```
-$ curl -i -X POST http://localhost:8080/articles -H 'Content-type:application/json' -d '{"id":7, "description": "Patterns", "price": 2550}'
+$ curl -ki -X POST https://localhost:8443/articles -H 'Content-type:application/json' -d '{"id":7, "description": "Patterns", "price": 2550}'
 
 HTTP/1.1 400 
 Content-Type: application/json
@@ -40,21 +40,10 @@ Connection: close
 {"description":"Description must have at least 10 characters"}
 ```
 
-
-Update an Article:
-```    
-$ curl -i -X PUT http://localhost:8080/articles/2 -H 'Content-type:application/json' -d '{"description": "Effective Java", "price": 9999}'
-
-```
-
-Delete an Article:
-```    
-$ curl -i -X DELETE http://localhost:8080/articles/3
-```
-
 ## Implementation
 
-To use the Bean Validation feature in SpringBoot, we need to add the following dependency to the `pom.xml` file:
+To use the Bean Validation feature in SpringBoot, we need to add the following 
+dependency to the `pom.xml` file:
 
 ```
     <dependency>
@@ -119,11 +108,13 @@ Annotations defined in the JSR 303 (Bean Validation) are:
 
 Download the formal specification of this REST API:
 ```
-$ curl http://localhost:8080/v3/api-docs/
-$ curl http://localhost:8080/v3/api-docs.yaml
+https://localhost:8443/swagger-ui/index.html
+
+$ curl -k https://localhost:8443/v3/api-docs.yaml
 ```
 
-Note that the **bean validation annotations** will be **included into the generated OpenAPI specification**:
+Note that the **bean validation annotations** will be **included into the generated 
+OpenAPI specification**:
 ```
 components:
   schemas:
@@ -150,4 +141,4 @@ components:
 * [Bean Validation in Spring Boot](https://springframework.guru/bean-validation-in-spring-boot/)
 * [Bean Validation 2.0 (JSR 380)](https://beanvalidation.org/2.0-jsr380/)
 
-*Egon Teiniker, 2016-2022, GPL v3.0*
+*Egon Teiniker, 2016-2024, GPL v3.0*
