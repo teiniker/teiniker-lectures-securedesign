@@ -28,6 +28,10 @@ public class MethodSecurityConfig
 }
 ```
 
+The `prePostEnabled` attribute, when set to `true`, specifically enables the use of
+`@PreAuthorize` and `@PostAuthorize` annotations, allowing for expression-based access 
+control before and after method execution, respectively.
+
 After enabling method-level security, we can use annotations to secure individual methods. 
 For example, `@PreAuthorize` allows us to specify an expression that determines if a method 
 can be executed.
@@ -40,6 +44,19 @@ can be executed.
         return repository.findAll();
     }
 ```
+
+The `@PreAuthorize` annotation is used in Spring Security to define access-control expressions 
+that are **evaluated before entering a method**, thus determining whether the current user is 
+allowed to execute the method based on the specified conditions.
+It provides a way to express security constraints on method execution using SpEL 
+(Spring Expression Language).
+
+The `@PostAuthorize` annotation in Spring Security is used to enforce security constraints 
+after a method has executed, rather than before. It allows us to make access-control decisions 
+based on the outcome of the method execution. 
+This can be particularly useful when the decision to allow access depends on the value returned 
+by the method or the state of the system after the method is executed.
+
 
 ## Access the REST Service
 
