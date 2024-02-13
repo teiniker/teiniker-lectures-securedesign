@@ -42,7 +42,7 @@ public class BookController
     }
 
     @GetMapping("/books/{id}")
-    ResponseEntity<Book> indById(@PathVariable long id)
+    ResponseEntity<Book> findById(@PathVariable long id)
     {
         Book item = table.get(id);
         if(item == null)

@@ -50,7 +50,4 @@ C) Experiments
 D) Code Review
     Analyze the source code of the example to understand how it is working.
 
-E) Related Patterns
-    Compare this implementation the following Service Design Patterns:
-    - Resource API
 
