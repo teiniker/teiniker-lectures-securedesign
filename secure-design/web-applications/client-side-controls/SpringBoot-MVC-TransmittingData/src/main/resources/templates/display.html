@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Diaplay User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h3>
+        <p th:text="${id} + ': ' + ${username} + ' / ' + ${password}" />
+    </h3>
+        <p th:text="'data = ' + ${data}" />
+
+    <a href="index.html"> back</a>
+</body>
+</html>

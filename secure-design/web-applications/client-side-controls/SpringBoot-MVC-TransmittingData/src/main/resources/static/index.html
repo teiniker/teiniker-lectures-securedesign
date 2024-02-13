@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        .form-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 10px;
+            max-width: 300px;
+            margin: auto;
+        }
+        .form-grid div {
+            display: contents;
+        }
+        label {
+            text-align: right;
+            padding-right: 10px;
+        }
+        input {
+            width: 100%;
+        }
+        .button-container {
+            grid-column: span 2;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<form action="controller" method="POST">
+    <div class="form-grid">
+        <input type="hidden" name="data" value="28a76cd5ef9031c0"/>
+        <div>
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id" min="1" step="1" required>
+        </div>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" pattern="[a-z_.]{4,8}" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" minlength="10" required>
+        </div>
+        <div class="button-container">
+            <button type="submit">Add User</button>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
