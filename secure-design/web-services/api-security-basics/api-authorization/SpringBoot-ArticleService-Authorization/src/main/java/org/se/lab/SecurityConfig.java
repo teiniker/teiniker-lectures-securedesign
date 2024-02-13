@@ -31,7 +31,7 @@ public class SecurityConfig
         // InMemoryUserDetailsManager
         UserDetails admin = User.withUsername("burns")
                 .password(encoder.encode("burns"))
-                .roles("ADMIN", "USER")
+                .roles("ADMIN")
                 .build();
 
         UserDetails user = User.withUsername("homer")
