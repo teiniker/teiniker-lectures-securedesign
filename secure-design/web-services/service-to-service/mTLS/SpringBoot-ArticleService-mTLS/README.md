@@ -6,8 +6,8 @@ mTLS is the most popular option for securing communications between microservice
 
 ## Setup TLS
 
-In order to configure a TLS connector, we hae to create a server-side certificate and configure the 
-application.properties file.
+In order to configure a TLS connector, we have to create a server-side certificate and configure 
+the application.properties file.
 
 ```
 $ cd src/main/resources
