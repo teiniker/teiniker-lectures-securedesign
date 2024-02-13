@@ -122,8 +122,9 @@ $ mvn spring-boot:run
 In order to access the service which needs a client certificate, we use the following `curl` command
 which provides the `--key` and `--cert` options to the request:
 ```
-$ curl -k --key privkey.pem --cert client.crt -X GET https://localhost:8443/articles/2
+$ curl -k --key privkey.pem --cert client.crt https://localhost:8443/articles/2
 {"id":2,"description":"Effective Java","price":3336}
+
 ```
 
 * `--key privkey.pem`  specifies the key file or path to the private key.
