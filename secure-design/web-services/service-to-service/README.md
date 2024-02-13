@@ -12,8 +12,8 @@ There are three common ways to secure communications among services in a microse
 * **Mutual TLS**: Each microservice in the deployment has to carry a public/private key pair and uses 
   that key pair to authenticate to the receiver microservice via mTLS. 
   Challenges in mTLS include bootstrapping trust and key/certificates management.\
-  _Example_: [Using OpenSSL](mTLS/OpenSSL)\
-  _Exercise_: [Mutual Transport Layer Security](mTLS/SpringBoot-ArticleService-mTLS-Exercise) ([Model Solution](mTLS/SpringBoot-ArticleService-mTLS))
+  _Example_: [Using OpenSSL](../api-security-basics/api-authentication/mTLS/OpenSSL)\
+  _Exercise_: [Mutual Transport Layer Security](../api-security-basics/api-authentication/mTLS/SpringBoot-ArticleService-mTLS-Exercise) ([Model Solution](../api-security-basics/api-authentication/mTLS/SpringBoot-ArticleService-mTLS))
 
 * **JSON Web Tokens**: JWT works at the application layer and is a container that carry a set of claims 
   (end-user attributes) and is signed by the issuer.
