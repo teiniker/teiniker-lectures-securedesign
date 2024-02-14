@@ -27,4 +27,8 @@ The file is saved parallel to the `upload/` folder.
 
 ## References
 
+* Jim Manico, August Detlefsen. **Iron-Clad Java: Build Secure Web Applications**. Oracle Press, 2015
+    * Chapter 8: Safe File Upload and File I/O
+
+
 *Egon Teiniker, 2016-2024, GPL v3.0*
