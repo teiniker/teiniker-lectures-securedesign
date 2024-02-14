@@ -36,5 +36,5 @@ D) UUID
 To be sure that no user can access a wrong book item, change the "long" id
 to a UUID string in the service implementation.
 Test that feature by loading all books and then requesting one book by its UUID:
-$ curl -i -k -u homer:homer https://localhost:8443/books
+$ curl -i -k -u student:student https://localhost:8443/books
 

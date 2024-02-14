@@ -11,7 +11,9 @@ public class TranslatorController
     private TranslatorService service;
 
     @PostMapping("/translator")
-    public String translate(@RequestParam(name="language") String language, @RequestParam(name="word") String word, Model model)
+    public String translate(@RequestParam(name="language") String language,
+                            @RequestParam(name="word") String word,
+                            Model model)
     {
         if("Deutsch".equals(language))
         {
