@@ -4,9 +4,7 @@ Exercise: SQL Injection Prevention
 Setup
 ---------------------------------------------------------------------
 Start the MySQL server (as root):
-	[student@localhost ~]$ su
-	Password: root66
-	[root@localhost student]# systemctl start mariadb.service
+	$ sudo systemctl start mariadb.service
  
 Start a MySQL client (as student):
 	$ mysql -u student -p

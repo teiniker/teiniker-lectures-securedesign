@@ -126,7 +126,7 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 Content-Type: application/json
 Date: Sat, 16 Oct 2021 07:18:26 GMT
 
-[{"id":1,"description":"Design Patterns","price":4295},{"id":2,"description":"Effective Java","price":3336}]s
+[{"id":1,"description":"Design Patterns","price":4295},{"id":2,"description":"Effective Java","price":3336}]
 ```
 
 In the request message, we can see the additional HTTP header:
