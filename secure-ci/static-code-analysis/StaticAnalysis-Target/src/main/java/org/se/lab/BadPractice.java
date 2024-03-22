@@ -3,7 +3,6 @@ package org.se.lab;
 
 public class BadPractice
 {
-
     public void toSomething(boolean b)
     {
         String s = null;
