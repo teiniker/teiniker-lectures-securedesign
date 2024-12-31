@@ -1,10 +1,11 @@
-# Example: SpringBoot Actuator Framework
+# SpringBoot Actuator Framework
 
 ## Setup
 
 The **Actuator framework** can easily be **added to an existing REST service**.
 
-To do this, add the following dependency in the **pom.xml** file.
+To do this, add the following dependency in the **pom.xml** file:
+
 ```XML
 		<dependency> 
 			<groupId>org.springframework.boot</groupId>
@@ -16,13 +17,15 @@ Note that the version number is inherited from the SpringBoot framework.
 
 In the **application.properties** file, the following entries enable all 
 /actuator endpoints:
+
 ```
 management.endpoints.web.exposure.include=*
 management.endpoint.env.enabled=true
 management.endpoint.env.show-values=ALWAYS
 ```
 
-We use Maven to compile and run the service.
+We use Maven to compile and run the service:
+
 ```Bash
 $ mvn spring-boot:run
 ```
@@ -349,7 +352,8 @@ $ curl -i -X DELETE http://localhost:9090/articles/3
 
 ## References
 
-* [Spring Boot Actuator](https://www.baeldung.com/spring-boot-actuators)
+* [SpringBoot References: Actuator](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html)
 
+* [38C3: Wir wissen wo dein Auto steht - Volksdaten von Volkswagen](https://media.ccc.de/v/38c3-wir-wissen-wo-dein-auto-steht-volksdaten-von-volkswagen)
 
 *Egon Teiniker, 2016-2024, GPL v3.0*

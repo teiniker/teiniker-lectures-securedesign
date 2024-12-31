@@ -8,6 +8,13 @@ Gobuster is useful for pentesters, ethical hackers and forensics experts.
 It also can be used for security tests.
 
 
+## Setup 
+
+```Bash
+$ sudo apt install gobuster
+```
+
+
 ## Analyzing a REST Service
 
 This example shows the analysis of a vulnerable SpringBoot service
@@ -54,13 +61,12 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 ```
 
-
-
-## Setup 
+We can also use **ZAP as an interception proxy** to analyze the traffic:
 
 ```Bash
-$ sudo apt install gobuster
+$ gobuster dir -u  http://localhost:8080/ -w spring-boot.txt --proxy http://localhost:8010
 ```
+
 
 ## References
 
