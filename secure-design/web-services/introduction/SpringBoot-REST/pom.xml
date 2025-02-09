@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>org.se.lab</groupId>
-	<artifactId>SpringBoot-BookService</artifactId>
+	<artifactId>SpringBoot-REST</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
