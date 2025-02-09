@@ -1,29 +1,45 @@
 # API Security Basics 
 
-* [API Design Best Practices](api-bestpractices)
+In the following examples, we demonstrate the basic security mechanisms 
+for securing APIs. These techniques are mainly used for individual 
+services, but can also be combined to secure a complete system.
 
-* Authentication
-     * Transport Layer Security 
-         * [REST-EJB-UserService-TLS](api-authentication/tls/REST-EJB-UserService-TLS)
-         * [SOAP-EJB-ArticleService-TLS](api-authentication/tls/SOAP-EJB-ArticleService-TLS) 
-         * [SpringBoot-ArticleService-TLS](api-authentication/tls/SpringBoot-ArticleService-TLS)
-     * Basic Authentication
-         * [REST-EJB-UserService-BasicAuth](api-authentication/basic/REST-EJB-UserService-BasicAuth)
-         * [SpringBoot-ArticleService-BasicAuth](api-authentication/basic/SpringBoot-ArticleService-BasicAuth)
+* **Access Control**
+    * Transport Layer Security 
+        * Example: [SpringBoot-UserService-TLS](api-tls/SpringBoot-UserService-TLS/)
+        * Exercise: [SpringBoot-ArticleService-TLS](api-tls/SpringBoot-ArticleService-TLS-Exercise/) 
+        ([Model Solution](api-tls/SpringBoot-ArticleService-TLS/))
 
-* Authorization
-   * Service-Level Authorization
-       * [REST-EJB-Authorization](api-authorization/REST-EJB-Authorization)
-       * [SpringBoot-ArticleService-Authorization](api-authorization/SpringBoot-ArticleService-Authorization) 
-   * Function-Level Authorization
-       * [REST-EJB-Authorization-Annotations](api-authorization/REST-EJB-Authorization-Annotations) 
-   * Object-Level Authorization
-       * [REST-EJB-UserService-UUID](api-authorization/REST-EJB-UserService-UUID)  
+     * Authentication
+         * [Password Attacks](api-authentication/Password-Attacks/)
+         * Example: [SpringBoot-ArticleService-BasicAuth](api-authentication/basic/SpringBoot-ArticleService-BasicAuth)
 
-* API Clients 
-   * [REST-EJB-UserService-TLS-Client](api-clients/REST-EJB-UserService-TLS-Client)
-   * [REST-EJB-UserService-BasicAuth-Client](api-clients/REST-EJB-UserService-BasicAuth-Client) 
+    * Authorization
+        * Service-Level Authorization
+            * Example: [SpringBoot-ArticleService-Authorization](api-authorization/SpringBoot-ArticleService-Authorization/)
+            * Exercise: [SpringBoot-Book-Autorization](api-authorization/SpringBoot-Book-Authorization-Exercise/)
+            ([Model Solution](api-authorization/SpringBoot-ArticleService-Authorization/))
 
-* [API Specifications](api-specifications)   
+        * Function-Level Authorization
+            * Example: [SpringBoot-ArticleService-Authorization-Method](api-authorization/SpringBoot-ArticleService-Authorization-Method/) 
 
-*Egon Teiniker, 2016 - 2023, GPL v3.0*
+        * Object-Level Authorization
+            * [SpringBoot-BookService-UUID](api-authorization/SpringBoot-BookService-UUID/)  
+
+* **API Clients** 
+   * Example: [Client-TLS-ArticleService](api-clients/Client-TLS-ArticleService/)
+   * Example: [client-TLS-ArticleService-JSON](api-clients/Client-TLS-ArticleService-JSON/) 
+
+* **API Specification**
+    * [OpenAPI](api-specifications/OpenAPI/README.md)
+    * Example: [SpringBoot-Swagger](api-specifications/SpringBoot-Swagger/)   
+    * Example: [SpringBoot-BeanValidation](api-specifications/SpringBoot-BeanValidation/)
+    * Exercise: [SpringBoot-BeanValidation-Book](api-specifications/SpringBoot-BeanValidation-Book-Exercise/)
+    ([Model Solution](api-specifications/SpringBoot-BeanValidation-Book/))
+
+* **API Monitoring**
+    * [Introduction](api-monitoring/README.md)
+    * Example: [SpringBoot-Actuator](api-monitoring/SpringBoot-Actuator/)
+    * [Gobuster](api-monitoring/gobuster/README.md)
+
+*Egon Teiniker, 2017-2025, GPL v3.0*

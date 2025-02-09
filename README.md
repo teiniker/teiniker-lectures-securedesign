@@ -2,34 +2,47 @@
 
 This project collects examples, exercises and model solutions needed as an introduction to secure software design.
 
-* Architectural Risk Analysis
+* **Architectural Risk Analysis**
   * [Case Study: Vulnerable Web Application](risk-analysis/VulnerableWebApplication/)
   * [HTTP/S Protocol](secure-design/https-protocol)
   * [Knowledge for Software Security](risk-analysis/knowledge-sw-security/README.md)
   * [Secure Design Principles](risk-analysis/secure-design-principles/README.md)
 
-* Secure Software Design
+* **Secure Software Design**
 
   * Secure Web Service Design 
     * [Introduction](secure-design/web-services/introduction/)
-    * [HTTP/S Protocol](secure-design/web-services/https-protocol/)
+      * [RESTful Services](secure-design/web-services/introduction/rest/README.md)
+      * [OWASP API Security Top 10](secure-design/web-services/introduction/owasp/OWASP-API-Security-Top10.md)
+
     * [API Security Basics](secure-design/web-services/api-security-basics/)
+    
     * [Edge Security](secure-design/web-services/edge-security/)
+    
     * [Service to Service Security](secure-design/web-services/service-to-service/)
 
   * Web Applications
-    * [Client-Side Controls](secure-design/client-side-controls)
-    * [Access Control](secure-design/access-control)
-    * [Browser-Attack Prevention](secure-design/browser-attack-prevention)
-      * [XSS Prevention](secure-design/xss-prevention)
-      * [CSRF Prevention](secure-design/csrf-prevention)
+    * [Introduction](secure-design/web-applications/introduction/)
+        * [OWASP Top 10](secure-design/web-applications/introduction/owasp/OWASP-Top10.md)
+    
+    * Client-Side Controls
+      * Example: [SpringBoot-MVC-CaptureDate](secure-design/web-applications/client-side-controls/SpringBoot-MVC-CaptureData/)
+      * Example: [SpringBoot-MVC-TransmittingData](secure-design/web-applications/client-side-controls/SpringBoot-MVC-TransmittingData/)
 
-  * [Datastores](secure-design/datastores)
+    * Access Control
+      * [SpringBoot-MVC-Login](secure-design/web-applications/access-control/SpringBoot-MVC-Login/)
+
+    * Browser-Attack Prevention
+      * [XSS Prevention](secure-design/web-applications/browser-attack-prevention/xss-prevention/)
+      * [CSRF Prevention](secure-design/web-applications/browser-attack-prevention/csrf-prevention/)
+
+  * Datastores
     * [File Handling](secure-design/datastores/filesystem/)
     * [XML Processing](secure-design/datastores/xml/)
+    * [JSON Processing](secure-design/datastores/json/)
     * [SQL Processing](secure-design/datastores/sql/)
 
-* Secure Continuous Integration
+* **Secure Continuous Integration**
   * [Static Code Analysis](secure-ci/static-code-analysis/)
   * [Secure Infrastructure](secure-ci/infrastructure/)
 
