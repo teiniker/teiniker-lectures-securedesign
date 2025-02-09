@@ -1,14 +1,19 @@
 # Architectural Risk Analysis
 
-At the design and architecture level, a system must be coherent and present a **unified security front**. 
-Designers, architects, and analysts should clearly document assumptions and **identify possible attacks**.
-Security analysts **uncover and rank architectural flaws** so that mitigation can begin.
+At the design and architecture level, a system must be coherent and 
+present a **unified security front**. 
+Designers, architects, and analysts should clearly document assumptions 
+and **identify possible attacks**.
+Security analysts **uncover and rank architectural flaws** so that 
+mitigation can begin.
 
-## Introduction 
+* [Case Study: Vulnerable Web Application](VulnerableWebApplication)
 
-* [Vulnerable Web Application](VulnerableWebApplication)
+* [HTTP/S Protocol](secure-design/https-protocol)
 
-* [Knowledge for Software Security](knowledge-sw-security)
+* [Knowledge for Software Security](knowledge-sw-security/README.md)
+
+* [Secure Design Principles](secure-design-principles/README.md)
 
 
 ## References
@@ -19,4 +24,4 @@ Security analysts **uncover and rank architectural flaws** so that mitigation ca
 * Frank Swiderski, Window Snyder. **Threat Modeling**. Microsoft Press, 2004
 
 
-*Egon Teiniker, 2017-2024, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*

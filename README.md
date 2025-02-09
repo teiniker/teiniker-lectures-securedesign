@@ -2,11 +2,14 @@
 
 This project collects examples, exercises and model solutions needed as an introduction to secure software design.
 
-* [Architectural Risk Analysis](risk-analysis)
-  
+* Architectural Risk Analysis
+  * [Case Study: Vulnerable Web Application](risk-analysis/VulnerableWebApplication/)
+  * [HTTP/S Protocol](secure-design/https-protocol)
+  * [Knowledge for Software Security](risk-analysis/knowledge-sw-security/README.md)
+  * [Secure Design Principles](risk-analysis/secure-design-principles/README.md)
+
 * Secure Software Design
-  * [Introduction](secure-design/introduction)
-  
+
   * Secure Web Service Design 
     * [Introduction](secure-design/web-services/introduction/)
     * [HTTP/S Protocol](secure-design/web-services/https-protocol/)
@@ -36,4 +39,4 @@ See also:
 As a development environment, you can use a pre-configured Linux VM image:
 [Virtual Lab](https://drive.google.com/drive/folders/1AzsF4Mvh1HJ8k6OW5W5hQ5CF0HdqA51l)
 
-*Egon Teiniker, 2017-2024, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*
