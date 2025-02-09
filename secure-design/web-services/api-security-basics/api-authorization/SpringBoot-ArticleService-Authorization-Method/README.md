@@ -85,6 +85,8 @@ $ curl -ki https://localhost:8443/articles
 If an authenticated user tries to call a function that is **not released for his role**
 (`homer` is not in `ROLE_ADMIN`), he will get a **403 Forbidden** response.
 ```
+$ curl -ki -u homer:homer https://localhost:8443/articles
+
 HTTP/1.1 403 
 Vary: Origin
 Content-Type: application/json
@@ -109,4 +111,4 @@ Date: Mon, 12 Feb 2024 15:30:05 GMT
 * [Spring @EnableMethodSecurity Annotation](https://www.baeldung.com/spring-enablemethodsecurity)
 * [Spring: Method Security](https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html)
 
-*Egon Teiniker, 2017-2024, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*
