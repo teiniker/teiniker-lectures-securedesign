@@ -3,7 +3,7 @@
 Critical software security knowledge and expertise can be compiled:
 * [CWE/SANS Top 25](CWE-TOP25.md)
 
-* [OWASP Top 10 API Security](../../secure-design/web-services/introduction/owasp/OWASP-API-Security-Top10.md)]
+* [OWASP Top 10 API Security](../../secure-design/web-services/introduction/owasp/OWASP-API-Security-Top10.md)
 
 * [OWASP Top 10](../../secure-design/web-applications/introduction/owasp/OWASP-Top10.md)
 
