@@ -37,4 +37,39 @@ public class BookController
     {
         return bookRepository.save(book);
     }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Book> update(@PathVariable long id, @RequestBody Book bookDetails)
+    {
+        Optional<Book> optionalBook = bookRepository.findById(id);
+        if(optionalBook.isPresent())
+        {
+            Book book = optionalBook.get();
+            book.setAuthor(bookDetails.getAuthor());
+            book.setTitle(bookDetails.getTitle());
+            book.setIsbn(bookDetails.getIsbn());
+            bookRepository.save(book);
+            return ResponseEntity.ok(book);
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id)
+    {
+        if(bookRepository.existsById(id))
+        {
+            bookRepository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

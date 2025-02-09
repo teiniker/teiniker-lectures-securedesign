@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.se.lab</groupId>
-	<artifactId>springboot-rest-jpa</artifactId>
+	<artifactId>SpringBoot-RESR-JPA</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
