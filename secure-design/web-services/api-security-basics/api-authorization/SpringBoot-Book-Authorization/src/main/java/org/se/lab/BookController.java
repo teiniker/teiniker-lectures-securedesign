@@ -23,7 +23,7 @@ public class BookController
         table.put(id2, new Book(id2, "Robert C. Martin", "Clean Code", "978-0132350884"));
 
         String id3 = UUID.randomUUID().toString();
-        table.put(id3, new Book(id3, "Martin Fowler", "Refactoring", " 978-0134757599"));
+        table.put(id3, new Book(id3, "Martin Fowler", "Refactoring", "978-0134757599"));
     }
 
     @GetMapping("/books")
