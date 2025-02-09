@@ -10,91 +10,142 @@ Thus, we include a dependency to `pom.xml`:
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
+	  <dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
 ```
 
-Now we can add a `SecurityConfig` class. All security related settings can be found there
-(compare this with the `spring-security.xml` we used in our web applications):
+Now we can add a `SecurityConfig` class. All security related settings can be found there:
 
 ```Java 
-@Configuration
-@EnableWebSecurity
-public class SecurityConfig
-{
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception
-    {
-        httpSecurity.csrf().disable()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic();
-        return httpSecurity.build();
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder()
+    public PasswordEncoder passwordEncoder()
     {
         return new BCryptPasswordEncoder();
     }
+```
 
-    // User Creation
+Let's break down the code snippet step by step:
+
+```java
+@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+```
+
+The code creates a bean that returns a `BCryptPasswordEncoder`. This bean can then 
+be injected into any component of your Spring application that requires password 
+encoding (for example, when registering a new user or authenticating an existing one). 
+By doing so, it centralizes the configuration of password encoding, ensuring 
+consistency and security across your application.
+
+* **PasswordEncoder**:  
+  In Spring Security, the `PasswordEncoder` interface defines the contract for 
+  encoding passwords. It provides methods to:
+  * **Encode a password:** Convert a plaintext password into a hashed format.
+  * **Verify a password:** Compare a plaintext password against a stored hashed 
+  password to check if they match.
+
+* **BCryptPasswordEncoder:**  
+  This is a concrete implementation of the `PasswordEncoder` interface that uses 
+  the BCrypt hashing function.
+  BCrypt is widely regarded as a secure way to hash passwords because it incorporates 
+  a salt (a random value added to the password before hashing) and is adaptive. 
+  The adaptive nature means you can increase the work factor (i.e., computational cost) 
+  over time as hardware improves, making brute-force attacks more difficult.
+
+
+```Java 
     @Bean
-    public UserDetailsService userDetailsService(PasswordEncoder encoder)
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder)
     {
-        // InMemoryUserDetailsManager
         UserDetails admin = User.withUsername("burns")
-                .password(encoder.encode("burns"))
+                .password(passwordEncoder.encode("burns"))
+                .roles("ADMIN")
                 .build();
 
         UserDetails user = User.withUsername("homer")
-                .password(encoder.encode("homer"))
+                .password(passwordEncoder.encode("homer"))
+                .roles("USER")
                 .build();
 
         return new InMemoryUserDetailsManager(admin, user);
     }
-}
 ```
 
-* The `filterChain()` method configures a `SecurityFilterChain`. The `SecurityFilterChain` is 
-    essentially a chain of filters that Spring Security uses to apply various security 
-    rules to HTTP requests. The method takes an instance of `HttpSecurity` as a parameter, 
-    which is a builder object used to configure the security directives that the filter 
-    chain should enforce:
-    * `@Bean`: This annotation tells Spring that the method returns an object that 
-        should be registered as a bean in the Spring application context. 
-        Beans are objects that are managed by Spring and can be injected into 
-        other parts of the application as dependencies.
+The method returns an object that implements the `UserDetailsService` interface, 
+which is a core component in Spring Security responsible for retrieving 
+user-related data.
 
-    * `csrf().disable()`: This line disables Cross-Site Request Forgery (CSRF) 
-      protection for the application (see web applications). 
+The method creates two in-memory users by utilizing a builder pattern provided 
+by the `User` class:
+* **Username**: The username is set to "burns".
+* **Password**: The password is set to "burns", but before storing it, the password 
+  is encoded using the provided `PasswordEncoder`.
+  * **Encoding**: This ensures that the password is stored in a secure, hashed format 
+    rather than plain text.
+  * **Roles**: The user is assigned the role "ADMIN". Roles help define the user's 
+    authorities and permissions within the application.
 
-    * `authorizeRequests()`: This method call begins the configuration of authorization 
-      rules for HTTP requests.
+* **InMemoryUserDetailsManager**:
+  This is a Spring Security implementation of `UserDetailsService` that stores 
+  user details in memory.
+  The returned `InMemoryUserDetailsManager` holds the two defined users (admin and 
+  user), making them available for authentication.
 
-    * `anyRequest().authenticated()`: This line specifies that any request to the 
-      application must be authenticated. 
+  When a user attempts to authenticate, Spring Security will use this 
+  `UserDetailsService` to load the user details (username, password, roles) and 
+  verify the credentials.
 
-    * `httpBasic()`: This part configures HTTP Basic Authentication for the application. 
-      HTTP Basic Authentication is a simple authentication scheme built into the HTTP 
-      protocol. It sends user credentials in the request header, making it easy to 
-      implement but less secure than other methods unless used in conjunction with HTTPS. 
+```Java 
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
+    {
+        http.csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+            .httpBasic(Customizer.withDefaults());
 
-    * `build()`: Finally, this line builds the SecurityFilterChain instance using the 
-      configured HttpSecurity object and returns it. This constructed filter chain is 
-      then used by Spring Security to enforce the specified security rules on HTTP requests 
-      to the application.
+        return http.build();
+    }
+```
 
-* The `passwordEncoder()` method returns an instance of `BCryptPasswordEncoder`.
-  Inside this method, a new instance of `BCryptPasswordEncoder` is created and returned.
-  `BCryptPasswordEncoder` is a class provided by Spring Security that implements password
-  hashing using the BCrypt strong hashing function.
+The method is named `securityFilterChain()` and returns a `SecurityFilterChain`. 
+This object encapsulates the **filter chain used by Spring Security to process and 
+secure HTTP requests**.
 
-* The `userDetailsService()` method  is also annotated with `@Bean`. 
-  This method configures an in-memory user using the `InMemoryUserDetailsManager`.
-  * The `UserDetails` object is created using the `User.builder()` method and 
-  specifying the desired `username` and `password`.
-  * The `InMemoryUserDetailsManager` is instantiated with the created `UserDetails` objects.
+The method takes an `HttpSecurity` object as a parameter. Spring automatically provides 
+this object, which serves as a **builder for configuring web-based security**.
+
+* **CSRF (Cross-Site Request Forgery)**:
+  CSRF is a security measure that helps prevent unwanted actions on behalf of an 
+  authenticated user.
+
+  In this configuration, **CSRF protection is disabled**. This might be appropriate 
+  for stateless applications (like REST APIs) or where CSRF protection is handled 
+  differently.
+
+* **Authenticate HTTP Requests**:
+  This line configures how HTTP requests are authenticated.
+  * `.anyRequest().authenticated()`:
+  This specifies that **every incoming HTTP request must be authenticated**. 
+
+* **HTTP Basic Authentication**:
+  This line sets up HTTP Basic authentication, a simple authentication scheme built 
+  into the HTTP protocol.
+  * `Customizer.withDefaults()`:
+    This applies the default configuration for HTTP Basic authentication. 
+    With HTTP Basic, the client must send an Authorization header with each request, 
+    which includes a Base64-encoded username and password.
+
+* **Building the Filter Chain**:
+  The `build()` method finalizes the configuration and returns the 
+  `SecurityFilterChain` object.
+
+  The constructed `SecurityFilterChain` is then registered as a bean in the 
+  Spring context. Spring Security uses this bean to apply the defined security 
+  rules to all incoming HTTP requests.
 
 
 ### Access the REST Service
@@ -155,4 +206,4 @@ $ echo 'aG9tZXI6aG9tZXI=' | base64 --decode
 
 * [HTTP Authentication: Basic and Digest Access Authentication](https://www.ietf.org/rfc/rfc2617.txt)
 
-*Egon Teiniker, 2017-2024, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*

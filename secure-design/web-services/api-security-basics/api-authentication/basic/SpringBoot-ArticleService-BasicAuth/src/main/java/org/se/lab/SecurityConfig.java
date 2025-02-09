@@ -2,14 +2,15 @@ package org.se.lab;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -17,36 +18,34 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig
 {
     @Bean
-    public BCryptPasswordEncoder passwordEncoder()
+    public PasswordEncoder passwordEncoder()
     {
         return new BCryptPasswordEncoder();
     }
 
-    // User Creation
     @Bean
-    public UserDetailsService userDetailsService(PasswordEncoder encoder)
+    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder)
     {
-        // InMemoryUserDetailsManager
+        // Define in-memory users with roles (roles are optional; add as needed)
         UserDetails admin = User.withUsername("burns")
-                .password(encoder.encode("burns"))
+                .password(passwordEncoder.encode("burns"))
+                .roles("ADMIN")
                 .build();
 
         UserDetails user = User.withUsername("homer")
-                .password(encoder.encode("homer"))
+                .password(passwordEncoder.encode("homer"))
+                .roles("USER")
                 .build();
 
         return new InMemoryUserDetailsManager(admin, user);
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception
     {
-        httpSecurity.csrf().disable()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .httpBasic();
-        return httpSecurity.build();
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
+                .httpBasic(Customizer.withDefaults());
+        return http.build();
     }
 }
