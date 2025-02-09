@@ -48,6 +48,5 @@ public class SecurityConfig
                 )
                 .httpBasic(withDefaults());
         return httpSecurity.build();
-
     }
 }
