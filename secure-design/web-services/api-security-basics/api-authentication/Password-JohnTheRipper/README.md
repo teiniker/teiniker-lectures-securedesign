@@ -41,4 +41,4 @@ $ sudo john passwords-shadow.txt
 * [crunch - Wordlist Generator](https://sourceforge.net/p/crunch-wordlist/code/ci/master/tree/)
 
   
-*Egon Teiniker, 2016-2023, GPL v3.0*	
+*Egon Teiniker, 2017-2025, GPL v3.0*	

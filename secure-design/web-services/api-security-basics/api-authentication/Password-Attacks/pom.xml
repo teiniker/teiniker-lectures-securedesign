@@ -4,11 +4,19 @@
 
 	<artifactId>Password-Attacks</artifactId>
 	<packaging>jar</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<parent>
 		<groupId>org.se.lab</groupId>
-		<artifactId>access-control-parent</artifactId>
+		<artifactId>web-service-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../../pom.xml</relativePath>
+		<relativePath>../../../pom.xml</relativePath>
 	</parent>
 </project>

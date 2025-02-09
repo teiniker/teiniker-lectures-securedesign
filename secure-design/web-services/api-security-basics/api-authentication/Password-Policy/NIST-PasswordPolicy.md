@@ -48,4 +48,4 @@ introduces a policy that is more realistic for users to follow:
 * [Common-Credentials](https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials)
 
 
-*Egon Teiniker, 2019-2022, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*

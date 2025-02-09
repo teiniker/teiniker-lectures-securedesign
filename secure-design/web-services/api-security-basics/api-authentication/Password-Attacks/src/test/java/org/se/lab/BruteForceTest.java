@@ -1,14 +1,14 @@
 package org.se.lab;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import org.junit.Assert;
-import org.junit.Test;
 
 public class BruteForceTest
 {
