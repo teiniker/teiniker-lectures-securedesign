@@ -53,9 +53,21 @@ Date: Sat, 16 Oct 2021 08:26:54 GMT
 [{"id":1,"description":"Design Patterns","price":4295},{"id":2,"description":"Effective Java","price":3336}]
 ```
 
+A user like `burns` is not allowed to access the `articles` service
+because he is not in the role `USER`:
+
+```Bash
+$ curl -i -k -u burns:burns https://localhost:8443/articles
+
+HTTP/1.1 403 
+Content-Type: application/json
+Date: Sun, 09 Feb 2025 20:20:02 GMT
+
+{"timestamp":"2025-02-09T20:20:02.954+00:00","status":403,"error":"Forbidden","path":"/articles"}
+```
 
 ## References
 
 [YouTube: Secure REST Controllers](https://youtu.be/OYr9HUPmhSw)
 
-*Egon Teiniker, 2020 - 2021, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*
