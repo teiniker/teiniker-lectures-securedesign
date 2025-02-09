@@ -4,7 +4,7 @@ This project collects examples, exercises and model solutions needed as an intro
 
 * **Architectural Risk Analysis**
   * [Case Study: Vulnerable Web Application](risk-analysis/VulnerableWebApplication/)
-  * [HTTP/S Protocol](secure-design/https-protocol)
+  * [HTTP/S Protocol](risk-analysis/https-protocol)
   * [Knowledge for Software Security](risk-analysis/knowledge-sw-security/README.md)
   * [Secure Design Principles](risk-analysis/secure-design-principles/README.md)
 
