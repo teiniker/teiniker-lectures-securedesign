@@ -1,23 +1,21 @@
 package org.se.lab.service;
 
-public class UserDTO
+public class User
 {
 	/*
 	 * A default constructor is needed to make the JAXB marshaler happy.
 	 */
-	protected UserDTO()
+	protected User()
 	{
 		this(0, "", "");
 	}
 	
-	public UserDTO(int id, String username, String password)
+	public User(int id, String username, String password)
 	{
 		setId(id);
 		setUsername(username);
 		setPassword(password);
 	}
-	
-	
 
 	/*
 	 * Property: id:int
@@ -31,8 +29,7 @@ public class UserDTO
 	{
 		this.id = id;
 	}
-	
-	
+
 	/*
 	 * Property: username:String
 	 */
@@ -45,8 +42,7 @@ public class UserDTO
 	{
 		this.username = username;
 	}
-	
-	
+
 	/*
 	 * Property: password:String
 	 */
@@ -89,7 +85,7 @@ public class UserDTO
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserDTO other = (UserDTO) obj;
+		User other = (User) obj;
 		if (id != other.id)
 			return false;
 		return true;
