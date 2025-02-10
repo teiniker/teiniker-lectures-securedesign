@@ -1,4 +1,4 @@
-package org.se.lab.controler;
+package org.se.lab;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
