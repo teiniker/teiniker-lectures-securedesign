@@ -19,5 +19,4 @@ public class LoadDatabase
             log.info("Preloading " + repository.save(new Article("Effective Java", 3336)));
         };
     }
-
 }
