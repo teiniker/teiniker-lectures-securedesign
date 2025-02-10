@@ -2,6 +2,20 @@
 
 ## Build and Run 
 
+Make sure the MariaDB database is running: 
+```Bash
+$ sudo systemctl start mariadb.service 
+```
+
+If we start the MySQL client, wie can monitor the database content:
+```
+$ mysql -ustudent -pstudent
+MariaDB [(none)]> use testdb;
+
+MariaDB [testdb]> show tables;
+MariaDB [testdb]> select * from book;	
+```
+
 We can start the service as a separate process:
 ```Bash
 $ mvn spring-boot:run
