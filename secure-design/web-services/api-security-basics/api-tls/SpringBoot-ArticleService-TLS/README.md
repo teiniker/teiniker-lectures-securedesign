@@ -12,12 +12,13 @@ $ keytool -genkeypair -keystore server.jks -storepass student -keypass student -
 
 Change `application.properties`:
 ```
+server.port=8443
+
 server.ssl.key-store=classpath:server.jks
 server.ssl.key-store-type=pkcs12
 server.ssl.key-store-password=student
 server.ssl.key-password=student
 server.ssl.key-alias=server
-server.port=8443
 ```
 
 Now, we can start the service as a separate process:

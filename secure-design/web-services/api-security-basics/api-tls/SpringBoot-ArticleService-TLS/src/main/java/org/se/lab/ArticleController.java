@@ -1,61 +1,68 @@
 package org.se.lab;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/articles")
 public class ArticleController
 {
-    private final ArticleRepository repository;
+    @Autowired
+    private ArticleRepository repository;
 
-    ArticleController(ArticleRepository repository)
+    @GetMapping
+    ResponseEntity<?> findAll()
     {
-        this.repository = repository;
+        return ResponseEntity.ok(repository.findAll());
     }
 
-    @GetMapping("/articles")
-    List<Article> findAll()
+    @GetMapping("/{id}")
+    ResponseEntity<Article> indById(@PathVariable Long id)
     {
-        return repository.findAll();
+        Optional<Article> book = repository.findById(id);
+        return book.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/articles/{id}")
-    Article findById(@PathVariable Long id)
+    @PostMapping
+    public Article insert(@RequestBody Article article)
     {
-        return repository.findById(id).orElseThrow(() -> new ArticleNotFoundException(id));
+        return repository.save(article);
     }
 
-    @PostMapping("/articles")
-    Article insert(@RequestBody Article newArticle)
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Article> update(@PathVariable Long id, @RequestBody Article newArticle)
     {
-        return repository.save(newArticle);
+        Optional<Article> optionalArticle = repository.findById(id);
+        if(optionalArticle.isPresent())
+        {
+            Article article = optionalArticle.get();
+            article.setDescription(newArticle.getDescription());
+            article.setPrice(newArticle.getPrice());
+            repository.save(article);
+            return ResponseEntity.ok(article);
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @PutMapping("/articles/{id}")
-    Article update(@RequestBody Article newArticle, @PathVariable Long id)
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id)
     {
-        return repository.findById(id)
-                .map(employee -> {
-                    employee.setDescription(newArticle.getDescription());
-                    employee.setPrice(newArticle.getPrice());
-                    return repository.save(employee);
-                })
-                .orElseGet(() -> {
-                    newArticle.setId(id);
-                    return repository.save(newArticle);
-                });
-    }
-
-    @DeleteMapping("/articles/{id}")
-    void delete(@PathVariable Long id)
-    {
-        repository.deleteById(id);
+        if(repository.existsById(id))
+        {
+            repository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
