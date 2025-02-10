@@ -356,4 +356,4 @@ $ curl -i -X DELETE http://localhost:9090/articles/3
 
 * [38C3: Wir wissen wo dein Auto steht - Volksdaten von Volkswagen](https://media.ccc.de/v/38c3-wir-wissen-wo-dein-auto-steht-volksdaten-von-volkswagen)
 
-*Egon Teiniker, 2016-2024, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*

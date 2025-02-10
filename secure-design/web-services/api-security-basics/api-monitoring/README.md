@@ -90,4 +90,4 @@ To secure these endpoints, consider the following best practices:
 
 * [Gobuster Tutorial](https://hackertarget.com/gobuster-tutorial/)
 
-*Egon Teiniker, 2016-2024, GPL v3.0*
+*Egon Teiniker, 2017-2025, GPL v3.0*

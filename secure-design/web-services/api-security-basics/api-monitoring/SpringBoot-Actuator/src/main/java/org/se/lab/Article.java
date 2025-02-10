@@ -1,9 +1,7 @@
 package org.se.lab;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -34,8 +32,6 @@ public class Article implements Serializable
     }
     public void setId(Long id)
     {
-        if(id < 0)
-            throw new IllegalArgumentException("Invalid parameter id: " + id);
         this.id = id;
     }
 
@@ -48,8 +44,6 @@ public class Article implements Serializable
     }
     public void setDescription(String description)
     {
-        if(description == null)
-            throw new IllegalArgumentException("Invalid parameter description!");
         this.description = description;
     }
 
@@ -62,8 +56,6 @@ public class Article implements Serializable
     }
     public void setPrice(long price)
     {
-        if(price < 0)
-            throw new IllegalArgumentException("Invalid parameter price: " + price);
         this.price = price;
     }
 
