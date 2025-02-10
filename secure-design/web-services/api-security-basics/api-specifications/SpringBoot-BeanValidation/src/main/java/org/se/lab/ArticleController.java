@@ -6,58 +6,52 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 @RestController
 public class ArticleController
 {
-    private List<Article> table = new CopyOnWriteArrayList<>();
+    private Map<Long, Article> table = new ConcurrentHashMap<>();
 
     ArticleController()
     {
-        table.add(new Article(Long.valueOf(1), "Design Patterns", 4295));
-        table.add(new Article(Long.valueOf(2), "Effective Java", 3336));
+        table.put(1L, new Article(1L, "Design Patterns", 4295));
+        table.put(2L, new Article(2L, "Effective Java", 3336));
     }
 
     @GetMapping("/articles")
-    List<Article> all()
+    public ResponseEntity<?> findAll()
     {
-        return table;
+        return ResponseEntity.ok(new ArrayList(table.values()));
     }
 
     @GetMapping("/articles/{id}")
-    Article one(@PathVariable Long id)
+    public ResponseEntity<?> findById(@PathVariable Long id)
     {
-        for(Article article : table)
-        {
-            if(article.getId() == id)
-                return article;
-        }
-        return null;
+		Article article = table.get(id);
+		if(article == null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		else
+			return new ResponseEntity<>(table.get(id), HttpStatus.OK);
     }
 
     @PostMapping("/articles")
-    ResponseEntity<Article> newArticle(@Valid @RequestBody Article newArticle)
+    public ResponseEntity<Article> insert(@Valid @RequestBody Article newArticle)
     {
-        table.add(newArticle);
+        Long id = newArticle.getId();
+        table.put(id, newArticle);
         return new ResponseEntity<Article>(newArticle, HttpStatus.CREATED);
     }
 
-    @PutMapping("/articles/{id}")
-    Article replaceEmployee(@RequestBody Article newArticle, @PathVariable Long id)
-    {
-        return null;
-    }
-
-    @DeleteMapping("/articles/{id}")
-    void deleteEmployee(@PathVariable Long id)
-    {
-
-    }
-
+    /*
+     * Exception Handler for MethodArgumentNotValidException 
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleMethodArgumentNotValid(MethodArgumentNotValidException ex)

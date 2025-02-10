@@ -22,7 +22,7 @@ $ curl -ki https://localhost:8443/articles/2
 
 ```
  
-Insert an Article:
+Insert a valid Article:
 ```
 $ curl -ki -X POST https://localhost:8443/articles -H 'Content-type:application/json' -d '{"id":7, "description": "Microservices Patterns: With examples in Java", "price": 2550}'
 ```

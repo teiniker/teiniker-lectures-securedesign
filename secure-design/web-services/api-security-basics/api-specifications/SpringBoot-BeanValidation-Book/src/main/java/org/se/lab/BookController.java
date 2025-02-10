@@ -32,19 +32,23 @@ public class BookController
     }
 
     @GetMapping("/books")
-    ResponseEntity<?> findAll()
+    public ResponseEntity<?> findAll()
     {
         return ResponseEntity.ok(new ArrayList(table.values()));
     }
 
     @GetMapping("/books/{id}")
-    ResponseEntity<?> findById(@PathVariable String id)
+    public ResponseEntity<?> findById(@PathVariable String id)
     {
-        return ResponseEntity.ok(table.get(id));
+		Book book = table.get(id);
+		if(book == null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		else
+			return new ResponseEntity<>(table.get(id), HttpStatus.OK);
     }
 
     @PostMapping("/books")
-    ResponseEntity<Book> insert(@Valid @RequestBody Book newBook)
+    public ResponseEntity<Book> insert(@Valid @RequestBody Book newBook)
     {
         String id = UUID.randomUUID().toString();
         newBook.setId(id);
@@ -52,6 +56,9 @@ public class BookController
         return new ResponseEntity<Book>(newBook, HttpStatus.CREATED);
     }
 
+    /*
+     * Exception Handler for MethodArgumentNotValidException
+     */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleMethodArgumentNotValid(MethodArgumentNotValidException ex)

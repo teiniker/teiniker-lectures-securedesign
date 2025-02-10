@@ -9,7 +9,17 @@ $ curl -i -k https://localhost:8443/books
 Extend the service with the following features:
 
 A) Insert a new Book
+    - Valid data
     $ curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"id":"","author":"Sam Newman","title":"Building Microservices","isbn":"978-1492034025"}'
+
+    - Invalid author
+    $ curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"id":"","author":"Sam","title":"Building Microservices","isbn":"978-1492034025"}'
+
+    - Invalid title
+    $ curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"id":"","author":"Sam Newman","title":"Building","isbn":"978-1492034025"}'
+
+    - Invalid isbn
+    $ curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"id":"","author":"Sam Newman","title":"Building Microservices","isbn":"97-1492034025"}'
 
 B) Bean Validation
     @NotNull
