@@ -141,4 +141,4 @@ components:
 * [Bean Validation in Spring Boot](https://springframework.guru/bean-validation-in-spring-boot/)
 * [Bean Validation 2.0 (JSR 380)](https://beanvalidation.org/2.0-jsr380/)
 
-*Egon Teiniker, 2016-2024, GPL v3.0*
+*Egon Teiniker, 2016-2025, GPL v3.0*
