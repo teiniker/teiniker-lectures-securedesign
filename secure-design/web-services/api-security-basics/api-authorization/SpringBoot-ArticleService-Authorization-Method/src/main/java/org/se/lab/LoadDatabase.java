@@ -1,4 +1,4 @@
-package org.se.lab.data;
+package org.se.lab;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,5 +19,4 @@ public class LoadDatabase
             log.info("Preloading " + repository.save(new Article("Effective Java", 3336)));
         };
     }
-
 }

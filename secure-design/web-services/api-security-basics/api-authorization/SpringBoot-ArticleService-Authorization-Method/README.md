@@ -14,50 +14,6 @@ For example, within a single REST service, you might allow all authenticated use
 data (GET requests) but restrict data modification operations (POST, PUT, DELETE requests) 
 to users with specific roles or permissions.
 
-## Implementation
-
-To secure methods individually, we need to enable method-level security by adding 
-`@EnableGlobalMethodSecurity` on a configuration class, specifying the type of security 
-you want to enable (`prePostEnabled`, `securedEnabled`, etc.).
-
-```Java
-@Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-public class MethodSecurityConfig
-{
-}
-```
-
-The `prePostEnabled` attribute, when set to `true`, specifically enables the use of
-`@PreAuthorize` and `@PostAuthorize` annotations, allowing for expression-based access 
-control before and after method execution, respectively.
-
-After enabling method-level security, we can use annotations to secure individual methods. 
-For example, `@PreAuthorize` allows us to specify an expression that determines if a method 
-can be executed.
-
-```Java
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/articles")
-    List<Article> all()
-    {
-        return repository.findAll();
-    }
-```
-
-The `@PreAuthorize` annotation is used in Spring Security to define access-control expressions 
-that are **evaluated before entering a method**, thus determining whether the current user is 
-allowed to execute the method based on the specified conditions.
-It provides a way to express security constraints on method execution using SpEL 
-(Spring Expression Language).
-
-The `@PostAuthorize` annotation in Spring Security is used to enforce security constraints 
-after a method has executed, rather than before. It allows us to make access-control decisions 
-based on the outcome of the method execution. 
-This can be particularly useful when the decision to allow access depends on the value returned 
-by the method or the state of the system after the method is executed.
-
-
 ## Access the REST Service
 
 Let's run the example:
@@ -106,6 +62,51 @@ Date: Mon, 12 Feb 2024 15:30:05 GMT
 
 [{"id":1,"description":"Design Patterns","price":4295},{"id":2,"description":"Effective Java","price":3336}]
 ```
+
+## Implementation
+
+To secure methods individually, we need to enable method-level security by adding 
+`@EnableGlobalMethodSecurity` on a configuration class, specifying the type of security 
+you want to enable (`prePostEnabled`, `securedEnabled`, etc.).
+
+```Java
+@Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class MethodSecurityConfig
+{
+}
+```
+
+The `prePostEnabled` attribute, when set to `true`, specifically enables the use of
+`@PreAuthorize` and `@PostAuthorize` annotations, allowing for expression-based access 
+control before and after method execution, respectively.
+
+After enabling method-level security, we can use annotations to secure individual methods. 
+For example, `@PreAuthorize` allows us to specify an expression that determines if a method 
+can be executed.
+
+```Java
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping("/articles")
+    List<Article> findAll()
+    {
+        return repository.findAll();
+    }
+```
+
+The `@PreAuthorize` annotation is used in Spring Security to define access-control expressions 
+that are **evaluated before entering a method**, thus determining whether the current user is 
+allowed to execute the method based on the specified conditions.
+It provides a way to express security constraints on method execution using SpEL 
+(Spring Expression Language).
+
+The `@PostAuthorize` annotation in Spring Security is used to enforce security constraints 
+after a method has executed, rather than before. It allows us to make access-control decisions 
+based on the outcome of the method execution. 
+This can be particularly useful when the decision to allow access depends on the value returned 
+by the method or the state of the system after the method is executed.
+
+
 
 ## References
 * [Spring @EnableMethodSecurity Annotation](https://www.baeldung.com/spring-enablemethodsecurity)
