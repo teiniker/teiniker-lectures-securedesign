@@ -1,6 +1,8 @@
 # Secure Design by Example
 
-This project collects examples, exercises and model solutions needed as an introduction to secure software design.
+This repository collects examples, exercises and model solutions 
+to give an introduction to secure software design topics in Java.
+
 
 * **Architectural Risk Analysis**
   * [Case Study: Vulnerable Web Application](risk-analysis/VulnerableWebApplication/)
