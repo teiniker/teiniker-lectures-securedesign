@@ -30,6 +30,7 @@ public class ArticleController
     @PostMapping
     public Article insert(@RequestBody Article article)
     {
+        article.setId(null);
         return repository.save(article);
     }
 
