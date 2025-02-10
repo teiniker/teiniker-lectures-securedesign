@@ -1,6 +1,4 @@
 package org.se.lab;
-import io.swagger.v3.oas.annotations.media.Schema;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +7,6 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Schema(name="Article", description = "Holds all data for a particular article.")
 @Entity
 @Table(name="article")
 public class Article implements Serializable
@@ -26,7 +23,7 @@ public class Article implements Serializable
     {
     }
 
-    @Schema(name = "id", description = "auto-generated identifier", required = false, example = "7")
+
     @Id
     @Column(name="ID")
     @GeneratedValue
@@ -37,8 +34,6 @@ public class Article implements Serializable
     }
     public void setId(Long id)
     {
-        if(id < 0)
-            throw new IllegalArgumentException("Invalid parameter id: " + id);
         this.id = id;
     }
 
@@ -51,8 +46,6 @@ public class Article implements Serializable
     }
     public void setDescription(String description)
     {
-        if(description == null)
-            throw new IllegalArgumentException("Invalid parameter description!");
         this.description = description;
     }
 
@@ -65,8 +58,6 @@ public class Article implements Serializable
     }
     public void setPrice(long price)
     {
-        if(price < 0)
-            throw new IllegalArgumentException("Invalid parameter price: " + price);
         this.price = price;
     }
 

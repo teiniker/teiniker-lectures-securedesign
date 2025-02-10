@@ -1,63 +1,69 @@
 package org.se.lab;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1/articles")
+@RequestMapping("/articles")
 public class ArticleController
 {
-    private final ArticleRepository repository;
+    @Autowired
+    private ArticleRepository repository;
 
-    ArticleController(ArticleRepository repository)
+    @GetMapping
+    ResponseEntity<?> findAll()
     {
-        this.repository = repository;
-    }
-
-    @Operation(summary = "Get all Articles", description = "Returns a list of articles", operationId = "articles")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "ok, successful operation"),
-            @ApiResponse(responseCode = "404", description = "Not found")})
-    @GetMapping("/articles")
-    List<Article> all()
-    {
-        return repository.findAll();
+        return ResponseEntity.ok(repository.findAll());
     }
 
     @GetMapping("/{id}")
-    Article one(@PathVariable Long id)
+    ResponseEntity<Article> indById(@PathVariable Long id)
     {
-        return repository.findById(id).orElseThrow(() -> new ArticleNotFoundException(id));
+        Optional<Article> book = repository.findById(id);
+        return book.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/")
-    Article newArticle(@RequestBody Article newArticle)
+    @PostMapping
+    public Article insert(@RequestBody Article article)
     {
-        return repository.save(newArticle);
+        article.setId(null);
+        return repository.save(article);
     }
+
 
     @PutMapping("/{id}")
-    Article replaceEmployee(@RequestBody Article newArticle, @PathVariable Long id)
+    public ResponseEntity<Article> update(@PathVariable Long id, @RequestBody Article newArticle)
     {
-        return repository.findById(id)
-                .map(employee -> {
-                    employee.setDescription(newArticle.getDescription());
-                    employee.setPrice(newArticle.getPrice());
-                    return repository.save(employee);
-                })
-                .orElseGet(() -> {
-                    newArticle.setId(id);
-                    return repository.save(newArticle);
-                });
+        Optional<Article> optionalArticle = repository.findById(id);
+        if(optionalArticle.isPresent())
+        {
+            Article article = optionalArticle.get();
+            article.setDescription(newArticle.getDescription());
+            article.setPrice(newArticle.getPrice());
+            repository.save(article);
+            return ResponseEntity.ok(article);
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")
-    void deleteEmployee(@PathVariable Long id)
+    public ResponseEntity<Void> delete(@PathVariable Long id)
     {
-        repository.deleteById(id);
+        if(repository.existsById(id))
+        {
+            repository.deleteById(id);
+            return ResponseEntity.ok().build();
+        }
+        else
+        {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
