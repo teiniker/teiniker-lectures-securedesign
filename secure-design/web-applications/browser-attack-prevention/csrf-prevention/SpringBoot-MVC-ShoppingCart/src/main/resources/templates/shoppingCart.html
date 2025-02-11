@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Simple Web Shop - Shopping Cart</title>
+    <style>
+        /* Basic styling for a simple web shop */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 0;
+          color: #333;
+        }
+        .container {
+          max-width: 800px;
+          margin: 30px auto;
+          background: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        header h1 {
+          margin: 0;
+          font-size: 2.5em;
+          color: #007BFF;
+        }
+        nav {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        nav a {
+          margin: 0 15px;
+          text-decoration: none;
+          font-size: 1.1em;
+          color: #007BFF;
+        }
+        nav a:hover {
+          text-decoration: underline;
+        }
+        .content {
+          margin-bottom: 30px;
+        }
+        form {
+          text-align: center;
+        }
+        table {
+          margin: 0 auto;
+          border-collapse: collapse;
+        }
+        table, th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        .message {
+          color: blue;
+          text-align: center;
+          margin: 15px 0;
+        }
+        .product-list {
+          list-style-type: none;
+          padding: 0;
+        }
+        .product-list li {
+          padding: 5px 0;
+          text-align: center;
+        }
+        .footer {
+          text-align: center;
+          font-size: 0.9em;
+          color: #777;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Shopping Cart</h1>
+    </header>
+    <nav>
+        <a th:href="@{/index.html}">Home</a>
+    </nav>
+    <div class="content">
+        <form method="post" th:action="@{/controller}">
+            <table cellspacing="1" cellpadding="5">
+                <colgroup>
+                    <col style="width:150px">
+                    <col style="width:150px">
+                    <col style="width:100px">
+                </colgroup>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="name" /></td>
+                    <td><input type="text" name="quantity" /></td>
+                    <td><input type="submit" name="action" value="Add" /></td>
+                </tr>
+            </table>
+        </form>
+        <div class="message">
+            <i th:text="${message}"></i>
+        </div>
+        <hr/>
+        <ul class="product-list">
+            <li th:each="product : ${cart}"
+                th:text="${product.quantity} + ' x ' + ${product.name}"></li>
+        </ul>
+        <hr/>
+        <p style="text-align:center;">
+            <a th:href="@{/index.html}">Back to Home</a>
+        </p>
+    </div>
+    <div class="footer">
+        <h6 th:text="${now}"></h6>
+    </div>
+</div>
+</body>
+</html>

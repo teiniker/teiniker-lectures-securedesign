@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Simple Web Shop - Home</title>
+	<style>
+		/* Basic styling for a simple web shop start page */
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          margin: 0;
+          padding: 0;
+          color: #333;
+        }
+        .container {
+          max-width: 800px;
+          margin: 30px auto;
+          background: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        header h1 {
+          margin: 0;
+          font-size: 2.5em;
+          color: #007BFF;
+        }
+        header p {
+          font-size: 1.2em;
+          color: #555;
+        }
+        nav {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+        nav a {
+          margin: 0 15px;
+          text-decoration: none;
+          font-size: 1.1em;
+          color: #007BFF;
+        }
+        nav a:hover {
+          text-decoration: underline;
+        }
+        .content {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        .logout {
+          text-align: center;
+        }
+        .logout input[type="submit"] {
+          padding: 10px 20px;
+          font-size: 1em;
+          background-color: #007BFF;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+          border-radius: 4px;
+        }
+        .logout input[type="submit"]:hover {
+          background-color: #0056b3;
+        }
+	</style>
+</head>
+<body>
+<div class="container">
+	<header>
+		<h1>Welcome to My Simple Web Shop</h1>
+		<p>Your one-stop shop for all your needs!</p>
+	</header>
+	<nav>
+		<a href="/controller">Shopping Cart</a>
+	</nav>
+	<div class="content">
+		<p>Discover great deals on our featured products. Browse through our catalog and enjoy a seamless shopping experience!</p>
+	</div>
+	<div class="logout">
+		<form action="logout" method="post">
+			<input type="submit" value="Log out" />
+		</form>
+	</div>
+</div>
+</body>
+</html>
