@@ -20,7 +20,7 @@ public class ArticleController
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<Article> indById(@PathVariable Long id)
+    ResponseEntity<Article> findById(@PathVariable Long id)
     {
         Optional<Article> book = repository.findById(id);
         return book.map(ResponseEntity::ok)
@@ -30,6 +30,7 @@ public class ArticleController
     @PostMapping
     public Article insert(@RequestBody Article article)
     {
+        article.setId(null);
         return repository.save(article);
     }
 

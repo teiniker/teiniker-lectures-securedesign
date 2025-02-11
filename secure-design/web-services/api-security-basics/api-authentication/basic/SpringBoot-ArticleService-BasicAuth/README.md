@@ -61,10 +61,10 @@ Thus, we include a dependency to `pom.xml`:
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
-	  <dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-		</dependency>
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-config</artifactId>
+	</dependency>
 ```
 
 Now we can add a `SecurityConfig` class. All security related settings can be found there:
