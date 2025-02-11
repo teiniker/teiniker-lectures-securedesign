@@ -24,7 +24,6 @@ public class SecurityConfig
         return new BCryptPasswordEncoder();
     }
 
-    // User Creation
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder)
     {
