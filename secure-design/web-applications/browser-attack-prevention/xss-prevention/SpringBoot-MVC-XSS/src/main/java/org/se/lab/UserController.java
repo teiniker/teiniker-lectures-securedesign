@@ -16,6 +16,8 @@ public class UserController
     {
         // Create a cookie
         Cookie cookie = new Cookie("SESSIONID", "A887B32D3520132167568B487BDAF2F4");
+        // cookie.setHttpOnly(true);
+        // cookie.setSecure(true);
         response.addCookie(cookie);
 
         return "set-cookie";
