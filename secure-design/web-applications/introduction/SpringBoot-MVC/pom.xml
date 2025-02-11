@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>org.se.lab</groupId>
-	<artifactId>springboot-mvc</artifactId>
+	<artifactId>SpringBoot-MVC</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
