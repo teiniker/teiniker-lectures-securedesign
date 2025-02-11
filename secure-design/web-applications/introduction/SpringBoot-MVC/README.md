@@ -12,10 +12,10 @@ $ java -jar target/springboot-mvc-0.0.1-SNAPSHOT.jar
 
 ## Access the Web Application
 ```
-URL: http://localhost:8080/index.html
+URL: https://localhost:8443/index.html
 
-$ curl -i http://localhost:8080/index.html
-$ curl -i -X POST -d 'word=cat&language=Deutsch&action=Translate' http://localhost:8080/translator
+$ curl -i -k https://localhost:8443/index.html
+$ curl -i -k -X POST -d 'word=cat&language=Deutsch&action=Translate' https://localhost:8443/translator
 ```
 
 ## Spring MVC
