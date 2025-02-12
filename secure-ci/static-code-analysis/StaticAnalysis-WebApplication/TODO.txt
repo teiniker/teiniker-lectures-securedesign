@@ -4,15 +4,14 @@ LabExam 2022-01-15: Static Code Analysis
 Tools Setup:
 
 i) SpotBugs + FindSecBugs Plugin
-    project.home = ../LabExam-SecureServices-2022-01-22-MyName
+    project.home = ../StaticCodeAnalysis-WebApplication
 
 ii) DependencyChecker
-    target.home =../LabExam-SecureServices-2022-01-22-MyName
-    target.lib = ${target.home}/target/LabExam-SecureServices-2022-01-22-MyName/WEB-INF/lib
+    target.home =../StaticCodeAnalysis-WebApplication
+    target.lib = ${target.home}/target/StaticCodeAnalysis-WebApplication/WEB-INF/lib
 
 
 A) List all security relevant findings together with the corresponding code fragments.
-    [2 Points]
 
 M V EI2: org.se.lab.business.AbstractService.setConnection(Connection) may expose internal representation by storing an externally mutable object into AbstractService.connection  At AbstractService.java:[line 20]
 M V EI2: org.se.lab.data.AbstractDAOImpl.setConnection(Connection) may expose internal representation by storing an externally mutable object into AbstractDAOImpl.connection  At AbstractDAOImpl.java:[line 23]
@@ -28,7 +27,7 @@ L S SECSP: The method getParameter returns a String value that is controlled by 
 
 
 B) Priorize the findings (what would you fix first) and describe possible
-    improvements in the code. [8 Points]
+    improvements in the code.
 
 M S SECSQLIJDBC: This use of java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; can be vulnerable to SQL injection (with JDBC)  At UserDAOMySQLImpl.java:[line 27]
 L S SQL: org.se.lab.data.UserDAOMySQLImpl.isValidUser(String, String) passes a nonconstant String to an execute or addBatch method on an SQL statement  At UserDAOMySQLImpl.java:[line 27]
@@ -52,15 +51,3 @@ C) Do you also find some more vulnerabilities during a manual code review?
     - LoginCommand:[line 25] No output encoding
         req.setAttribute("message", "Login successful, welcome " + username + ":-)");
         => XSS Vulnerability
-
-
-The small print
----------------
-Don't forget to replace MyName with your name, otherwise you get only 50% of
-your points...
-
-Tip: Implement the missing parts first and right before you export the project,
-    rename it.
-
-Also note that grading is based on a code review, thus, a running test doesn't
-automatically mean that you get all points.

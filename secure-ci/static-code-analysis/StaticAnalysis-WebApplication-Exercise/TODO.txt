@@ -6,9 +6,9 @@ Given a legacy web application.
 Use static code analysis techniques (e.g. SpotBugs, Find Security Bugs, Dependency Checker)
 to find vulnerabilities in this application.
 
-A) List all security relevant findings togethet with the corresponding code fragments.
+A) List all security relevant findings together with the corresponding code fragments.
 
-B) Priorize the findings (what would you fix first) and describe possible
+B) Prioritize the findings (what would you fix first) and describe possible
     improvements in the code.
 
 C) Do you also find some more vulnerabilities during a manual code review?
