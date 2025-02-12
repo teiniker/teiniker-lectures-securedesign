@@ -34,7 +34,9 @@
 
 
 	<target name="check" >
-	    <dependency-check autoupdate="true"
+		<!-- use true for updating vulnerability database-->
+	    <dependency-check autoupdate="false"	
+						  nvdApiKey="${nvd.api.key}"
 	                      reportoutputdirectory="${analysis.reports}"
 	                      reportformat="HTML">
 
