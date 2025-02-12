@@ -21,6 +21,7 @@ public class PathTraversalTest
 	{
 		FileManager handler = new FileManager();		
 		String txt = handler.readFile("../src/main/java/org/se/lab/FileManager.java");
-		System.out.println(txt);		
+		// ./doc/../src/main/java/org/se/lab/FileManager.java
+		System.out.println(txt);
 	}
 }

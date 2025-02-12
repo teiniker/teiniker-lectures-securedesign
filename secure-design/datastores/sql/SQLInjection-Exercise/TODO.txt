@@ -7,8 +7,7 @@ Start the MySQL server (as root):
 	$ sudo systemctl start mariadb.service
  
 Start a MySQL client (as student):
-	$ mysql -u student -p
-	Enter password: student
+	$ mysql -ustudent -pstudent
 	MariaDB [(none)]> use testdb;
 	MariaDB [testdb]> show tables;
 	
