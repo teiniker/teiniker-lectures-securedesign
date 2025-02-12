@@ -16,7 +16,7 @@
  		classpathref="classpath"/>
 	
 	<taskdef name="cpd" 
-		classname="net.sourceforge.pmd.cpd.CPDTask" 
+		classname="net.sourceforge.pmd.ant.CPDTask" 
 		classpathref="classpath"/>
     
 	
@@ -31,7 +31,7 @@
 	</target>
 	
 	<target name="pmd">
- 		<pmd shortFilenames="true">
+ 		<pmd>
             <sourceLanguage name="java" version="11"/>
             <ruleset>category/java/bestpractices.xml</ruleset>
             <ruleset>category/java/errorprone.xml</ruleset>
