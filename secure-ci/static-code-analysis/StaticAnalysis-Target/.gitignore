@@ -6,4 +6,5 @@
 /bin/
 /.scannerwork
 /*.iml
+/sonar-project.properties
 
