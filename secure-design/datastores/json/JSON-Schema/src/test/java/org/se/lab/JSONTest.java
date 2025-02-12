@@ -62,6 +62,19 @@ public class JSONTest
 		Assert.assertEquals(1, errors.size());
 	}
 
+	@Test
+	public void testJsonSchemaToManyProperties() throws IOException
+	{
+		String jsonData =
+				"""
+                    {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991", "price":1099}
+                """;
+
+		Set<ValidationMessage> errors = validateSchema("./src/test/resources/book-schema.json", jsonData);
+		System.out.println(errors);
+		Assert.assertEquals(1, errors.size());
+	}
+
 	/*
 	 * Helper method
 	 */
