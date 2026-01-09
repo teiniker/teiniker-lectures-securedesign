@@ -7,10 +7,6 @@ and **identify possible attacks**.
 Security analysts **uncover and rank architectural flaws** so that 
 mitigation can begin.
 
-* [Case Study: Vulnerable Web Application](VulnerableWebApplication)
-
-* [HTTP/S Protocol](secure-design/https-protocol)
-
 * [Knowledge for Software Security](knowledge-sw-security/README.md)
 
 * [Secure Design Principles](secure-design-principles/README.md)
