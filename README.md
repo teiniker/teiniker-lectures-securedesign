@@ -6,7 +6,6 @@ to give an introduction to secure software design topics in Java.
 
 * **Architectural Risk Analysis**
   * [Case Study: Vulnerable Web Application](risk-analysis/VulnerableWebApplication/)
-  * [HTTP/S Protocol](risk-analysis/https-protocol)
   * [Knowledge for Software Security](risk-analysis/knowledge-sw-security/README.md)
   * [Secure Design Principles](risk-analysis/secure-design-principles/README.md)
 
