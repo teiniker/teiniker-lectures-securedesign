@@ -15,7 +15,7 @@ $ git clone https://github.com/openwall/john.git
 $ cd john/src
 $ ./configure && make
 
-$ ./run/john --version
+$ ./run/john --help
 ```
 
 _Tip_: Remove the `john.pot` file before you run examples.
