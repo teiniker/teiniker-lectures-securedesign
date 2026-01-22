@@ -1,4 +1,4 @@
-# SpringBoot REST Service 
+# Example: SpringBoot REST 
 
 ## Setup 
 
@@ -85,7 +85,7 @@ Content-Length: 0
 Date: Mon, 06 Feb 2023 21:10:07 GMT
 ```
 
-## Implementation
+## Implementation Details
 
 This implementation demonstrates a simple Spring Boot RESTful web service 
 for managing books. It exposes standard CRUD operations (create, read, 
@@ -243,4 +243,4 @@ A **No-Argument Constructor** is required by:
 ## References
 * [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
 
-*Egon Teiniker, 2017 - 2026, GPL v3.0*
+*Egon Teiniker, 2016 - 2026, GPL v3.0*
