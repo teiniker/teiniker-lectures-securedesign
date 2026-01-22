@@ -1,7 +1,5 @@
 package org.se.lab;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -12,7 +10,7 @@ public class Book implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    Book(long id, String author, String title, String isbn)
+    protected Book(long id, String author, String title, String isbn)
     {
         setId(id);
         setAuthor(author);
@@ -20,11 +18,12 @@ public class Book implements Serializable
         setIsbn(isbn);
     }
 
-    Book()
+    protected Book()
     {
     }
 
-    @Id
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     public long getId()
     {

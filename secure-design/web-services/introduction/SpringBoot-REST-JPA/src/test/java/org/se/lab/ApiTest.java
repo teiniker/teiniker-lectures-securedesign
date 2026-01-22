@@ -36,7 +36,6 @@ public class ApiTest
         // {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991"}
         // Create and save a test Book instance
         testBook = new Book();
-        testBook.setId(1);
         testBook.setAuthor("Joshua Bloch");
         testBook.setTitle("Effective Java");
         testBook.setIsbn("978-0134685991");
