@@ -55,4 +55,4 @@ $ ./run/john cat debian13-passwords.txt
 * [crunch - Wordlist Generator](https://sourceforge.net/p/crunch-wordlist/code/ci/master/tree/)
 
   
-*Egon Teiniker, 2017-2025, GPL v3.0*	
+*Egon Teiniker, 2017-2026, GPL v3.0*	

@@ -9,7 +9,6 @@ import java.security.cert.Certificate;
 import java.util.Properties;
 
 import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLPeerUnverifiedException;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
