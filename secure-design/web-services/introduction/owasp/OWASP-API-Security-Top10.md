@@ -23,8 +23,8 @@ unique vulnerabilities and security risks of
     API security overall.
 
 * **API3:2023 - Broken Object Property Level Authorization**\
-    This category combines API3:2019 Excessive Data Exposure and API6:2019 
-    - Mass Assignment, focusing on the root cause: the lack of or improper 
+    This category combines API3:2019 Excessive Data Exposure and API6:2019 and
+    Mass Assignment, focusing on the root cause: the lack of or improper 
     authorization validation at the object property level. This leads to 
     information exposure or manipulation by unauthorized parties.
 
