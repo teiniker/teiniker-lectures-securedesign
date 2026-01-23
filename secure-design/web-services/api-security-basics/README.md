@@ -11,7 +11,8 @@ services, but can also be combined to secure a complete system.
         ([Model Solution](api-tls/SpringBoot-ArticleService-TLS/))
 
      * Authentication
-         * [Password Attacks](api-authentication/Password-Attacks/)
+         * [Password Attacks](api-authentication/passwords/JohnTheRipper)
+         * [Password Policy](api-authentication/passwords/Password-Policy/NIST-PasswordPolicy.md)
          * Example: [SpringBoot-ArticleService-BasicAuth](api-authentication/basic/SpringBoot-ArticleService-BasicAuth)
 
     * Authorization
