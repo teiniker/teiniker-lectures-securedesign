@@ -161,6 +161,23 @@ These options make John practical for long runs.
 * **--pot=FILE**
 	- Specifies where cracked passwords are stored.
 
+### Output and Reporting
+
+These control what John shows you.
+
+* **--verbose**
+	- More detailed output.
+	- Useful for debugging formats and modes.
+
+* **--stdout**
+	- Prints candidate passwords instead of cracking.
+	- Often used for testing rules and masks.
+	
+* **--log=FILE**
+	- Writes session output to a log file.
+
+
+
 
 ## References
 * [John The Ripper Hash Formats](https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats)
