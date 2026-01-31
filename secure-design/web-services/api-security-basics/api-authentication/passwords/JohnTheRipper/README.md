@@ -114,7 +114,52 @@ These are the most important conceptual switches.
 	- Example concept: "8 chars, ends in digits".
 	- John only runs one cracking mode at a time unless explicitly chained.
 
+### Rules and Mutations
 
+These options control how guesses are modified.
+
+* **--rules**
+	- Applies transformation rules to wordlists.
+	- Example concepts:
+		- Capitalization
+		- Character substitution
+		- Appending numbers/symbols
+
+* **--rules=NAME**
+	- Use a specific ruleset from the config file.
+	- Rules are why John cracks passwords that "aren’t in the wordlist".
+
+### Performance & hardware control
+
+These flags tune speed vs resource usage.
+
+* **--fork=N**
+	- Runs John in parallel using multiple CPU processes.
+	- Mostly for CPU-only systems.
+
+* **--session=NAME**
+	- Names the cracking session.
+	- Allows pausing and resuming later.
+
+* **--status**
+	- Shows current progress without stopping the session.
+
+### Session Control and Recovery
+
+These options make John practical for long runs.
+
+* **--restore[=SESSION]**
+	- Resumes a paused or interrupted session.
+
+* **--pause**
+	- Safely pauses the current run.
+
+* **--show**
+	- Displays already cracked passwords from the input hashes.
+	- Does not perform cracking.
+
+* **--pot=FILE**
+	- Specifies where cracked passwords are stored.
 
 
 ## References
