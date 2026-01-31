@@ -62,7 +62,7 @@ d482ba4b7d3218f3e841038c407ed1f94e9846a4dd68e56bab7718903962aa98
 $ ./run/john --format=raw-sha256 sha-256-passwords.txt 
 ```
 
-## Cracking Linux Passwords
+## Example: Cracking Linux Passwords
 ```
 $ cat debian13-passwords.txt
 student:$y$j9T$dCDbCiiBA.WjzbkPqEP4t0$0WQv9GiN57wAKXuWyrvGTD.okhL2m/w1CjZ7Gob.XxB:20326:0:99999:7:::
