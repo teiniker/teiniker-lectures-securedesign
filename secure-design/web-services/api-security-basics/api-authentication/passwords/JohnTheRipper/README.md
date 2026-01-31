@@ -1,4 +1,4 @@
-# Password Cracking with John the Ripper
+# Password Cracking With John the Ripper
 
 John the Ripper (often just John) is a password-cracking and auditing tool. 
 It’s widely used by security professionals to **test password strength** or **recover passwords** 
@@ -70,6 +70,52 @@ root:$y$j9T$6F5vcCT6edWN2NSRYO4bM/$dBgAtXLDeQPYRFZjl46JevPpjaGrs4fClTW4KybUER.:2
 
 $ ./run/john cat debian13-passwords.txt
 ```
+
+## Command Line Parameters
+
+John’s CLI flags are falling into six big categories.
+
+
+### Input and Hash Handling
+
+These options tell John what data it’s working on and how to interpret it.
+
+* **--format=FORMAT**
+	- Specifies **which hash algorithm** John should use (e.g., NTLM, bcrypt, SHA variants).
+	- Needed when auto-detection is ambiguous or slow.
+	- Choosing the wrong format = zero results.
+
+* **--encoding=ENC**
+	- Character encoding for passwords (UTF-8, ISO-8859-1, etc.).
+	- Important for non-ASCII passwords.
+
+* **--field-separator=CHAR**
+	- Defines how fields are separated in the input file.
+	- Useful when hashes are embedded in custom data formats.
+
+### Cracking Modes (How John Guesses Passwords)
+
+These are the most important conceptual switches.
+
+* **--single**
+	- Uses user-related info (usernames, names, metadata).
+	- Fast, targeted, surprisingly effective on weak passwords.  
+
+* **--wordlist[=FILE]**
+	- Dictionary-based guessing.
+	- Often combined with rules.
+
+* **--incremental[=MODE]**
+	- Brute-force style guessing.
+	- Tries all combinations according to a charset and length rules.
+
+* **--mask=MASK**
+	- Pattern-based guessing.
+	- Example concept: "8 chars, ends in digits".
+	- John only runs one cracking mode at a time unless explicitly chained.
+
+
+
 
 ## References
 * [John The Ripper Hash Formats](https://pentestmonkey.net/cheat-sheet/john-the-ripper-hash-formats)
