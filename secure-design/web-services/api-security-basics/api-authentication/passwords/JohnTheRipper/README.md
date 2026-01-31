@@ -84,6 +84,13 @@ These options tell John what data it’s working on and how to interpret it.
 	- Specifies **which hash algorithm** John should use (e.g., NTLM, bcrypt, SHA variants).
 	- Needed when auto-detection is ambiguous or slow.
 	- Choosing the wrong format = zero results.
+  	- Examples:
+  	  	- raw-sha-256
+  	  	- crypt
+  	  	- bcrypt
+  	  	- scrypt
+  	  	- argon2 
+	- To list all formats, use: `--list=formats`
 
 * **--encoding=ENC**
 	- Character encoding for passwords (UTF-8, ISO-8859-1, etc.).
