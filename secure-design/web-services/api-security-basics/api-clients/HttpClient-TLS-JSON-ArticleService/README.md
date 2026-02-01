@@ -1,4 +1,4 @@
-# Example: HTTP Client for the BookService API 
+# Example: HTTP Client for the ArticleService API (JSON/Java Converter) 
 
 In this example, we use the Jackson library to convert between 
 JSON strings and Java objects.

@@ -1,4 +1,4 @@
-# Example: HTTP Client for the BookService API 
+# Example: HTTP Client for the ArticleService API 
 
 ## Setup
 
