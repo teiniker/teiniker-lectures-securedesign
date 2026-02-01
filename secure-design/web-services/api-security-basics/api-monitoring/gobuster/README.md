@@ -91,4 +91,4 @@ $ gobuster dir -u  http://localhost:8080/ -w spring-boot.txt --proxy http://loca
 
 * [GitHub: SecLists](https://github.com/danielmiessler/SecLists/tree/master/Discovery/Web-Content)
 
-*Egon Teiniker, 2016-2024, GPL v3.0*
+*Egon Teiniker, 2016-2026, GPL v3.0*
