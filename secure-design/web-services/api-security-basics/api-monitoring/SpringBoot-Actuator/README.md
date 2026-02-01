@@ -314,6 +314,21 @@ $ bin/visualvm
     File | Load => dump
 ```
 
+**Spring Boot 3.5 changed the default access level of the heapdump endpoint**.
+* In 3.4.x, exposing it (or using `include=*`) was enough.
+* In 3.5.x, heapdump defaults to `access=NONE`, so it’s removed/inaccessible even 
+  if you expose all endpoints.
+
+For **Spring Boot 3.5.10**, we now need both:
+* Expose it over HTTP (your `include=*` already does this), and
+* Explicitly allow access to the endpoint:
+
+    ```properties
+    management.endpoints.web.exposure.include=*
+    management.endpoint.heapdump.access=unrestricted
+    ```
+
+
 
 ## Using the Article Service
 
