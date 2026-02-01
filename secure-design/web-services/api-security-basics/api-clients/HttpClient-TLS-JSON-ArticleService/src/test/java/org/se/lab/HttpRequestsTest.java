@@ -13,7 +13,7 @@ import org.junit.Test;
 
 import javax.net.ssl.SSLContext;
 
-public class GetRequestTest extends HttpRequestsBase
+public class HttpRequestsTest extends HttpRequestsBase
 {
     static final String TRUSTSTORE_PATH = "../../api-authentication/basic/SpringBoot-ArticleService-BasicAuth/src/main/resources/server.jks";
     static final String TRUSTSTORE_PASSWORD = "student";
