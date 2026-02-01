@@ -1,5 +1,11 @@
 # Example: HTTP Client for the BookService API 
 
+In this example, we use the Jackson library to convert between 
+JSON strings and Java objects.
+
+see: [JSON-Mapping](../../../../datastores/json/JSON-Mapping/README.md)
+
+
 ## Setup
 
 We have to start the `ArticleService` first:
