@@ -2,34 +2,37 @@
 
 ## Setup
 
-We have to start the BookService first:
+We have to start the `ArticleService` first:
 ```bash
-$ cd SpringBoot-REST
+$ cd api-tls/SpringBoot-ArticleService-TLS
 $ mvn spring-boot:run
 ```
 
 As a quick check, run the following `curl` statement:
 ```bash
-$ curl -i http://localhost:8080/books
+$ $ curl -i -k https://localhost:8443/articles
 
 HTTP/1.1 200 
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Sun, 01 Feb 2026 09:36:54 GMT
+Date: Sun, 01 Feb 2026 09:44:41 GMT
 
 [
-  {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991"},
-  {"id":2,"author":"Robert C. Martin","title":"Clean Code","isbn":"978-0132350884"},
-  {"id":3,"author":"Martin Fowler","title":"Refactoring","isbn":" 978-0134757599"}
+  {"id":1,"description":"Design Patterns","price":4295},
+  {"id":2,"description":"Effective Java","price":3336}
 ]
 ```
 
 ## GET Requests
 
 ```Java
-    HttpClient client = HttpClient.newHttpClient();
+    SSLContext ssl = sslContextFromTruststore();
+    HttpClient client = HttpClient.newBuilder()
+            .sslContext(ssl)
+            .build();
+
     HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("http://localhost:8080/books"))
+            .uri(URI.create("https://localhost:8443/articles/1"))
             .header("Accept", "application/json")
             .GET()
             .build();
