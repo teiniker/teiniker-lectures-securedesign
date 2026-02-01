@@ -24,7 +24,7 @@ Date: Thu, 29 Oct 2020 13:47:21 GMT
 How to generate a keystore file and configure Spring Boot?
 -------------------------------------------------------------------------------
 
-$ keytool -genkey -keyalg RSA -alias spring -keystore keystore.jks -storepass springboot -validity 365 -keysize 4096 -storetype pkcs12
+$ keytool -genkey -keyalg RSA -alias spring -keystore keystore.jks -storepass student -validity 365 -keysize 4096 -storetype pkcs12
 
 resources/application.properties:
 server.port=8443
