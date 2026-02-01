@@ -1,11 +1,27 @@
 # Gobuster 
 
-Gobuster is a tool used to brute-force: URIs (directories and files) in web sites, 
-DNS subdomains (with wildcard support), Virtual Host names on target web servers, 
-Open Amazon S3 buckets, Open Google Cloud buckets and TFTP servers.
+Gobuster is a fast brute-force discovery tool written in Go.
+Its job is simple but powerful: **Find hidden or undocumented resources by guessing names
+(paths, files, subdomains, virtual hosts, etc.)**
 
-Gobuster is useful for pentesters, ethical hackers and forensics experts. 
-It also can be used for security tests.
+* We give it:
+    - A base URL
+    - A wordlist (thousands of possible endpoint names)
+
+* Gobuster sends HTTP requests like:
+
+    ```bash 
+    `GET /api/login`
+    `GET /api/users`
+    `GET /api/admin`
+    `GET /api/v1/orders` 
+    ```
+* It watches HTTP responses:
+    - `200 / 204`: endpoint exists
+    - `401 / 403`: exists but protected
+    - `404`: doesn’t exist
+
+* It reports only the interesting hits.
 
 
 ## Setup 
