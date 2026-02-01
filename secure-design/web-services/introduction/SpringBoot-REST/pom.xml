@@ -10,7 +10,11 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>org.se.lab</groupId>
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <groupId>org.se.lab</groupId>
 	<artifactId>SpringBoot-REST</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
