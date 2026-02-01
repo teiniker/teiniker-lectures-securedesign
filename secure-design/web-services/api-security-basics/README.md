@@ -28,8 +28,8 @@ services, but can also be combined to secure a complete system.
             * [SpringBoot-BookService-UUID](api-authorization/SpringBoot-BookService-UUID/)  
 
 * **API Clients** 
-   * Example: [Client-TLS-ArticleService](api-clients/Client-TLS-ArticleService/)
-   * Example: [client-TLS-ArticleService-JSON](api-clients/Client-TLS-ArticleService-JSON/) 
+   * Example: [HttpClient-TLS-ArticleService](api-clients/HttpClient-TLS-ArticleService/)
+   * Example: [HttpClient-TLS-Auth-ArticleService](api-clients/HttpClient-TLS-Auth-ArticleService/) 
 
 * **API Specification**
     * [OpenAPI](api-specifications/OpenAPI/README.md)
@@ -43,4 +43,4 @@ services, but can also be combined to secure a complete system.
     * Example: [SpringBoot-Actuator](api-monitoring/SpringBoot-Actuator/)
     * [Gobuster](api-monitoring/gobuster/README.md)
 
-*Egon Teiniker, 2017-2025, GPL v3.0*
+*Egon Teiniker, 2017-2026, GPL v3.0*
