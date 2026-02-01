@@ -12,12 +12,9 @@ $ curl -i -k -u student:student https://localhost:8443/books/1
 C) Authorization
 $ curl -i -k https://localhost:8443/infos
 $ curl -i -k https://localhost:8443/books
-401 Unauthorized
-
+=> 401 Unauthorized
 $ curl -i -k -u student:student https://localhost:8443/books
+=> 200 OK
 
 D) UUID
-
 $ curl -i -k -u student:student https://localhost:8443/books
-
-
