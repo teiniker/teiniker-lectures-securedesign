@@ -28,8 +28,11 @@ services, but can also be combined to secure a complete system.
             * [SpringBoot-BookService-UUID](api-authorization/SpringBoot-BookService-UUID/)  
 
 * **API Clients** 
-   * Example: [HttpClient-TLS-ArticleService](api-clients/HttpClient-TLS-ArticleService/)
-   * Example: [HttpClient-TLS-Auth-ArticleService](api-clients/HttpClient-TLS-Auth-ArticleService/) 
+    * [Introduction](api-clients/HttpClient/README.md) 
+    * Example: [HttpClient-TLS-ArticleService](api-clients/HttpClient-TLS-ArticleService/)
+    * Example: [HttpClient-TLS-Auth-ArticleService](api-clients/HttpClient-TLS-Auth-ArticleService/) 
+    * Example: [HttpClient-TLS-JSON-ArticleService](api-clients/HttpClient-TLS-JSON-ArticleService/)
+    * Example: [HttpClient-ServiceConnector-ArticleService](api-clients/HttpClient-ServiceConnector-ArticleService/)
 
 * **API Specification**
     * [OpenAPI](api-specifications/OpenAPI/README.md)
