@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ArticleServiceConnector
 {
-    void insert(Article article);
+    Article insert(Article article);
     void update(Article article);
     void delete(int id);
     Article findById(int id);

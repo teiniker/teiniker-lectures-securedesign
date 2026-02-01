@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import javax.net.ssl.SSLContext;
@@ -55,5 +56,32 @@ public class HttpRequestsTest
         Assert.assertEquals(Long.valueOf(2), articles.get(1).id());
         Assert.assertEquals("Effective Java", articles.get(1).description());
         Assert.assertEquals(3336, articles.get(1).price());
+    }
+
+    @Test
+    public void testInsert() {
+        Article article = new Article(0L, "Clean Architecture", 2672);
+        Article insertedArticle = service.insert(article);
+
+        Assert.assertTrue(insertedArticle.id() > 0);
+        Assert.assertEquals("Clean Architecture", insertedArticle.description());
+        Assert.assertEquals(2672, insertedArticle.price());
+    }
+
+    @Test
+    public void testUpdate()
+    {
+        Article article = new Article(1L, "Design Patterns", 999);
+        service.update(article);
+
+        Article updatedArticle = service.findById(1);
+        Assert.assertNotNull(updatedArticle);
+        Assert.assertEquals(999, updatedArticle.price());
+    }
+
+    @Test @Ignore
+    public void testDelete()
+    {
+        service.delete(2);
     }
 }
