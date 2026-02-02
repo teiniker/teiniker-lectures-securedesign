@@ -49,6 +49,7 @@ public class HttpRequestsTest extends HttpRequestsBase
 
         Assert.assertEquals(200, status);
         Article article = convertJson2Article(body);
+
         Assert.assertEquals(Long.valueOf(1), article.id());
         Assert.assertEquals("Design Patterns", article.description());
         Assert.assertEquals(4295, article.price());

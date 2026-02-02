@@ -11,6 +11,7 @@ import org.junit.Test;
 
 public class GetRequestTest
 {
+    // curl -i http://localhost:8080/books/2
 	@Test
 	public void testById() throws IOException, InterruptedException
     {

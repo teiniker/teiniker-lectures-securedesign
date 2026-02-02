@@ -23,7 +23,7 @@ public class ArticleController
 
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/{id}")
-    ResponseEntity<Article> indById(@PathVariable Long id)
+    ResponseEntity<Article> findById(@PathVariable Long id)
     {
         Optional<Article> book = repository.findById(id);
         return book.map(ResponseEntity::ok)

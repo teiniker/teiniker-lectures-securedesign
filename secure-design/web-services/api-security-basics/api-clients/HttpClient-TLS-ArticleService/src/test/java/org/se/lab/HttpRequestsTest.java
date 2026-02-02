@@ -120,7 +120,7 @@ public class HttpRequestsTest extends HttpRequestsBase
         System.out.println("Status: " + status);
         System.out.println("Body: " + body);
 
-        Assert.assertEquals(200, status);
+        Assert.assertEquals(200, status); // or 201
     }
 
     // curl -i -k -X PUT https://localhost:8443/articles/2 -H 'Content-type:application/json' -d '{"description": "Effective Java", "price": 9999}'

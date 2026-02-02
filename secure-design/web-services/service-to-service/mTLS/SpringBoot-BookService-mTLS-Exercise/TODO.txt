@@ -1,0 +1,22 @@
+Exercise: mTLS - BookService
+-------------------------------------------------------------------------------
+
+You are given a BookService:
+
+$ mvn spring-boot:run
+
+$ curl -i http://localhost:8080/books
+$ curl -i http://localhost:8080/books/2
+
+
+A) Transport Layer Security (TLS)
+Extend the service to support TLS.
+
+
+
+B) Mutual TLS 
+Extend the service to support mTLS.
+
+To test mTLS, use curl as the client.
+
+Create all required keys and certificates with OpenSSL.

@@ -59,7 +59,8 @@ public class HttpRequestsTest
     }
 
     @Test
-    public void testInsert() {
+    public void testInsert()
+    {
         Article article = new Article(0L, "Clean Architecture", 2672);
         Article insertedArticle = service.insert(article);
 

@@ -3,11 +3,27 @@
 In this example, we secure the communications among microservices with mutual Transport Layer Security (mTLS).
 mTLS is the most popular option for securing communications between microservices.
 
+We start from a regular service implementation.
+```
+$ mvn spring-boot:run
+```
+```
+$ curl -i http://localhost:8080/articles
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Fri, 26 Nov 2021 12:47:39 GMT
+
+[
+  {"id":1,"description":"Design Patterns","price":4295},
+  {"id":2,"description":"Effective Java","price":3336}
+]
+```
 
 ## Setup TLS
 
-In order to configure a TLS connector, we have to create a server-side certificate and configure 
-the application.properties file.
+In order to configure a TLS connector, we have to create a server-side certificate and configure the 
+application.properties file.
 
 ```
 $ cd src/main/resources
@@ -52,8 +68,8 @@ curl: (56) OpenSSL SSL_read: error:14094412:SSL routines:ssl3_read_bytes:sslv3 a
 ```
 The server no longer accepts a request without a client certificate.
 
-To fix this, **we need to create a key pair (a public key and a private key) for
-the curl client and configure the service to trust the public key**.
+To fix this, we need to create a key pair (a public key and a private key) for
+the curl client and configure the service to trust the public key.
 
 To **generate a private key and a public key** for the curl client, we use the
 following **OpenSSL** command:
@@ -90,6 +106,7 @@ We can see that the client certificate is now stored in the keystore file.
 Within the **server application**, we have to set the `javax.net.ssl.trustStore` and `javax.net.ssl.trustStorePassword` 
 system properties so that they point to the server's keystore file.
 Therefore, we add a few lines in a `static` block to the `SpringBootArticleServiceApplication`:
+
 ```Java
 public class SpringBootArticleServiceApplication
 {
@@ -99,7 +116,7 @@ public class SpringBootArticleServiceApplication
 		String keystorePath = path + File.separator + "src/main/resources/server.jks";
 		File file = new File(keystorePath);
 		if (file.exists()) 
-        	{
+        {
 			System.setProperty("javax.net.ssl.trustStore", keystorePath);
 			System.setProperty("javax.net.ssl.trustStorePassword", "student");
 		}
@@ -122,9 +139,8 @@ $ mvn spring-boot:run
 In order to access the service which needs a client certificate, we use the following `curl` command
 which provides the `--key` and `--cert` options to the request:
 ```
-$ curl -k --key privkey.pem --cert client.crt https://localhost:8443/articles/2
+$ curl -k --key privkey.pem --cert client.crt -X GET https://localhost:8443/articles/2
 {"id":2,"description":"Effective Java","price":3336}
-
 ```
 
 * `--key privkey.pem`  specifies the key file or path to the private key.
@@ -138,4 +154,4 @@ $ curl -k --key privkey.pem --cert client.crt https://localhost:8443/articles/2
 * Prabath Siriwardena, Nuwan Dias. **Microservices Security in Action**. Manning, 2020
   * Chapter 6: Securing east/west traffic with certificates
   
-*Egon Teiniker, 2020-2021, GPL v3.0*
+*Egon Teiniker, 2017-2026, GPL v3.0*
