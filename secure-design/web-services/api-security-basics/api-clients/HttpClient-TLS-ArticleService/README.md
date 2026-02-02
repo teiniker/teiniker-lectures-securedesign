@@ -10,7 +10,7 @@ $ mvn spring-boot:run
 
 As a quick check, run the following `curl` statement:
 ```bash
-$ $ curl -i -k https://localhost:8443/articles
+$ curl -i -k https://localhost:8443/articles
 
 HTTP/1.1 200 
 Content-Type: application/json
