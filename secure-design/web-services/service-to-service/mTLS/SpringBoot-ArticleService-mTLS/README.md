@@ -80,7 +80,7 @@ $ openssl genrsa -out privkey.pem 4096
 To **generate a self-signed certificate**, corresponding to the preceding private key `privkey.pem`, 
 use the following OpenSSL command:
 ```
-$ openssl req -key privkey.pem -new -x509 -sha256 -nodes -out client.crt -subj "/C=at/ST=st/L=kberg/O=fhj/OU=ims/CN=teini"
+$ openssl req -key privkey.pem -new -x509 -sha256 -nodes -out client.crt -subj "/C=de/ST=bremen/L=bremen/O=mks/OU=hsb/CN=teiniker"
 ```
 
 Now we **import the public certificate** client.crt into the server's keystore.

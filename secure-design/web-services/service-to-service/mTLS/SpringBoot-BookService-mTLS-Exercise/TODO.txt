@@ -10,13 +10,17 @@ $ curl -i http://localhost:8080/books/2
 
 
 A) Transport Layer Security (TLS)
-Extend the service to support TLS.
+    Extend the service to support TLS.
 
+    Test your configurations using:
+    $ curl -ik https://localhost:8443/books
+    $ curl -ik https://localhost:8443/books/2
 
 
 B) Mutual TLS 
-Extend the service to support mTLS.
+    Extend the service to support mTLS.
+    Create all required keys and certificates with OpenSSL.
 
-To test mTLS, use curl as the client.
-
-Create all required keys and certificates with OpenSSL.
+    To test mTLS, use curl as the client:
+    $ curl -k --key privkey.pem --cert client.crt https://localhost:8443/books
+    $ curl -k --key privkey.pem --cert client.crt https://localhost:8443/books/2
