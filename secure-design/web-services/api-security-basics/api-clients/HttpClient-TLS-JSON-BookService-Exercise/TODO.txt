@@ -1,0 +1,34 @@
+Exercise: HttpClient + TLS + JSON Mapping (BookService)
+-------------------------------------------------------------------------------
+
+Implement test cases for the given BookService, including TLS connection and
+JSON mapping.
+
+Setup:
+
+$ cd api-tls/SpringBoot-BookService-TLS 
+$ mvn spring-boot:run 
+
+$ curl -ik https://localhost:8443/books
+
+A) Data Transfer Object (DTO)
+    Implement a DTO named "Book" containing the following properties:
+    - id:long
+    - author:String
+    - title:String 
+    - isbn:String 
+
+B) Replace the following curl statements by test cases, implemented
+    in a class named "HttpRequestsTest":
+    testFindAll():  curl -ik https://localhost:8443/books
+    testFindById(): curl -ik https://localhost:8443/books/2
+    testFindByInvalidId(): curl -ik https://localhost:8443/books/666
+    testInsert():   curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"author":"Robert C. Martin","title":"Clean Code","isbn":"978-0132350884"}'
+    testUpdate():   curl -ik -X PUT https://localhost:8443/books/1 -H 'Content-type:application/json' -d '{"author":"Joshua Bloch","title":"Effective Java, 2nd Edition","isbn":"978-0134685991"}'
+    testDelete():   curl -ik -X DELETE https://localhost:8443/books/2
+
+    Note that after DELETE you have to restart the service because
+    the database has been modified.
+
+    Tip: Use a base class named "HttpRequestsBase" to implement common 
+    methods for test cases.

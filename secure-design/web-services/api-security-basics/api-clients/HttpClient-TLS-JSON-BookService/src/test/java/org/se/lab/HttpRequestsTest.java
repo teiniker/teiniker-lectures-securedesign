@@ -98,4 +98,88 @@ public class HttpRequestsTest
         Assert.assertEquals("Refactoring", books.get(2).title());
         Assert.assertEquals(" 978-0134757599", books.get(2).isbn());
     }
-}
+
+    // curl -ik https://localhost:8443/books/666
+    @Test
+    public void testByIdNotFound() throws Exception
+    {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://localhost:8443/books/666"))
+                .header("Accept", "application/json")
+                .GET()
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        int status = response.statusCode();
+        String body = response.body();
+
+        Assert.assertEquals(404, status);
+    }
+
+    // curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"author":"Robert C. Martin","title":"Clean Code","isbn":"978-0132350884"}'
+    @Test
+    public void testInsert() throws Exception
+    {
+        Book newBook = new Book(0L, "Robert C. Martin", "Clean Code", "978-0132350884");
+        String jsonRequest = convertBook2Json(newBook);
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://localhost:8443/books"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(jsonRequest))
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        int status = response.statusCode();
+        String body = response.body();
+        System.out.println("Status: " + status);
+        System.out.println("Body: " + body);
+
+        Assert.assertEquals(201, status); // Created
+        Book createdBook = convertJson2Book(body);
+        Assert.assertTrue(createdBook.id() > 0);
+        Assert.assertEquals(newBook.author(), createdBook.author());
+        Assert.assertEquals(newBook.title(), createdBook.title());
+        Assert.assertEquals(newBook.isbn(), createdBook.isbn());
+    }
+
+    // curl -ik -X PUT https://localhost:8443/books/1 -H 'Content-type:application/json' -d '{"author":"Joshua Bloch","title":"Effective Java, 2nd Edition","isbn":"978-0134685991"}'
+    @Test
+    public void testUpdate() throws Exception
+    {
+        Book updatedBook = new Book(1L, "Joshua Bloch", "Effective Java, 2nd Edition", "978-0134685991");
+        String jsonRequest = convertBook2Json(updatedBook); 
+    
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://localhost:8443/books/1"))
+                .header("Content-Type", "application/json")
+                .PUT(HttpRequest.BodyPublishers.ofString(jsonRequest))
+                .build();
+    
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+    
+        int status = response.statusCode();
+        String body = response.body();
+
+        Assert.assertEquals(200, status); // OK
+        Book returnedBook = convertJson2Book(body);
+        Assert.assertEquals(updatedBook.id(), returnedBook.id());
+        Assert.assertEquals(updatedBook.author(), returnedBook.author());
+        Assert.assertEquals(updatedBook.title(), returnedBook.title());
+        Assert.assertEquals(updatedBook.isbn(), returnedBook.isbn());
+    }   
+
+    // curl -ik -X DELETE https://localhost:8443/books/2
+    @Test
+    public void testDelete() throws Exception
+    {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://localhost:8443/books/2"))
+                .DELETE()
+                .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        int status = response.statusCode();
+        Assert.assertEquals(204, status); // No Content
+    }
+}   
