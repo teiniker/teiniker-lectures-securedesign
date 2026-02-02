@@ -31,9 +31,6 @@ A blocking gateway makes use of as many threads as the number of incoming reques
 So this approach is more resource intensive. If no threads are available to process incoming
 request then the request has to wait in queue.
 
-_Examples_: 
-   * [SpringBoot-APIGateway-Zuul](SpringBoot-APIGateway-Zuul)
-
 
 ## Authentication on the Edge
 
@@ -44,22 +41,8 @@ username and password to an application that we don't trust to access our data.
 **End of Life Notice** - 
 The Spring Security OAuth project has reached end of life and is no longer actively maintained by VMware, Inc.
 This project has been replaced by the OAuth2 support provided by Spring Security and Spring Authorization Server.
-
-_Examples_: Use **JDK 11** (JDK 17 will not work)
-* [SpringBoot-OAuth2](SpringBoot-OAuth2)
-* [APIGateway-OAuth2](APIGateway-OAuth2)
     
-
-### Spring Authorization Server
- This is a framework that provides implementations of the OAuth 2.1 and OpenID Connect 1.0
- specifications and other related specifications. It is built on top of Spring Security to provide a secure,
- light-weight, and customizable foundation for building OpenID Connect 1.0 Identity Providers and OAuth2 Authorization
- Server products.
- Spring Authorization Server requires a **Java 17** or higher Runtime Environment.
-
 ## References
-* [Spring Security OAuth](https://spring.io/projects/spring-security-oauth)
-* [Spring Authorization Server](https://spring.io/projects/spring-authorization-server)
 * Prabath Siriwardena, Nuwan Dias. **Microservices Security in Action**. Manning, 2020
 
 *Egon Teiniker, 2016-2022, GPL v3.0*
