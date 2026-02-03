@@ -16,5 +16,7 @@ $ mvn spring-boot:run
 
 $ curl -ik https://localhost:8443/books
 $ curl -ik https://localhost:8443/books/2
-
-
+$ curl -ik https://localhost:8443/books/666
+$ curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"author":"Robert C. Martin","title":"Clean Code","isbn":"978-0132350884"}'
+$ curl -ik -X PUT https://localhost:8443/books/1 -H 'Content-type:application/json' -d '{"author":"Joshua Bloch","title":"Effective Java, 2nd Edition","isbn":"978-0134685991"}'
+$ curl -ik -X DELETE https://localhost:8443/books/2

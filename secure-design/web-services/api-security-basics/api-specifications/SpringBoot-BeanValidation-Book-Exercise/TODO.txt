@@ -20,8 +20,6 @@ A) Insert a new Book
         "isbn":"978-1492034025"
     }
 
-    $ curl -ik -X POST https://localhost:8443/books -H 'Content-type:application/json' -d '{"id":"","author":"Sam Newman","title":"Building Microservices","isbn":"978-1492034025"}'
-
 B) Bean Validation
     Add a Bean Validation for inserting new "Book" objects.
     Enforce the following constraints:

@@ -8,6 +8,12 @@ We use Maven to compile and run the service.
 $ mvn spring-boot:run
 ```
 
+## Access Swagger Page 
+
+```
+https://localhost:8443/swagger-ui/index.html
+```
+
 ## Access the REST Service
 
 Find all Articles:
