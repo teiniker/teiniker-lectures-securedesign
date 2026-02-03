@@ -1,10 +1,8 @@
-# OWASP Top 10 
+# OWASP Top 10 - 2021
 
 The [OWASP Top 10](https://owasp.org/www-project-top-ten/) is a standard awareness document 
 for developers and web application security. It represents a broad consensus about the most
 critical security risks to web applications.
-
-## Top 10 – 2021
 
 * **A01:2021-Broken Access Control**\
     Access control enforces policy such that users cannot act outside of their intended permissions. Failures typically lead to unauthorized information disclosure, modification, or destruction of all data or performing a business function outside the user's limits
