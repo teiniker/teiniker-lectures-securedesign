@@ -67,7 +67,7 @@ Parameters:
 
 ## Generating Self-Signed Certificates
 
-![Digital Certificate](DigitalCertificate.png)
+![Digital Certificate](figures/DigitalCertificate.png)
 
 A common server-side operation is to generate a self-signed certificate for testing or encrypting communications between 
 internal servers.
@@ -226,3 +226,5 @@ Parameters:
 ## References
 * [openssl](https://www.openssl.org/docs/man1.1.1/man1/openssl.html)
 * [How To Use OpenSSL To Generate Certificates](https://blog.ipswitch.com/how-to-use-openssl-to-generate-certificates)
+
+*Egon Teiniker, 2017-2026, GPL v3.0*
