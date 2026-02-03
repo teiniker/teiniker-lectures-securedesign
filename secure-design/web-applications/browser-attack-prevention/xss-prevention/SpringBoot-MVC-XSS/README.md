@@ -20,17 +20,18 @@ URL: https://localhost:8443/index.html
 
 Here are some examples of XSS attack strings:
 
-* Execute a reflected XSS attack:
+* Execute a **reflected XSS** attack:
 ```
-<script>alert('XSS');</script>
+Username: <script>alert('XSS');</script>
 ```
 
-* Read cookie values:
+* Read **cookie** values:
   First, we create a cookie which can be read by a attacker.
+
 ```
 URL: https://localhost:8443/set-cookie
 
-<script>alert(document.cookie);</script>
+Username: <script>alert(document.cookie);</script>
 ```
 
 ## XSS Prevention
