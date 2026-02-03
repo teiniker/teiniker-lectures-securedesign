@@ -87,19 +87,32 @@ class.
 ## Common Bean Validation Annotations
 
 Annotations defined in the JSR 303 (Bean Validation) are:
+
 * **@NotNull**: Indicates that the annotated field should not be null.
+
 * **@Size(min=n, message="")**: Indicates that the annotated string should have a minimum length. 
    The `@Size` annotation can also be used to set the minimum and maximum size of arrays, collections such as lists, sets, and maps.
+
 * **@NotBlank**: Validates that the property is not null or whitespace. But, it can be applied only to text values.
+
 * **@AssertFalse**: states that the value of the field or property must be false.
+
 * **@AssertTrue**: states that the value of the field or property must be true.
+
 * **@Maxensures**: a number whose value must be lower or equal to the specified maximum.
+
 * **@Min(value=n, message="")**: ensures a number whose value must be higher or equal to the specified minimum.
+
 * **@Future**: ensurest that the date or time is in the future.
+
 * **@Past**: ensures that the date is in the past.
+
 * **@DecimalMax**: a decimal number whose value must be lower or equal to the specified maximum.
+
 * **@DecimalMin**: a decimal number whose value must be higher or equal to the specified minimum.
+
 * **@Email**: Validates that the annotated property is a valid email address.
+
 * **@Pattern(regexp="", message="")**: The annotated CharSequence must match the specified regular expression. The regular expression follows the Java regular expression conventions.
 
 
