@@ -1,57 +1,76 @@
- # JSON to Java Mapping	
+# JSON Mapping Attacks
 
-The **Jackson library** is a powerful, high-performance JSON processing library in Java 
-that provides functionality for **serializing Java objects into JSON** format and 
-**deserializing JSON strings into Java objects**. 
 
-It supports a wide range of features, including data binding (simple POJOs to and from JSON), 
-streaming API (for reading and writing JSON), and tree model (for constructing a tree 
-representation of a JSON string). 
+## JSON Injection Attack
 
-Jackson is highly customizable, supports annotations for influencing 
-serialization/deserialization processes, and can handle complex data types, 
-including collections, generics, and custom serializers/deserializers. 
-
-Its versatility and efficiency make it a popular choice for JSON processing in 
-Java applications, ranging from simple data transfer objects to complex data 
-transformation and mapping scenarios.
-
-_Example:_ Serialize Java Object to JSON String 
 ```Java
-@Test
-public void testJava2JSON() throws JsonProcessingException
-{
-    Book book = new Book(1, "Joshua Bloch", "Effective Java", "978-0134685991");
-
-    ObjectMapper mapper = new ObjectMapper();
-    String json = mapper.writeValueAsString(book);
-
-    String expected =
-    """
-        {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991"}
-    """;
-    Assert.assertEquals(expected.trim(), json);
-}
-```
-
-_Example:_ Deserialize JSON String into Java Object
-```Java
-@Test
-public void testJSON2Java() throws JsonProcessingException
-{
     ObjectMapper mapper = new ObjectMapper();
     String json =
-    """
-        {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991"}
-    """;
+            """
+                {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991", "hack":666}
+            """;
+    Book book = mapper.readValue(json, Book.class);
+```
+
+Adding unknown attributes such as `"hack":666` triggers an `UnrecognizedPropertyException`, 
+so this **attack doesn’t work**.
+
+
+## JSON Missing Attributes
+
+```Java
+    ObjectMapper mapper = new ObjectMapper();
+    String json =
+            """
+                {"author":"Joshua Bloch","isbn":"978-0134685991"}
+            """;
+
     Book book = mapper.readValue(json, Book.class);
 
-    Assert.assertEquals(1, book.getId());
+    Assert.assertEquals(0, book.getId());   // No value mapped
     Assert.assertEquals("Joshua Bloch", book.getAuthor());
-    Assert.assertEquals("Effective Java", book.getTitle());
+    Assert.assertNull(book.getTitle());             // No value mapped
     Assert.assertEquals("978-0134685991", book.getIsbn());
-}
 ```
+
+When attributes are missing in a JSON object, mapping still proceeds and the 
+absent fields receive default values (0, null, ...).
+
+
+## JSON Override Attributes
+
+```Java
+    ObjectMapper mapper = new ObjectMapper();
+    String json =
+        """
+            {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991", "id":666}
+        """;
+    
+    Book book = mapper.readValue(json, Book.class);
+    Assert.assertEquals(666, book.getId());	// Attack worked !!
+```
+
+When a duplicate attribute appears, the last value wins, so the **attack succeeds**.
+
+
+## JSON Validation
+
+```Java
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.enable(DeserializationFeature.FAIL_ON_READING_DUP_TREE_KEY);
+    String json =
+            """
+                {"id":1,"author":"Joshua Bloch","title":"Effective Java","isbn":"978-0134685991", "id":666}
+            """;
+
+    // Validate
+    mapper.readTree(json);
+```
+
+With the correct configuration, the JSON parser can detect duplicated attributes 
+and throw a `JsonProcessingException`.
+
+
 
 ## References
 * [Baeldung: Intro to the Jackson ObjectMapper](https://www.baeldung.com/jackson-object-mapper-tutorial)
