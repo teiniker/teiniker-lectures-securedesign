@@ -62,6 +62,6 @@ $ grep -i -n -r "getRequestParameter" .
 
 * [grep command in Unix/Linux](https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
 
-*Egon Teiniker, 2016-2023, GPL v3.0*
+*Egon Teiniker, 2016-2026, GPL v3.0*
 
 
