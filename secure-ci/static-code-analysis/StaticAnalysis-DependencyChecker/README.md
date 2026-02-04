@@ -12,6 +12,8 @@ undermine application defenses and enable various attacks and impacts.
 
 Download the Dependency Check [Ant Task](https://owasp.org/www-project-dependency-check/)
 
+Request an [API Key](https://nvd.nist.gov/developers/request-an-api-key)
+
 Rename `analysis.properties.template` to `analysis.properties` and set the **dependency-check.home** property 
 to your install directory of DependencyCheck.
 
@@ -20,6 +22,7 @@ Example: analysis.properties
 # Project to analyze
 target.home =../StaticAnalysis-Target
 target.lib = ${target.home}/lib
+nvd.api.key=... # Fill in API key
 
 # Tool settings
 # https://owasp.org/www-project-dependency-check/

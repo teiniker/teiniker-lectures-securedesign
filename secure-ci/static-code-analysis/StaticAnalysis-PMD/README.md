@@ -8,25 +8,28 @@ PMD is also shipped with a **Copy & Paste** detector (CPD) which can find duplic
 
 ## Setup
 
-Download and unzip [PMD](https://pmd.sourceforge.io/pmd-6.36.0/index.html).
+Download and unzip [PMD](https://github.com/pmd/pmd/releases/tag/pmd_releases/).
 
 Rename `pmd.properties.template` to `pmd.properties` and set the **pmd.home** property to your install directory of PMD
 
 _Example_: pmd.properties
 ```
-# Target Project
-project.home = ../../risk-analysis/VulnerableWebApplication
-pmd.src = ${project.home}/src/main/java
+# Project to analyze
+project.home = ../StaticAnalysis-Target
+project.src = ${project.home}/src/main/java
 
-# PMD Configuration
-pmd.home=/home/student/local/pmd-bin-6.36.0/
-pmd.output.format = text
-pmd.output.file = reports/pmd-report.txt
+
+# Tool Settings
+pmd.home=/home/student/local/pmd-bin-7.21.0
 
 # CPD Configuration
-cpd.tokens=50
+cpd.tokens=25
 cpd.output.file=reports/cpd-report.txt
 cpd.output.format=text
+
+# PMD Configuration
+pmd.output.format = text
+pmd.output.file = reports/pmd-report.txt
 ```
 
 ## PMD Ant Task
@@ -43,3 +46,4 @@ $ less reports/cpd-report.txt
 * [ PMD Source Code Analyzer Project](https://pmd.github.io/pmd-6.36.0/index.html)
 * [Finding duplicated code with CPD](https://pmd.github.io/pmd-6.36.0/pmd_userdocs_cpd.html)
 
+*Egon Teiniker, 2017-2026, GPL v3.0*

@@ -129,4 +129,4 @@ proper bounds checking.
 * [ChatGPT](https://chat.openai.com/chat)
 
 
-*Egon Teiniker, 2017-2023, GPL v3.0*
+*Egon Teiniker, 2017-2026, GPL v3.0*

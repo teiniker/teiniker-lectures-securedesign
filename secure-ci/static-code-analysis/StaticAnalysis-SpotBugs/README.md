@@ -19,7 +19,7 @@ spotbugs.test = ${project.home}/src/test/java
 spotbugs.build = ${project.home}/target/classes
 
 # Tool Settings
-spotbugs.home=/home/student/local/spotbugs-4.3.0/
+spotbugs.home=/home/student/local/spotbugs-4.9.7/
 spotbugs.output.format = text
 spotbugs.output.file = reports/spotbugs-report.txt
 ```
