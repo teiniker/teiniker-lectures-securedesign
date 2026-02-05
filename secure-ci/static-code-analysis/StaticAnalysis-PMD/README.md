@@ -8,7 +8,7 @@ PMD is also shipped with a **Copy & Paste** detector (CPD) which can find duplic
 
 ## Setup
 
-Download and unzip [PMD](https://github.com/pmd/pmd/releases/tag/pmd_releases/).
+Download and unzip [PMD](https://pmd.github.io/).
 
 Rename `pmd.properties.template` to `pmd.properties` and set the **pmd.home** property to your install directory of PMD
 
@@ -43,7 +43,7 @@ $ less reports/cpd-report.txt
 ```
 
 ## References
-* [ PMD Source Code Analyzer Project](https://pmd.github.io/pmd-6.36.0/index.html)
+* [ PMD Source Code Analyzer Project](https://pmd.github.io/)
 * [Finding duplicated code with CPD](https://pmd.github.io/pmd-6.36.0/pmd_userdocs_cpd.html)
 
 *Egon Teiniker, 2017-2026, GPL v3.0*

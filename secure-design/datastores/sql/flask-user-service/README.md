@@ -9,7 +9,7 @@ Also, we will demonstrate an SQL injection attack on this service.
 
 We start the web service from the command line:
 ```
-$ python3 user_service.py
+$ python user_service.py
 ```
 
 ## Find a particular User
