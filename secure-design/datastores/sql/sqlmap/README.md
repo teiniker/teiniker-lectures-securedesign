@@ -57,7 +57,7 @@ We can also download the latest version of sqlmap from the
 
 * [SQLMap](https://sqlmap.org/)
 
-* [SQLMap Wiki](https://github.com/sqlmapproject/sqlmap/wiki
+* [SQLMap Wiki](https://github.com/sqlmapproject/sqlmap/wiki)
 
 
 *Egon Teiniker, 2017-2025, GPL v3.0*
