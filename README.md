@@ -44,6 +44,7 @@ to give an introduction to secure software design topics in Java.
     * [SQL Processing](secure-design/datastores/sql/)
 
 * **Secure Continuous Integration**
+  * [Introduction](secure-ci/introduction/README.md)
   * [Static Code Analysis](secure-ci/static-code-analysis/)
   * [Secure Infrastructure](secure-ci/infrastructure/)
 
