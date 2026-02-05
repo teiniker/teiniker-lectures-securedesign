@@ -36,7 +36,7 @@
 	<target name="check" >
 		<!-- use true for updating vulnerability database-->
 		<!-- autoupdate must be true in the first run -->
-	    <dependency-check autoupdate="false"	 
+	    <dependency-check autoupdate="true"	 
 						  nvdApiKey="${nvd.api.key}"
 	                      reportoutputdirectory="${analysis.reports}"
 	                      reportformat="HTML">
