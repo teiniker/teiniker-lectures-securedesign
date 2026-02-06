@@ -3,7 +3,7 @@
 ## Docker Container
 
 * [Introduction](docker-container/introduction/README.md)
-*Example: [SpringBoot-REST](docker-container/SpringBoot-REST/)
+* Example: [SpringBoot-REST](docker-container/SpringBoot-REST/)
 
 * [Docker Security](docker-security/README.md)
 * [Vulnerability Scanner: Trivy](docker-container/vulnerability-scanner-trivy/README.md)
