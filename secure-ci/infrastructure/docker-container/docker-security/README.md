@@ -17,7 +17,7 @@ However, many containers are build on base OS images which are quite fat. We hav
 
 There are a number of **security issues with Docker containers** that we need to manage:
 * **Docker Daemon Attack Surface**:
-    While using containers properly can reduce the system's attack surface, the Docker deamonitself exposes its own 
+    While using containers properly can reduce the system's attack surface, the Docker deamon itself exposes its own 
     attack surface.
     Anyone with access to the Docker deamon control socket or API effectively has **root access to the container**.
     Therefore:
@@ -35,11 +35,11 @@ There are a number of **security issues with Docker containers** that we need to
     understand and manage the risk of building on public images.
     We need to check images downloaded from repositories:
     * Verify the **provenance of images**.
+    * Use [Official Images on Docker Hub](https://docs.docker.com/docker-hub/official_images/) whenever possible.
     * Ensuring that the image has been **scanned or reviewed for vulnerabilities**.
     * **Testing and reviewingimages before allowing them to be checked in our own registry**  - this is a natural gate 
     point for adding security checks.
-    * Use [Official Images on Docker Hub](https://docs.docker.com/docker-hub/official_images/) whenever possible.
-    * Use **automated tools** to check images for known vulnerabilities: [Ancore](https://github.com/anchore/anchore-engine), Banyan Ops Collector, CoreOS Clair, Dagda, etc.  
+    * Use **automated tools** to check images for known vulnerabilities: Trivy, Ancore, Banyan Ops Collector, CoreOS Clair, Dagda, etc.  
          
 * **Limit Size of Images**:
     Many standard **images are fat** by default (in particular base OS images).
