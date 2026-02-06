@@ -46,7 +46,7 @@ to give an introduction to secure software design topics in Java.
 * **Secure Continuous Integration**
   * [Introduction](secure-ci/introduction/README.md)
   * [Static Code Analysis](secure-ci/static-code-analysis/)
-  * [Secure Infrastructure](secure-ci/infrastructure/)
+  * [CI Infrastructure](secure-ci/infrastructure/)
 
 See also: 
 [Secure Coding by Exampe](https://github.com/teiniker/teiniker-lectures-securecoding) 
@@ -54,4 +54,4 @@ See also:
 As a development environment, you can use a pre-configured Linux VM image:
 [Virtual Lab](https://drive.google.com/drive/folders/1AzsF4Mvh1HJ8k6OW5W5hQ5CF0HdqA51l)
 
-*Egon Teiniker, 2017-2025, GPL v3.0*
+*Egon Teiniker, 2017-2026, GPL v3.0*
