@@ -1,7 +1,6 @@
 # Introduction to Docker
 
 A **Docker image** contains all the code and dependencies. 
-This image is run each time the application needs to be run.
 
 The Docker image can run in any Docker environment. 
 The runtime environment of the Docker image is called a **Docker container**. 
