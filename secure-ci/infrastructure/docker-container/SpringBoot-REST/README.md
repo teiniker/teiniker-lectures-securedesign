@@ -3,9 +3,17 @@
 ## Setup 
 
 We can start the service as a separate process:
-```
+```bash
 $ mvn spring-boot:run
 ```
+
+For using Docker, we have to start the Docker engine:
+```bash
+$ sudo systemctl start docker
+
+$ sudo systemctl status docker
+```
+
 
 ## Build a Docker Image
 
