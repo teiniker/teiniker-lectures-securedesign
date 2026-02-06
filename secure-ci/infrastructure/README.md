@@ -13,4 +13,4 @@
 * [Introduction](docker-compose/introduction/README.md)
     - Example: [Flask](docker-compose/compose-flask/)
 
-*Egon Teiniker, 2017-2025, GPL v3.0*
+*Egon Teiniker, 2017-2026, GPL v3.0*

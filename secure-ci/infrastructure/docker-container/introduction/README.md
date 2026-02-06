@@ -155,4 +155,4 @@ alpine/dfimage      reverse Docker images into Dockerfiles          70
 * [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
 
-*Egon Teiniker, 2025, GPL v3.0*
+*Egon Teiniker, 2017-2026, GPL v3.0*
